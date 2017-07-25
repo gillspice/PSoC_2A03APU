@@ -1,0 +1,1071 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LFSR_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.LFSR_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	LFSR_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	LFSR_SaveConfig, %function
+  24              	LFSR_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\LFSR_PM.c"
+   1:Generated_Source\PSoC5/LFSR_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LFSR_PM.c **** * File Name: LFSR_PM.c
+   3:Generated_Source\PSoC5/LFSR_PM.c **** * Version 2.40
+   4:Generated_Source\PSoC5/LFSR_PM.c **** *
+   5:Generated_Source\PSoC5/LFSR_PM.c **** * Description:
+   6:Generated_Source\PSoC5/LFSR_PM.c **** *  This file provides Sleep APIs for PRS component.
+   7:Generated_Source\PSoC5/LFSR_PM.c **** *
+   8:Generated_Source\PSoC5/LFSR_PM.c **** * Note:
+   9:Generated_Source\PSoC5/LFSR_PM.c **** *  None
+  10:Generated_Source\PSoC5/LFSR_PM.c **** *
+  11:Generated_Source\PSoC5/LFSR_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/LFSR_PM.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/LFSR_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/LFSR_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/LFSR_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/LFSR_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/LFSR_PM.c **** 
+  18:Generated_Source\PSoC5/LFSR_PM.c **** #include "LFSR.h"
+  19:Generated_Source\PSoC5/LFSR_PM.c **** 
+  20:Generated_Source\PSoC5/LFSR_PM.c **** #if ((LFSR_TIME_MULTIPLEXING_ENABLE) && (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK))
+  21:Generated_Source\PSoC5/LFSR_PM.c ****     uint8 LFSR_sleepState = LFSR_NORMAL_SEQUENCE;    
+  22:Generated_Source\PSoC5/LFSR_PM.c **** #endif  /* End ((LFSR_TIME_MULTIPLEXING_ENABLE) && 
+  23:Generated_Source\PSoC5/LFSR_PM.c ****           (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)) */
+  24:Generated_Source\PSoC5/LFSR_PM.c **** 
+  25:Generated_Source\PSoC5/LFSR_PM.c **** 
+  26:Generated_Source\PSoC5/LFSR_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/LFSR_PM.c **** * Function Name: LFSR_SaveConfig
+  28:Generated_Source\PSoC5/LFSR_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/LFSR_PM.c **** *
+  30:Generated_Source\PSoC5/LFSR_PM.c **** * Summary:
+  31:Generated_Source\PSoC5/LFSR_PM.c **** *  Saves seed and polynomial registers.
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 2
+
+
+  32:Generated_Source\PSoC5/LFSR_PM.c **** *
+  33:Generated_Source\PSoC5/LFSR_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+  35:Generated_Source\PSoC5/LFSR_PM.c **** *
+  36:Generated_Source\PSoC5/LFSR_PM.c **** * Return:
+  37:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+  38:Generated_Source\PSoC5/LFSR_PM.c **** *
+  39:Generated_Source\PSoC5/LFSR_PM.c **** * Global Variables:
+  40:Generated_Source\PSoC5/LFSR_PM.c **** *  LFSR_backup - modified when non-retention registers are saved.
+  41:Generated_Source\PSoC5/LFSR_PM.c **** *
+  42:Generated_Source\PSoC5/LFSR_PM.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/LFSR_PM.c **** void LFSR_SaveConfig(void) 
+  44:Generated_Source\PSoC5/LFSR_PM.c **** {    
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  45:Generated_Source\PSoC5/LFSR_PM.c ****     #if (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)
+  46:Generated_Source\PSoC5/LFSR_PM.c ****         /* Save dff register for time mult */
+  47:Generated_Source\PSoC5/LFSR_PM.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+  48:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_backup.dffStatus = LFSR_STATUS;
+  49:Generated_Source\PSoC5/LFSR_PM.c ****             /* Clear normal dff sequence set */
+  50:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_sleepState &= ((uint8)~LFSR_NORMAL_SEQUENCE);
+  51:Generated_Source\PSoC5/LFSR_PM.c ****         #endif  /* End LFSR_TIME_MULTIPLEXING_ENABLE */
+  52:Generated_Source\PSoC5/LFSR_PM.c ****         
+  53:Generated_Source\PSoC5/LFSR_PM.c ****         /* Save A0 and A1 registers */
+  54:Generated_Source\PSoC5/LFSR_PM.c ****         #if (LFSR_PRS_SIZE <= 32u)
+  55:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_backup.seed = LFSR_Read();
+  35              		.loc 1 55 0
+  36 0002 FFF7FEFF 		bl	LFSR_Read
+  37              	.LVL0:
+  38 0006 014B     		ldr	r3, .L3
+  39 0008 5880     		strh	r0, [r3, #2]	@ movhi
+  40 000a 08BD     		pop	{r3, pc}
+  41              	.L4:
+  42              		.align	2
+  43              	.L3:
+  44 000c 00000000 		.word	LFSR_backup
+  45              		.cfi_endproc
+  46              	.LFE0:
+  47              		.size	LFSR_SaveConfig, .-LFSR_SaveConfig
+  48              		.section	.text.LFSR_Sleep,"ax",%progbits
+  49              		.align	2
+  50              		.global	LFSR_Sleep
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	LFSR_Sleep, %function
+  54              	LFSR_Sleep:
+  55              	.LFB1:
+  56:Generated_Source\PSoC5/LFSR_PM.c ****             
+  57:Generated_Source\PSoC5/LFSR_PM.c ****         #else
+  58:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_backup.seedUpper = LFSR_ReadUpper();
+  59:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_backup.seedLower = LFSR_ReadLower();
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 3
+
+
+  60:Generated_Source\PSoC5/LFSR_PM.c ****             
+  61:Generated_Source\PSoC5/LFSR_PM.c ****         #endif     /* End (LFSR_PRS_SIZE <= 32u) */
+  62:Generated_Source\PSoC5/LFSR_PM.c ****         
+  63:Generated_Source\PSoC5/LFSR_PM.c ****     #endif  /* End (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) */
+  64:Generated_Source\PSoC5/LFSR_PM.c **** }
+  65:Generated_Source\PSoC5/LFSR_PM.c **** 
+  66:Generated_Source\PSoC5/LFSR_PM.c **** 
+  67:Generated_Source\PSoC5/LFSR_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/LFSR_PM.c **** * Function Name: LFSR_Sleep
+  69:Generated_Source\PSoC5/LFSR_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/LFSR_PM.c **** *
+  71:Generated_Source\PSoC5/LFSR_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/LFSR_PM.c **** *  Stops PRS computation and saves PRS configuration.
+  73:Generated_Source\PSoC5/LFSR_PM.c **** *
+  74:Generated_Source\PSoC5/LFSR_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+  76:Generated_Source\PSoC5/LFSR_PM.c **** *
+  77:Generated_Source\PSoC5/LFSR_PM.c **** * Return:
+  78:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+  79:Generated_Source\PSoC5/LFSR_PM.c **** *
+  80:Generated_Source\PSoC5/LFSR_PM.c **** * Global Variables:
+  81:Generated_Source\PSoC5/LFSR_PM.c **** *  LFSR_backup - modified when non-retention registers are saved.
+  82:Generated_Source\PSoC5/LFSR_PM.c **** *
+  83:Generated_Source\PSoC5/LFSR_PM.c **** *******************************************************************************/
+  84:Generated_Source\PSoC5/LFSR_PM.c **** void LFSR_Sleep(void) 
+  85:Generated_Source\PSoC5/LFSR_PM.c **** {
+  56              		.loc 1 85 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60 0000 08B5     		push	{r3, lr}
+  61              		.cfi_def_cfa_offset 8
+  62              		.cfi_offset 3, -8
+  63              		.cfi_offset 14, -4
+  86:Generated_Source\PSoC5/LFSR_PM.c ****     /* Store PRS enable state */
+  87:Generated_Source\PSoC5/LFSR_PM.c ****     if(LFSR_IS_PRS_ENABLE(LFSR_CONTROL_REG))
+  64              		.loc 1 87 0
+  65 0002 084B     		ldr	r3, .L9
+  66 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  67 0006 13F0010F 		tst	r3, #1
+  68 000a 05D0     		beq	.L6
+  88:Generated_Source\PSoC5/LFSR_PM.c ****     {
+  89:Generated_Source\PSoC5/LFSR_PM.c ****         LFSR_backup.enableState = 1u;
+  69              		.loc 1 89 0
+  70 000c 0122     		movs	r2, #1
+  71 000e 064B     		ldr	r3, .L9+4
+  72 0010 1A70     		strb	r2, [r3]
+  90:Generated_Source\PSoC5/LFSR_PM.c ****         LFSR_Stop();
+  73              		.loc 1 90 0
+  74 0012 FFF7FEFF 		bl	LFSR_Stop
+  75              	.LVL1:
+  76 0016 02E0     		b	.L7
+  77              	.L6:
+  91:Generated_Source\PSoC5/LFSR_PM.c ****     }
+  92:Generated_Source\PSoC5/LFSR_PM.c ****     else
+  93:Generated_Source\PSoC5/LFSR_PM.c ****     {
+  94:Generated_Source\PSoC5/LFSR_PM.c ****         LFSR_backup.enableState = 0u;
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 4
+
+
+  78              		.loc 1 94 0
+  79 0018 0022     		movs	r2, #0
+  80 001a 034B     		ldr	r3, .L9+4
+  81 001c 1A70     		strb	r2, [r3]
+  82              	.L7:
+  95:Generated_Source\PSoC5/LFSR_PM.c ****     }
+  96:Generated_Source\PSoC5/LFSR_PM.c ****     
+  97:Generated_Source\PSoC5/LFSR_PM.c ****     LFSR_SaveConfig();
+  83              		.loc 1 97 0
+  84 001e FFF7FEFF 		bl	LFSR_SaveConfig
+  85              	.LVL2:
+  86 0022 08BD     		pop	{r3, pc}
+  87              	.L10:
+  88              		.align	2
+  89              	.L9:
+  90 0024 75640040 		.word	1073767541
+  91 0028 00000000 		.word	LFSR_backup
+  92              		.cfi_endproc
+  93              	.LFE1:
+  94              		.size	LFSR_Sleep, .-LFSR_Sleep
+  95              		.section	.text.LFSR_RestoreConfig,"ax",%progbits
+  96              		.align	2
+  97              		.global	LFSR_RestoreConfig
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.type	LFSR_RestoreConfig, %function
+ 101              	LFSR_RestoreConfig:
+ 102              	.LFB2:
+  98:Generated_Source\PSoC5/LFSR_PM.c **** }
+  99:Generated_Source\PSoC5/LFSR_PM.c **** 
+ 100:Generated_Source\PSoC5/LFSR_PM.c **** 
+ 101:Generated_Source\PSoC5/LFSR_PM.c **** /*******************************************************************************
+ 102:Generated_Source\PSoC5/LFSR_PM.c **** * Function Name: LFSR_RestoreConfig
+ 103:Generated_Source\PSoC5/LFSR_PM.c **** ********************************************************************************
+ 104:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 105:Generated_Source\PSoC5/LFSR_PM.c **** * Summary:
+ 106:Generated_Source\PSoC5/LFSR_PM.c **** *  Restores seed and polynomial registers.
+ 107:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 108:Generated_Source\PSoC5/LFSR_PM.c **** * Parameters:
+ 109:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+ 110:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 111:Generated_Source\PSoC5/LFSR_PM.c **** * Return:
+ 112:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+ 113:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 114:Generated_Source\PSoC5/LFSR_PM.c **** *******************************************************************************/
+ 115:Generated_Source\PSoC5/LFSR_PM.c **** #if (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)
+ 116:Generated_Source\PSoC5/LFSR_PM.c ****     #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 117:Generated_Source\PSoC5/LFSR_PM.c ****         void LFSR_RestoreConfig(void) 
+ 118:Generated_Source\PSoC5/LFSR_PM.c ****         {   
+ 119:Generated_Source\PSoC5/LFSR_PM.c ****             /* Restore A0 and A1 registers */
+ 120:Generated_Source\PSoC5/LFSR_PM.c ****             #if (LFSR_PRS_SIZE <= 32u)
+ 121:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeed(LFSR_backup.seed);
+ 122:Generated_Source\PSoC5/LFSR_PM.c ****             #else
+ 123:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeedUpper(LFSR_backup.seedUpper);
+ 124:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeedLower(LFSR_backup.seedLower);
+ 125:Generated_Source\PSoC5/LFSR_PM.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 126:Generated_Source\PSoC5/LFSR_PM.c ****             
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 5
+
+
+ 127:Generated_Source\PSoC5/LFSR_PM.c ****             #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+ 128:Generated_Source\PSoC5/LFSR_PM.c ****                 #if (LFSR_PRS_SIZE <= 32u)
+ 129:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInit(LFSR_DEFAULT_SEED);                        
+ 130:Generated_Source\PSoC5/LFSR_PM.c ****                 #else
+ 131:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInitUpper(LFSR_DEFAULT_SEED_UPPER);
+ 132:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInitLower(LFSR_DEFAULT_SEED_LOWER); 
+ 133:Generated_Source\PSoC5/LFSR_PM.c ****                 #endif  /* End (LFSR_PRS_SIZE <= 32u) */ 
+ 134:Generated_Source\PSoC5/LFSR_PM.c ****             #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+ 135:Generated_Source\PSoC5/LFSR_PM.c ****             
+ 136:Generated_Source\PSoC5/LFSR_PM.c ****             /* Restore dff state for time mult: use async set/reest */
+ 137:Generated_Source\PSoC5/LFSR_PM.c ****             /* Set CI, SI, SO, STATE0, STATE1 */
+ 138:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_CONTROL_REG = LFSR_backup.dffStatus;
+ 139:Generated_Source\PSoC5/LFSR_PM.c ****             
+ 140:Generated_Source\PSoC5/LFSR_PM.c ****             /* Make pulse, to set trigger to defined state */
+ 141:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_EXECUTE_DFF_SET;
+ 142:Generated_Source\PSoC5/LFSR_PM.c ****             
+ 143:Generated_Source\PSoC5/LFSR_PM.c ****             /* Set normal dff sequence set */
+ 144:Generated_Source\PSoC5/LFSR_PM.c ****             LFSR_sleepState |= LFSR_NORMAL_SEQUENCE;
+ 145:Generated_Source\PSoC5/LFSR_PM.c ****         }
+ 146:Generated_Source\PSoC5/LFSR_PM.c ****         
+ 147:Generated_Source\PSoC5/LFSR_PM.c ****     #else
+ 148:Generated_Source\PSoC5/LFSR_PM.c ****         void LFSR_RestoreConfig(void) 
+ 149:Generated_Source\PSoC5/LFSR_PM.c ****         {   
+ 103              		.loc 1 149 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107 0000 08B5     		push	{r3, lr}
+ 108              		.cfi_def_cfa_offset 8
+ 109              		.cfi_offset 3, -8
+ 110              		.cfi_offset 14, -4
+ 150:Generated_Source\PSoC5/LFSR_PM.c ****             /* Restore A0 and A1 registers */
+ 151:Generated_Source\PSoC5/LFSR_PM.c ****             #if (LFSR_PRS_SIZE <= 32u)
+ 152:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeed(LFSR_backup.seed);
+ 111              		.loc 1 152 0
+ 112 0002 044B     		ldr	r3, .L13
+ 113 0004 5888     		ldrh	r0, [r3, #2]
+ 114 0006 FFF7FEFF 		bl	LFSR_WriteSeed
+ 115              	.LVL3:
+ 153:Generated_Source\PSoC5/LFSR_PM.c ****             #else
+ 154:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeedUpper(LFSR_backup.seedUpper);
+ 155:Generated_Source\PSoC5/LFSR_PM.c ****                 LFSR_WriteSeedLower(LFSR_backup.seedLower);
+ 156:Generated_Source\PSoC5/LFSR_PM.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 157:Generated_Source\PSoC5/LFSR_PM.c ****             
+ 158:Generated_Source\PSoC5/LFSR_PM.c ****             #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+ 159:Generated_Source\PSoC5/LFSR_PM.c ****                 #if (LFSR_PRS_SIZE <= 32u)
+ 160:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInit(LFSR_DEFAULT_SEED);                        
+ 116              		.loc 1 160 0
+ 117 000a 43F6FF70 		movw	r0, #16383
+ 118 000e FFF7FEFF 		bl	LFSR_ResetSeedInit
+ 119              	.LVL4:
+ 120 0012 08BD     		pop	{r3, pc}
+ 121              	.L14:
+ 122              		.align	2
+ 123              	.L13:
+ 124 0014 00000000 		.word	LFSR_backup
+ 125              		.cfi_endproc
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 6
+
+
+ 126              	.LFE2:
+ 127              		.size	LFSR_RestoreConfig, .-LFSR_RestoreConfig
+ 128              		.section	.text.LFSR_Wakeup,"ax",%progbits
+ 129              		.align	2
+ 130              		.global	LFSR_Wakeup
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	LFSR_Wakeup, %function
+ 134              	LFSR_Wakeup:
+ 135              	.LFB3:
+ 161:Generated_Source\PSoC5/LFSR_PM.c ****                 #else
+ 162:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInitUpper(LFSR_DEFAULT_SEED_UPPER);
+ 163:Generated_Source\PSoC5/LFSR_PM.c ****                     LFSR_ResetSeedInitLower(LFSR_DEFAULT_SEED_LOWER); 
+ 164:Generated_Source\PSoC5/LFSR_PM.c ****                 #endif  /* End (LFSR_PRS_SIZE <= 32u) */ 
+ 165:Generated_Source\PSoC5/LFSR_PM.c ****             #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+ 166:Generated_Source\PSoC5/LFSR_PM.c ****         }
+ 167:Generated_Source\PSoC5/LFSR_PM.c ****         
+ 168:Generated_Source\PSoC5/LFSR_PM.c ****     #endif  /* End (LFSR_TIME_MULTIPLEXING_ENABLE) */
+ 169:Generated_Source\PSoC5/LFSR_PM.c ****     
+ 170:Generated_Source\PSoC5/LFSR_PM.c **** #else
+ 171:Generated_Source\PSoC5/LFSR_PM.c ****     void LFSR_RestoreConfig(void) 
+ 172:Generated_Source\PSoC5/LFSR_PM.c ****     {
+ 173:Generated_Source\PSoC5/LFSR_PM.c ****         LFSR_Init();
+ 174:Generated_Source\PSoC5/LFSR_PM.c ****     }
+ 175:Generated_Source\PSoC5/LFSR_PM.c ****     
+ 176:Generated_Source\PSoC5/LFSR_PM.c **** #endif  /* End (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) */
+ 177:Generated_Source\PSoC5/LFSR_PM.c **** 
+ 178:Generated_Source\PSoC5/LFSR_PM.c **** 
+ 179:Generated_Source\PSoC5/LFSR_PM.c **** /*******************************************************************************
+ 180:Generated_Source\PSoC5/LFSR_PM.c **** * Function Name: LFSR_Wakeup
+ 181:Generated_Source\PSoC5/LFSR_PM.c **** ********************************************************************************
+ 182:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 183:Generated_Source\PSoC5/LFSR_PM.c **** * Summary:
+ 184:Generated_Source\PSoC5/LFSR_PM.c **** *  Restores PRS configuration and starts PRS computation. 
+ 185:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 186:Generated_Source\PSoC5/LFSR_PM.c **** * Parameters:
+ 187:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+ 188:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 189:Generated_Source\PSoC5/LFSR_PM.c **** * Return:
+ 190:Generated_Source\PSoC5/LFSR_PM.c **** *  void
+ 191:Generated_Source\PSoC5/LFSR_PM.c **** *
+ 192:Generated_Source\PSoC5/LFSR_PM.c **** *******************************************************************************/
+ 193:Generated_Source\PSoC5/LFSR_PM.c **** #if ((LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) && (LFSR_TIME_MULTIPLEXING_ENABLE))
+ 194:Generated_Source\PSoC5/LFSR_PM.c ****     void LFSR_Wakeup(void) 
+ 195:Generated_Source\PSoC5/LFSR_PM.c **** #else
+ 196:Generated_Source\PSoC5/LFSR_PM.c ****     void LFSR_Wakeup(void) 
+ 197:Generated_Source\PSoC5/LFSR_PM.c **** #endif  /* End ((LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) && 
+ 198:Generated_Source\PSoC5/LFSR_PM.c ****                 (LFSR_TIME_MULTIPLEXING_ENABLE)) */
+ 199:Generated_Source\PSoC5/LFSR_PM.c **** {
+ 136              		.loc 1 199 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140 0000 08B5     		push	{r3, lr}
+ 141              		.cfi_def_cfa_offset 8
+ 142              		.cfi_offset 3, -8
+ 143              		.cfi_offset 14, -4
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 7
+
+
+ 200:Generated_Source\PSoC5/LFSR_PM.c ****     LFSR_RestoreConfig();
+ 144              		.loc 1 200 0
+ 145 0002 FFF7FEFF 		bl	LFSR_RestoreConfig
+ 146              	.LVL5:
+ 201:Generated_Source\PSoC5/LFSR_PM.c ****     
+ 202:Generated_Source\PSoC5/LFSR_PM.c ****     /* Restore PRS enable state */
+ 203:Generated_Source\PSoC5/LFSR_PM.c ****     if (LFSR_backup.enableState != 0u)
+ 147              		.loc 1 203 0
+ 148 0006 034B     		ldr	r3, .L18
+ 149 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 150 000a 0BB1     		cbz	r3, .L15
+ 204:Generated_Source\PSoC5/LFSR_PM.c ****     {
+ 205:Generated_Source\PSoC5/LFSR_PM.c ****         LFSR_Enable();
+ 151              		.loc 1 205 0
+ 152 000c FFF7FEFF 		bl	LFSR_Enable
+ 153              	.LVL6:
+ 154              	.L15:
+ 155 0010 08BD     		pop	{r3, pc}
+ 156              	.L19:
+ 157 0012 00BF     		.align	2
+ 158              	.L18:
+ 159 0014 00000000 		.word	LFSR_backup
+ 160              		.cfi_endproc
+ 161              	.LFE3:
+ 162              		.size	LFSR_Wakeup, .-LFSR_Wakeup
+ 163              		.text
+ 164              	.Letext0:
+ 165              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 166              		.file 3 "Generated_Source\\PSoC5\\LFSR.h"
+ 167              		.section	.debug_info,"",%progbits
+ 168              	.Ldebug_info0:
+ 169 0000 BE010000 		.4byte	0x1be
+ 170 0004 0400     		.2byte	0x4
+ 171 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 172 000a 04       		.byte	0x4
+ 173 000b 01       		.uleb128 0x1
+ 174 000c BE000000 		.4byte	.LASF27
+ 175 0010 01       		.byte	0x1
+ 176 0011 2B020000 		.4byte	.LASF28
+ 177 0015 7C010000 		.4byte	.LASF29
+ 178 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 179 001d 00000000 		.4byte	0
+ 180 0021 00000000 		.4byte	.Ldebug_line0
+ 181 0025 02       		.uleb128 0x2
+ 182 0026 01       		.byte	0x1
+ 183 0027 06       		.byte	0x6
+ 184 0028 1F020000 		.4byte	.LASF0
+ 185 002c 02       		.uleb128 0x2
+ 186 002d 01       		.byte	0x1
+ 187 002e 08       		.byte	0x8
+ 188 002f 86000000 		.4byte	.LASF1
+ 189 0033 02       		.uleb128 0x2
+ 190 0034 02       		.byte	0x2
+ 191 0035 05       		.byte	0x5
+ 192 0036 E2010000 		.4byte	.LASF2
+ 193 003a 02       		.uleb128 0x2
+ 194 003b 02       		.byte	0x2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 8
+
+
+ 195 003c 07       		.byte	0x7
+ 196 003d 0B000000 		.4byte	.LASF3
+ 197 0041 02       		.uleb128 0x2
+ 198 0042 04       		.byte	0x4
+ 199 0043 05       		.byte	0x5
+ 200 0044 0A020000 		.4byte	.LASF4
+ 201 0048 02       		.uleb128 0x2
+ 202 0049 04       		.byte	0x4
+ 203 004a 07       		.byte	0x7
+ 204 004b 6E000000 		.4byte	.LASF5
+ 205 004f 02       		.uleb128 0x2
+ 206 0050 08       		.byte	0x8
+ 207 0051 05       		.byte	0x5
+ 208 0052 CF010000 		.4byte	.LASF6
+ 209 0056 02       		.uleb128 0x2
+ 210 0057 08       		.byte	0x8
+ 211 0058 07       		.byte	0x7
+ 212 0059 59010000 		.4byte	.LASF7
+ 213 005d 03       		.uleb128 0x3
+ 214 005e 04       		.byte	0x4
+ 215 005f 05       		.byte	0x5
+ 216 0060 696E7400 		.ascii	"int\000"
+ 217 0064 02       		.uleb128 0x2
+ 218 0065 04       		.byte	0x4
+ 219 0066 07       		.byte	0x7
+ 220 0067 4C010000 		.4byte	.LASF8
+ 221 006b 04       		.uleb128 0x4
+ 222 006c 80000000 		.4byte	.LASF9
+ 223 0070 02       		.byte	0x2
+ 224 0071 9201     		.2byte	0x192
+ 225 0073 2C000000 		.4byte	0x2c
+ 226 0077 04       		.uleb128 0x4
+ 227 0078 9B000000 		.4byte	.LASF10
+ 228 007c 02       		.byte	0x2
+ 229 007d 9301     		.2byte	0x193
+ 230 007f 3A000000 		.4byte	0x3a
+ 231 0083 02       		.uleb128 0x2
+ 232 0084 04       		.byte	0x4
+ 233 0085 04       		.byte	0x4
+ 234 0086 50000000 		.4byte	.LASF11
+ 235 008a 02       		.uleb128 0x2
+ 236 008b 08       		.byte	0x8
+ 237 008c 04       		.byte	0x4
+ 238 008d 94000000 		.4byte	.LASF12
+ 239 0091 02       		.uleb128 0x2
+ 240 0092 01       		.byte	0x1
+ 241 0093 08       		.byte	0x8
+ 242 0094 DD010000 		.4byte	.LASF13
+ 243 0098 04       		.uleb128 0x4
+ 244 0099 69000000 		.4byte	.LASF14
+ 245 009d 02       		.byte	0x2
+ 246 009e 3C02     		.2byte	0x23c
+ 247 00a0 A4000000 		.4byte	0xa4
+ 248 00a4 05       		.uleb128 0x5
+ 249 00a5 6B000000 		.4byte	0x6b
+ 250 00a9 02       		.uleb128 0x2
+ 251 00aa 04       		.byte	0x4
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 9
+
+
+ 252 00ab 07       		.byte	0x7
+ 253 00ac C6010000 		.4byte	.LASF15
+ 254 00b0 06       		.uleb128 0x6
+ 255 00b1 04       		.byte	0x4
+ 256 00b2 03       		.byte	0x3
+ 257 00b3 37       		.byte	0x37
+ 258 00b4 D1000000 		.4byte	0xd1
+ 259 00b8 07       		.uleb128 0x7
+ 260 00b9 13020000 		.4byte	.LASF16
+ 261 00bd 03       		.byte	0x3
+ 262 00be 39       		.byte	0x39
+ 263 00bf 6B000000 		.4byte	0x6b
+ 264 00c3 00       		.byte	0
+ 265 00c4 07       		.uleb128 0x7
+ 266 00c5 F6010000 		.4byte	.LASF17
+ 267 00c9 03       		.byte	0x3
+ 268 00ca 43       		.byte	0x43
+ 269 00cb 77000000 		.4byte	0x77
+ 270 00cf 02       		.byte	0x2
+ 271 00d0 00       		.byte	0
+ 272 00d1 08       		.uleb128 0x8
+ 273 00d2 1E000000 		.4byte	.LASF18
+ 274 00d6 03       		.byte	0x3
+ 275 00d7 4D       		.byte	0x4d
+ 276 00d8 B0000000 		.4byte	0xb0
+ 277 00dc 09       		.uleb128 0x9
+ 278 00dd AE000000 		.4byte	.LASF19
+ 279 00e1 01       		.byte	0x1
+ 280 00e2 2B       		.byte	0x2b
+ 281 00e3 00000000 		.4byte	.LFB0
+ 282 00e7 10000000 		.4byte	.LFE0-.LFB0
+ 283 00eb 01       		.uleb128 0x1
+ 284 00ec 9C       		.byte	0x9c
+ 285 00ed FB000000 		.4byte	0xfb
+ 286 00f1 0A       		.uleb128 0xa
+ 287 00f2 06000000 		.4byte	.LVL0
+ 288 00f6 86010000 		.4byte	0x186
+ 289 00fa 00       		.byte	0
+ 290 00fb 09       		.uleb128 0x9
+ 291 00fc 00000000 		.4byte	.LASF20
+ 292 0100 01       		.byte	0x1
+ 293 0101 54       		.byte	0x54
+ 294 0102 00000000 		.4byte	.LFB1
+ 295 0106 2C000000 		.4byte	.LFE1-.LFB1
+ 296 010a 01       		.uleb128 0x1
+ 297 010b 9C       		.byte	0x9c
+ 298 010c 23010000 		.4byte	0x123
+ 299 0110 0A       		.uleb128 0xa
+ 300 0111 16000000 		.4byte	.LVL1
+ 301 0115 91010000 		.4byte	0x191
+ 302 0119 0A       		.uleb128 0xa
+ 303 011a 22000000 		.4byte	.LVL2
+ 304 011e DC000000 		.4byte	0xdc
+ 305 0122 00       		.byte	0
+ 306 0123 09       		.uleb128 0x9
+ 307 0124 56000000 		.4byte	.LASF21
+ 308 0128 01       		.byte	0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 10
+
+
+ 309 0129 94       		.byte	0x94
+ 310 012a 00000000 		.4byte	.LFB2
+ 311 012e 18000000 		.4byte	.LFE2-.LFB2
+ 312 0132 01       		.uleb128 0x1
+ 313 0133 9C       		.byte	0x9c
+ 314 0134 53010000 		.4byte	0x153
+ 315 0138 0A       		.uleb128 0xa
+ 316 0139 0A000000 		.4byte	.LVL3
+ 317 013d 98010000 		.4byte	0x198
+ 318 0141 0B       		.uleb128 0xb
+ 319 0142 12000000 		.4byte	.LVL4
+ 320 0146 A9010000 		.4byte	0x1a9
+ 321 014a 0C       		.uleb128 0xc
+ 322 014b 01       		.uleb128 0x1
+ 323 014c 50       		.byte	0x50
+ 324 014d 03       		.uleb128 0x3
+ 325 014e 0A       		.byte	0xa
+ 326 014f FF3F     		.2byte	0x3fff
+ 327 0151 00       		.byte	0
+ 328 0152 00       		.byte	0
+ 329 0153 09       		.uleb128 0x9
+ 330 0154 70010000 		.4byte	.LASF22
+ 331 0158 01       		.byte	0x1
+ 332 0159 C4       		.byte	0xc4
+ 333 015a 00000000 		.4byte	.LFB3
+ 334 015e 18000000 		.4byte	.LFE3-.LFB3
+ 335 0162 01       		.uleb128 0x1
+ 336 0163 9C       		.byte	0x9c
+ 337 0164 7B010000 		.4byte	0x17b
+ 338 0168 0A       		.uleb128 0xa
+ 339 0169 06000000 		.4byte	.LVL5
+ 340 016d 23010000 		.4byte	0x123
+ 341 0171 0A       		.uleb128 0xa
+ 342 0172 10000000 		.4byte	.LVL6
+ 343 0176 BA010000 		.4byte	0x1ba
+ 344 017a 00       		.byte	0
+ 345 017b 0D       		.uleb128 0xd
+ 346 017c A2000000 		.4byte	.LASF30
+ 347 0180 03       		.byte	0x3
+ 348 0181 51       		.byte	0x51
+ 349 0182 D1000000 		.4byte	0xd1
+ 350 0186 0E       		.uleb128 0xe
+ 351 0187 EC010000 		.4byte	.LASF31
+ 352 018b 03       		.byte	0x3
+ 353 018c 73       		.byte	0x73
+ 354 018d 77000000 		.4byte	0x77
+ 355 0191 0F       		.uleb128 0xf
+ 356 0192 BC010000 		.4byte	.LASF25
+ 357 0196 03       		.byte	0x3
+ 358 0197 60       		.byte	0x60
+ 359 0198 10       		.uleb128 0x10
+ 360 0199 FB010000 		.4byte	.LASF23
+ 361 019d 03       		.byte	0x3
+ 362 019e 74       		.byte	0x74
+ 363 019f A9010000 		.4byte	0x1a9
+ 364 01a3 11       		.uleb128 0x11
+ 365 01a4 77000000 		.4byte	0x77
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 11
+
+
+ 366 01a8 00       		.byte	0
+ 367 01a9 10       		.uleb128 0x10
+ 368 01aa 3D000000 		.4byte	.LASF24
+ 369 01ae 03       		.byte	0x3
+ 370 01af 8A       		.byte	0x8a
+ 371 01b0 BA010000 		.4byte	0x1ba
+ 372 01b4 11       		.uleb128 0x11
+ 373 01b5 77000000 		.4byte	0x77
+ 374 01b9 00       		.byte	0
+ 375 01ba 0F       		.uleb128 0xf
+ 376 01bb 31000000 		.4byte	.LASF26
+ 377 01bf 03       		.byte	0x3
+ 378 01c0 5E       		.byte	0x5e
+ 379 01c1 00       		.byte	0
+ 380              		.section	.debug_abbrev,"",%progbits
+ 381              	.Ldebug_abbrev0:
+ 382 0000 01       		.uleb128 0x1
+ 383 0001 11       		.uleb128 0x11
+ 384 0002 01       		.byte	0x1
+ 385 0003 25       		.uleb128 0x25
+ 386 0004 0E       		.uleb128 0xe
+ 387 0005 13       		.uleb128 0x13
+ 388 0006 0B       		.uleb128 0xb
+ 389 0007 03       		.uleb128 0x3
+ 390 0008 0E       		.uleb128 0xe
+ 391 0009 1B       		.uleb128 0x1b
+ 392 000a 0E       		.uleb128 0xe
+ 393 000b 55       		.uleb128 0x55
+ 394 000c 17       		.uleb128 0x17
+ 395 000d 11       		.uleb128 0x11
+ 396 000e 01       		.uleb128 0x1
+ 397 000f 10       		.uleb128 0x10
+ 398 0010 17       		.uleb128 0x17
+ 399 0011 00       		.byte	0
+ 400 0012 00       		.byte	0
+ 401 0013 02       		.uleb128 0x2
+ 402 0014 24       		.uleb128 0x24
+ 403 0015 00       		.byte	0
+ 404 0016 0B       		.uleb128 0xb
+ 405 0017 0B       		.uleb128 0xb
+ 406 0018 3E       		.uleb128 0x3e
+ 407 0019 0B       		.uleb128 0xb
+ 408 001a 03       		.uleb128 0x3
+ 409 001b 0E       		.uleb128 0xe
+ 410 001c 00       		.byte	0
+ 411 001d 00       		.byte	0
+ 412 001e 03       		.uleb128 0x3
+ 413 001f 24       		.uleb128 0x24
+ 414 0020 00       		.byte	0
+ 415 0021 0B       		.uleb128 0xb
+ 416 0022 0B       		.uleb128 0xb
+ 417 0023 3E       		.uleb128 0x3e
+ 418 0024 0B       		.uleb128 0xb
+ 419 0025 03       		.uleb128 0x3
+ 420 0026 08       		.uleb128 0x8
+ 421 0027 00       		.byte	0
+ 422 0028 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 12
+
+
+ 423 0029 04       		.uleb128 0x4
+ 424 002a 16       		.uleb128 0x16
+ 425 002b 00       		.byte	0
+ 426 002c 03       		.uleb128 0x3
+ 427 002d 0E       		.uleb128 0xe
+ 428 002e 3A       		.uleb128 0x3a
+ 429 002f 0B       		.uleb128 0xb
+ 430 0030 3B       		.uleb128 0x3b
+ 431 0031 05       		.uleb128 0x5
+ 432 0032 49       		.uleb128 0x49
+ 433 0033 13       		.uleb128 0x13
+ 434 0034 00       		.byte	0
+ 435 0035 00       		.byte	0
+ 436 0036 05       		.uleb128 0x5
+ 437 0037 35       		.uleb128 0x35
+ 438 0038 00       		.byte	0
+ 439 0039 49       		.uleb128 0x49
+ 440 003a 13       		.uleb128 0x13
+ 441 003b 00       		.byte	0
+ 442 003c 00       		.byte	0
+ 443 003d 06       		.uleb128 0x6
+ 444 003e 13       		.uleb128 0x13
+ 445 003f 01       		.byte	0x1
+ 446 0040 0B       		.uleb128 0xb
+ 447 0041 0B       		.uleb128 0xb
+ 448 0042 3A       		.uleb128 0x3a
+ 449 0043 0B       		.uleb128 0xb
+ 450 0044 3B       		.uleb128 0x3b
+ 451 0045 0B       		.uleb128 0xb
+ 452 0046 01       		.uleb128 0x1
+ 453 0047 13       		.uleb128 0x13
+ 454 0048 00       		.byte	0
+ 455 0049 00       		.byte	0
+ 456 004a 07       		.uleb128 0x7
+ 457 004b 0D       		.uleb128 0xd
+ 458 004c 00       		.byte	0
+ 459 004d 03       		.uleb128 0x3
+ 460 004e 0E       		.uleb128 0xe
+ 461 004f 3A       		.uleb128 0x3a
+ 462 0050 0B       		.uleb128 0xb
+ 463 0051 3B       		.uleb128 0x3b
+ 464 0052 0B       		.uleb128 0xb
+ 465 0053 49       		.uleb128 0x49
+ 466 0054 13       		.uleb128 0x13
+ 467 0055 38       		.uleb128 0x38
+ 468 0056 0B       		.uleb128 0xb
+ 469 0057 00       		.byte	0
+ 470 0058 00       		.byte	0
+ 471 0059 08       		.uleb128 0x8
+ 472 005a 16       		.uleb128 0x16
+ 473 005b 00       		.byte	0
+ 474 005c 03       		.uleb128 0x3
+ 475 005d 0E       		.uleb128 0xe
+ 476 005e 3A       		.uleb128 0x3a
+ 477 005f 0B       		.uleb128 0xb
+ 478 0060 3B       		.uleb128 0x3b
+ 479 0061 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 13
+
+
+ 480 0062 49       		.uleb128 0x49
+ 481 0063 13       		.uleb128 0x13
+ 482 0064 00       		.byte	0
+ 483 0065 00       		.byte	0
+ 484 0066 09       		.uleb128 0x9
+ 485 0067 2E       		.uleb128 0x2e
+ 486 0068 01       		.byte	0x1
+ 487 0069 3F       		.uleb128 0x3f
+ 488 006a 19       		.uleb128 0x19
+ 489 006b 03       		.uleb128 0x3
+ 490 006c 0E       		.uleb128 0xe
+ 491 006d 3A       		.uleb128 0x3a
+ 492 006e 0B       		.uleb128 0xb
+ 493 006f 3B       		.uleb128 0x3b
+ 494 0070 0B       		.uleb128 0xb
+ 495 0071 27       		.uleb128 0x27
+ 496 0072 19       		.uleb128 0x19
+ 497 0073 11       		.uleb128 0x11
+ 498 0074 01       		.uleb128 0x1
+ 499 0075 12       		.uleb128 0x12
+ 500 0076 06       		.uleb128 0x6
+ 501 0077 40       		.uleb128 0x40
+ 502 0078 18       		.uleb128 0x18
+ 503 0079 9742     		.uleb128 0x2117
+ 504 007b 19       		.uleb128 0x19
+ 505 007c 01       		.uleb128 0x1
+ 506 007d 13       		.uleb128 0x13
+ 507 007e 00       		.byte	0
+ 508 007f 00       		.byte	0
+ 509 0080 0A       		.uleb128 0xa
+ 510 0081 898201   		.uleb128 0x4109
+ 511 0084 00       		.byte	0
+ 512 0085 11       		.uleb128 0x11
+ 513 0086 01       		.uleb128 0x1
+ 514 0087 31       		.uleb128 0x31
+ 515 0088 13       		.uleb128 0x13
+ 516 0089 00       		.byte	0
+ 517 008a 00       		.byte	0
+ 518 008b 0B       		.uleb128 0xb
+ 519 008c 898201   		.uleb128 0x4109
+ 520 008f 01       		.byte	0x1
+ 521 0090 11       		.uleb128 0x11
+ 522 0091 01       		.uleb128 0x1
+ 523 0092 31       		.uleb128 0x31
+ 524 0093 13       		.uleb128 0x13
+ 525 0094 00       		.byte	0
+ 526 0095 00       		.byte	0
+ 527 0096 0C       		.uleb128 0xc
+ 528 0097 8A8201   		.uleb128 0x410a
+ 529 009a 00       		.byte	0
+ 530 009b 02       		.uleb128 0x2
+ 531 009c 18       		.uleb128 0x18
+ 532 009d 9142     		.uleb128 0x2111
+ 533 009f 18       		.uleb128 0x18
+ 534 00a0 00       		.byte	0
+ 535 00a1 00       		.byte	0
+ 536 00a2 0D       		.uleb128 0xd
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 14
+
+
+ 537 00a3 34       		.uleb128 0x34
+ 538 00a4 00       		.byte	0
+ 539 00a5 03       		.uleb128 0x3
+ 540 00a6 0E       		.uleb128 0xe
+ 541 00a7 3A       		.uleb128 0x3a
+ 542 00a8 0B       		.uleb128 0xb
+ 543 00a9 3B       		.uleb128 0x3b
+ 544 00aa 0B       		.uleb128 0xb
+ 545 00ab 49       		.uleb128 0x49
+ 546 00ac 13       		.uleb128 0x13
+ 547 00ad 3F       		.uleb128 0x3f
+ 548 00ae 19       		.uleb128 0x19
+ 549 00af 3C       		.uleb128 0x3c
+ 550 00b0 19       		.uleb128 0x19
+ 551 00b1 00       		.byte	0
+ 552 00b2 00       		.byte	0
+ 553 00b3 0E       		.uleb128 0xe
+ 554 00b4 2E       		.uleb128 0x2e
+ 555 00b5 00       		.byte	0
+ 556 00b6 3F       		.uleb128 0x3f
+ 557 00b7 19       		.uleb128 0x19
+ 558 00b8 03       		.uleb128 0x3
+ 559 00b9 0E       		.uleb128 0xe
+ 560 00ba 3A       		.uleb128 0x3a
+ 561 00bb 0B       		.uleb128 0xb
+ 562 00bc 3B       		.uleb128 0x3b
+ 563 00bd 0B       		.uleb128 0xb
+ 564 00be 27       		.uleb128 0x27
+ 565 00bf 19       		.uleb128 0x19
+ 566 00c0 49       		.uleb128 0x49
+ 567 00c1 13       		.uleb128 0x13
+ 568 00c2 3C       		.uleb128 0x3c
+ 569 00c3 19       		.uleb128 0x19
+ 570 00c4 00       		.byte	0
+ 571 00c5 00       		.byte	0
+ 572 00c6 0F       		.uleb128 0xf
+ 573 00c7 2E       		.uleb128 0x2e
+ 574 00c8 00       		.byte	0
+ 575 00c9 3F       		.uleb128 0x3f
+ 576 00ca 19       		.uleb128 0x19
+ 577 00cb 03       		.uleb128 0x3
+ 578 00cc 0E       		.uleb128 0xe
+ 579 00cd 3A       		.uleb128 0x3a
+ 580 00ce 0B       		.uleb128 0xb
+ 581 00cf 3B       		.uleb128 0x3b
+ 582 00d0 0B       		.uleb128 0xb
+ 583 00d1 27       		.uleb128 0x27
+ 584 00d2 19       		.uleb128 0x19
+ 585 00d3 3C       		.uleb128 0x3c
+ 586 00d4 19       		.uleb128 0x19
+ 587 00d5 00       		.byte	0
+ 588 00d6 00       		.byte	0
+ 589 00d7 10       		.uleb128 0x10
+ 590 00d8 2E       		.uleb128 0x2e
+ 591 00d9 01       		.byte	0x1
+ 592 00da 3F       		.uleb128 0x3f
+ 593 00db 19       		.uleb128 0x19
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 15
+
+
+ 594 00dc 03       		.uleb128 0x3
+ 595 00dd 0E       		.uleb128 0xe
+ 596 00de 3A       		.uleb128 0x3a
+ 597 00df 0B       		.uleb128 0xb
+ 598 00e0 3B       		.uleb128 0x3b
+ 599 00e1 0B       		.uleb128 0xb
+ 600 00e2 27       		.uleb128 0x27
+ 601 00e3 19       		.uleb128 0x19
+ 602 00e4 3C       		.uleb128 0x3c
+ 603 00e5 19       		.uleb128 0x19
+ 604 00e6 01       		.uleb128 0x1
+ 605 00e7 13       		.uleb128 0x13
+ 606 00e8 00       		.byte	0
+ 607 00e9 00       		.byte	0
+ 608 00ea 11       		.uleb128 0x11
+ 609 00eb 05       		.uleb128 0x5
+ 610 00ec 00       		.byte	0
+ 611 00ed 49       		.uleb128 0x49
+ 612 00ee 13       		.uleb128 0x13
+ 613 00ef 00       		.byte	0
+ 614 00f0 00       		.byte	0
+ 615 00f1 00       		.byte	0
+ 616              		.section	.debug_aranges,"",%progbits
+ 617 0000 34000000 		.4byte	0x34
+ 618 0004 0200     		.2byte	0x2
+ 619 0006 00000000 		.4byte	.Ldebug_info0
+ 620 000a 04       		.byte	0x4
+ 621 000b 00       		.byte	0
+ 622 000c 0000     		.2byte	0
+ 623 000e 0000     		.2byte	0
+ 624 0010 00000000 		.4byte	.LFB0
+ 625 0014 10000000 		.4byte	.LFE0-.LFB0
+ 626 0018 00000000 		.4byte	.LFB1
+ 627 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 628 0020 00000000 		.4byte	.LFB2
+ 629 0024 18000000 		.4byte	.LFE2-.LFB2
+ 630 0028 00000000 		.4byte	.LFB3
+ 631 002c 18000000 		.4byte	.LFE3-.LFB3
+ 632 0030 00000000 		.4byte	0
+ 633 0034 00000000 		.4byte	0
+ 634              		.section	.debug_ranges,"",%progbits
+ 635              	.Ldebug_ranges0:
+ 636 0000 00000000 		.4byte	.LFB0
+ 637 0004 10000000 		.4byte	.LFE0
+ 638 0008 00000000 		.4byte	.LFB1
+ 639 000c 2C000000 		.4byte	.LFE1
+ 640 0010 00000000 		.4byte	.LFB2
+ 641 0014 18000000 		.4byte	.LFE2
+ 642 0018 00000000 		.4byte	.LFB3
+ 643 001c 18000000 		.4byte	.LFE3
+ 644 0020 00000000 		.4byte	0
+ 645 0024 00000000 		.4byte	0
+ 646              		.section	.debug_line,"",%progbits
+ 647              	.Ldebug_line0:
+ 648 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ 648      02004E00 
+ 648      00000201 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 16
+
+
+ 648      FB0E0D00 
+ 648      01010101 
+ 649              	.LASF20:
+ 650 0000 4C465352 		.ascii	"LFSR_Sleep\000"
+ 650      5F536C65 
+ 650      657000
+ 651              	.LASF3:
+ 652 000b 73686F72 		.ascii	"short unsigned int\000"
+ 652      7420756E 
+ 652      7369676E 
+ 652      65642069 
+ 652      6E7400
+ 653              	.LASF18:
+ 654 001e 4C465352 		.ascii	"LFSR_BACKUP_STRUCT\000"
+ 654      5F424143 
+ 654      4B55505F 
+ 654      53545255 
+ 654      435400
+ 655              	.LASF26:
+ 656 0031 4C465352 		.ascii	"LFSR_Enable\000"
+ 656      5F456E61 
+ 656      626C6500 
+ 657              	.LASF24:
+ 658 003d 4C465352 		.ascii	"LFSR_ResetSeedInit\000"
+ 658      5F526573 
+ 658      65745365 
+ 658      6564496E 
+ 658      697400
+ 659              	.LASF11:
+ 660 0050 666C6F61 		.ascii	"float\000"
+ 660      7400
+ 661              	.LASF21:
+ 662 0056 4C465352 		.ascii	"LFSR_RestoreConfig\000"
+ 662      5F526573 
+ 662      746F7265 
+ 662      436F6E66 
+ 662      696700
+ 663              	.LASF14:
+ 664 0069 72656738 		.ascii	"reg8\000"
+ 664      00
+ 665              	.LASF5:
+ 666 006e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 666      20756E73 
+ 666      69676E65 
+ 666      6420696E 
+ 666      7400
+ 667              	.LASF9:
+ 668 0080 75696E74 		.ascii	"uint8\000"
+ 668      3800
+ 669              	.LASF1:
+ 670 0086 756E7369 		.ascii	"unsigned char\000"
+ 670      676E6564 
+ 670      20636861 
+ 670      7200
+ 671              	.LASF12:
+ 672 0094 646F7562 		.ascii	"double\000"
+ 672      6C6500
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 17
+
+
+ 673              	.LASF10:
+ 674 009b 75696E74 		.ascii	"uint16\000"
+ 674      313600
+ 675              	.LASF30:
+ 676 00a2 4C465352 		.ascii	"LFSR_backup\000"
+ 676      5F626163 
+ 676      6B757000 
+ 677              	.LASF19:
+ 678 00ae 4C465352 		.ascii	"LFSR_SaveConfig\000"
+ 678      5F536176 
+ 678      65436F6E 
+ 678      66696700 
+ 679              	.LASF27:
+ 680 00be 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 680      4320342E 
+ 680      392E3320 
+ 680      32303135 
+ 680      30333033 
+ 681 00f1 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 681      20726576 
+ 681      6973696F 
+ 681      6E203232 
+ 681      31323230 
+ 682 0124 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 682      66756E63 
+ 682      74696F6E 
+ 682      2D736563 
+ 682      74696F6E 
+ 683              	.LASF8:
+ 684 014c 756E7369 		.ascii	"unsigned int\000"
+ 684      676E6564 
+ 684      20696E74 
+ 684      00
+ 685              	.LASF7:
+ 686 0159 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 686      206C6F6E 
+ 686      6720756E 
+ 686      7369676E 
+ 686      65642069 
+ 687              	.LASF22:
+ 688 0170 4C465352 		.ascii	"LFSR_Wakeup\000"
+ 688      5F57616B 
+ 688      65757000 
+ 689              	.LASF29:
+ 690 017c 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 690      73657273 
+ 690      5C323134 
+ 690      30313635 
+ 690      38365C44 
+ 691 01aa 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 691      41505532 
+ 691      4130332E 
+ 691      63796473 
+ 691      6E00
+ 692              	.LASF25:
+ 693 01bc 4C465352 		.ascii	"LFSR_Stop\000"
+ 693      5F53746F 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccah6gd1.s 			page 18
+
+
+ 693      7000
+ 694              	.LASF15:
+ 695 01c6 73697A65 		.ascii	"sizetype\000"
+ 695      74797065 
+ 695      00
+ 696              	.LASF6:
+ 697 01cf 6C6F6E67 		.ascii	"long long int\000"
+ 697      206C6F6E 
+ 697      6720696E 
+ 697      7400
+ 698              	.LASF13:
+ 699 01dd 63686172 		.ascii	"char\000"
+ 699      00
+ 700              	.LASF2:
+ 701 01e2 73686F72 		.ascii	"short int\000"
+ 701      7420696E 
+ 701      7400
+ 702              	.LASF31:
+ 703 01ec 4C465352 		.ascii	"LFSR_Read\000"
+ 703      5F526561 
+ 703      6400
+ 704              	.LASF17:
+ 705 01f6 73656564 		.ascii	"seed\000"
+ 705      00
+ 706              	.LASF23:
+ 707 01fb 4C465352 		.ascii	"LFSR_WriteSeed\000"
+ 707      5F577269 
+ 707      74655365 
+ 707      656400
+ 708              	.LASF4:
+ 709 020a 6C6F6E67 		.ascii	"long int\000"
+ 709      20696E74 
+ 709      00
+ 710              	.LASF16:
+ 711 0213 656E6162 		.ascii	"enableState\000"
+ 711      6C655374 
+ 711      61746500 
+ 712              	.LASF0:
+ 713 021f 7369676E 		.ascii	"signed char\000"
+ 713      65642063 
+ 713      68617200 
+ 714              	.LASF28:
+ 715 022b 47656E65 		.ascii	"Generated_Source\\PSoC5\\LFSR_PM.c\000"
+ 715      72617465 
+ 715      645F536F 
+ 715      75726365 
+ 715      5C50536F 
+ 716              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

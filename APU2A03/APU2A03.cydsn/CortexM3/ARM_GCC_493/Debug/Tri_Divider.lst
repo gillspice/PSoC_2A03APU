@@ -1,0 +1,1906 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Tri_Divider.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Tri_Divider_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	Tri_Divider_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Tri_Divider_Enable, %function
+  24              	Tri_Divider_Enable:
+  25              	.LFB1:
+  26              		.file 1 "Generated_Source\\PSoC5\\Tri_Divider.c"
+   1:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Tri_Divider.c **** * File Name: Tri_Divider.c  
+   3:Generated_Source\PSoC5/Tri_Divider.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Tri_Divider.c **** *
+   5:Generated_Source\PSoC5/Tri_Divider.c **** *  Description:
+   6:Generated_Source\PSoC5/Tri_Divider.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Tri_Divider.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Tri_Divider.c **** *
+   9:Generated_Source\PSoC5/Tri_Divider.c **** *   Note:
+  10:Generated_Source\PSoC5/Tri_Divider.c **** *     None
+  11:Generated_Source\PSoC5/Tri_Divider.c **** *
+  12:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Tri_Divider.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Tri_Divider.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Tri_Divider.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Tri_Divider.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Tri_Divider.c **** 
+  19:Generated_Source\PSoC5/Tri_Divider.c **** #include "Tri_Divider.h"
+  20:Generated_Source\PSoC5/Tri_Divider.c **** 
+  21:Generated_Source\PSoC5/Tri_Divider.c **** uint8 Tri_Divider_initVar = 0u;
+  22:Generated_Source\PSoC5/Tri_Divider.c **** 
+  23:Generated_Source\PSoC5/Tri_Divider.c **** 
+  24:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_Init
+  26:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+  28:Generated_Source\PSoC5/Tri_Divider.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Tri_Divider.c **** * 
+  30:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+  31:Generated_Source\PSoC5/Tri_Divider.c **** *  void  
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Tri_Divider.c **** *
+  33:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+  34:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+  35:Generated_Source\PSoC5/Tri_Divider.c **** *
+  36:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_Init(void) 
+  38:Generated_Source\PSoC5/Tri_Divider.c **** {
+  39:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!Tri_Divider_UsingFixedFunction && !Tri_Divider_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Tri_Divider.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!Tri_Divider_UsingFixedFunction && !Tri_Divider_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/Tri_Divider.c ****         
+  43:Generated_Source\PSoC5/Tri_Divider.c ****         #if(!Tri_Divider_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Tri_Divider.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Tri_Divider.c ****             uint8 Tri_Divider_interruptState;
+  46:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!Tri_Divider_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Tri_Divider.c ****         
+  48:Generated_Source\PSoC5/Tri_Divider.c ****         #if (Tri_Divider_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Tri_Divider.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_CONTROL &= Tri_Divider_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Tri_Divider.c ****             
+  52:Generated_Source\PSoC5/Tri_Divider.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Tri_Divider.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Tri_Divider.c ****                 Tri_Divider_CONTROL2 &= ((uint8)(~Tri_Divider_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Tri_Divider.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Tri_Divider.c ****                 Tri_Divider_CONTROL3 &= ((uint8)(~Tri_Divider_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Tri_Divider.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Tri_Divider.c ****             #if (Tri_Divider_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Tri_Divider.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Tri_Divider.c ****                 Tri_Divider_CONTROL |= Tri_Divider_ONESHOT;
+  63:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* (Tri_Divider_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Tri_Divider.c ****             
+  65:Generated_Source\PSoC5/Tri_Divider.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_CONTROL2 |= Tri_Divider_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Tri_Divider.c ****             
+  68:Generated_Source\PSoC5/Tri_Divider.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 &= ((uint8)(~Tri_Divider_RT1_MASK));
+  70:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 |= Tri_Divider_SYNC;     
+  71:Generated_Source\PSoC5/Tri_Divider.c ****                     
+  72:Generated_Source\PSoC5/Tri_Divider.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 &= ((uint8)(~Tri_Divider_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 |= Tri_Divider_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Tri_Divider.c **** 
+  76:Generated_Source\PSoC5/Tri_Divider.c ****         #else
+  77:Generated_Source\PSoC5/Tri_Divider.c ****             #if(!Tri_Divider_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Tri_Divider.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Tri_Divider.c ****             ctrl = Tri_Divider_CONTROL & ((uint8)(~Tri_Divider_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_CONTROL = ctrl | Tri_Divider_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/Tri_Divider.c ****             
+  82:Generated_Source\PSoC5/Tri_Divider.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Tri_Divider.c ****             ctrl = Tri_Divider_CONTROL & ((uint8)(~Tri_Divider_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/Tri_Divider.c ****             
+  85:Generated_Source\PSoC5/Tri_Divider.c ****             #if( 0 != Tri_Divider_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Tri_Divider.c ****                 Tri_Divider_CONTROL = ctrl | Tri_Divider_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Tri_Divider.c ****             #else
+  88:Generated_Source\PSoC5/Tri_Divider.c ****                 Tri_Divider_CONTROL = ctrl;
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 3
+
+
+  89:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* 0 != Tri_Divider_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Tri_Divider.c ****             
+  91:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* (!Tri_Divider_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (Tri_Divider_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Tri_Divider.c ****         
+  94:Generated_Source\PSoC5/Tri_Divider.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!Tri_Divider_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_ClearFIFO();
+  97:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!Tri_Divider_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Tri_Divider.c ****         
+  99:Generated_Source\PSoC5/Tri_Divider.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_WritePeriod(Tri_Divider_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_WriteCounter(Tri_Divider_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_SetInterruptMode(Tri_Divider_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/Tri_Divider.c ****         
+ 106:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!Tri_Divider_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Tri_Divider.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Tri_Divider.c ****             (void)Tri_Divider_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/Tri_Divider.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_WriteCompare(Tri_Divider_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/Tri_Divider.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 113:Generated_Source\PSoC5/Tri_Divider.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Tri_Divider.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 117:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_STATUS_AUX_CTRL |= Tri_Divider_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 119:Generated_Source\PSoC5/Tri_Divider.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Tri_Divider.c ****             CyExitCriticalSection(Tri_Divider_interruptState);
+ 121:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 122:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!Tri_Divider_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 124:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 125:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 126:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_Enable
+ 128:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 130:Generated_Source\PSoC5/Tri_Divider.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Tri_Divider.c **** * 
+ 132:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Tri_Divider.c **** *  void  
+ 134:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 135:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 136:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 137:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 138:Generated_Source\PSoC5/Tri_Divider.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Tri_Divider.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Tri_Divider.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 142:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_Enable(void) 
+ 144:Generated_Source\PSoC5/Tri_Divider.c **** {
+  27              		.loc 1 144 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 4
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/Tri_Divider.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Tri_Divider.c ****     #if (Tri_Divider_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_ENABLE |= Tri_Divider_BLOCK_EN_MASK;
+  32              		.loc 1 147 0
+  33 0000 084A     		ldr	r2, .L2
+  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  35 0004 43F00403 		orr	r3, r3, #4
+  36 0008 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_STBY_ENABLE |= Tri_Divider_BLOCK_STBY_EN_MASK;
+  37              		.loc 1 148 0
+  38 000a 1032     		adds	r2, r2, #16
+  39 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  40 000e 43F00403 		orr	r3, r3, #4
+  41 0012 1370     		strb	r3, [r2]
+ 149:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Tri_Divider.c ****         
+ 151:Generated_Source\PSoC5/Tri_Divider.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/Tri_Divider.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Tri_Divider.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Tri_Divider.c ****     #if(!Tri_Divider_ControlRegRemoved || Tri_Divider_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_CONTROL |= Tri_Divider_CTRL_ENABLE;                
+  42              		.loc 1 155 0
+  43 0014 02F66532 		addw	r2, r2, #2917
+  44 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45 001a 43F00103 		orr	r3, r3, #1
+  46 001e 1370     		strb	r3, [r2]
+  47 0020 7047     		bx	lr
+  48              	.L3:
+  49 0022 00BF     		.align	2
+  50              	.L2:
+  51 0024 A3430040 		.word	1073759139
+  52              		.cfi_endproc
+  53              	.LFE1:
+  54              		.size	Tri_Divider_Enable, .-Tri_Divider_Enable
+  55              		.section	.text.Tri_Divider_Stop,"ax",%progbits
+  56              		.align	2
+  57              		.global	Tri_Divider_Stop
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	Tri_Divider_Stop, %function
+  61              	Tri_Divider_Stop:
+  62              	.LFB3:
+ 156:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (!Tri_Divider_ControlRegRemoved || Tri_Divider_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/Tri_Divider.c ****     
+ 158:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 159:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 160:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 161:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_Start
+ 163:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 165:Generated_Source\PSoC5/Tri_Divider.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/Tri_Divider.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 5
+
+
+ 167:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Tri_Divider.c **** *  void  
+ 169:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 170:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 171:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 172:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 173:Generated_Source\PSoC5/Tri_Divider.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Tri_Divider.c **** *  Tri_Divider_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Tri_Divider.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 177:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_Start(void) 
+ 179:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 180:Generated_Source\PSoC5/Tri_Divider.c ****     if(Tri_Divider_initVar == 0u)
+ 181:Generated_Source\PSoC5/Tri_Divider.c ****     {
+ 182:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_Init();
+ 183:Generated_Source\PSoC5/Tri_Divider.c ****         
+ 184:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/Tri_Divider.c ****     }
+ 186:Generated_Source\PSoC5/Tri_Divider.c ****     
+ 187:Generated_Source\PSoC5/Tri_Divider.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Tri_Divider.c ****     Tri_Divider_Enable();        
+ 189:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 190:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 191:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 192:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_Stop
+ 194:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 196:Generated_Source\PSoC5/Tri_Divider.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 198:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/Tri_Divider.c **** *  void  
+ 200:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 201:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 202:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 203:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 204:Generated_Source\PSoC5/Tri_Divider.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Tri_Divider.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 207:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_Stop(void) 
+ 209:Generated_Source\PSoC5/Tri_Divider.c **** {
+  63              		.loc 1 209 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/Tri_Divider.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Tri_Divider.c ****     #if(!Tri_Divider_ControlRegRemoved || Tri_Divider_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_CONTROL &= ((uint8)(~Tri_Divider_CTRL_ENABLE));        
+  68              		.loc 1 212 0
+  69 0000 084A     		ldr	r2, .L5
+  70 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  71 0004 03F0FE03 		and	r3, r3, #254
+  72 0008 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (!Tri_Divider_ControlRegRemoved || Tri_Divider_UsingFixedFunction) */
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 6
+
+
+ 214:Generated_Source\PSoC5/Tri_Divider.c ****     
+ 215:Generated_Source\PSoC5/Tri_Divider.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Tri_Divider.c ****     #if (Tri_Divider_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_ENABLE &= ((uint8)(~Tri_Divider_BLOCK_EN_MASK));
+  73              		.loc 1 217 0
+  74 000a A2F67532 		subw	r2, r2, #2933
+  75 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  76 0010 03F0FB03 		and	r3, r3, #251
+  77 0014 1370     		strb	r3, [r2]
+ 218:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_STBY_ENABLE &= ((uint8)(~Tri_Divider_BLOCK_STBY_EN_MASK));
+  78              		.loc 1 218 0
+  79 0016 1032     		adds	r2, r2, #16
+  80 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  81 001a 03F0FB03 		and	r3, r3, #251
+  82 001e 1370     		strb	r3, [r2]
+  83 0020 7047     		bx	lr
+  84              	.L6:
+  85 0022 00BF     		.align	2
+  86              	.L5:
+  87 0024 184F0040 		.word	1073762072
+  88              		.cfi_endproc
+  89              	.LFE3:
+  90              		.size	Tri_Divider_Stop, .-Tri_Divider_Stop
+  91              		.section	.text.Tri_Divider_SetInterruptMode,"ax",%progbits
+  92              		.align	2
+  93              		.global	Tri_Divider_SetInterruptMode
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	Tri_Divider_SetInterruptMode, %function
+  97              	Tri_Divider_SetInterruptMode:
+  98              	.LFB4:
+ 219:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 221:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 222:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 223:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_SetInterruptMode
+ 225:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 227:Generated_Source\PSoC5/Tri_Divider.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 229:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Tri_Divider.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Tri_Divider.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 233:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 234:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 235:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 236:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Tri_Divider.c **** {
+  99              		.loc 1 238 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL0:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 7
+
+
+ 239:Generated_Source\PSoC5/Tri_Divider.c ****     Tri_Divider_STATUS_MASK = interruptsMask;
+ 105              		.loc 1 239 0
+ 106 0000 014B     		ldr	r3, .L8
+ 107 0002 1870     		strb	r0, [r3]
+ 108 0004 7047     		bx	lr
+ 109              	.L9:
+ 110 0006 00BF     		.align	2
+ 111              	.L8:
+ 112 0008 1B4F0040 		.word	1073762075
+ 113              		.cfi_endproc
+ 114              	.LFE4:
+ 115              		.size	Tri_Divider_SetInterruptMode, .-Tri_Divider_SetInterruptMode
+ 116              		.section	.text.Tri_Divider_ReadStatusRegister,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	Tri_Divider_ReadStatusRegister
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	Tri_Divider_ReadStatusRegister, %function
+ 122              	Tri_Divider_ReadStatusRegister:
+ 123              	.LFB5:
+ 240:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 241:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 242:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 243:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 247:Generated_Source\PSoC5/Tri_Divider.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Tri_Divider.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Tri_Divider.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 251:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 253:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 254:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 255:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 257:Generated_Source\PSoC5/Tri_Divider.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Tri_Divider.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 260:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Tri_Divider.c **** uint8   Tri_Divider_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 124              		.loc 1 262 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/Tri_Divider.c ****     return Tri_Divider_STATUS;
+ 129              		.loc 1 263 0
+ 130 0000 014B     		ldr	r3, .L11
+ 131 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 132              		.loc 1 264 0
+ 133 0004 7047     		bx	lr
+ 134              	.L12:
+ 135 0006 00BF     		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 8
+
+
+ 136              	.L11:
+ 137 0008 1B4F0040 		.word	1073762075
+ 138              		.cfi_endproc
+ 139              	.LFE5:
+ 140              		.size	Tri_Divider_ReadStatusRegister, .-Tri_Divider_ReadStatusRegister
+ 141              		.section	.text.Tri_Divider_ReadControlRegister,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	Tri_Divider_ReadControlRegister
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	Tri_Divider_ReadControlRegister, %function
+ 147              	Tri_Divider_ReadControlRegister:
+ 148              	.LFB6:
+ 265:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 266:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 267:Generated_Source\PSoC5/Tri_Divider.c **** #if(!Tri_Divider_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_ReadControlRegister
+ 270:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 272:Generated_Source\PSoC5/Tri_Divider.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Tri_Divider.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Tri_Divider.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 276:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 278:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 279:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 280:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 282:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Tri_Divider.c **** uint8   Tri_Divider_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 149              		.loc 1 284 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/Tri_Divider.c ****     return Tri_Divider_CONTROL;
+ 154              		.loc 1 285 0
+ 155 0000 014B     		ldr	r3, .L14
+ 156 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 157              		.loc 1 286 0
+ 158 0004 7047     		bx	lr
+ 159              	.L15:
+ 160 0006 00BF     		.align	2
+ 161              	.L14:
+ 162 0008 184F0040 		.word	1073762072
+ 163              		.cfi_endproc
+ 164              	.LFE6:
+ 165              		.size	Tri_Divider_ReadControlRegister, .-Tri_Divider_ReadControlRegister
+ 166              		.section	.text.Tri_Divider_WriteControlRegister,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	Tri_Divider_WriteControlRegister
+ 169              		.thumb
+ 170              		.thumb_func
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 9
+
+
+ 171              		.type	Tri_Divider_WriteControlRegister, %function
+ 172              	Tri_Divider_WriteControlRegister:
+ 173              	.LFB7:
+ 287:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 288:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 289:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_WriteControlRegister
+ 291:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 293:Generated_Source\PSoC5/Tri_Divider.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Tri_Divider.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Tri_Divider.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 297:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 299:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 300:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 301:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 303:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Tri_Divider.c **** void    Tri_Divider_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 174              		.loc 1 305 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL1:
+ 306:Generated_Source\PSoC5/Tri_Divider.c ****     Tri_Divider_CONTROL = control;
+ 180              		.loc 1 306 0
+ 181 0000 014B     		ldr	r3, .L17
+ 182 0002 1870     		strb	r0, [r3]
+ 183 0004 7047     		bx	lr
+ 184              	.L18:
+ 185 0006 00BF     		.align	2
+ 186              	.L17:
+ 187 0008 184F0040 		.word	1073762072
+ 188              		.cfi_endproc
+ 189              	.LFE7:
+ 190              		.size	Tri_Divider_WriteControlRegister, .-Tri_Divider_WriteControlRegister
+ 191              		.section	.text.Tri_Divider_WriteCounter,"ax",%progbits
+ 192              		.align	2
+ 193              		.global	Tri_Divider_WriteCounter
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.type	Tri_Divider_WriteCounter, %function
+ 197              	Tri_Divider_WriteCounter:
+ 198              	.LFB8:
+ 307:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 308:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 309:Generated_Source\PSoC5/Tri_Divider.c **** #endif  /* (!Tri_Divider_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 311:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 312:Generated_Source\PSoC5/Tri_Divider.c **** #if (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_WriteCounter
+ 315:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 10
+
+
+ 316:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 317:Generated_Source\PSoC5/Tri_Divider.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 319:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Tri_Divider.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 322:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 323:Generated_Source\PSoC5/Tri_Divider.c **** *  void 
+ 324:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 325:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_WriteCounter(uint16 counter) \
+ 327:Generated_Source\PSoC5/Tri_Divider.c ****                                    
+ 328:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 199              		.loc 1 328 0
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              	.LVL2:
+ 204 0000 10B5     		push	{r4, lr}
+ 205              		.cfi_def_cfa_offset 8
+ 206              		.cfi_offset 4, -8
+ 207              		.cfi_offset 14, -4
+ 208 0002 0446     		mov	r4, r0
+ 329:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Tri_Divider.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Tri_Divider.c ****         CYASSERT (0u == (Tri_Divider_GLOBAL_ENABLE & Tri_Divider_BLOCK_EN_MASK));
+ 209              		.loc 1 331 0
+ 210 0004 094B     		ldr	r3, .L22
+ 211 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 212 0008 13F0040F 		tst	r3, #4
+ 213 000c 02D0     		beq	.L20
+ 214              		.loc 1 331 0 is_stmt 0 discriminator 1
+ 215 000e 0020     		movs	r0, #0
+ 216              	.LVL3:
+ 217 0010 FFF7FEFF 		bl	CyHalt
+ 218              	.LVL4:
+ 219              	.L20:
+ 332:Generated_Source\PSoC5/Tri_Divider.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_ENABLE |= Tri_Divider_BLOCK_EN_MASK;
+ 220              		.loc 1 333 0 is_stmt 1
+ 221 0014 054B     		ldr	r3, .L22
+ 222 0016 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 223 0018 42F00402 		orr	r2, r2, #4
+ 224 001c 1A70     		strb	r2, [r3]
+ 334:Generated_Source\PSoC5/Tri_Divider.c ****         CY_SET_REG16(Tri_Divider_COUNTER_LSB_PTR, (uint16)counter);
+ 225              		.loc 1 334 0
+ 226 001e 044A     		ldr	r2, .L22+4
+ 227 0020 1480     		strh	r4, [r2]	@ movhi
+ 335:Generated_Source\PSoC5/Tri_Divider.c ****         Tri_Divider_GLOBAL_ENABLE &= ((uint8)(~Tri_Divider_BLOCK_EN_MASK));
+ 228              		.loc 1 335 0
+ 229 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 230 0024 02F0FB02 		and	r2, r2, #251
+ 231 0028 1A70     		strb	r2, [r3]
+ 232 002a 10BD     		pop	{r4, pc}
+ 233              	.L23:
+ 234              		.align	2
+ 235              	.L22:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 11
+
+
+ 236 002c A3430040 		.word	1073759139
+ 237 0030 1E4F0040 		.word	1073762078
+ 238              		.cfi_endproc
+ 239              	.LFE8:
+ 240              		.size	Tri_Divider_WriteCounter, .-Tri_Divider_WriteCounter
+ 241              		.section	.text.Tri_Divider_ReadCounter,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	Tri_Divider_ReadCounter
+ 244              		.thumb
+ 245              		.thumb_func
+ 246              		.type	Tri_Divider_ReadCounter, %function
+ 247              	Tri_Divider_ReadCounter:
+ 248              	.LFB9:
+ 336:Generated_Source\PSoC5/Tri_Divider.c ****     #else
+ 337:Generated_Source\PSoC5/Tri_Divider.c ****         CY_SET_REG16(Tri_Divider_COUNTER_LSB_PTR, counter);
+ 338:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 340:Generated_Source\PSoC5/Tri_Divider.c **** #endif /* (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 342:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 343:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_ReadCounter
+ 345:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 347:Generated_Source\PSoC5/Tri_Divider.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Tri_Divider.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 350:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Tri_Divider.c **** *  void:  
+ 352:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 353:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 354:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint16) The present value of the counter.
+ 355:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 356:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Tri_Divider.c **** uint16 Tri_Divider_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 249              		.loc 1 358 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/Tri_Divider.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Tri_Divider.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Tri_Divider.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Tri_Divider.c **** 		(void)CY_GET_REG16(Tri_Divider_COUNTER_LSB_PTR);
+ 254              		.loc 1 363 0
+ 255 0000 024B     		ldr	r3, .L25
+ 256 0002 1B88     		ldrh	r3, [r3]
+ 364:Generated_Source\PSoC5/Tri_Divider.c **** 	#else
+ 365:Generated_Source\PSoC5/Tri_Divider.c **** 		(void)CY_GET_REG8(Tri_Divider_COUNTER_LSB_PTR_8BIT);
+ 366:Generated_Source\PSoC5/Tri_Divider.c **** 	#endif/* (Tri_Divider_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Tri_Divider.c ****     
+ 368:Generated_Source\PSoC5/Tri_Divider.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/Tri_Divider.c ****         return ((uint16)CY_GET_REG16(Tri_Divider_STATICCOUNT_LSB_PTR));
+ 257              		.loc 1 370 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 12
+
+
+ 258 0004 024B     		ldr	r3, .L25+4
+ 259 0006 1888     		ldrh	r0, [r3]
+ 371:Generated_Source\PSoC5/Tri_Divider.c ****     #else
+ 372:Generated_Source\PSoC5/Tri_Divider.c ****         return (CY_GET_REG16(Tri_Divider_STATICCOUNT_LSB_PTR));
+ 373:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 260              		.loc 1 374 0
+ 261 0008 80B2     		uxth	r0, r0
+ 262 000a 7047     		bx	lr
+ 263              	.L26:
+ 264              		.align	2
+ 265              	.L25:
+ 266 000c 1E4F0040 		.word	1073762078
+ 267 0010 204F0040 		.word	1073762080
+ 268              		.cfi_endproc
+ 269              	.LFE9:
+ 270              		.size	Tri_Divider_ReadCounter, .-Tri_Divider_ReadCounter
+ 271              		.section	.text.Tri_Divider_ReadCapture,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	Tri_Divider_ReadCapture
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	Tri_Divider_ReadCapture, %function
+ 277              	Tri_Divider_ReadCapture:
+ 278              	.LFB10:
+ 375:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 376:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 377:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_ReadCapture
+ 379:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 381:Generated_Source\PSoC5/Tri_Divider.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 383:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 385:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 386:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 387:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint16) Present Capture value.
+ 388:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 389:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Tri_Divider.c **** uint16 Tri_Divider_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 279              		.loc 1 391 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Tri_Divider.c ****         return ((uint16)CY_GET_REG16(Tri_Divider_STATICCOUNT_LSB_PTR));
+ 284              		.loc 1 393 0
+ 285 0000 014B     		ldr	r3, .L28
+ 286 0002 1888     		ldrh	r0, [r3]
+ 394:Generated_Source\PSoC5/Tri_Divider.c ****     #else
+ 395:Generated_Source\PSoC5/Tri_Divider.c ****         return (CY_GET_REG16(Tri_Divider_STATICCOUNT_LSB_PTR));
+ 396:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 287              		.loc 1 397 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 13
+
+
+ 288 0004 80B2     		uxth	r0, r0
+ 289 0006 7047     		bx	lr
+ 290              	.L29:
+ 291              		.align	2
+ 292              	.L28:
+ 293 0008 204F0040 		.word	1073762080
+ 294              		.cfi_endproc
+ 295              	.LFE10:
+ 296              		.size	Tri_Divider_ReadCapture, .-Tri_Divider_ReadCapture
+ 297              		.section	.text.Tri_Divider_WritePeriod,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	Tri_Divider_WritePeriod
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	Tri_Divider_WritePeriod, %function
+ 303              	Tri_Divider_WritePeriod:
+ 304              	.LFB11:
+ 398:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 399:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 400:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_WritePeriod
+ 402:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 404:Generated_Source\PSoC5/Tri_Divider.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Tri_Divider.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 407:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Tri_Divider.c **** *  period: (uint16) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Tri_Divider.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 411:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 412:Generated_Source\PSoC5/Tri_Divider.c **** *  void
+ 413:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 414:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Tri_Divider.c **** void Tri_Divider_WritePeriod(uint16 period) 
+ 416:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 305              		.loc 1 416 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310              	.LVL5:
+ 417:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Tri_Divider.c ****         CY_SET_REG16(Tri_Divider_PERIOD_LSB_PTR,(uint16)period);
+ 311              		.loc 1 418 0
+ 312 0000 014B     		ldr	r3, .L31
+ 313 0002 1880     		strh	r0, [r3]	@ movhi
+ 314 0004 7047     		bx	lr
+ 315              	.L32:
+ 316 0006 00BF     		.align	2
+ 317              	.L31:
+ 318 0008 1C4F0040 		.word	1073762076
+ 319              		.cfi_endproc
+ 320              	.LFE11:
+ 321              		.size	Tri_Divider_WritePeriod, .-Tri_Divider_WritePeriod
+ 322              		.section	.text.Tri_Divider_Init,"ax",%progbits
+ 323              		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 14
+
+
+ 324              		.global	Tri_Divider_Init
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.type	Tri_Divider_Init, %function
+ 328              	Tri_Divider_Init:
+ 329              	.LFB0:
+  38:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!Tri_Divider_UsingFixedFunction && !Tri_Divider_ControlRegRemoved)
+ 330              		.loc 1 38 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334 0000 08B5     		push	{r3, lr}
+ 335              		.cfi_def_cfa_offset 8
+ 336              		.cfi_offset 3, -8
+ 337              		.cfi_offset 14, -4
+  50:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 338              		.loc 1 50 0
+ 339 0002 154A     		ldr	r2, .L35
+ 340 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 341 0006 03F00103 		and	r3, r3, #1
+ 342 000a 1370     		strb	r3, [r2]
+  57:Generated_Source\PSoC5/Tri_Divider.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+ 343              		.loc 1 57 0
+ 344 000c 0232     		adds	r2, r2, #2
+ 345 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 346 0010 03F0FC03 		and	r3, r3, #252
+ 347 0014 1370     		strb	r3, [r2]
+  66:Generated_Source\PSoC5/Tri_Divider.c ****             
+ 348              		.loc 1 66 0
+ 349 0016 013A     		subs	r2, r2, #1
+ 350 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 351 001a 43F00103 		orr	r3, r3, #1
+ 352 001e 1370     		strb	r3, [r2]
+  69:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 |= Tri_Divider_SYNC;     
+ 353              		.loc 1 69 0
+ 354 0020 0E4B     		ldr	r3, .L35+4
+ 355 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 356 0024 02F0CF02 		and	r2, r2, #207
+ 357 0028 1A70     		strb	r2, [r3]
+  70:Generated_Source\PSoC5/Tri_Divider.c ****                     
+ 358              		.loc 1 70 0
+ 359 002a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 360 002c 42F03002 		orr	r2, r2, #48
+ 361 0030 1A70     		strb	r2, [r3]
+  73:Generated_Source\PSoC5/Tri_Divider.c ****             Tri_Divider_RT1 |= Tri_Divider_SYNCDSI_EN;
+ 362              		.loc 1 73 0
+ 363 0032 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 364 0034 02F0F002 		and	r2, r2, #240
+ 365 0038 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 366              		.loc 1 74 0
+ 367 003a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 368 003c 42F00F02 		orr	r2, r2, #15
+ 369 0040 1A70     		strb	r2, [r3]
+ 100:Generated_Source\PSoC5/Tri_Divider.c ****         #if (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A)))
+ 370              		.loc 1 100 0
+ 371 0042 FF20     		movs	r0, #255
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 15
+
+
+ 372 0044 FFF7FEFF 		bl	Tri_Divider_WritePeriod
+ 373              	.LVL6:
+ 102:Generated_Source\PSoC5/Tri_Divider.c ****         #endif /* (!(Tri_Divider_UsingFixedFunction && (CY_PSOC5A))) */
+ 374              		.loc 1 102 0
+ 375 0048 0020     		movs	r0, #0
+ 376 004a FFF7FEFF 		bl	Tri_Divider_WriteCounter
+ 377              	.LVL7:
+ 104:Generated_Source\PSoC5/Tri_Divider.c ****         
+ 378              		.loc 1 104 0
+ 379 004e 0020     		movs	r0, #0
+ 380 0050 FFF7FEFF 		bl	Tri_Divider_SetInterruptMode
+ 381              	.LVL8:
+ 382 0054 08BD     		pop	{r3, pc}
+ 383              	.L36:
+ 384 0056 00BF     		.align	2
+ 385              	.L35:
+ 386 0058 184F0040 		.word	1073762072
+ 387 005c 234F0040 		.word	1073762083
+ 388              		.cfi_endproc
+ 389              	.LFE0:
+ 390              		.size	Tri_Divider_Init, .-Tri_Divider_Init
+ 391              		.section	.text.Tri_Divider_Start,"ax",%progbits
+ 392              		.align	2
+ 393              		.global	Tri_Divider_Start
+ 394              		.thumb
+ 395              		.thumb_func
+ 396              		.type	Tri_Divider_Start, %function
+ 397              	Tri_Divider_Start:
+ 398              	.LFB2:
+ 179:Generated_Source\PSoC5/Tri_Divider.c ****     if(Tri_Divider_initVar == 0u)
+ 399              		.loc 1 179 0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403 0000 08B5     		push	{r3, lr}
+ 404              		.cfi_def_cfa_offset 8
+ 405              		.cfi_offset 3, -8
+ 406              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/Tri_Divider.c ****     {
+ 407              		.loc 1 180 0
+ 408 0002 054B     		ldr	r3, .L40
+ 409 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 410 0006 23B9     		cbnz	r3, .L38
+ 182:Generated_Source\PSoC5/Tri_Divider.c ****         
+ 411              		.loc 1 182 0
+ 412 0008 FFF7FEFF 		bl	Tri_Divider_Init
+ 413              	.LVL9:
+ 184:Generated_Source\PSoC5/Tri_Divider.c ****     }
+ 414              		.loc 1 184 0
+ 415 000c 0122     		movs	r2, #1
+ 416 000e 024B     		ldr	r3, .L40
+ 417 0010 1A70     		strb	r2, [r3]
+ 418              	.L38:
+ 188:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 419              		.loc 1 188 0
+ 420 0012 FFF7FEFF 		bl	Tri_Divider_Enable
+ 421              	.LVL10:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 16
+
+
+ 422 0016 08BD     		pop	{r3, pc}
+ 423              	.L41:
+ 424              		.align	2
+ 425              	.L40:
+ 426 0018 00000000 		.word	.LANCHOR0
+ 427              		.cfi_endproc
+ 428              	.LFE2:
+ 429              		.size	Tri_Divider_Start, .-Tri_Divider_Start
+ 430              		.section	.text.Tri_Divider_ReadPeriod,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	Tri_Divider_ReadPeriod
+ 433              		.thumb
+ 434              		.thumb_func
+ 435              		.type	Tri_Divider_ReadPeriod, %function
+ 436              	Tri_Divider_ReadPeriod:
+ 437              	.LFB12:
+ 419:Generated_Source\PSoC5/Tri_Divider.c ****     #else
+ 420:Generated_Source\PSoC5/Tri_Divider.c ****         CY_SET_REG16(Tri_Divider_PERIOD_LSB_PTR, period);
+ 421:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 423:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 424:Generated_Source\PSoC5/Tri_Divider.c **** 
+ 425:Generated_Source\PSoC5/Tri_Divider.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Tri_Divider.c **** * Function Name: Tri_Divider_ReadPeriod
+ 427:Generated_Source\PSoC5/Tri_Divider.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Tri_Divider.c **** * Summary:
+ 429:Generated_Source\PSoC5/Tri_Divider.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 431:Generated_Source\PSoC5/Tri_Divider.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Tri_Divider.c **** *  void:  
+ 433:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 434:Generated_Source\PSoC5/Tri_Divider.c **** * Return: 
+ 435:Generated_Source\PSoC5/Tri_Divider.c **** *  (uint16) Present period value.
+ 436:Generated_Source\PSoC5/Tri_Divider.c **** *
+ 437:Generated_Source\PSoC5/Tri_Divider.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Tri_Divider.c **** uint16 Tri_Divider_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Tri_Divider.c **** {
+ 438              		.loc 1 439 0
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
+ 440:Generated_Source\PSoC5/Tri_Divider.c ****     #if(Tri_Divider_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Tri_Divider.c ****         return ((uint16)CY_GET_REG16(Tri_Divider_PERIOD_LSB_PTR));
+ 443              		.loc 1 441 0
+ 444 0000 014B     		ldr	r3, .L43
+ 445 0002 1888     		ldrh	r0, [r3]
+ 442:Generated_Source\PSoC5/Tri_Divider.c ****     #else
+ 443:Generated_Source\PSoC5/Tri_Divider.c ****         return (CY_GET_REG16(Tri_Divider_PERIOD_LSB_PTR));
+ 444:Generated_Source\PSoC5/Tri_Divider.c ****     #endif /* (Tri_Divider_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Tri_Divider.c **** }
+ 446              		.loc 1 445 0
+ 447 0004 80B2     		uxth	r0, r0
+ 448 0006 7047     		bx	lr
+ 449              	.L44:
+ 450              		.align	2
+ 451              	.L43:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 17
+
+
+ 452 0008 1C4F0040 		.word	1073762076
+ 453              		.cfi_endproc
+ 454              	.LFE12:
+ 455              		.size	Tri_Divider_ReadPeriod, .-Tri_Divider_ReadPeriod
+ 456              		.global	Tri_Divider_initVar
+ 457              		.bss
+ 458              		.set	.LANCHOR0,. + 0
+ 459              		.type	Tri_Divider_initVar, %object
+ 460              		.size	Tri_Divider_initVar, 1
+ 461              	Tri_Divider_initVar:
+ 462 0000 00       		.space	1
+ 463              		.text
+ 464              	.Letext0:
+ 465              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 466              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 467              		.section	.debug_info,"",%progbits
+ 468              	.Ldebug_info0:
+ 469 0000 83020000 		.4byte	0x283
+ 470 0004 0400     		.2byte	0x4
+ 471 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 472 000a 04       		.byte	0x4
+ 473 000b 01       		.uleb128 0x1
+ 474 000c 52010000 		.4byte	.LASF34
+ 475 0010 01       		.byte	0x1
+ 476 0011 2F000000 		.4byte	.LASF35
+ 477 0015 1C020000 		.4byte	.LASF36
+ 478 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 479 001d 00000000 		.4byte	0
+ 480 0021 00000000 		.4byte	.Ldebug_line0
+ 481 0025 02       		.uleb128 0x2
+ 482 0026 01       		.byte	0x1
+ 483 0027 06       		.byte	0x6
+ 484 0028 E9020000 		.4byte	.LASF0
+ 485 002c 02       		.uleb128 0x2
+ 486 002d 01       		.byte	0x1
+ 487 002e 08       		.byte	0x8
+ 488 002f DD000000 		.4byte	.LASF1
+ 489 0033 02       		.uleb128 0x2
+ 490 0034 02       		.byte	0x2
+ 491 0035 05       		.byte	0x5
+ 492 0036 A7020000 		.4byte	.LASF2
+ 493 003a 02       		.uleb128 0x2
+ 494 003b 02       		.byte	0x2
+ 495 003c 07       		.byte	0x7
+ 496 003d 54000000 		.4byte	.LASF3
+ 497 0041 02       		.uleb128 0x2
+ 498 0042 04       		.byte	0x4
+ 499 0043 05       		.byte	0x5
+ 500 0044 E0020000 		.4byte	.LASF4
+ 501 0048 02       		.uleb128 0x2
+ 502 0049 04       		.byte	0x4
+ 503 004a 07       		.byte	0x7
+ 504 004b F0000000 		.4byte	.LASF5
+ 505 004f 02       		.uleb128 0x2
+ 506 0050 08       		.byte	0x8
+ 507 0051 05       		.byte	0x5
+ 508 0052 73020000 		.4byte	.LASF6
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 18
+
+
+ 509 0056 02       		.uleb128 0x2
+ 510 0057 08       		.byte	0x8
+ 511 0058 07       		.byte	0x7
+ 512 0059 05020000 		.4byte	.LASF7
+ 513 005d 03       		.uleb128 0x3
+ 514 005e 04       		.byte	0x4
+ 515 005f 05       		.byte	0x5
+ 516 0060 696E7400 		.ascii	"int\000"
+ 517 0064 02       		.uleb128 0x2
+ 518 0065 04       		.byte	0x4
+ 519 0066 07       		.byte	0x7
+ 520 0067 F8010000 		.4byte	.LASF8
+ 521 006b 04       		.uleb128 0x4
+ 522 006c 02010000 		.4byte	.LASF9
+ 523 0070 02       		.byte	0x2
+ 524 0071 9201     		.2byte	0x192
+ 525 0073 2C000000 		.4byte	0x2c
+ 526 0077 04       		.uleb128 0x4
+ 527 0078 4B010000 		.4byte	.LASF10
+ 528 007c 02       		.byte	0x2
+ 529 007d 9301     		.2byte	0x193
+ 530 007f 3A000000 		.4byte	0x3a
+ 531 0083 02       		.uleb128 0x2
+ 532 0084 04       		.byte	0x4
+ 533 0085 04       		.byte	0x4
+ 534 0086 B6000000 		.4byte	.LASF11
+ 535 008a 02       		.uleb128 0x2
+ 536 008b 08       		.byte	0x8
+ 537 008c 04       		.byte	0x4
+ 538 008d 44010000 		.4byte	.LASF12
+ 539 0091 02       		.uleb128 0x2
+ 540 0092 01       		.byte	0x1
+ 541 0093 08       		.byte	0x8
+ 542 0094 81020000 		.4byte	.LASF13
+ 543 0098 04       		.uleb128 0x4
+ 544 0099 EB000000 		.4byte	.LASF14
+ 545 009d 02       		.byte	0x2
+ 546 009e 3C02     		.2byte	0x23c
+ 547 00a0 A4000000 		.4byte	0xa4
+ 548 00a4 05       		.uleb128 0x5
+ 549 00a5 6B000000 		.4byte	0x6b
+ 550 00a9 04       		.uleb128 0x4
+ 551 00aa 00000000 		.4byte	.LASF15
+ 552 00ae 02       		.byte	0x2
+ 553 00af 3D02     		.2byte	0x23d
+ 554 00b1 B5000000 		.4byte	0xb5
+ 555 00b5 05       		.uleb128 0x5
+ 556 00b6 77000000 		.4byte	0x77
+ 557 00ba 02       		.uleb128 0x2
+ 558 00bb 04       		.byte	0x4
+ 559 00bc 07       		.byte	0x7
+ 560 00bd 6A020000 		.4byte	.LASF16
+ 561 00c1 06       		.uleb128 0x6
+ 562 00c2 F5020000 		.4byte	.LASF17
+ 563 00c6 01       		.byte	0x1
+ 564 00c7 8F       		.byte	0x8f
+ 565 00c8 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 19
+
+
+ 566 00cc 28000000 		.4byte	.LFE1-.LFB1
+ 567 00d0 01       		.uleb128 0x1
+ 568 00d1 9C       		.byte	0x9c
+ 569 00d2 06       		.uleb128 0x6
+ 570 00d3 1F010000 		.4byte	.LASF18
+ 571 00d7 01       		.byte	0x1
+ 572 00d8 D0       		.byte	0xd0
+ 573 00d9 00000000 		.4byte	.LFB3
+ 574 00dd 28000000 		.4byte	.LFE3-.LFB3
+ 575 00e1 01       		.uleb128 0x1
+ 576 00e2 9C       		.byte	0x9c
+ 577 00e3 07       		.uleb128 0x7
+ 578 00e4 B1020000 		.4byte	.LASF21
+ 579 00e8 01       		.byte	0x1
+ 580 00e9 ED       		.byte	0xed
+ 581 00ea 00000000 		.4byte	.LFB4
+ 582 00ee 0C000000 		.4byte	.LFE4-.LFB4
+ 583 00f2 01       		.uleb128 0x1
+ 584 00f3 9C       		.byte	0x9c
+ 585 00f4 06010000 		.4byte	0x106
+ 586 00f8 08       		.uleb128 0x8
+ 587 00f9 10010000 		.4byte	.LASF23
+ 588 00fd 01       		.byte	0x1
+ 589 00fe ED       		.byte	0xed
+ 590 00ff 6B000000 		.4byte	0x6b
+ 591 0103 01       		.uleb128 0x1
+ 592 0104 50       		.byte	0x50
+ 593 0105 00       		.byte	0
+ 594 0106 09       		.uleb128 0x9
+ 595 0107 08030000 		.4byte	.LASF19
+ 596 010b 01       		.byte	0x1
+ 597 010c 0501     		.2byte	0x105
+ 598 010e 6B000000 		.4byte	0x6b
+ 599 0112 00000000 		.4byte	.LFB5
+ 600 0116 0C000000 		.4byte	.LFE5-.LFB5
+ 601 011a 01       		.uleb128 0x1
+ 602 011b 9C       		.byte	0x9c
+ 603 011c 09       		.uleb128 0x9
+ 604 011d 96000000 		.4byte	.LASF20
+ 605 0121 01       		.byte	0x1
+ 606 0122 1B01     		.2byte	0x11b
+ 607 0124 6B000000 		.4byte	0x6b
+ 608 0128 00000000 		.4byte	.LFB6
+ 609 012c 0C000000 		.4byte	.LFE6-.LFB6
+ 610 0130 01       		.uleb128 0x1
+ 611 0131 9C       		.byte	0x9c
+ 612 0132 0A       		.uleb128 0xa
+ 613 0133 86020000 		.4byte	.LASF22
+ 614 0137 01       		.byte	0x1
+ 615 0138 3001     		.2byte	0x130
+ 616 013a 00000000 		.4byte	.LFB7
+ 617 013e 0C000000 		.4byte	.LFE7-.LFB7
+ 618 0142 01       		.uleb128 0x1
+ 619 0143 9C       		.byte	0x9c
+ 620 0144 57010000 		.4byte	0x157
+ 621 0148 0B       		.uleb128 0xb
+ 622 0149 08010000 		.4byte	.LASF24
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 20
+
+
+ 623 014d 01       		.byte	0x1
+ 624 014e 3001     		.2byte	0x130
+ 625 0150 6B000000 		.4byte	0x6b
+ 626 0154 01       		.uleb128 0x1
+ 627 0155 50       		.byte	0x50
+ 628 0156 00       		.byte	0
+ 629 0157 0A       		.uleb128 0xa
+ 630 0158 C4000000 		.4byte	.LASF25
+ 631 015c 01       		.byte	0x1
+ 632 015d 4601     		.2byte	0x146
+ 633 015f 00000000 		.4byte	.LFB8
+ 634 0163 34000000 		.4byte	.LFE8-.LFB8
+ 635 0167 01       		.uleb128 0x1
+ 636 0168 9C       		.byte	0x9c
+ 637 0169 8D010000 		.4byte	0x18d
+ 638 016d 0C       		.uleb128 0xc
+ 639 016e BC000000 		.4byte	.LASF26
+ 640 0172 01       		.byte	0x1
+ 641 0173 4601     		.2byte	0x146
+ 642 0175 77000000 		.4byte	0x77
+ 643 0179 00000000 		.4byte	.LLST0
+ 644 017d 0D       		.uleb128 0xd
+ 645 017e 14000000 		.4byte	.LVL4
+ 646 0182 79020000 		.4byte	0x279
+ 647 0186 0E       		.uleb128 0xe
+ 648 0187 01       		.uleb128 0x1
+ 649 0188 50       		.byte	0x50
+ 650 0189 01       		.uleb128 0x1
+ 651 018a 30       		.byte	0x30
+ 652 018b 00       		.byte	0
+ 653 018c 00       		.byte	0
+ 654 018d 09       		.uleb128 0x9
+ 655 018e 7E000000 		.4byte	.LASF27
+ 656 0192 01       		.byte	0x1
+ 657 0193 6501     		.2byte	0x165
+ 658 0195 77000000 		.4byte	0x77
+ 659 0199 00000000 		.4byte	.LFB9
+ 660 019d 14000000 		.4byte	.LFE9-.LFB9
+ 661 01a1 01       		.uleb128 0x1
+ 662 01a2 9C       		.byte	0x9c
+ 663 01a3 09       		.uleb128 0x9
+ 664 01a4 06000000 		.4byte	.LASF28
+ 665 01a8 01       		.byte	0x1
+ 666 01a9 8601     		.2byte	0x186
+ 667 01ab 77000000 		.4byte	0x77
+ 668 01af 00000000 		.4byte	.LFB10
+ 669 01b3 0C000000 		.4byte	.LFE10-.LFB10
+ 670 01b7 01       		.uleb128 0x1
+ 671 01b8 9C       		.byte	0x9c
+ 672 01b9 0A       		.uleb128 0xa
+ 673 01ba E0010000 		.4byte	.LASF29
+ 674 01be 01       		.byte	0x1
+ 675 01bf 9F01     		.2byte	0x19f
+ 676 01c1 00000000 		.4byte	.LFB11
+ 677 01c5 0C000000 		.4byte	.LFE11-.LFB11
+ 678 01c9 01       		.uleb128 0x1
+ 679 01ca 9C       		.byte	0x9c
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 21
+
+
+ 680 01cb DE010000 		.4byte	0x1de
+ 681 01cf 0B       		.uleb128 0xb
+ 682 01d0 5C020000 		.4byte	.LASF30
+ 683 01d4 01       		.byte	0x1
+ 684 01d5 9F01     		.2byte	0x19f
+ 685 01d7 77000000 		.4byte	0x77
+ 686 01db 01       		.uleb128 0x1
+ 687 01dc 50       		.byte	0x50
+ 688 01dd 00       		.byte	0
+ 689 01de 07       		.uleb128 0x7
+ 690 01df 1E000000 		.4byte	.LASF31
+ 691 01e3 01       		.byte	0x1
+ 692 01e4 25       		.byte	0x25
+ 693 01e5 00000000 		.4byte	.LFB0
+ 694 01e9 60000000 		.4byte	.LFE0-.LFB0
+ 695 01ed 01       		.uleb128 0x1
+ 696 01ee 9C       		.byte	0x9c
+ 697 01ef 2A020000 		.4byte	0x22a
+ 698 01f3 0F       		.uleb128 0xf
+ 699 01f4 48000000 		.4byte	.LVL6
+ 700 01f8 B9010000 		.4byte	0x1b9
+ 701 01fc 07020000 		.4byte	0x207
+ 702 0200 0E       		.uleb128 0xe
+ 703 0201 01       		.uleb128 0x1
+ 704 0202 50       		.byte	0x50
+ 705 0203 02       		.uleb128 0x2
+ 706 0204 08       		.byte	0x8
+ 707 0205 FF       		.byte	0xff
+ 708 0206 00       		.byte	0
+ 709 0207 0F       		.uleb128 0xf
+ 710 0208 4E000000 		.4byte	.LVL7
+ 711 020c 57010000 		.4byte	0x157
+ 712 0210 1A020000 		.4byte	0x21a
+ 713 0214 0E       		.uleb128 0xe
+ 714 0215 01       		.uleb128 0x1
+ 715 0216 50       		.byte	0x50
+ 716 0217 01       		.uleb128 0x1
+ 717 0218 30       		.byte	0x30
+ 718 0219 00       		.byte	0
+ 719 021a 0D       		.uleb128 0xd
+ 720 021b 54000000 		.4byte	.LVL8
+ 721 021f E3000000 		.4byte	0xe3
+ 722 0223 0E       		.uleb128 0xe
+ 723 0224 01       		.uleb128 0x1
+ 724 0225 50       		.byte	0x50
+ 725 0226 01       		.uleb128 0x1
+ 726 0227 30       		.byte	0x30
+ 727 0228 00       		.byte	0
+ 728 0229 00       		.byte	0
+ 729 022a 07       		.uleb128 0x7
+ 730 022b CE020000 		.4byte	.LASF32
+ 731 022f 01       		.byte	0x1
+ 732 0230 B2       		.byte	0xb2
+ 733 0231 00000000 		.4byte	.LFB2
+ 734 0235 1C000000 		.4byte	.LFE2-.LFB2
+ 735 0239 01       		.uleb128 0x1
+ 736 023a 9C       		.byte	0x9c
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 22
+
+
+ 737 023b 52020000 		.4byte	0x252
+ 738 023f 10       		.uleb128 0x10
+ 739 0240 0C000000 		.4byte	.LVL9
+ 740 0244 DE010000 		.4byte	0x1de
+ 741 0248 10       		.uleb128 0x10
+ 742 0249 16000000 		.4byte	.LVL10
+ 743 024d C1000000 		.4byte	0xc1
+ 744 0251 00       		.byte	0
+ 745 0252 09       		.uleb128 0x9
+ 746 0253 67000000 		.4byte	.LASF33
+ 747 0257 01       		.byte	0x1
+ 748 0258 B601     		.2byte	0x1b6
+ 749 025a 77000000 		.4byte	0x77
+ 750 025e 00000000 		.4byte	.LFB12
+ 751 0262 0C000000 		.4byte	.LFE12-.LFB12
+ 752 0266 01       		.uleb128 0x1
+ 753 0267 9C       		.byte	0x9c
+ 754 0268 11       		.uleb128 0x11
+ 755 0269 30010000 		.4byte	.LASF37
+ 756 026d 01       		.byte	0x1
+ 757 026e 15       		.byte	0x15
+ 758 026f 6B000000 		.4byte	0x6b
+ 759 0273 05       		.uleb128 0x5
+ 760 0274 03       		.byte	0x3
+ 761 0275 00000000 		.4byte	Tri_Divider_initVar
+ 762 0279 12       		.uleb128 0x12
+ 763 027a 63020000 		.4byte	.LASF38
+ 764 027e 03       		.byte	0x3
+ 765 027f 7F       		.byte	0x7f
+ 766 0280 13       		.uleb128 0x13
+ 767 0281 6B000000 		.4byte	0x6b
+ 768 0285 00       		.byte	0
+ 769 0286 00       		.byte	0
+ 770              		.section	.debug_abbrev,"",%progbits
+ 771              	.Ldebug_abbrev0:
+ 772 0000 01       		.uleb128 0x1
+ 773 0001 11       		.uleb128 0x11
+ 774 0002 01       		.byte	0x1
+ 775 0003 25       		.uleb128 0x25
+ 776 0004 0E       		.uleb128 0xe
+ 777 0005 13       		.uleb128 0x13
+ 778 0006 0B       		.uleb128 0xb
+ 779 0007 03       		.uleb128 0x3
+ 780 0008 0E       		.uleb128 0xe
+ 781 0009 1B       		.uleb128 0x1b
+ 782 000a 0E       		.uleb128 0xe
+ 783 000b 55       		.uleb128 0x55
+ 784 000c 17       		.uleb128 0x17
+ 785 000d 11       		.uleb128 0x11
+ 786 000e 01       		.uleb128 0x1
+ 787 000f 10       		.uleb128 0x10
+ 788 0010 17       		.uleb128 0x17
+ 789 0011 00       		.byte	0
+ 790 0012 00       		.byte	0
+ 791 0013 02       		.uleb128 0x2
+ 792 0014 24       		.uleb128 0x24
+ 793 0015 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 23
+
+
+ 794 0016 0B       		.uleb128 0xb
+ 795 0017 0B       		.uleb128 0xb
+ 796 0018 3E       		.uleb128 0x3e
+ 797 0019 0B       		.uleb128 0xb
+ 798 001a 03       		.uleb128 0x3
+ 799 001b 0E       		.uleb128 0xe
+ 800 001c 00       		.byte	0
+ 801 001d 00       		.byte	0
+ 802 001e 03       		.uleb128 0x3
+ 803 001f 24       		.uleb128 0x24
+ 804 0020 00       		.byte	0
+ 805 0021 0B       		.uleb128 0xb
+ 806 0022 0B       		.uleb128 0xb
+ 807 0023 3E       		.uleb128 0x3e
+ 808 0024 0B       		.uleb128 0xb
+ 809 0025 03       		.uleb128 0x3
+ 810 0026 08       		.uleb128 0x8
+ 811 0027 00       		.byte	0
+ 812 0028 00       		.byte	0
+ 813 0029 04       		.uleb128 0x4
+ 814 002a 16       		.uleb128 0x16
+ 815 002b 00       		.byte	0
+ 816 002c 03       		.uleb128 0x3
+ 817 002d 0E       		.uleb128 0xe
+ 818 002e 3A       		.uleb128 0x3a
+ 819 002f 0B       		.uleb128 0xb
+ 820 0030 3B       		.uleb128 0x3b
+ 821 0031 05       		.uleb128 0x5
+ 822 0032 49       		.uleb128 0x49
+ 823 0033 13       		.uleb128 0x13
+ 824 0034 00       		.byte	0
+ 825 0035 00       		.byte	0
+ 826 0036 05       		.uleb128 0x5
+ 827 0037 35       		.uleb128 0x35
+ 828 0038 00       		.byte	0
+ 829 0039 49       		.uleb128 0x49
+ 830 003a 13       		.uleb128 0x13
+ 831 003b 00       		.byte	0
+ 832 003c 00       		.byte	0
+ 833 003d 06       		.uleb128 0x6
+ 834 003e 2E       		.uleb128 0x2e
+ 835 003f 00       		.byte	0
+ 836 0040 3F       		.uleb128 0x3f
+ 837 0041 19       		.uleb128 0x19
+ 838 0042 03       		.uleb128 0x3
+ 839 0043 0E       		.uleb128 0xe
+ 840 0044 3A       		.uleb128 0x3a
+ 841 0045 0B       		.uleb128 0xb
+ 842 0046 3B       		.uleb128 0x3b
+ 843 0047 0B       		.uleb128 0xb
+ 844 0048 27       		.uleb128 0x27
+ 845 0049 19       		.uleb128 0x19
+ 846 004a 11       		.uleb128 0x11
+ 847 004b 01       		.uleb128 0x1
+ 848 004c 12       		.uleb128 0x12
+ 849 004d 06       		.uleb128 0x6
+ 850 004e 40       		.uleb128 0x40
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 24
+
+
+ 851 004f 18       		.uleb128 0x18
+ 852 0050 9742     		.uleb128 0x2117
+ 853 0052 19       		.uleb128 0x19
+ 854 0053 00       		.byte	0
+ 855 0054 00       		.byte	0
+ 856 0055 07       		.uleb128 0x7
+ 857 0056 2E       		.uleb128 0x2e
+ 858 0057 01       		.byte	0x1
+ 859 0058 3F       		.uleb128 0x3f
+ 860 0059 19       		.uleb128 0x19
+ 861 005a 03       		.uleb128 0x3
+ 862 005b 0E       		.uleb128 0xe
+ 863 005c 3A       		.uleb128 0x3a
+ 864 005d 0B       		.uleb128 0xb
+ 865 005e 3B       		.uleb128 0x3b
+ 866 005f 0B       		.uleb128 0xb
+ 867 0060 27       		.uleb128 0x27
+ 868 0061 19       		.uleb128 0x19
+ 869 0062 11       		.uleb128 0x11
+ 870 0063 01       		.uleb128 0x1
+ 871 0064 12       		.uleb128 0x12
+ 872 0065 06       		.uleb128 0x6
+ 873 0066 40       		.uleb128 0x40
+ 874 0067 18       		.uleb128 0x18
+ 875 0068 9742     		.uleb128 0x2117
+ 876 006a 19       		.uleb128 0x19
+ 877 006b 01       		.uleb128 0x1
+ 878 006c 13       		.uleb128 0x13
+ 879 006d 00       		.byte	0
+ 880 006e 00       		.byte	0
+ 881 006f 08       		.uleb128 0x8
+ 882 0070 05       		.uleb128 0x5
+ 883 0071 00       		.byte	0
+ 884 0072 03       		.uleb128 0x3
+ 885 0073 0E       		.uleb128 0xe
+ 886 0074 3A       		.uleb128 0x3a
+ 887 0075 0B       		.uleb128 0xb
+ 888 0076 3B       		.uleb128 0x3b
+ 889 0077 0B       		.uleb128 0xb
+ 890 0078 49       		.uleb128 0x49
+ 891 0079 13       		.uleb128 0x13
+ 892 007a 02       		.uleb128 0x2
+ 893 007b 18       		.uleb128 0x18
+ 894 007c 00       		.byte	0
+ 895 007d 00       		.byte	0
+ 896 007e 09       		.uleb128 0x9
+ 897 007f 2E       		.uleb128 0x2e
+ 898 0080 00       		.byte	0
+ 899 0081 3F       		.uleb128 0x3f
+ 900 0082 19       		.uleb128 0x19
+ 901 0083 03       		.uleb128 0x3
+ 902 0084 0E       		.uleb128 0xe
+ 903 0085 3A       		.uleb128 0x3a
+ 904 0086 0B       		.uleb128 0xb
+ 905 0087 3B       		.uleb128 0x3b
+ 906 0088 05       		.uleb128 0x5
+ 907 0089 27       		.uleb128 0x27
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 25
+
+
+ 908 008a 19       		.uleb128 0x19
+ 909 008b 49       		.uleb128 0x49
+ 910 008c 13       		.uleb128 0x13
+ 911 008d 11       		.uleb128 0x11
+ 912 008e 01       		.uleb128 0x1
+ 913 008f 12       		.uleb128 0x12
+ 914 0090 06       		.uleb128 0x6
+ 915 0091 40       		.uleb128 0x40
+ 916 0092 18       		.uleb128 0x18
+ 917 0093 9742     		.uleb128 0x2117
+ 918 0095 19       		.uleb128 0x19
+ 919 0096 00       		.byte	0
+ 920 0097 00       		.byte	0
+ 921 0098 0A       		.uleb128 0xa
+ 922 0099 2E       		.uleb128 0x2e
+ 923 009a 01       		.byte	0x1
+ 924 009b 3F       		.uleb128 0x3f
+ 925 009c 19       		.uleb128 0x19
+ 926 009d 03       		.uleb128 0x3
+ 927 009e 0E       		.uleb128 0xe
+ 928 009f 3A       		.uleb128 0x3a
+ 929 00a0 0B       		.uleb128 0xb
+ 930 00a1 3B       		.uleb128 0x3b
+ 931 00a2 05       		.uleb128 0x5
+ 932 00a3 27       		.uleb128 0x27
+ 933 00a4 19       		.uleb128 0x19
+ 934 00a5 11       		.uleb128 0x11
+ 935 00a6 01       		.uleb128 0x1
+ 936 00a7 12       		.uleb128 0x12
+ 937 00a8 06       		.uleb128 0x6
+ 938 00a9 40       		.uleb128 0x40
+ 939 00aa 18       		.uleb128 0x18
+ 940 00ab 9742     		.uleb128 0x2117
+ 941 00ad 19       		.uleb128 0x19
+ 942 00ae 01       		.uleb128 0x1
+ 943 00af 13       		.uleb128 0x13
+ 944 00b0 00       		.byte	0
+ 945 00b1 00       		.byte	0
+ 946 00b2 0B       		.uleb128 0xb
+ 947 00b3 05       		.uleb128 0x5
+ 948 00b4 00       		.byte	0
+ 949 00b5 03       		.uleb128 0x3
+ 950 00b6 0E       		.uleb128 0xe
+ 951 00b7 3A       		.uleb128 0x3a
+ 952 00b8 0B       		.uleb128 0xb
+ 953 00b9 3B       		.uleb128 0x3b
+ 954 00ba 05       		.uleb128 0x5
+ 955 00bb 49       		.uleb128 0x49
+ 956 00bc 13       		.uleb128 0x13
+ 957 00bd 02       		.uleb128 0x2
+ 958 00be 18       		.uleb128 0x18
+ 959 00bf 00       		.byte	0
+ 960 00c0 00       		.byte	0
+ 961 00c1 0C       		.uleb128 0xc
+ 962 00c2 05       		.uleb128 0x5
+ 963 00c3 00       		.byte	0
+ 964 00c4 03       		.uleb128 0x3
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 26
+
+
+ 965 00c5 0E       		.uleb128 0xe
+ 966 00c6 3A       		.uleb128 0x3a
+ 967 00c7 0B       		.uleb128 0xb
+ 968 00c8 3B       		.uleb128 0x3b
+ 969 00c9 05       		.uleb128 0x5
+ 970 00ca 49       		.uleb128 0x49
+ 971 00cb 13       		.uleb128 0x13
+ 972 00cc 02       		.uleb128 0x2
+ 973 00cd 17       		.uleb128 0x17
+ 974 00ce 00       		.byte	0
+ 975 00cf 00       		.byte	0
+ 976 00d0 0D       		.uleb128 0xd
+ 977 00d1 898201   		.uleb128 0x4109
+ 978 00d4 01       		.byte	0x1
+ 979 00d5 11       		.uleb128 0x11
+ 980 00d6 01       		.uleb128 0x1
+ 981 00d7 31       		.uleb128 0x31
+ 982 00d8 13       		.uleb128 0x13
+ 983 00d9 00       		.byte	0
+ 984 00da 00       		.byte	0
+ 985 00db 0E       		.uleb128 0xe
+ 986 00dc 8A8201   		.uleb128 0x410a
+ 987 00df 00       		.byte	0
+ 988 00e0 02       		.uleb128 0x2
+ 989 00e1 18       		.uleb128 0x18
+ 990 00e2 9142     		.uleb128 0x2111
+ 991 00e4 18       		.uleb128 0x18
+ 992 00e5 00       		.byte	0
+ 993 00e6 00       		.byte	0
+ 994 00e7 0F       		.uleb128 0xf
+ 995 00e8 898201   		.uleb128 0x4109
+ 996 00eb 01       		.byte	0x1
+ 997 00ec 11       		.uleb128 0x11
+ 998 00ed 01       		.uleb128 0x1
+ 999 00ee 31       		.uleb128 0x31
+ 1000 00ef 13       		.uleb128 0x13
+ 1001 00f0 01       		.uleb128 0x1
+ 1002 00f1 13       		.uleb128 0x13
+ 1003 00f2 00       		.byte	0
+ 1004 00f3 00       		.byte	0
+ 1005 00f4 10       		.uleb128 0x10
+ 1006 00f5 898201   		.uleb128 0x4109
+ 1007 00f8 00       		.byte	0
+ 1008 00f9 11       		.uleb128 0x11
+ 1009 00fa 01       		.uleb128 0x1
+ 1010 00fb 31       		.uleb128 0x31
+ 1011 00fc 13       		.uleb128 0x13
+ 1012 00fd 00       		.byte	0
+ 1013 00fe 00       		.byte	0
+ 1014 00ff 11       		.uleb128 0x11
+ 1015 0100 34       		.uleb128 0x34
+ 1016 0101 00       		.byte	0
+ 1017 0102 03       		.uleb128 0x3
+ 1018 0103 0E       		.uleb128 0xe
+ 1019 0104 3A       		.uleb128 0x3a
+ 1020 0105 0B       		.uleb128 0xb
+ 1021 0106 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 27
+
+
+ 1022 0107 0B       		.uleb128 0xb
+ 1023 0108 49       		.uleb128 0x49
+ 1024 0109 13       		.uleb128 0x13
+ 1025 010a 3F       		.uleb128 0x3f
+ 1026 010b 19       		.uleb128 0x19
+ 1027 010c 02       		.uleb128 0x2
+ 1028 010d 18       		.uleb128 0x18
+ 1029 010e 00       		.byte	0
+ 1030 010f 00       		.byte	0
+ 1031 0110 12       		.uleb128 0x12
+ 1032 0111 2E       		.uleb128 0x2e
+ 1033 0112 01       		.byte	0x1
+ 1034 0113 3F       		.uleb128 0x3f
+ 1035 0114 19       		.uleb128 0x19
+ 1036 0115 03       		.uleb128 0x3
+ 1037 0116 0E       		.uleb128 0xe
+ 1038 0117 3A       		.uleb128 0x3a
+ 1039 0118 0B       		.uleb128 0xb
+ 1040 0119 3B       		.uleb128 0x3b
+ 1041 011a 0B       		.uleb128 0xb
+ 1042 011b 27       		.uleb128 0x27
+ 1043 011c 19       		.uleb128 0x19
+ 1044 011d 3C       		.uleb128 0x3c
+ 1045 011e 19       		.uleb128 0x19
+ 1046 011f 00       		.byte	0
+ 1047 0120 00       		.byte	0
+ 1048 0121 13       		.uleb128 0x13
+ 1049 0122 05       		.uleb128 0x5
+ 1050 0123 00       		.byte	0
+ 1051 0124 49       		.uleb128 0x49
+ 1052 0125 13       		.uleb128 0x13
+ 1053 0126 00       		.byte	0
+ 1054 0127 00       		.byte	0
+ 1055 0128 00       		.byte	0
+ 1056              		.section	.debug_loc,"",%progbits
+ 1057              	.Ldebug_loc0:
+ 1058              	.LLST0:
+ 1059 0000 00000000 		.4byte	.LVL2
+ 1060 0004 10000000 		.4byte	.LVL3
+ 1061 0008 0100     		.2byte	0x1
+ 1062 000a 50       		.byte	0x50
+ 1063 000b 10000000 		.4byte	.LVL3
+ 1064 000f 34000000 		.4byte	.LFE8
+ 1065 0013 0400     		.2byte	0x4
+ 1066 0015 F3       		.byte	0xf3
+ 1067 0016 01       		.uleb128 0x1
+ 1068 0017 50       		.byte	0x50
+ 1069 0018 9F       		.byte	0x9f
+ 1070 0019 00000000 		.4byte	0
+ 1071 001d 00000000 		.4byte	0
+ 1072              		.section	.debug_aranges,"",%progbits
+ 1073 0000 7C000000 		.4byte	0x7c
+ 1074 0004 0200     		.2byte	0x2
+ 1075 0006 00000000 		.4byte	.Ldebug_info0
+ 1076 000a 04       		.byte	0x4
+ 1077 000b 00       		.byte	0
+ 1078 000c 0000     		.2byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 28
+
+
+ 1079 000e 0000     		.2byte	0
+ 1080 0010 00000000 		.4byte	.LFB1
+ 1081 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1082 0018 00000000 		.4byte	.LFB3
+ 1083 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1084 0020 00000000 		.4byte	.LFB4
+ 1085 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1086 0028 00000000 		.4byte	.LFB5
+ 1087 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1088 0030 00000000 		.4byte	.LFB6
+ 1089 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1090 0038 00000000 		.4byte	.LFB7
+ 1091 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1092 0040 00000000 		.4byte	.LFB8
+ 1093 0044 34000000 		.4byte	.LFE8-.LFB8
+ 1094 0048 00000000 		.4byte	.LFB9
+ 1095 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1096 0050 00000000 		.4byte	.LFB10
+ 1097 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1098 0058 00000000 		.4byte	.LFB11
+ 1099 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1100 0060 00000000 		.4byte	.LFB0
+ 1101 0064 60000000 		.4byte	.LFE0-.LFB0
+ 1102 0068 00000000 		.4byte	.LFB2
+ 1103 006c 1C000000 		.4byte	.LFE2-.LFB2
+ 1104 0070 00000000 		.4byte	.LFB12
+ 1105 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1106 0078 00000000 		.4byte	0
+ 1107 007c 00000000 		.4byte	0
+ 1108              		.section	.debug_ranges,"",%progbits
+ 1109              	.Ldebug_ranges0:
+ 1110 0000 00000000 		.4byte	.LFB1
+ 1111 0004 28000000 		.4byte	.LFE1
+ 1112 0008 00000000 		.4byte	.LFB3
+ 1113 000c 28000000 		.4byte	.LFE3
+ 1114 0010 00000000 		.4byte	.LFB4
+ 1115 0014 0C000000 		.4byte	.LFE4
+ 1116 0018 00000000 		.4byte	.LFB5
+ 1117 001c 0C000000 		.4byte	.LFE5
+ 1118 0020 00000000 		.4byte	.LFB6
+ 1119 0024 0C000000 		.4byte	.LFE6
+ 1120 0028 00000000 		.4byte	.LFB7
+ 1121 002c 0C000000 		.4byte	.LFE7
+ 1122 0030 00000000 		.4byte	.LFB8
+ 1123 0034 34000000 		.4byte	.LFE8
+ 1124 0038 00000000 		.4byte	.LFB9
+ 1125 003c 14000000 		.4byte	.LFE9
+ 1126 0040 00000000 		.4byte	.LFB10
+ 1127 0044 0C000000 		.4byte	.LFE10
+ 1128 0048 00000000 		.4byte	.LFB11
+ 1129 004c 0C000000 		.4byte	.LFE11
+ 1130 0050 00000000 		.4byte	.LFB0
+ 1131 0054 60000000 		.4byte	.LFE0
+ 1132 0058 00000000 		.4byte	.LFB2
+ 1133 005c 1C000000 		.4byte	.LFE2
+ 1134 0060 00000000 		.4byte	.LFB12
+ 1135 0064 0C000000 		.4byte	.LFE12
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 29
+
+
+ 1136 0068 00000000 		.4byte	0
+ 1137 006c 00000000 		.4byte	0
+ 1138              		.section	.debug_line,"",%progbits
+ 1139              	.Ldebug_line0:
+ 1140 0000 5B010000 		.section	.debug_str,"MS",%progbits,1
+ 1140      02005300 
+ 1140      00000201 
+ 1140      FB0E0D00 
+ 1140      01010101 
+ 1141              	.LASF15:
+ 1142 0000 72656731 		.ascii	"reg16\000"
+ 1142      3600
+ 1143              	.LASF28:
+ 1144 0006 5472695F 		.ascii	"Tri_Divider_ReadCapture\000"
+ 1144      44697669 
+ 1144      6465725F 
+ 1144      52656164 
+ 1144      43617074 
+ 1145              	.LASF31:
+ 1146 001e 5472695F 		.ascii	"Tri_Divider_Init\000"
+ 1146      44697669 
+ 1146      6465725F 
+ 1146      496E6974 
+ 1146      00
+ 1147              	.LASF35:
+ 1148 002f 47656E65 		.ascii	"Generated_Source\\PSoC5\\Tri_Divider.c\000"
+ 1148      72617465 
+ 1148      645F536F 
+ 1148      75726365 
+ 1148      5C50536F 
+ 1149              	.LASF3:
+ 1150 0054 73686F72 		.ascii	"short unsigned int\000"
+ 1150      7420756E 
+ 1150      7369676E 
+ 1150      65642069 
+ 1150      6E7400
+ 1151              	.LASF33:
+ 1152 0067 5472695F 		.ascii	"Tri_Divider_ReadPeriod\000"
+ 1152      44697669 
+ 1152      6465725F 
+ 1152      52656164 
+ 1152      50657269 
+ 1153              	.LASF27:
+ 1154 007e 5472695F 		.ascii	"Tri_Divider_ReadCounter\000"
+ 1154      44697669 
+ 1154      6465725F 
+ 1154      52656164 
+ 1154      436F756E 
+ 1155              	.LASF20:
+ 1156 0096 5472695F 		.ascii	"Tri_Divider_ReadControlRegister\000"
+ 1156      44697669 
+ 1156      6465725F 
+ 1156      52656164 
+ 1156      436F6E74 
+ 1157              	.LASF11:
+ 1158 00b6 666C6F61 		.ascii	"float\000"
+ 1158      7400
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 30
+
+
+ 1159              	.LASF26:
+ 1160 00bc 636F756E 		.ascii	"counter\000"
+ 1160      74657200 
+ 1161              	.LASF25:
+ 1162 00c4 5472695F 		.ascii	"Tri_Divider_WriteCounter\000"
+ 1162      44697669 
+ 1162      6465725F 
+ 1162      57726974 
+ 1162      65436F75 
+ 1163              	.LASF1:
+ 1164 00dd 756E7369 		.ascii	"unsigned char\000"
+ 1164      676E6564 
+ 1164      20636861 
+ 1164      7200
+ 1165              	.LASF14:
+ 1166 00eb 72656738 		.ascii	"reg8\000"
+ 1166      00
+ 1167              	.LASF5:
+ 1168 00f0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1168      20756E73 
+ 1168      69676E65 
+ 1168      6420696E 
+ 1168      7400
+ 1169              	.LASF9:
+ 1170 0102 75696E74 		.ascii	"uint8\000"
+ 1170      3800
+ 1171              	.LASF24:
+ 1172 0108 636F6E74 		.ascii	"control\000"
+ 1172      726F6C00 
+ 1173              	.LASF23:
+ 1174 0110 696E7465 		.ascii	"interruptsMask\000"
+ 1174      72727570 
+ 1174      74734D61 
+ 1174      736B00
+ 1175              	.LASF18:
+ 1176 011f 5472695F 		.ascii	"Tri_Divider_Stop\000"
+ 1176      44697669 
+ 1176      6465725F 
+ 1176      53746F70 
+ 1176      00
+ 1177              	.LASF37:
+ 1178 0130 5472695F 		.ascii	"Tri_Divider_initVar\000"
+ 1178      44697669 
+ 1178      6465725F 
+ 1178      696E6974 
+ 1178      56617200 
+ 1179              	.LASF12:
+ 1180 0144 646F7562 		.ascii	"double\000"
+ 1180      6C6500
+ 1181              	.LASF10:
+ 1182 014b 75696E74 		.ascii	"uint16\000"
+ 1182      313600
+ 1183              	.LASF34:
+ 1184 0152 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1184      4320342E 
+ 1184      392E3320 
+ 1184      32303135 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 31
+
+
+ 1184      30333033 
+ 1185 0185 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1185      20726576 
+ 1185      6973696F 
+ 1185      6E203232 
+ 1185      31323230 
+ 1186 01b8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1186      66756E63 
+ 1186      74696F6E 
+ 1186      2D736563 
+ 1186      74696F6E 
+ 1187              	.LASF29:
+ 1188 01e0 5472695F 		.ascii	"Tri_Divider_WritePeriod\000"
+ 1188      44697669 
+ 1188      6465725F 
+ 1188      57726974 
+ 1188      65506572 
+ 1189              	.LASF8:
+ 1190 01f8 756E7369 		.ascii	"unsigned int\000"
+ 1190      676E6564 
+ 1190      20696E74 
+ 1190      00
+ 1191              	.LASF7:
+ 1192 0205 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1192      206C6F6E 
+ 1192      6720756E 
+ 1192      7369676E 
+ 1192      65642069 
+ 1193              	.LASF36:
+ 1194 021c 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 1194      73657273 
+ 1194      5C323134 
+ 1194      30313635 
+ 1194      38365C44 
+ 1195 024a 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 1195      41505532 
+ 1195      4130332E 
+ 1195      63796473 
+ 1195      6E00
+ 1196              	.LASF30:
+ 1197 025c 70657269 		.ascii	"period\000"
+ 1197      6F6400
+ 1198              	.LASF38:
+ 1199 0263 43794861 		.ascii	"CyHalt\000"
+ 1199      6C7400
+ 1200              	.LASF16:
+ 1201 026a 73697A65 		.ascii	"sizetype\000"
+ 1201      74797065 
+ 1201      00
+ 1202              	.LASF6:
+ 1203 0273 6C6F6E67 		.ascii	"long long int\000"
+ 1203      206C6F6E 
+ 1203      6720696E 
+ 1203      7400
+ 1204              	.LASF13:
+ 1205 0281 63686172 		.ascii	"char\000"
+ 1205      00
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccbY5ROP.s 			page 32
+
+
+ 1206              	.LASF22:
+ 1207 0286 5472695F 		.ascii	"Tri_Divider_WriteControlRegister\000"
+ 1207      44697669 
+ 1207      6465725F 
+ 1207      57726974 
+ 1207      65436F6E 
+ 1208              	.LASF2:
+ 1209 02a7 73686F72 		.ascii	"short int\000"
+ 1209      7420696E 
+ 1209      7400
+ 1210              	.LASF21:
+ 1211 02b1 5472695F 		.ascii	"Tri_Divider_SetInterruptMode\000"
+ 1211      44697669 
+ 1211      6465725F 
+ 1211      53657449 
+ 1211      6E746572 
+ 1212              	.LASF32:
+ 1213 02ce 5472695F 		.ascii	"Tri_Divider_Start\000"
+ 1213      44697669 
+ 1213      6465725F 
+ 1213      53746172 
+ 1213      7400
+ 1214              	.LASF4:
+ 1215 02e0 6C6F6E67 		.ascii	"long int\000"
+ 1215      20696E74 
+ 1215      00
+ 1216              	.LASF0:
+ 1217 02e9 7369676E 		.ascii	"signed char\000"
+ 1217      65642063 
+ 1217      68617200 
+ 1218              	.LASF17:
+ 1219 02f5 5472695F 		.ascii	"Tri_Divider_Enable\000"
+ 1219      44697669 
+ 1219      6465725F 
+ 1219      456E6162 
+ 1219      6C6500
+ 1220              	.LASF19:
+ 1221 0308 5472695F 		.ascii	"Tri_Divider_ReadStatusRegister\000"
+ 1221      44697669 
+ 1221      6465725F 
+ 1221      52656164 
+ 1221      53746174 
+ 1222              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,1172 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"USBMIDI_1_descr.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.comm	USBMIDI_1_idSerialNumberStringDescriptor,34,4
+  19              		.global	USBMIDI_1_TABLE
+  20              		.global	USBMIDI_1_DEVICE0_TABLE
+  21              		.global	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE
+  22              		.global	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+  23              		.global	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+  24              		.global	USBMIDI_1_SN_STRING_DESCRIPTOR
+  25              		.global	USBMIDI_1_STRING_DESCRIPTORS
+  26              		.global	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR
+  27              		.global	USBMIDI_1_DEVICE0_DESCR
+  28              		.section	.rodata
+  29              		.align	2
+  30              		.type	USBMIDI_1_TABLE, %object
+  31              		.size	USBMIDI_1_TABLE, 8
+  32              	USBMIDI_1_TABLE:
+  33 0000 01       		.byte	1
+  34 0001 000000   		.space	3
+  35 0004 00000000 		.word	USBMIDI_1_DEVICE0_TABLE
+  36              		.type	USBMIDI_1_DEVICE0_TABLE, %object
+  37              		.size	USBMIDI_1_DEVICE0_TABLE, 24
+  38              	USBMIDI_1_DEVICE0_TABLE:
+  39 0008 01       		.byte	1
+  40 0009 000000   		.space	3
+  41 000c 00000000 		.word	USBMIDI_1_DEVICE0_DESCR
+  42 0010 00       		.byte	0
+  43 0011 000000   		.space	3
+  44 0014 00000000 		.word	0
+  45 0018 01       		.byte	1
+  46 0019 000000   		.space	3
+  47 001c 00000000 		.word	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE
+  48              		.type	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE, %object
+  49              		.size	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE, 40
+  50              	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE:
+  51 0020 01       		.byte	1
+  52 0021 000000   		.space	3
+  53 0024 00000000 		.word	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR
+  54 0028 02       		.byte	2
+  55 0029 000000   		.space	3
+  56 002c 00000000 		.word	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+  57 0030 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 2
+
+
+  58 0031 000000   		.space	3
+  59 0034 00000000 		.word	0
+  60 0038 00       		.byte	0
+  61 0039 000000   		.space	3
+  62 003c 00000000 		.word	0
+  63 0040 00       		.byte	0
+  64 0041 000000   		.space	3
+  65 0044 00000000 		.word	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+  66              		.type	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, %object
+  67              		.size	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, 2
+  68              	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS:
+  69 0048 01       		.byte	1
+  70 0049 01       		.byte	1
+  71 004a 0000     		.space	2
+  72              		.type	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, %object
+  73              		.size	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, 16
+  74              	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE:
+  75 004c 01       		.byte	1
+  76 004d 00       		.byte	0
+  77 004e 81       		.byte	-127
+  78 004f 02       		.byte	2
+  79 0050 2000     		.short	32
+  80 0052 01       		.byte	1
+  81 0053 00       		.space	1
+  82 0054 01       		.byte	1
+  83 0055 00       		.byte	0
+  84 0056 02       		.byte	2
+  85 0057 02       		.byte	2
+  86 0058 2000     		.short	32
+  87 005a 01       		.byte	1
+  88 005b 00       		.space	1
+  89              		.type	USBMIDI_1_SN_STRING_DESCRIPTOR, %object
+  90              		.size	USBMIDI_1_SN_STRING_DESCRIPTOR, 2
+  91              	USBMIDI_1_SN_STRING_DESCRIPTOR:
+  92 005c 02       		.byte	2
+  93 005d 03       		.byte	3
+  94 005e 0000     		.space	2
+  95              		.type	USBMIDI_1_STRING_DESCRIPTORS, %object
+  96              		.size	USBMIDI_1_STRING_DESCRIPTORS, 177
+  97              	USBMIDI_1_STRING_DESCRIPTORS:
+  98 0060 04       		.byte	4
+  99 0061 03       		.byte	3
+ 100 0062 09       		.byte	9
+ 101 0063 04       		.byte	4
+ 102 0064 2C       		.byte	44
+ 103 0065 03       		.byte	3
+ 104 0066 43       		.byte	67
+ 105 0067 00       		.byte	0
+ 106 0068 79       		.byte	121
+ 107 0069 00       		.byte	0
+ 108 006a 70       		.byte	112
+ 109 006b 00       		.byte	0
+ 110 006c 72       		.byte	114
+ 111 006d 00       		.byte	0
+ 112 006e 65       		.byte	101
+ 113 006f 00       		.byte	0
+ 114 0070 73       		.byte	115
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 3
+
+
+ 115 0071 00       		.byte	0
+ 116 0072 73       		.byte	115
+ 117 0073 00       		.byte	0
+ 118 0074 20       		.byte	32
+ 119 0075 00       		.byte	0
+ 120 0076 53       		.byte	83
+ 121 0077 00       		.byte	0
+ 122 0078 65       		.byte	101
+ 123 0079 00       		.byte	0
+ 124 007a 6D       		.byte	109
+ 125 007b 00       		.byte	0
+ 126 007c 69       		.byte	105
+ 127 007d 00       		.byte	0
+ 128 007e 63       		.byte	99
+ 129 007f 00       		.byte	0
+ 130 0080 6F       		.byte	111
+ 131 0081 00       		.byte	0
+ 132 0082 6E       		.byte	110
+ 133 0083 00       		.byte	0
+ 134 0084 64       		.byte	100
+ 135 0085 00       		.byte	0
+ 136 0086 75       		.byte	117
+ 137 0087 00       		.byte	0
+ 138 0088 63       		.byte	99
+ 139 0089 00       		.byte	0
+ 140 008a 74       		.byte	116
+ 141 008b 00       		.byte	0
+ 142 008c 6F       		.byte	111
+ 143 008d 00       		.byte	0
+ 144 008e 72       		.byte	114
+ 145 008f 00       		.byte	0
+ 146 0090 12       		.byte	18
+ 147 0091 03       		.byte	3
+ 148 0092 55       		.byte	85
+ 149 0093 00       		.byte	0
+ 150 0094 53       		.byte	83
+ 151 0095 00       		.byte	0
+ 152 0096 42       		.byte	66
+ 153 0097 00       		.byte	0
+ 154 0098 20       		.byte	32
+ 155 0099 00       		.byte	0
+ 156 009a 4D       		.byte	77
+ 157 009b 00       		.byte	0
+ 158 009c 49       		.byte	73
+ 159 009d 00       		.byte	0
+ 160 009e 44       		.byte	68
+ 161 009f 00       		.byte	0
+ 162 00a0 49       		.byte	73
+ 163 00a1 00       		.byte	0
+ 164 00a2 24       		.byte	36
+ 165 00a3 03       		.byte	3
+ 166 00a4 4D       		.byte	77
+ 167 00a5 00       		.byte	0
+ 168 00a6 49       		.byte	73
+ 169 00a7 00       		.byte	0
+ 170 00a8 44       		.byte	68
+ 171 00a9 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 4
+
+
+ 172 00aa 49       		.byte	73
+ 173 00ab 00       		.byte	0
+ 174 00ac 20       		.byte	32
+ 175 00ad 00       		.byte	0
+ 176 00ae 43       		.byte	67
+ 177 00af 00       		.byte	0
+ 178 00b0 6F       		.byte	111
+ 179 00b1 00       		.byte	0
+ 180 00b2 6E       		.byte	110
+ 181 00b3 00       		.byte	0
+ 182 00b4 74       		.byte	116
+ 183 00b5 00       		.byte	0
+ 184 00b6 72       		.byte	114
+ 185 00b7 00       		.byte	0
+ 186 00b8 6F       		.byte	111
+ 187 00b9 00       		.byte	0
+ 188 00ba 6C       		.byte	108
+ 189 00bb 00       		.byte	0
+ 190 00bc 20       		.byte	32
+ 191 00bd 00       		.byte	0
+ 192 00be 49       		.byte	73
+ 193 00bf 00       		.byte	0
+ 194 00c0 6E       		.byte	110
+ 195 00c1 00       		.byte	0
+ 196 00c2 74       		.byte	116
+ 197 00c3 00       		.byte	0
+ 198 00c4 66       		.byte	102
+ 199 00c5 00       		.byte	0
+ 200 00c6 28       		.byte	40
+ 201 00c7 03       		.byte	3
+ 202 00c8 4D       		.byte	77
+ 203 00c9 00       		.byte	0
+ 204 00ca 49       		.byte	73
+ 205 00cb 00       		.byte	0
+ 206 00cc 44       		.byte	68
+ 207 00cd 00       		.byte	0
+ 208 00ce 49       		.byte	73
+ 209 00cf 00       		.byte	0
+ 210 00d0 20       		.byte	32
+ 211 00d1 00       		.byte	0
+ 212 00d2 53       		.byte	83
+ 213 00d3 00       		.byte	0
+ 214 00d4 74       		.byte	116
+ 215 00d5 00       		.byte	0
+ 216 00d6 72       		.byte	114
+ 217 00d7 00       		.byte	0
+ 218 00d8 65       		.byte	101
+ 219 00d9 00       		.byte	0
+ 220 00da 61       		.byte	97
+ 221 00db 00       		.byte	0
+ 222 00dc 6D       		.byte	109
+ 223 00dd 00       		.byte	0
+ 224 00de 69       		.byte	105
+ 225 00df 00       		.byte	0
+ 226 00e0 6E       		.byte	110
+ 227 00e1 00       		.byte	0
+ 228 00e2 67       		.byte	103
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 5
+
+
+ 229 00e3 00       		.byte	0
+ 230 00e4 20       		.byte	32
+ 231 00e5 00       		.byte	0
+ 232 00e6 49       		.byte	73
+ 233 00e7 00       		.byte	0
+ 234 00e8 6E       		.byte	110
+ 235 00e9 00       		.byte	0
+ 236 00ea 74       		.byte	116
+ 237 00eb 00       		.byte	0
+ 238 00ec 66       		.byte	102
+ 239 00ed 00       		.byte	0
+ 240 00ee 10       		.byte	16
+ 241 00ef 03       		.byte	3
+ 242 00f0 4D       		.byte	77
+ 243 00f1 00       		.byte	0
+ 244 00f2 49       		.byte	73
+ 245 00f3 00       		.byte	0
+ 246 00f4 44       		.byte	68
+ 247 00f5 00       		.byte	0
+ 248 00f6 49       		.byte	73
+ 249 00f7 00       		.byte	0
+ 250 00f8 20       		.byte	32
+ 251 00f9 00       		.byte	0
+ 252 00fa 49       		.byte	73
+ 253 00fb 00       		.byte	0
+ 254 00fc 4E       		.byte	78
+ 255 00fd 00       		.byte	0
+ 256 00fe 12       		.byte	18
+ 257 00ff 03       		.byte	3
+ 258 0100 4D       		.byte	77
+ 259 0101 00       		.byte	0
+ 260 0102 49       		.byte	73
+ 261 0103 00       		.byte	0
+ 262 0104 44       		.byte	68
+ 263 0105 00       		.byte	0
+ 264 0106 49       		.byte	73
+ 265 0107 00       		.byte	0
+ 266 0108 20       		.byte	32
+ 267 0109 00       		.byte	0
+ 268 010a 4F       		.byte	79
+ 269 010b 00       		.byte	0
+ 270 010c 55       		.byte	85
+ 271 010d 00       		.byte	0
+ 272 010e 54       		.byte	84
+ 273 010f 00       		.byte	0
+ 274 0110 00       		.byte	0
+ 275 0111 000000   		.space	3
+ 276              		.type	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR, %object
+ 277              		.size	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR, 101
+ 278              	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR:
+ 279 0114 09       		.byte	9
+ 280 0115 02       		.byte	2
+ 281 0116 65       		.byte	101
+ 282 0117 00       		.byte	0
+ 283 0118 02       		.byte	2
+ 284 0119 01       		.byte	1
+ 285 011a 01       		.byte	1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 6
+
+
+ 286 011b 80       		.byte	-128
+ 287 011c 32       		.byte	50
+ 288 011d 09       		.byte	9
+ 289 011e 04       		.byte	4
+ 290 011f 00       		.byte	0
+ 291 0120 00       		.byte	0
+ 292 0121 00       		.byte	0
+ 293 0122 01       		.byte	1
+ 294 0123 01       		.byte	1
+ 295 0124 00       		.byte	0
+ 296 0125 03       		.byte	3
+ 297 0126 09       		.byte	9
+ 298 0127 24       		.byte	36
+ 299 0128 01       		.byte	1
+ 300 0129 00       		.byte	0
+ 301 012a 01       		.byte	1
+ 302 012b 09       		.byte	9
+ 303 012c 00       		.byte	0
+ 304 012d 01       		.byte	1
+ 305 012e 01       		.byte	1
+ 306 012f 09       		.byte	9
+ 307 0130 04       		.byte	4
+ 308 0131 01       		.byte	1
+ 309 0132 00       		.byte	0
+ 310 0133 02       		.byte	2
+ 311 0134 01       		.byte	1
+ 312 0135 03       		.byte	3
+ 313 0136 00       		.byte	0
+ 314 0137 04       		.byte	4
+ 315 0138 07       		.byte	7
+ 316 0139 24       		.byte	36
+ 317 013a 01       		.byte	1
+ 318 013b 00       		.byte	0
+ 319 013c 01       		.byte	1
+ 320 013d 25       		.byte	37
+ 321 013e 00       		.byte	0
+ 322 013f 06       		.byte	6
+ 323 0140 24       		.byte	36
+ 324 0141 02       		.byte	2
+ 325 0142 01       		.byte	1
+ 326 0143 01       		.byte	1
+ 327 0144 05       		.byte	5
+ 328 0145 06       		.byte	6
+ 329 0146 24       		.byte	36
+ 330 0147 02       		.byte	2
+ 331 0148 02       		.byte	2
+ 332 0149 02       		.byte	2
+ 333 014a 05       		.byte	5
+ 334 014b 09       		.byte	9
+ 335 014c 24       		.byte	36
+ 336 014d 03       		.byte	3
+ 337 014e 01       		.byte	1
+ 338 014f 03       		.byte	3
+ 339 0150 01       		.byte	1
+ 340 0151 02       		.byte	2
+ 341 0152 01       		.byte	1
+ 342 0153 06       		.byte	6
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 7
+
+
+ 343 0154 09       		.byte	9
+ 344 0155 24       		.byte	36
+ 345 0156 03       		.byte	3
+ 346 0157 02       		.byte	2
+ 347 0158 04       		.byte	4
+ 348 0159 01       		.byte	1
+ 349 015a 01       		.byte	1
+ 350 015b 01       		.byte	1
+ 351 015c 06       		.byte	6
+ 352 015d 09       		.byte	9
+ 353 015e 05       		.byte	5
+ 354 015f 81       		.byte	-127
+ 355 0160 02       		.byte	2
+ 356 0161 20       		.byte	32
+ 357 0162 00       		.byte	0
+ 358 0163 00       		.byte	0
+ 359 0164 00       		.byte	0
+ 360 0165 00       		.byte	0
+ 361 0166 05       		.byte	5
+ 362 0167 25       		.byte	37
+ 363 0168 01       		.byte	1
+ 364 0169 01       		.byte	1
+ 365 016a 03       		.byte	3
+ 366 016b 09       		.byte	9
+ 367 016c 05       		.byte	5
+ 368 016d 02       		.byte	2
+ 369 016e 02       		.byte	2
+ 370 016f 20       		.byte	32
+ 371 0170 00       		.byte	0
+ 372 0171 00       		.byte	0
+ 373 0172 00       		.byte	0
+ 374 0173 00       		.byte	0
+ 375 0174 05       		.byte	5
+ 376 0175 25       		.byte	37
+ 377 0176 01       		.byte	1
+ 378 0177 01       		.byte	1
+ 379 0178 01       		.byte	1
+ 380 0179 000000   		.space	3
+ 381              		.type	USBMIDI_1_DEVICE0_DESCR, %object
+ 382              		.size	USBMIDI_1_DEVICE0_DESCR, 18
+ 383              	USBMIDI_1_DEVICE0_DESCR:
+ 384 017c 12       		.byte	18
+ 385 017d 01       		.byte	1
+ 386 017e 00       		.byte	0
+ 387 017f 02       		.byte	2
+ 388 0180 00       		.byte	0
+ 389 0181 00       		.byte	0
+ 390 0182 00       		.byte	0
+ 391 0183 08       		.byte	8
+ 392 0184 B4       		.byte	-76
+ 393 0185 04       		.byte	4
+ 394 0186 32       		.byte	50
+ 395 0187 D2       		.byte	-46
+ 396 0188 01       		.byte	1
+ 397 0189 00       		.byte	0
+ 398 018a 01       		.byte	1
+ 399 018b 02       		.byte	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 8
+
+
+ 400 018c 80       		.byte	-128
+ 401 018d 01       		.byte	1
+ 402 018e 0000     		.text
+ 403              	.Letext0:
+ 404              		.file 1 "Generated_Source\\PSoC5\\cytypes.h"
+ 405              		.file 2 "Generated_Source\\PSoC5\\USBMIDI_1.h"
+ 406              		.file 3 "Generated_Source\\PSoC5\\USBMIDI_1_descr.c"
+ 407              		.section	.debug_info,"",%progbits
+ 408              	.Ldebug_info0:
+ 409 0000 8E020000 		.4byte	0x28e
+ 410 0004 0400     		.2byte	0x4
+ 411 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 412 000a 04       		.byte	0x4
+ 413 000b 01       		.uleb128 0x1
+ 414 000c 4C010000 		.4byte	.LASF34
+ 415 0010 01       		.byte	0x1
+ 416 0011 69000000 		.4byte	.LASF35
+ 417 0015 05020000 		.4byte	.LASF36
+ 418 0019 00000000 		.4byte	.Ldebug_line0
+ 419 001d 02       		.uleb128 0x2
+ 420 001e 01       		.byte	0x1
+ 421 001f 06       		.byte	0x6
+ 422 0020 2A030000 		.4byte	.LASF0
+ 423 0024 02       		.uleb128 0x2
+ 424 0025 01       		.byte	0x1
+ 425 0026 08       		.byte	0x8
+ 426 0027 9D000000 		.4byte	.LASF1
+ 427 002b 02       		.uleb128 0x2
+ 428 002c 02       		.byte	0x2
+ 429 002d 05       		.byte	0x5
+ 430 002e F7020000 		.4byte	.LASF2
+ 431 0032 02       		.uleb128 0x2
+ 432 0033 02       		.byte	0x2
+ 433 0034 07       		.byte	0x7
+ 434 0035 33000000 		.4byte	.LASF3
+ 435 0039 02       		.uleb128 0x2
+ 436 003a 04       		.byte	0x4
+ 437 003b 05       		.byte	0x5
+ 438 003c 21030000 		.4byte	.LASF4
+ 439 0040 02       		.uleb128 0x2
+ 440 0041 04       		.byte	0x4
+ 441 0042 07       		.byte	0x7
+ 442 0043 CA000000 		.4byte	.LASF5
+ 443 0047 02       		.uleb128 0x2
+ 444 0048 08       		.byte	0x8
+ 445 0049 05       		.byte	0x5
+ 446 004a 7F020000 		.4byte	.LASF6
+ 447 004e 02       		.uleb128 0x2
+ 448 004f 08       		.byte	0x8
+ 449 0050 07       		.byte	0x7
+ 450 0051 E7010000 		.4byte	.LASF7
+ 451 0055 03       		.uleb128 0x3
+ 452 0056 04       		.byte	0x4
+ 453 0057 05       		.byte	0x5
+ 454 0058 696E7400 		.ascii	"int\000"
+ 455 005c 02       		.uleb128 0x2
+ 456 005d 04       		.byte	0x4
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 9
+
+
+ 457 005e 07       		.byte	0x7
+ 458 005f DA010000 		.4byte	.LASF8
+ 459 0063 04       		.uleb128 0x4
+ 460 0064 01030000 		.4byte	.LASF9
+ 461 0068 01       		.byte	0x1
+ 462 0069 9201     		.2byte	0x192
+ 463 006b 24000000 		.4byte	0x24
+ 464 006f 04       		.uleb128 0x4
+ 465 0070 1E010000 		.4byte	.LASF10
+ 466 0074 01       		.byte	0x1
+ 467 0075 9301     		.2byte	0x193
+ 468 0077 32000000 		.4byte	0x32
+ 469 007b 02       		.uleb128 0x2
+ 470 007c 04       		.byte	0x4
+ 471 007d 04       		.byte	0x4
+ 472 007e 63000000 		.4byte	.LASF11
+ 473 0082 02       		.uleb128 0x2
+ 474 0083 08       		.byte	0x8
+ 475 0084 04       		.byte	0x4
+ 476 0085 FF000000 		.4byte	.LASF12
+ 477 0089 02       		.uleb128 0x2
+ 478 008a 01       		.byte	0x1
+ 479 008b 08       		.byte	0x8
+ 480 008c B4020000 		.4byte	.LASF13
+ 481 0090 02       		.uleb128 0x2
+ 482 0091 04       		.byte	0x4
+ 483 0092 07       		.byte	0x7
+ 484 0093 76020000 		.4byte	.LASF14
+ 485 0097 05       		.uleb128 0x5
+ 486 0098 08       		.byte	0x8
+ 487 0099 02       		.byte	0x2
+ 488 009a 9A       		.byte	0x9a
+ 489 009b E8000000 		.4byte	0xe8
+ 490 009f 06       		.uleb128 0x6
+ 491 00a0 17030000 		.4byte	.LASF15
+ 492 00a4 02       		.byte	0x2
+ 493 00a5 9C       		.byte	0x9c
+ 494 00a6 63000000 		.4byte	0x63
+ 495 00aa 00       		.byte	0
+ 496 00ab 06       		.uleb128 0x6
+ 497 00ac 92000000 		.4byte	.LASF16
+ 498 00b0 02       		.byte	0x2
+ 499 00b1 9D       		.byte	0x9d
+ 500 00b2 63000000 		.4byte	0x63
+ 501 00b6 01       		.byte	0x1
+ 502 00b7 06       		.uleb128 0x6
+ 503 00b8 DC000000 		.4byte	.LASF17
+ 504 00bc 02       		.byte	0x2
+ 505 00bd 9E       		.byte	0x9e
+ 506 00be 63000000 		.4byte	0x63
+ 507 00c2 02       		.byte	0x2
+ 508 00c3 06       		.uleb128 0x6
+ 509 00c4 00000000 		.4byte	.LASF18
+ 510 00c8 02       		.byte	0x2
+ 511 00c9 9F       		.byte	0x9f
+ 512 00ca 63000000 		.4byte	0x63
+ 513 00ce 03       		.byte	0x3
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 10
+
+
+ 514 00cf 06       		.uleb128 0x6
+ 515 00d0 B9020000 		.4byte	.LASF19
+ 516 00d4 02       		.byte	0x2
+ 517 00d5 A0       		.byte	0xa0
+ 518 00d6 6F000000 		.4byte	0x6f
+ 519 00da 04       		.byte	0x4
+ 520 00db 06       		.uleb128 0x6
+ 521 00dc 5F030000 		.4byte	.LASF20
+ 522 00e0 02       		.byte	0x2
+ 523 00e1 A1       		.byte	0xa1
+ 524 00e2 63000000 		.4byte	0x63
+ 525 00e6 06       		.byte	0x6
+ 526 00e7 00       		.byte	0
+ 527 00e8 07       		.uleb128 0x7
+ 528 00e9 E1000000 		.4byte	.LASF21
+ 529 00ed 02       		.byte	0x2
+ 530 00ee A2       		.byte	0xa2
+ 531 00ef 97000000 		.4byte	0x97
+ 532 00f3 05       		.uleb128 0x5
+ 533 00f4 08       		.byte	0x8
+ 534 00f5 02       		.byte	0x2
+ 535 00f6 B1       		.byte	0xb1
+ 536 00f7 12010000 		.4byte	0x112
+ 537 00fb 08       		.uleb128 0x8
+ 538 00fc 6300     		.ascii	"c\000"
+ 539 00fe 02       		.byte	0x2
+ 540 00ff B3       		.byte	0xb3
+ 541 0100 63000000 		.4byte	0x63
+ 542 0104 00       		.byte	0
+ 543 0105 06       		.uleb128 0x6
+ 544 0106 FE010000 		.4byte	.LASF22
+ 545 010a 02       		.byte	0x2
+ 546 010b B4       		.byte	0xb4
+ 547 010c 12010000 		.4byte	0x112
+ 548 0110 04       		.byte	0x4
+ 549 0111 00       		.byte	0
+ 550 0112 09       		.uleb128 0x9
+ 551 0113 04       		.byte	0x4
+ 552 0114 18010000 		.4byte	0x118
+ 553 0118 0A       		.uleb128 0xa
+ 554 0119 07       		.uleb128 0x7
+ 555 011a 0B000000 		.4byte	.LASF23
+ 556 011e 02       		.byte	0x2
+ 557 011f B5       		.byte	0xb5
+ 558 0120 F3000000 		.4byte	0xf3
+ 559 0124 0B       		.uleb128 0xb
+ 560 0125 63000000 		.4byte	0x63
+ 561 0129 34010000 		.4byte	0x134
+ 562 012d 0C       		.uleb128 0xc
+ 563 012e 90000000 		.4byte	0x90
+ 564 0132 11       		.byte	0x11
+ 565 0133 00       		.byte	0
+ 566 0134 0D       		.uleb128 0xd
+ 567 0135 1B000000 		.4byte	.LASF24
+ 568 0139 03       		.byte	0x3
+ 569 013a 24       		.byte	0x24
+ 570 013b 45010000 		.4byte	0x145
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 11
+
+
+ 571 013f 05       		.uleb128 0x5
+ 572 0140 03       		.byte	0x3
+ 573 0141 00000000 		.4byte	USBMIDI_1_DEVICE0_DESCR
+ 574 0145 0E       		.uleb128 0xe
+ 575 0146 24010000 		.4byte	0x124
+ 576 014a 0B       		.uleb128 0xb
+ 577 014b 63000000 		.4byte	0x63
+ 578 014f 5A010000 		.4byte	0x15a
+ 579 0153 0C       		.uleb128 0xc
+ 580 0154 90000000 		.4byte	0x90
+ 581 0158 64       		.byte	0x64
+ 582 0159 00       		.byte	0
+ 583 015a 0D       		.uleb128 0xd
+ 584 015b 8D020000 		.4byte	.LASF25
+ 585 015f 03       		.byte	0x3
+ 586 0160 37       		.byte	0x37
+ 587 0161 6B010000 		.4byte	0x16b
+ 588 0165 05       		.uleb128 0x5
+ 589 0166 03       		.byte	0x3
+ 590 0167 00000000 		.4byte	USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR
+ 591 016b 0E       		.uleb128 0xe
+ 592 016c 4A010000 		.4byte	0x14a
+ 593 0170 0B       		.uleb128 0xb
+ 594 0171 E8000000 		.4byte	0xe8
+ 595 0175 80010000 		.4byte	0x180
+ 596 0179 0C       		.uleb128 0xc
+ 597 017a 90000000 		.4byte	0x90
+ 598 017e 01       		.byte	0x1
+ 599 017f 00       		.byte	0
+ 600 0180 0F       		.uleb128 0xf
+ 601 0181 C4020000 		.4byte	.LASF26
+ 602 0185 03       		.byte	0x3
+ 603 0186 0D01     		.2byte	0x10d
+ 604 0188 92010000 		.4byte	0x192
+ 605 018c 05       		.uleb128 0x5
+ 606 018d 03       		.byte	0x3
+ 607 018e 00000000 		.4byte	USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+ 608 0192 0E       		.uleb128 0xe
+ 609 0193 70010000 		.4byte	0x170
+ 610 0197 0B       		.uleb128 0xb
+ 611 0198 63000000 		.4byte	0x63
+ 612 019c A7010000 		.4byte	0x1a7
+ 613 01a0 0C       		.uleb128 0xc
+ 614 01a1 90000000 		.4byte	0x90
+ 615 01a5 01       		.byte	0x1
+ 616 01a6 00       		.byte	0
+ 617 01a7 0F       		.uleb128 0xf
+ 618 01a8 45020000 		.4byte	.LASF27
+ 619 01ac 03       		.byte	0x3
+ 620 01ad 1201     		.2byte	0x112
+ 621 01af B9010000 		.4byte	0x1b9
+ 622 01b3 05       		.uleb128 0x5
+ 623 01b4 03       		.byte	0x3
+ 624 01b5 00000000 		.4byte	USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+ 625 01b9 0E       		.uleb128 0xe
+ 626 01ba 97010000 		.4byte	0x197
+ 627 01be 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 12
+
+
+ 628 01bf 19010000 		.4byte	0x119
+ 629 01c3 CE010000 		.4byte	0x1ce
+ 630 01c7 0C       		.uleb128 0xc
+ 631 01c8 90000000 		.4byte	0x90
+ 632 01cc 04       		.byte	0x4
+ 633 01cd 00       		.byte	0
+ 634 01ce 0F       		.uleb128 0xf
+ 635 01cf 25010000 		.4byte	.LASF28
+ 636 01d3 03       		.byte	0x3
+ 637 01d4 1A01     		.2byte	0x11a
+ 638 01d6 E0010000 		.4byte	0x1e0
+ 639 01da 05       		.uleb128 0x5
+ 640 01db 03       		.byte	0x3
+ 641 01dc 00000000 		.4byte	USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE
+ 642 01e0 0E       		.uleb128 0xe
+ 643 01e1 BE010000 		.4byte	0x1be
+ 644 01e5 0B       		.uleb128 0xb
+ 645 01e6 19010000 		.4byte	0x119
+ 646 01ea F5010000 		.4byte	0x1f5
+ 647 01ee 0C       		.uleb128 0xc
+ 648 01ef 90000000 		.4byte	0x90
+ 649 01f3 02       		.byte	0x2
+ 650 01f4 00       		.byte	0
+ 651 01f5 0F       		.uleb128 0xf
+ 652 01f6 06010000 		.4byte	.LASF29
+ 653 01fa 03       		.byte	0x3
+ 654 01fb 2501     		.2byte	0x125
+ 655 01fd 07020000 		.4byte	0x207
+ 656 0201 05       		.uleb128 0x5
+ 657 0202 03       		.byte	0x3
+ 658 0203 00000000 		.4byte	USBMIDI_1_DEVICE0_TABLE
+ 659 0207 0E       		.uleb128 0xe
+ 660 0208 E5010000 		.4byte	0x1e5
+ 661 020c 0B       		.uleb128 0xb
+ 662 020d 19010000 		.4byte	0x119
+ 663 0211 1C020000 		.4byte	0x21c
+ 664 0215 0C       		.uleb128 0xc
+ 665 0216 90000000 		.4byte	0x90
+ 666 021a 00       		.byte	0
+ 667 021b 00       		.byte	0
+ 668 021c 0F       		.uleb128 0xf
+ 669 021d 07030000 		.4byte	.LASF30
+ 670 0221 03       		.byte	0x3
+ 671 0222 2D01     		.2byte	0x12d
+ 672 0224 2E020000 		.4byte	0x22e
+ 673 0228 05       		.uleb128 0x5
+ 674 0229 03       		.byte	0x3
+ 675 022a 00000000 		.4byte	USBMIDI_1_TABLE
+ 676 022e 0E       		.uleb128 0xe
+ 677 022f 0C020000 		.4byte	0x20c
+ 678 0233 0D       		.uleb128 0xd
+ 679 0234 AB000000 		.4byte	.LASF31
+ 680 0238 03       		.byte	0x3
+ 681 0239 FE       		.byte	0xfe
+ 682 023a 44020000 		.4byte	0x244
+ 683 023e 05       		.uleb128 0x5
+ 684 023f 03       		.byte	0x3
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 13
+
+
+ 685 0240 00000000 		.4byte	USBMIDI_1_SN_STRING_DESCRIPTOR
+ 686 0244 0E       		.uleb128 0xe
+ 687 0245 97010000 		.4byte	0x197
+ 688 0249 0B       		.uleb128 0xb
+ 689 024a 63000000 		.4byte	0x63
+ 690 024e 59020000 		.4byte	0x259
+ 691 0252 0C       		.uleb128 0xc
+ 692 0253 90000000 		.4byte	0x90
+ 693 0257 B0       		.byte	0xb0
+ 694 0258 00       		.byte	0
+ 695 0259 0D       		.uleb128 0xd
+ 696 025a 46000000 		.4byte	.LASF32
+ 697 025e 03       		.byte	0x3
+ 698 025f BF       		.byte	0xbf
+ 699 0260 6A020000 		.4byte	0x26a
+ 700 0264 05       		.uleb128 0x5
+ 701 0265 03       		.byte	0x3
+ 702 0266 00000000 		.4byte	USBMIDI_1_STRING_DESCRIPTORS
+ 703 026a 0E       		.uleb128 0xe
+ 704 026b 49020000 		.4byte	0x249
+ 705 026f 0B       		.uleb128 0xb
+ 706 0270 63000000 		.4byte	0x63
+ 707 0274 7F020000 		.4byte	0x27f
+ 708 0278 0C       		.uleb128 0xc
+ 709 0279 90000000 		.4byte	0x90
+ 710 027d 21       		.byte	0x21
+ 711 027e 00       		.byte	0
+ 712 027f 0F       		.uleb128 0xf
+ 713 0280 36030000 		.4byte	.LASF33
+ 714 0284 03       		.byte	0x3
+ 715 0285 5B01     		.2byte	0x15b
+ 716 0287 6F020000 		.4byte	0x26f
+ 717 028b 05       		.uleb128 0x5
+ 718 028c 03       		.byte	0x3
+ 719 028d 00000000 		.4byte	USBMIDI_1_idSerialNumberStringDescriptor
+ 720 0291 00       		.byte	0
+ 721              		.section	.debug_abbrev,"",%progbits
+ 722              	.Ldebug_abbrev0:
+ 723 0000 01       		.uleb128 0x1
+ 724 0001 11       		.uleb128 0x11
+ 725 0002 01       		.byte	0x1
+ 726 0003 25       		.uleb128 0x25
+ 727 0004 0E       		.uleb128 0xe
+ 728 0005 13       		.uleb128 0x13
+ 729 0006 0B       		.uleb128 0xb
+ 730 0007 03       		.uleb128 0x3
+ 731 0008 0E       		.uleb128 0xe
+ 732 0009 1B       		.uleb128 0x1b
+ 733 000a 0E       		.uleb128 0xe
+ 734 000b 10       		.uleb128 0x10
+ 735 000c 17       		.uleb128 0x17
+ 736 000d 00       		.byte	0
+ 737 000e 00       		.byte	0
+ 738 000f 02       		.uleb128 0x2
+ 739 0010 24       		.uleb128 0x24
+ 740 0011 00       		.byte	0
+ 741 0012 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 14
+
+
+ 742 0013 0B       		.uleb128 0xb
+ 743 0014 3E       		.uleb128 0x3e
+ 744 0015 0B       		.uleb128 0xb
+ 745 0016 03       		.uleb128 0x3
+ 746 0017 0E       		.uleb128 0xe
+ 747 0018 00       		.byte	0
+ 748 0019 00       		.byte	0
+ 749 001a 03       		.uleb128 0x3
+ 750 001b 24       		.uleb128 0x24
+ 751 001c 00       		.byte	0
+ 752 001d 0B       		.uleb128 0xb
+ 753 001e 0B       		.uleb128 0xb
+ 754 001f 3E       		.uleb128 0x3e
+ 755 0020 0B       		.uleb128 0xb
+ 756 0021 03       		.uleb128 0x3
+ 757 0022 08       		.uleb128 0x8
+ 758 0023 00       		.byte	0
+ 759 0024 00       		.byte	0
+ 760 0025 04       		.uleb128 0x4
+ 761 0026 16       		.uleb128 0x16
+ 762 0027 00       		.byte	0
+ 763 0028 03       		.uleb128 0x3
+ 764 0029 0E       		.uleb128 0xe
+ 765 002a 3A       		.uleb128 0x3a
+ 766 002b 0B       		.uleb128 0xb
+ 767 002c 3B       		.uleb128 0x3b
+ 768 002d 05       		.uleb128 0x5
+ 769 002e 49       		.uleb128 0x49
+ 770 002f 13       		.uleb128 0x13
+ 771 0030 00       		.byte	0
+ 772 0031 00       		.byte	0
+ 773 0032 05       		.uleb128 0x5
+ 774 0033 13       		.uleb128 0x13
+ 775 0034 01       		.byte	0x1
+ 776 0035 0B       		.uleb128 0xb
+ 777 0036 0B       		.uleb128 0xb
+ 778 0037 3A       		.uleb128 0x3a
+ 779 0038 0B       		.uleb128 0xb
+ 780 0039 3B       		.uleb128 0x3b
+ 781 003a 0B       		.uleb128 0xb
+ 782 003b 01       		.uleb128 0x1
+ 783 003c 13       		.uleb128 0x13
+ 784 003d 00       		.byte	0
+ 785 003e 00       		.byte	0
+ 786 003f 06       		.uleb128 0x6
+ 787 0040 0D       		.uleb128 0xd
+ 788 0041 00       		.byte	0
+ 789 0042 03       		.uleb128 0x3
+ 790 0043 0E       		.uleb128 0xe
+ 791 0044 3A       		.uleb128 0x3a
+ 792 0045 0B       		.uleb128 0xb
+ 793 0046 3B       		.uleb128 0x3b
+ 794 0047 0B       		.uleb128 0xb
+ 795 0048 49       		.uleb128 0x49
+ 796 0049 13       		.uleb128 0x13
+ 797 004a 38       		.uleb128 0x38
+ 798 004b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 15
+
+
+ 799 004c 00       		.byte	0
+ 800 004d 00       		.byte	0
+ 801 004e 07       		.uleb128 0x7
+ 802 004f 16       		.uleb128 0x16
+ 803 0050 00       		.byte	0
+ 804 0051 03       		.uleb128 0x3
+ 805 0052 0E       		.uleb128 0xe
+ 806 0053 3A       		.uleb128 0x3a
+ 807 0054 0B       		.uleb128 0xb
+ 808 0055 3B       		.uleb128 0x3b
+ 809 0056 0B       		.uleb128 0xb
+ 810 0057 49       		.uleb128 0x49
+ 811 0058 13       		.uleb128 0x13
+ 812 0059 00       		.byte	0
+ 813 005a 00       		.byte	0
+ 814 005b 08       		.uleb128 0x8
+ 815 005c 0D       		.uleb128 0xd
+ 816 005d 00       		.byte	0
+ 817 005e 03       		.uleb128 0x3
+ 818 005f 08       		.uleb128 0x8
+ 819 0060 3A       		.uleb128 0x3a
+ 820 0061 0B       		.uleb128 0xb
+ 821 0062 3B       		.uleb128 0x3b
+ 822 0063 0B       		.uleb128 0xb
+ 823 0064 49       		.uleb128 0x49
+ 824 0065 13       		.uleb128 0x13
+ 825 0066 38       		.uleb128 0x38
+ 826 0067 0B       		.uleb128 0xb
+ 827 0068 00       		.byte	0
+ 828 0069 00       		.byte	0
+ 829 006a 09       		.uleb128 0x9
+ 830 006b 0F       		.uleb128 0xf
+ 831 006c 00       		.byte	0
+ 832 006d 0B       		.uleb128 0xb
+ 833 006e 0B       		.uleb128 0xb
+ 834 006f 49       		.uleb128 0x49
+ 835 0070 13       		.uleb128 0x13
+ 836 0071 00       		.byte	0
+ 837 0072 00       		.byte	0
+ 838 0073 0A       		.uleb128 0xa
+ 839 0074 26       		.uleb128 0x26
+ 840 0075 00       		.byte	0
+ 841 0076 00       		.byte	0
+ 842 0077 00       		.byte	0
+ 843 0078 0B       		.uleb128 0xb
+ 844 0079 01       		.uleb128 0x1
+ 845 007a 01       		.byte	0x1
+ 846 007b 49       		.uleb128 0x49
+ 847 007c 13       		.uleb128 0x13
+ 848 007d 01       		.uleb128 0x1
+ 849 007e 13       		.uleb128 0x13
+ 850 007f 00       		.byte	0
+ 851 0080 00       		.byte	0
+ 852 0081 0C       		.uleb128 0xc
+ 853 0082 21       		.uleb128 0x21
+ 854 0083 00       		.byte	0
+ 855 0084 49       		.uleb128 0x49
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 16
+
+
+ 856 0085 13       		.uleb128 0x13
+ 857 0086 2F       		.uleb128 0x2f
+ 858 0087 0B       		.uleb128 0xb
+ 859 0088 00       		.byte	0
+ 860 0089 00       		.byte	0
+ 861 008a 0D       		.uleb128 0xd
+ 862 008b 34       		.uleb128 0x34
+ 863 008c 00       		.byte	0
+ 864 008d 03       		.uleb128 0x3
+ 865 008e 0E       		.uleb128 0xe
+ 866 008f 3A       		.uleb128 0x3a
+ 867 0090 0B       		.uleb128 0xb
+ 868 0091 3B       		.uleb128 0x3b
+ 869 0092 0B       		.uleb128 0xb
+ 870 0093 49       		.uleb128 0x49
+ 871 0094 13       		.uleb128 0x13
+ 872 0095 3F       		.uleb128 0x3f
+ 873 0096 19       		.uleb128 0x19
+ 874 0097 02       		.uleb128 0x2
+ 875 0098 18       		.uleb128 0x18
+ 876 0099 00       		.byte	0
+ 877 009a 00       		.byte	0
+ 878 009b 0E       		.uleb128 0xe
+ 879 009c 26       		.uleb128 0x26
+ 880 009d 00       		.byte	0
+ 881 009e 49       		.uleb128 0x49
+ 882 009f 13       		.uleb128 0x13
+ 883 00a0 00       		.byte	0
+ 884 00a1 00       		.byte	0
+ 885 00a2 0F       		.uleb128 0xf
+ 886 00a3 34       		.uleb128 0x34
+ 887 00a4 00       		.byte	0
+ 888 00a5 03       		.uleb128 0x3
+ 889 00a6 0E       		.uleb128 0xe
+ 890 00a7 3A       		.uleb128 0x3a
+ 891 00a8 0B       		.uleb128 0xb
+ 892 00a9 3B       		.uleb128 0x3b
+ 893 00aa 05       		.uleb128 0x5
+ 894 00ab 49       		.uleb128 0x49
+ 895 00ac 13       		.uleb128 0x13
+ 896 00ad 3F       		.uleb128 0x3f
+ 897 00ae 19       		.uleb128 0x19
+ 898 00af 02       		.uleb128 0x2
+ 899 00b0 18       		.uleb128 0x18
+ 900 00b1 00       		.byte	0
+ 901 00b2 00       		.byte	0
+ 902 00b3 00       		.byte	0
+ 903              		.section	.debug_aranges,"",%progbits
+ 904 0000 14000000 		.4byte	0x14
+ 905 0004 0200     		.2byte	0x2
+ 906 0006 00000000 		.4byte	.Ldebug_info0
+ 907 000a 04       		.byte	0x4
+ 908 000b 00       		.byte	0
+ 909 000c 0000     		.2byte	0
+ 910 000e 0000     		.2byte	0
+ 911 0010 00000000 		.4byte	0
+ 912 0014 00000000 		.4byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 17
+
+
+ 913              		.section	.debug_line,"",%progbits
+ 914              	.Ldebug_line0:
+ 915 0000 61000000 		.section	.debug_str,"MS",%progbits,1
+ 915      02005B00 
+ 915      00000201 
+ 915      FB0E0D00 
+ 915      01010101 
+ 916              	.LASF18:
+ 917 0000 61747472 		.ascii	"attributes\000"
+ 917      69627574 
+ 917      657300
+ 918              	.LASF23:
+ 919 000b 545F5553 		.ascii	"T_USBMIDI_1_LUT\000"
+ 919      424D4944 
+ 919      495F315F 
+ 919      4C555400 
+ 920              	.LASF24:
+ 921 001b 5553424D 		.ascii	"USBMIDI_1_DEVICE0_DESCR\000"
+ 921      4944495F 
+ 921      315F4445 
+ 921      56494345 
+ 921      305F4445 
+ 922              	.LASF3:
+ 923 0033 73686F72 		.ascii	"short unsigned int\000"
+ 923      7420756E 
+ 923      7369676E 
+ 923      65642069 
+ 923      6E7400
+ 924              	.LASF32:
+ 925 0046 5553424D 		.ascii	"USBMIDI_1_STRING_DESCRIPTORS\000"
+ 925      4944495F 
+ 925      315F5354 
+ 925      52494E47 
+ 925      5F444553 
+ 926              	.LASF11:
+ 927 0063 666C6F61 		.ascii	"float\000"
+ 927      7400
+ 928              	.LASF35:
+ 929 0069 47656E65 		.ascii	"Generated_Source\\PSoC5\\USBMIDI_1_descr.c\000"
+ 929      72617465 
+ 929      645F536F 
+ 929      75726365 
+ 929      5C50536F 
+ 930              	.LASF16:
+ 931 0092 616C7453 		.ascii	"altSetting\000"
+ 931      65747469 
+ 931      6E6700
+ 932              	.LASF1:
+ 933 009d 756E7369 		.ascii	"unsigned char\000"
+ 933      676E6564 
+ 933      20636861 
+ 933      7200
+ 934              	.LASF31:
+ 935 00ab 5553424D 		.ascii	"USBMIDI_1_SN_STRING_DESCRIPTOR\000"
+ 935      4944495F 
+ 935      315F534E 
+ 935      5F535452 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 18
+
+
+ 935      494E475F 
+ 936              	.LASF5:
+ 937 00ca 6C6F6E67 		.ascii	"long unsigned int\000"
+ 937      20756E73 
+ 937      69676E65 
+ 937      6420696E 
+ 937      7400
+ 938              	.LASF17:
+ 939 00dc 61646472 		.ascii	"addr\000"
+ 939      00
+ 940              	.LASF21:
+ 941 00e1 545F5553 		.ascii	"T_USBMIDI_1_EP_SETTINGS_BLOCK\000"
+ 941      424D4944 
+ 941      495F315F 
+ 941      45505F53 
+ 941      45545449 
+ 942              	.LASF12:
+ 943 00ff 646F7562 		.ascii	"double\000"
+ 943      6C6500
+ 944              	.LASF29:
+ 945 0106 5553424D 		.ascii	"USBMIDI_1_DEVICE0_TABLE\000"
+ 945      4944495F 
+ 945      315F4445 
+ 945      56494345 
+ 945      305F5441 
+ 946              	.LASF10:
+ 947 011e 75696E74 		.ascii	"uint16\000"
+ 947      313600
+ 948              	.LASF28:
+ 949 0125 5553424D 		.ascii	"USBMIDI_1_DEVICE0_CONFIGURATION0_TABLE\000"
+ 949      4944495F 
+ 949      315F4445 
+ 949      56494345 
+ 949      305F434F 
+ 950              	.LASF34:
+ 951 014c 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 951      4320342E 
+ 951      392E3320 
+ 951      32303135 
+ 951      30333033 
+ 952 017f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 952      20726576 
+ 952      6973696F 
+ 952      6E203232 
+ 952      31323230 
+ 953 01b2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 953      66756E63 
+ 953      74696F6E 
+ 953      2D736563 
+ 953      74696F6E 
+ 954              	.LASF8:
+ 955 01da 756E7369 		.ascii	"unsigned int\000"
+ 955      676E6564 
+ 955      20696E74 
+ 955      00
+ 956              	.LASF7:
+ 957 01e7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 19
+
+
+ 957      206C6F6E 
+ 957      6720756E 
+ 957      7369676E 
+ 957      65642069 
+ 958              	.LASF22:
+ 959 01fe 705F6C69 		.ascii	"p_list\000"
+ 959      737400
+ 960              	.LASF36:
+ 961 0205 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 961      73657273 
+ 961      5C323134 
+ 961      30313635 
+ 961      38365C44 
+ 962 0233 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 962      41505532 
+ 962      4130332E 
+ 962      63796473 
+ 962      6E00
+ 963              	.LASF27:
+ 964 0245 5553424D 		.ascii	"USBMIDI_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS\000"
+ 964      4944495F 
+ 964      315F4445 
+ 964      56494345 
+ 964      305F434F 
+ 965              	.LASF14:
+ 966 0276 73697A65 		.ascii	"sizetype\000"
+ 966      74797065 
+ 966      00
+ 967              	.LASF6:
+ 968 027f 6C6F6E67 		.ascii	"long long int\000"
+ 968      206C6F6E 
+ 968      6720696E 
+ 968      7400
+ 969              	.LASF25:
+ 970 028d 5553424D 		.ascii	"USBMIDI_1_DEVICE0_CONFIGURATION0_DESCR\000"
+ 970      4944495F 
+ 970      315F4445 
+ 970      56494345 
+ 970      305F434F 
+ 971              	.LASF13:
+ 972 02b4 63686172 		.ascii	"char\000"
+ 972      00
+ 973              	.LASF19:
+ 974 02b9 62756666 		.ascii	"bufferSize\000"
+ 974      65725369 
+ 974      7A6500
+ 975              	.LASF26:
+ 976 02c4 5553424D 		.ascii	"USBMIDI_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE\000"
+ 976      4944495F 
+ 976      315F4445 
+ 976      56494345 
+ 976      305F434F 
+ 977              	.LASF2:
+ 978 02f7 73686F72 		.ascii	"short int\000"
+ 978      7420696E 
+ 978      7400
+ 979              	.LASF9:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccfT3E8n.s 			page 20
+
+
+ 980 0301 75696E74 		.ascii	"uint8\000"
+ 980      3800
+ 981              	.LASF30:
+ 982 0307 5553424D 		.ascii	"USBMIDI_1_TABLE\000"
+ 982      4944495F 
+ 982      315F5441 
+ 982      424C4500 
+ 983              	.LASF15:
+ 984 0317 696E7465 		.ascii	"interface\000"
+ 984      72666163 
+ 984      6500
+ 985              	.LASF4:
+ 986 0321 6C6F6E67 		.ascii	"long int\000"
+ 986      20696E74 
+ 986      00
+ 987              	.LASF0:
+ 988 032a 7369676E 		.ascii	"signed char\000"
+ 988      65642063 
+ 988      68617200 
+ 989              	.LASF33:
+ 990 0336 5553424D 		.ascii	"USBMIDI_1_idSerialNumberStringDescriptor\000"
+ 990      4944495F 
+ 990      315F6964 
+ 990      53657269 
+ 990      616C4E75 
+ 991              	.LASF20:
+ 992 035f 624D6973 		.ascii	"bMisc\000"
+ 992      6300
+ 993              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

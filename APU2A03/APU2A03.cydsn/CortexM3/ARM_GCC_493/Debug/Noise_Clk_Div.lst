@@ -1,0 +1,1907 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Noise_Clk_Div.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Noise_Clk_Div_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	Noise_Clk_Div_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Noise_Clk_Div_Enable, %function
+  24              	Noise_Clk_Div_Enable:
+  25              	.LFB1:
+  26              		.file 1 "Generated_Source\\PSoC5\\Noise_Clk_Div.c"
+   1:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Noise_Clk_Div.c **** * File Name: Noise_Clk_Div.c  
+   3:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+   5:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  Description:
+   6:Generated_Source\PSoC5/Noise_Clk_Div.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Noise_Clk_Div.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+   9:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   Note:
+  10:Generated_Source\PSoC5/Noise_Clk_Div.c **** *     None
+  11:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+  12:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Noise_Clk_Div.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Noise_Clk_Div.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Noise_Clk_Div.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+  19:Generated_Source\PSoC5/Noise_Clk_Div.c **** #include "Noise_Clk_Div.h"
+  20:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+  21:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint8 Noise_Clk_Div_initVar = 0u;
+  22:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+  23:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+  24:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_Init
+  26:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+  28:Generated_Source\PSoC5/Noise_Clk_Div.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Noise_Clk_Div.c **** * 
+  30:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+  31:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void  
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+  33:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+  34:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+  35:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+  36:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_Init(void) 
+  38:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+  39:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!Noise_Clk_Div_UsingFixedFunction && !Noise_Clk_Div_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Noise_Clk_Div.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!Noise_Clk_Div_UsingFixedFunction && !Noise_Clk_Div_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+  43:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if(!Noise_Clk_Div_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Noise_Clk_Div.c ****             uint8 Noise_Clk_Div_interruptState;
+  46:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!Noise_Clk_Div_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+  48:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (Noise_Clk_Div_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_CONTROL &= Noise_Clk_Div_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  52:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 Noise_Clk_Div_CONTROL2 &= ((uint8)(~Noise_Clk_Div_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 Noise_Clk_Div_CONTROL3 &= ((uint8)(~Noise_Clk_Div_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #if (Noise_Clk_Div_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 Noise_Clk_Div_CONTROL |= Noise_Clk_Div_ONESHOT;
+  63:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* (Noise_Clk_Div_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  65:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_CONTROL2 |= Noise_Clk_Div_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  68:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 &= ((uint8)(~Noise_Clk_Div_RT1_MASK));
+  70:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 |= Noise_Clk_Div_SYNC;     
+  71:Generated_Source\PSoC5/Noise_Clk_Div.c ****                     
+  72:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 &= ((uint8)(~Noise_Clk_Div_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 |= Noise_Clk_Div_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+  76:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #else
+  77:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #if(!Noise_Clk_Div_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Noise_Clk_Div.c ****             ctrl = Noise_Clk_Div_CONTROL & ((uint8)(~Noise_Clk_Div_CTRL_CMPMODE_MASK));
+  80:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_CONTROL = ctrl | Noise_Clk_Div_DEFAULT_COMPARE_MODE;
+  81:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  82:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Noise_Clk_Div.c ****             ctrl = Noise_Clk_Div_CONTROL & ((uint8)(~Noise_Clk_Div_CTRL_CAPMODE_MASK));
+  84:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  85:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #if( 0 != Noise_Clk_Div_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 Noise_Clk_Div_CONTROL = ctrl | Noise_Clk_Div_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #else
+  88:Generated_Source\PSoC5/Noise_Clk_Div.c ****                 Noise_Clk_Div_CONTROL = ctrl;
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 3
+
+
+  89:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* 0 != Noise_Clk_Div_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+  91:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* (!Noise_Clk_Div_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+  94:Generated_Source\PSoC5/Noise_Clk_Div.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!Noise_Clk_Div_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_ClearFIFO();
+  97:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!Noise_Clk_Div_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+  99:Generated_Source\PSoC5/Noise_Clk_Div.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_WritePeriod(Noise_Clk_Div_INIT_PERIOD_VALUE);
+ 101:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_WriteCounter(Noise_Clk_Div_INIT_COUNTER_VALUE);
+ 103:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_SetInterruptMode(Noise_Clk_Div_INIT_INTERRUPTS_MASK);
+ 105:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+ 106:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!Noise_Clk_Div_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Noise_Clk_Div.c ****             (void)Noise_Clk_Div_ReadStatusRegister();
+ 109:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_WriteCompare(Noise_Clk_Div_INIT_COMPARE_VALUE);
+ 111:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 113:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_interruptState = CyEnterCriticalSection();
+ 116:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 117:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_STATUS_AUX_CTRL |= Noise_Clk_Div_STATUS_ACTL_INT_EN_MASK;
+ 118:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 119:Generated_Source\PSoC5/Noise_Clk_Div.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Noise_Clk_Div.c ****             CyExitCriticalSection(Noise_Clk_Div_interruptState);
+ 121:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 122:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!Noise_Clk_Div_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 124:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 125:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 126:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_Enable
+ 128:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 130:Generated_Source\PSoC5/Noise_Clk_Div.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Noise_Clk_Div.c **** * 
+ 132:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void  
+ 134:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 135:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 136:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 137:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 138:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 142:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_Enable(void) 
+ 144:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+  27              		.loc 1 144 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 4
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 145:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if (Noise_Clk_Div_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_ENABLE |= Noise_Clk_Div_BLOCK_EN_MASK;
+  32              		.loc 1 147 0
+  33 0000 084A     		ldr	r2, .L2
+  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  35 0004 43F00203 		orr	r3, r3, #2
+  36 0008 1370     		strb	r3, [r2]
+ 148:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_STBY_ENABLE |= Noise_Clk_Div_BLOCK_STBY_EN_MASK;
+  37              		.loc 1 148 0
+  38 000a 1032     		adds	r2, r2, #16
+  39 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  40 000e 43F00203 		orr	r3, r3, #2
+  41 0012 1370     		strb	r3, [r2]
+ 149:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+ 151:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(!Noise_Clk_Div_ControlRegRemoved || Noise_Clk_Div_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_CONTROL |= Noise_Clk_Div_CTRL_ENABLE;                
+  42              		.loc 1 155 0
+  43 0014 02F65932 		addw	r2, r2, #2905
+  44 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45 001a 43F00103 		orr	r3, r3, #1
+  46 001e 1370     		strb	r3, [r2]
+  47 0020 7047     		bx	lr
+  48              	.L3:
+  49 0022 00BF     		.align	2
+  50              	.L2:
+  51 0024 A3430040 		.word	1073759139
+  52              		.cfi_endproc
+  53              	.LFE1:
+  54              		.size	Noise_Clk_Div_Enable, .-Noise_Clk_Div_Enable
+  55              		.section	.text.Noise_Clk_Div_Stop,"ax",%progbits
+  56              		.align	2
+  57              		.global	Noise_Clk_Div_Stop
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	Noise_Clk_Div_Stop, %function
+  61              	Noise_Clk_Div_Stop:
+  62              	.LFB3:
+ 156:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (!Noise_Clk_Div_ControlRegRemoved || Noise_Clk_Div_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/Noise_Clk_Div.c ****     
+ 158:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 159:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 160:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 161:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_Start
+ 163:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 165:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 5
+
+
+ 167:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void  
+ 169:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 170:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 171:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 172:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 173:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  Noise_Clk_Div_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 177:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_Start(void) 
+ 179:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 180:Generated_Source\PSoC5/Noise_Clk_Div.c ****     if(Noise_Clk_Div_initVar == 0u)
+ 181:Generated_Source\PSoC5/Noise_Clk_Div.c ****     {
+ 182:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_Init();
+ 183:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+ 184:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:Generated_Source\PSoC5/Noise_Clk_Div.c ****     }
+ 186:Generated_Source\PSoC5/Noise_Clk_Div.c ****     
+ 187:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Noise_Clk_Div.c ****     Noise_Clk_Div_Enable();        
+ 189:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 190:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 191:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 192:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_Stop
+ 194:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 196:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 198:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void  
+ 200:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 201:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 202:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 203:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 204:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Noise_Clk_Div.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 207:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_Stop(void) 
+ 209:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+  63              		.loc 1 209 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+ 210:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(!Noise_Clk_Div_ControlRegRemoved || Noise_Clk_Div_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_CONTROL &= ((uint8)(~Noise_Clk_Div_CTRL_ENABLE));        
+  68              		.loc 1 212 0
+  69 0000 084A     		ldr	r2, .L5
+  70 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  71 0004 03F0FE03 		and	r3, r3, #254
+  72 0008 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (!Noise_Clk_Div_ControlRegRemoved || Noise_Clk_Div_UsingFixedFunction) */
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 6
+
+
+ 214:Generated_Source\PSoC5/Noise_Clk_Div.c ****     
+ 215:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if (Noise_Clk_Div_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_ENABLE &= ((uint8)(~Noise_Clk_Div_BLOCK_EN_MASK));
+  73              		.loc 1 217 0
+  74 000a A2F66932 		subw	r2, r2, #2921
+  75 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  76 0010 03F0FD03 		and	r3, r3, #253
+  77 0014 1370     		strb	r3, [r2]
+ 218:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_STBY_ENABLE &= ((uint8)(~Noise_Clk_Div_BLOCK_STBY_EN_MASK));
+  78              		.loc 1 218 0
+  79 0016 1032     		adds	r2, r2, #16
+  80 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  81 001a 03F0FD03 		and	r3, r3, #253
+  82 001e 1370     		strb	r3, [r2]
+  83 0020 7047     		bx	lr
+  84              	.L6:
+  85 0022 00BF     		.align	2
+  86              	.L5:
+  87 0024 0C4F0040 		.word	1073762060
+  88              		.cfi_endproc
+  89              	.LFE3:
+  90              		.size	Noise_Clk_Div_Stop, .-Noise_Clk_Div_Stop
+  91              		.section	.text.Noise_Clk_Div_SetInterruptMode,"ax",%progbits
+  92              		.align	2
+  93              		.global	Noise_Clk_Div_SetInterruptMode
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	Noise_Clk_Div_SetInterruptMode, %function
+  97              	Noise_Clk_Div_SetInterruptMode:
+  98              	.LFB4:
+ 219:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 221:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 222:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 223:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_SetInterruptMode
+ 225:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 227:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 229:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Noise_Clk_Div.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 233:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 234:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 235:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 236:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+  99              		.loc 1 238 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL0:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 7
+
+
+ 239:Generated_Source\PSoC5/Noise_Clk_Div.c ****     Noise_Clk_Div_STATUS_MASK = interruptsMask;
+ 105              		.loc 1 239 0
+ 106 0000 014B     		ldr	r3, .L8
+ 107 0002 1870     		strb	r0, [r3]
+ 108 0004 7047     		bx	lr
+ 109              	.L9:
+ 110 0006 00BF     		.align	2
+ 111              	.L8:
+ 112 0008 0F4F0040 		.word	1073762063
+ 113              		.cfi_endproc
+ 114              	.LFE4:
+ 115              		.size	Noise_Clk_Div_SetInterruptMode, .-Noise_Clk_Div_SetInterruptMode
+ 116              		.section	.text.Noise_Clk_Div_ReadStatusRegister,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	Noise_Clk_Div_ReadStatusRegister
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	Noise_Clk_Div_ReadStatusRegister, %function
+ 122              	Noise_Clk_Div_ReadStatusRegister:
+ 123              	.LFB5:
+ 240:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 241:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 242:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 243:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 247:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 251:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 253:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 254:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 255:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 257:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 260:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint8   Noise_Clk_Div_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 124              		.loc 1 262 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 263:Generated_Source\PSoC5/Noise_Clk_Div.c ****     return Noise_Clk_Div_STATUS;
+ 129              		.loc 1 263 0
+ 130 0000 014B     		ldr	r3, .L11
+ 131 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 132              		.loc 1 264 0
+ 133 0004 7047     		bx	lr
+ 134              	.L12:
+ 135 0006 00BF     		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 8
+
+
+ 136              	.L11:
+ 137 0008 0F4F0040 		.word	1073762063
+ 138              		.cfi_endproc
+ 139              	.LFE5:
+ 140              		.size	Noise_Clk_Div_ReadStatusRegister, .-Noise_Clk_Div_ReadStatusRegister
+ 141              		.section	.text.Noise_Clk_Div_ReadControlRegister,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	Noise_Clk_Div_ReadControlRegister
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	Noise_Clk_Div_ReadControlRegister, %function
+ 147              	Noise_Clk_Div_ReadControlRegister:
+ 148              	.LFB6:
+ 265:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 266:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 267:Generated_Source\PSoC5/Noise_Clk_Div.c **** #if(!Noise_Clk_Div_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_ReadControlRegister
+ 270:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 272:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 276:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 278:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 279:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 280:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 282:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint8   Noise_Clk_Div_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 149              		.loc 1 284 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 285:Generated_Source\PSoC5/Noise_Clk_Div.c ****     return Noise_Clk_Div_CONTROL;
+ 154              		.loc 1 285 0
+ 155 0000 014B     		ldr	r3, .L14
+ 156 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 157              		.loc 1 286 0
+ 158 0004 7047     		bx	lr
+ 159              	.L15:
+ 160 0006 00BF     		.align	2
+ 161              	.L14:
+ 162 0008 0C4F0040 		.word	1073762060
+ 163              		.cfi_endproc
+ 164              	.LFE6:
+ 165              		.size	Noise_Clk_Div_ReadControlRegister, .-Noise_Clk_Div_ReadControlRegister
+ 166              		.section	.text.Noise_Clk_Div_WriteControlRegister,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	Noise_Clk_Div_WriteControlRegister
+ 169              		.thumb
+ 170              		.thumb_func
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 9
+
+
+ 171              		.type	Noise_Clk_Div_WriteControlRegister, %function
+ 172              	Noise_Clk_Div_WriteControlRegister:
+ 173              	.LFB7:
+ 287:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 288:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 289:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_WriteControlRegister
+ 291:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 293:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Noise_Clk_Div.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 297:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 299:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 300:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 301:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 303:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Noise_Clk_Div.c **** void    Noise_Clk_Div_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 174              		.loc 1 305 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL1:
+ 306:Generated_Source\PSoC5/Noise_Clk_Div.c ****     Noise_Clk_Div_CONTROL = control;
+ 180              		.loc 1 306 0
+ 181 0000 014B     		ldr	r3, .L17
+ 182 0002 1870     		strb	r0, [r3]
+ 183 0004 7047     		bx	lr
+ 184              	.L18:
+ 185 0006 00BF     		.align	2
+ 186              	.L17:
+ 187 0008 0C4F0040 		.word	1073762060
+ 188              		.cfi_endproc
+ 189              	.LFE7:
+ 190              		.size	Noise_Clk_Div_WriteControlRegister, .-Noise_Clk_Div_WriteControlRegister
+ 191              		.section	.text.Noise_Clk_Div_WriteCounter,"ax",%progbits
+ 192              		.align	2
+ 193              		.global	Noise_Clk_Div_WriteCounter
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.type	Noise_Clk_Div_WriteCounter, %function
+ 197              	Noise_Clk_Div_WriteCounter:
+ 198              	.LFB8:
+ 307:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 308:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 309:Generated_Source\PSoC5/Noise_Clk_Div.c **** #endif  /* (!Noise_Clk_Div_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 311:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 312:Generated_Source\PSoC5/Noise_Clk_Div.c **** #if (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_WriteCounter
+ 315:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 10
+
+
+ 316:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 317:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 319:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 322:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 323:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void 
+ 324:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 325:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_WriteCounter(uint16 counter) \
+ 327:Generated_Source\PSoC5/Noise_Clk_Div.c ****                                    
+ 328:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 199              		.loc 1 328 0
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              	.LVL2:
+ 204 0000 10B5     		push	{r4, lr}
+ 205              		.cfi_def_cfa_offset 8
+ 206              		.cfi_offset 4, -8
+ 207              		.cfi_offset 14, -4
+ 208 0002 0446     		mov	r4, r0
+ 329:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Noise_Clk_Div.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Noise_Clk_Div.c ****         CYASSERT (0u == (Noise_Clk_Div_GLOBAL_ENABLE & Noise_Clk_Div_BLOCK_EN_MASK));
+ 209              		.loc 1 331 0
+ 210 0004 094B     		ldr	r3, .L22
+ 211 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 212 0008 13F0020F 		tst	r3, #2
+ 213 000c 02D0     		beq	.L20
+ 214              		.loc 1 331 0 is_stmt 0 discriminator 1
+ 215 000e 0020     		movs	r0, #0
+ 216              	.LVL3:
+ 217 0010 FFF7FEFF 		bl	CyHalt
+ 218              	.LVL4:
+ 219              	.L20:
+ 332:Generated_Source\PSoC5/Noise_Clk_Div.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_ENABLE |= Noise_Clk_Div_BLOCK_EN_MASK;
+ 220              		.loc 1 333 0 is_stmt 1
+ 221 0014 054B     		ldr	r3, .L22
+ 222 0016 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 223 0018 42F00202 		orr	r2, r2, #2
+ 224 001c 1A70     		strb	r2, [r3]
+ 334:Generated_Source\PSoC5/Noise_Clk_Div.c ****         CY_SET_REG16(Noise_Clk_Div_COUNTER_LSB_PTR, (uint16)counter);
+ 225              		.loc 1 334 0
+ 226 001e 044A     		ldr	r2, .L22+4
+ 227 0020 1480     		strh	r4, [r2]	@ movhi
+ 335:Generated_Source\PSoC5/Noise_Clk_Div.c ****         Noise_Clk_Div_GLOBAL_ENABLE &= ((uint8)(~Noise_Clk_Div_BLOCK_EN_MASK));
+ 228              		.loc 1 335 0
+ 229 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 230 0024 02F0FD02 		and	r2, r2, #253
+ 231 0028 1A70     		strb	r2, [r3]
+ 232 002a 10BD     		pop	{r4, pc}
+ 233              	.L23:
+ 234              		.align	2
+ 235              	.L22:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 11
+
+
+ 236 002c A3430040 		.word	1073759139
+ 237 0030 124F0040 		.word	1073762066
+ 238              		.cfi_endproc
+ 239              	.LFE8:
+ 240              		.size	Noise_Clk_Div_WriteCounter, .-Noise_Clk_Div_WriteCounter
+ 241              		.section	.text.Noise_Clk_Div_ReadCounter,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	Noise_Clk_Div_ReadCounter
+ 244              		.thumb
+ 245              		.thumb_func
+ 246              		.type	Noise_Clk_Div_ReadCounter, %function
+ 247              	Noise_Clk_Div_ReadCounter:
+ 248              	.LFB9:
+ 336:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #else
+ 337:Generated_Source\PSoC5/Noise_Clk_Div.c ****         CY_SET_REG16(Noise_Clk_Div_COUNTER_LSB_PTR, counter);
+ 338:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 340:Generated_Source\PSoC5/Noise_Clk_Div.c **** #endif /* (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 342:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 343:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_ReadCounter
+ 345:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 347:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Noise_Clk_Div.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 350:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void:  
+ 352:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 353:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 354:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint16) The present value of the counter.
+ 355:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 356:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint16 Noise_Clk_Div_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 249              		.loc 1 358 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
+ 359:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Noise_Clk_Div.c **** 		(void)CY_GET_REG16(Noise_Clk_Div_COUNTER_LSB_PTR);
+ 254              		.loc 1 363 0
+ 255 0000 024B     		ldr	r3, .L25
+ 256 0002 1B88     		ldrh	r3, [r3]
+ 364:Generated_Source\PSoC5/Noise_Clk_Div.c **** 	#else
+ 365:Generated_Source\PSoC5/Noise_Clk_Div.c **** 		(void)CY_GET_REG8(Noise_Clk_Div_COUNTER_LSB_PTR_8BIT);
+ 366:Generated_Source\PSoC5/Noise_Clk_Div.c **** 	#endif/* (Noise_Clk_Div_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Noise_Clk_Div.c ****     
+ 368:Generated_Source\PSoC5/Noise_Clk_Div.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return ((uint16)CY_GET_REG16(Noise_Clk_Div_STATICCOUNT_LSB_PTR));
+ 257              		.loc 1 370 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 12
+
+
+ 258 0004 024B     		ldr	r3, .L25+4
+ 259 0006 1888     		ldrh	r0, [r3]
+ 371:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #else
+ 372:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return (CY_GET_REG16(Noise_Clk_Div_STATICCOUNT_LSB_PTR));
+ 373:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 260              		.loc 1 374 0
+ 261 0008 80B2     		uxth	r0, r0
+ 262 000a 7047     		bx	lr
+ 263              	.L26:
+ 264              		.align	2
+ 265              	.L25:
+ 266 000c 124F0040 		.word	1073762066
+ 267 0010 144F0040 		.word	1073762068
+ 268              		.cfi_endproc
+ 269              	.LFE9:
+ 270              		.size	Noise_Clk_Div_ReadCounter, .-Noise_Clk_Div_ReadCounter
+ 271              		.section	.text.Noise_Clk_Div_ReadCapture,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	Noise_Clk_Div_ReadCapture
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	Noise_Clk_Div_ReadCapture, %function
+ 277              	Noise_Clk_Div_ReadCapture:
+ 278              	.LFB10:
+ 375:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 376:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 377:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_ReadCapture
+ 379:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 381:Generated_Source\PSoC5/Noise_Clk_Div.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 383:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 385:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 386:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 387:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint16) Present Capture value.
+ 388:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 389:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint16 Noise_Clk_Div_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 279              		.loc 1 391 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 392:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return ((uint16)CY_GET_REG16(Noise_Clk_Div_STATICCOUNT_LSB_PTR));
+ 284              		.loc 1 393 0
+ 285 0000 014B     		ldr	r3, .L28
+ 286 0002 1888     		ldrh	r0, [r3]
+ 394:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #else
+ 395:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return (CY_GET_REG16(Noise_Clk_Div_STATICCOUNT_LSB_PTR));
+ 396:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 287              		.loc 1 397 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 13
+
+
+ 288 0004 80B2     		uxth	r0, r0
+ 289 0006 7047     		bx	lr
+ 290              	.L29:
+ 291              		.align	2
+ 292              	.L28:
+ 293 0008 144F0040 		.word	1073762068
+ 294              		.cfi_endproc
+ 295              	.LFE10:
+ 296              		.size	Noise_Clk_Div_ReadCapture, .-Noise_Clk_Div_ReadCapture
+ 297              		.section	.text.Noise_Clk_Div_WritePeriod,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	Noise_Clk_Div_WritePeriod
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	Noise_Clk_Div_WritePeriod, %function
+ 303              	Noise_Clk_Div_WritePeriod:
+ 304              	.LFB11:
+ 398:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 399:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 400:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_WritePeriod
+ 402:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 404:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Noise_Clk_Div.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 407:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  period: (uint16) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Noise_Clk_Div.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 411:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 412:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void
+ 413:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 414:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Noise_Clk_Div.c **** void Noise_Clk_Div_WritePeriod(uint16 period) 
+ 416:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 305              		.loc 1 416 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310              	.LVL5:
+ 417:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Noise_Clk_Div.c ****         CY_SET_REG16(Noise_Clk_Div_PERIOD_LSB_PTR,(uint16)period);
+ 311              		.loc 1 418 0
+ 312 0000 014B     		ldr	r3, .L31
+ 313 0002 1880     		strh	r0, [r3]	@ movhi
+ 314 0004 7047     		bx	lr
+ 315              	.L32:
+ 316 0006 00BF     		.align	2
+ 317              	.L31:
+ 318 0008 104F0040 		.word	1073762064
+ 319              		.cfi_endproc
+ 320              	.LFE11:
+ 321              		.size	Noise_Clk_Div_WritePeriod, .-Noise_Clk_Div_WritePeriod
+ 322              		.section	.text.Noise_Clk_Div_Init,"ax",%progbits
+ 323              		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 14
+
+
+ 324              		.global	Noise_Clk_Div_Init
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.type	Noise_Clk_Div_Init, %function
+ 328              	Noise_Clk_Div_Init:
+ 329              	.LFB0:
+  38:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!Noise_Clk_Div_UsingFixedFunction && !Noise_Clk_Div_ControlRegRemoved)
+ 330              		.loc 1 38 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334 0000 08B5     		push	{r3, lr}
+ 335              		.cfi_def_cfa_offset 8
+ 336              		.cfi_offset 3, -8
+ 337              		.cfi_offset 14, -4
+  50:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 338              		.loc 1 50 0
+ 339 0002 164A     		ldr	r2, .L35
+ 340 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 341 0006 03F00103 		and	r3, r3, #1
+ 342 000a 1370     		strb	r3, [r2]
+  57:Generated_Source\PSoC5/Noise_Clk_Div.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+ 343              		.loc 1 57 0
+ 344 000c 0232     		adds	r2, r2, #2
+ 345 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 346 0010 03F0FC03 		and	r3, r3, #252
+ 347 0014 1370     		strb	r3, [r2]
+  66:Generated_Source\PSoC5/Noise_Clk_Div.c ****             
+ 348              		.loc 1 66 0
+ 349 0016 013A     		subs	r2, r2, #1
+ 350 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 351 001a 43F00103 		orr	r3, r3, #1
+ 352 001e 1370     		strb	r3, [r2]
+  69:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 |= Noise_Clk_Div_SYNC;     
+ 353              		.loc 1 69 0
+ 354 0020 0F4B     		ldr	r3, .L35+4
+ 355 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 356 0024 02F0CF02 		and	r2, r2, #207
+ 357 0028 1A70     		strb	r2, [r3]
+  70:Generated_Source\PSoC5/Noise_Clk_Div.c ****                     
+ 358              		.loc 1 70 0
+ 359 002a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 360 002c 42F03002 		orr	r2, r2, #48
+ 361 0030 1A70     		strb	r2, [r3]
+  73:Generated_Source\PSoC5/Noise_Clk_Div.c ****             Noise_Clk_Div_RT1 |= Noise_Clk_Div_SYNCDSI_EN;
+ 362              		.loc 1 73 0
+ 363 0032 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 364 0034 02F0F002 		and	r2, r2, #240
+ 365 0038 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 366              		.loc 1 74 0
+ 367 003a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 368 003c 42F00F02 		orr	r2, r2, #15
+ 369 0040 1A70     		strb	r2, [r3]
+ 100:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #if (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A)))
+ 370              		.loc 1 100 0
+ 371 0042 40F6FF70 		movw	r0, #4095
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 15
+
+
+ 372 0046 FFF7FEFF 		bl	Noise_Clk_Div_WritePeriod
+ 373              	.LVL6:
+ 102:Generated_Source\PSoC5/Noise_Clk_Div.c ****         #endif /* (!(Noise_Clk_Div_UsingFixedFunction && (CY_PSOC5A))) */
+ 374              		.loc 1 102 0
+ 375 004a 40F6FF70 		movw	r0, #4095
+ 376 004e FFF7FEFF 		bl	Noise_Clk_Div_WriteCounter
+ 377              	.LVL7:
+ 104:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+ 378              		.loc 1 104 0
+ 379 0052 0020     		movs	r0, #0
+ 380 0054 FFF7FEFF 		bl	Noise_Clk_Div_SetInterruptMode
+ 381              	.LVL8:
+ 382 0058 08BD     		pop	{r3, pc}
+ 383              	.L36:
+ 384 005a 00BF     		.align	2
+ 385              	.L35:
+ 386 005c 0C4F0040 		.word	1073762060
+ 387 0060 174F0040 		.word	1073762071
+ 388              		.cfi_endproc
+ 389              	.LFE0:
+ 390              		.size	Noise_Clk_Div_Init, .-Noise_Clk_Div_Init
+ 391              		.section	.text.Noise_Clk_Div_Start,"ax",%progbits
+ 392              		.align	2
+ 393              		.global	Noise_Clk_Div_Start
+ 394              		.thumb
+ 395              		.thumb_func
+ 396              		.type	Noise_Clk_Div_Start, %function
+ 397              	Noise_Clk_Div_Start:
+ 398              	.LFB2:
+ 179:Generated_Source\PSoC5/Noise_Clk_Div.c ****     if(Noise_Clk_Div_initVar == 0u)
+ 399              		.loc 1 179 0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403 0000 08B5     		push	{r3, lr}
+ 404              		.cfi_def_cfa_offset 8
+ 405              		.cfi_offset 3, -8
+ 406              		.cfi_offset 14, -4
+ 180:Generated_Source\PSoC5/Noise_Clk_Div.c ****     {
+ 407              		.loc 1 180 0
+ 408 0002 054B     		ldr	r3, .L40
+ 409 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 410 0006 23B9     		cbnz	r3, .L38
+ 182:Generated_Source\PSoC5/Noise_Clk_Div.c ****         
+ 411              		.loc 1 182 0
+ 412 0008 FFF7FEFF 		bl	Noise_Clk_Div_Init
+ 413              	.LVL9:
+ 184:Generated_Source\PSoC5/Noise_Clk_Div.c ****     }
+ 414              		.loc 1 184 0
+ 415 000c 0122     		movs	r2, #1
+ 416 000e 024B     		ldr	r3, .L40
+ 417 0010 1A70     		strb	r2, [r3]
+ 418              	.L38:
+ 188:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 419              		.loc 1 188 0
+ 420 0012 FFF7FEFF 		bl	Noise_Clk_Div_Enable
+ 421              	.LVL10:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 16
+
+
+ 422 0016 08BD     		pop	{r3, pc}
+ 423              	.L41:
+ 424              		.align	2
+ 425              	.L40:
+ 426 0018 00000000 		.word	.LANCHOR0
+ 427              		.cfi_endproc
+ 428              	.LFE2:
+ 429              		.size	Noise_Clk_Div_Start, .-Noise_Clk_Div_Start
+ 430              		.section	.text.Noise_Clk_Div_ReadPeriod,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	Noise_Clk_Div_ReadPeriod
+ 433              		.thumb
+ 434              		.thumb_func
+ 435              		.type	Noise_Clk_Div_ReadPeriod, %function
+ 436              	Noise_Clk_Div_ReadPeriod:
+ 437              	.LFB12:
+ 419:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #else
+ 420:Generated_Source\PSoC5/Noise_Clk_Div.c ****         CY_SET_REG16(Noise_Clk_Div_PERIOD_LSB_PTR, period);
+ 421:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 423:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 424:Generated_Source\PSoC5/Noise_Clk_Div.c **** 
+ 425:Generated_Source\PSoC5/Noise_Clk_Div.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Function Name: Noise_Clk_Div_ReadPeriod
+ 427:Generated_Source\PSoC5/Noise_Clk_Div.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Summary:
+ 429:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 431:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  void:  
+ 433:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 434:Generated_Source\PSoC5/Noise_Clk_Div.c **** * Return: 
+ 435:Generated_Source\PSoC5/Noise_Clk_Div.c **** *  (uint16) Present period value.
+ 436:Generated_Source\PSoC5/Noise_Clk_Div.c **** *
+ 437:Generated_Source\PSoC5/Noise_Clk_Div.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Noise_Clk_Div.c **** uint16 Noise_Clk_Div_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Noise_Clk_Div.c **** {
+ 438              		.loc 1 439 0
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
+ 440:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #if(Noise_Clk_Div_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return ((uint16)CY_GET_REG16(Noise_Clk_Div_PERIOD_LSB_PTR));
+ 443              		.loc 1 441 0
+ 444 0000 014B     		ldr	r3, .L43
+ 445 0002 1888     		ldrh	r0, [r3]
+ 442:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #else
+ 443:Generated_Source\PSoC5/Noise_Clk_Div.c ****         return (CY_GET_REG16(Noise_Clk_Div_PERIOD_LSB_PTR));
+ 444:Generated_Source\PSoC5/Noise_Clk_Div.c ****     #endif /* (Noise_Clk_Div_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Noise_Clk_Div.c **** }
+ 446              		.loc 1 445 0
+ 447 0004 80B2     		uxth	r0, r0
+ 448 0006 7047     		bx	lr
+ 449              	.L44:
+ 450              		.align	2
+ 451              	.L43:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 17
+
+
+ 452 0008 104F0040 		.word	1073762064
+ 453              		.cfi_endproc
+ 454              	.LFE12:
+ 455              		.size	Noise_Clk_Div_ReadPeriod, .-Noise_Clk_Div_ReadPeriod
+ 456              		.global	Noise_Clk_Div_initVar
+ 457              		.bss
+ 458              		.set	.LANCHOR0,. + 0
+ 459              		.type	Noise_Clk_Div_initVar, %object
+ 460              		.size	Noise_Clk_Div_initVar, 1
+ 461              	Noise_Clk_Div_initVar:
+ 462 0000 00       		.space	1
+ 463              		.text
+ 464              	.Letext0:
+ 465              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 466              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 467              		.section	.debug_info,"",%progbits
+ 468              	.Ldebug_info0:
+ 469 0000 86020000 		.4byte	0x286
+ 470 0004 0400     		.2byte	0x4
+ 471 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 472 000a 04       		.byte	0x4
+ 473 000b 01       		.uleb128 0x1
+ 474 000c 92010000 		.4byte	.LASF34
+ 475 0010 01       		.byte	0x1
+ 476 0011 20000000 		.4byte	.LASF35
+ 477 0015 44020000 		.4byte	.LASF36
+ 478 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 479 001d 00000000 		.4byte	0
+ 480 0021 00000000 		.4byte	.Ldebug_line0
+ 481 0025 02       		.uleb128 0x2
+ 482 0026 01       		.byte	0x1
+ 483 0027 06       		.byte	0x6
+ 484 0028 01030000 		.4byte	.LASF0
+ 485 002c 02       		.uleb128 0x2
+ 486 002d 01       		.byte	0x1
+ 487 002e 08       		.byte	0x8
+ 488 002f D6000000 		.4byte	.LASF1
+ 489 0033 02       		.uleb128 0x2
+ 490 0034 02       		.byte	0x2
+ 491 0035 05       		.byte	0x5
+ 492 0036 DB020000 		.4byte	.LASF2
+ 493 003a 02       		.uleb128 0x2
+ 494 003b 02       		.byte	0x2
+ 495 003c 07       		.byte	0x7
+ 496 003d 6F000000 		.4byte	.LASF3
+ 497 0041 02       		.uleb128 0x2
+ 498 0042 04       		.byte	0x4
+ 499 0043 05       		.byte	0x5
+ 500 0044 E5020000 		.4byte	.LASF4
+ 501 0048 02       		.uleb128 0x2
+ 502 0049 04       		.byte	0x4
+ 503 004a 07       		.byte	0x7
+ 504 004b 1D010000 		.4byte	.LASF5
+ 505 004f 02       		.uleb128 0x2
+ 506 0050 08       		.byte	0x8
+ 507 0051 05       		.byte	0x5
+ 508 0052 99020000 		.4byte	.LASF6
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 18
+
+
+ 509 0056 02       		.uleb128 0x2
+ 510 0057 08       		.byte	0x8
+ 511 0058 07       		.byte	0x7
+ 512 0059 2D020000 		.4byte	.LASF7
+ 513 005d 03       		.uleb128 0x3
+ 514 005e 04       		.byte	0x4
+ 515 005f 05       		.byte	0x5
+ 516 0060 696E7400 		.ascii	"int\000"
+ 517 0064 02       		.uleb128 0x2
+ 518 0065 04       		.byte	0x4
+ 519 0066 07       		.byte	0x7
+ 520 0067 20020000 		.4byte	.LASF8
+ 521 006b 04       		.uleb128 0x4
+ 522 006c 2F010000 		.4byte	.LASF9
+ 523 0070 02       		.byte	0x2
+ 524 0071 9201     		.2byte	0x192
+ 525 0073 2C000000 		.4byte	0x2c
+ 526 0077 04       		.uleb128 0x4
+ 527 0078 8B010000 		.4byte	.LASF10
+ 528 007c 02       		.byte	0x2
+ 529 007d 9301     		.2byte	0x193
+ 530 007f 3A000000 		.4byte	0x3a
+ 531 0083 02       		.uleb128 0x2
+ 532 0084 04       		.byte	0x4
+ 533 0085 04       		.byte	0x4
+ 534 0086 C8000000 		.4byte	.LASF11
+ 535 008a 02       		.uleb128 0x2
+ 536 008b 08       		.byte	0x8
+ 537 008c 04       		.byte	0x4
+ 538 008d 6F010000 		.4byte	.LASF12
+ 539 0091 02       		.uleb128 0x2
+ 540 0092 01       		.byte	0x1
+ 541 0093 08       		.byte	0x8
+ 542 0094 A7020000 		.4byte	.LASF13
+ 543 0098 04       		.uleb128 0x4
+ 544 0099 8B020000 		.4byte	.LASF14
+ 545 009d 02       		.byte	0x2
+ 546 009e 3C02     		.2byte	0x23c
+ 547 00a0 A4000000 		.4byte	0xa4
+ 548 00a4 05       		.uleb128 0x5
+ 549 00a5 6B000000 		.4byte	0x6b
+ 550 00a9 04       		.uleb128 0x4
+ 551 00aa 00000000 		.4byte	.LASF15
+ 552 00ae 02       		.byte	0x2
+ 553 00af 3D02     		.2byte	0x23d
+ 554 00b1 B5000000 		.4byte	0xb5
+ 555 00b5 05       		.uleb128 0x5
+ 556 00b6 77000000 		.4byte	0x77
+ 557 00ba 02       		.uleb128 0x2
+ 558 00bb 04       		.byte	0x4
+ 559 00bc 07       		.byte	0x7
+ 560 00bd 90020000 		.4byte	.LASF16
+ 561 00c1 06       		.uleb128 0x6
+ 562 00c2 76010000 		.4byte	.LASF17
+ 563 00c6 01       		.byte	0x1
+ 564 00c7 8F       		.byte	0x8f
+ 565 00c8 00000000 		.4byte	.LFB1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 19
+
+
+ 566 00cc 28000000 		.4byte	.LFE1-.LFB1
+ 567 00d0 01       		.uleb128 0x1
+ 568 00d1 9C       		.byte	0x9c
+ 569 00d2 06       		.uleb128 0x6
+ 570 00d3 B5000000 		.4byte	.LASF18
+ 571 00d7 01       		.byte	0x1
+ 572 00d8 D0       		.byte	0xd0
+ 573 00d9 00000000 		.4byte	.LFB3
+ 574 00dd 28000000 		.4byte	.LFE3-.LFB3
+ 575 00e1 01       		.uleb128 0x1
+ 576 00e2 9C       		.byte	0x9c
+ 577 00e3 07       		.uleb128 0x7
+ 578 00e4 E4000000 		.4byte	.LASF21
+ 579 00e8 01       		.byte	0x1
+ 580 00e9 ED       		.byte	0xed
+ 581 00ea 00000000 		.4byte	.LFB4
+ 582 00ee 0C000000 		.4byte	.LFE4-.LFB4
+ 583 00f2 01       		.uleb128 0x1
+ 584 00f3 9C       		.byte	0x9c
+ 585 00f4 06010000 		.4byte	0x106
+ 586 00f8 08       		.uleb128 0x8
+ 587 00f9 3D010000 		.4byte	.LASF23
+ 588 00fd 01       		.byte	0x1
+ 589 00fe ED       		.byte	0xed
+ 590 00ff 6B000000 		.4byte	0x6b
+ 591 0103 01       		.uleb128 0x1
+ 592 0104 50       		.byte	0x50
+ 593 0105 00       		.byte	0
+ 594 0106 09       		.uleb128 0x9
+ 595 0107 47000000 		.4byte	.LASF19
+ 596 010b 01       		.byte	0x1
+ 597 010c 0501     		.2byte	0x105
+ 598 010e 6B000000 		.4byte	0x6b
+ 599 0112 00000000 		.4byte	.LFB5
+ 600 0116 0C000000 		.4byte	.LFE5-.LFB5
+ 601 011a 01       		.uleb128 0x1
+ 602 011b 9C       		.byte	0x9c
+ 603 011c 09       		.uleb128 0x9
+ 604 011d 23030000 		.4byte	.LASF20
+ 605 0121 01       		.byte	0x1
+ 606 0122 1B01     		.2byte	0x11b
+ 607 0124 6B000000 		.4byte	0x6b
+ 608 0128 00000000 		.4byte	.LFB6
+ 609 012c 0C000000 		.4byte	.LFE6-.LFB6
+ 610 0130 01       		.uleb128 0x1
+ 611 0131 9C       		.byte	0x9c
+ 612 0132 0A       		.uleb128 0xa
+ 613 0133 4C010000 		.4byte	.LASF22
+ 614 0137 01       		.byte	0x1
+ 615 0138 3001     		.2byte	0x130
+ 616 013a 00000000 		.4byte	.LFB7
+ 617 013e 0C000000 		.4byte	.LFE7-.LFB7
+ 618 0142 01       		.uleb128 0x1
+ 619 0143 9C       		.byte	0x9c
+ 620 0144 57010000 		.4byte	0x157
+ 621 0148 0B       		.uleb128 0xb
+ 622 0149 35010000 		.4byte	.LASF24
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 20
+
+
+ 623 014d 01       		.byte	0x1
+ 624 014e 3001     		.2byte	0x130
+ 625 0150 6B000000 		.4byte	0x6b
+ 626 0154 01       		.uleb128 0x1
+ 627 0155 50       		.byte	0x50
+ 628 0156 00       		.byte	0
+ 629 0157 0A       		.uleb128 0xa
+ 630 0158 AC020000 		.4byte	.LASF25
+ 631 015c 01       		.byte	0x1
+ 632 015d 4601     		.2byte	0x146
+ 633 015f 00000000 		.4byte	.LFB8
+ 634 0163 34000000 		.4byte	.LFE8-.LFB8
+ 635 0167 01       		.uleb128 0x1
+ 636 0168 9C       		.byte	0x9c
+ 637 0169 8D010000 		.4byte	0x18d
+ 638 016d 0C       		.uleb128 0xc
+ 639 016e CE000000 		.4byte	.LASF26
+ 640 0172 01       		.byte	0x1
+ 641 0173 4601     		.2byte	0x146
+ 642 0175 77000000 		.4byte	0x77
+ 643 0179 00000000 		.4byte	.LLST0
+ 644 017d 0D       		.uleb128 0xd
+ 645 017e 14000000 		.4byte	.LVL4
+ 646 0182 7C020000 		.4byte	0x27c
+ 647 0186 0E       		.uleb128 0xe
+ 648 0187 01       		.uleb128 0x1
+ 649 0188 50       		.byte	0x50
+ 650 0189 01       		.uleb128 0x1
+ 651 018a 30       		.byte	0x30
+ 652 018b 00       		.byte	0
+ 653 018c 00       		.byte	0
+ 654 018d 09       		.uleb128 0x9
+ 655 018e 82000000 		.4byte	.LASF27
+ 656 0192 01       		.byte	0x1
+ 657 0193 6501     		.2byte	0x165
+ 658 0195 77000000 		.4byte	0x77
+ 659 0199 00000000 		.4byte	.LFB9
+ 660 019d 14000000 		.4byte	.LFE9-.LFB9
+ 661 01a1 01       		.uleb128 0x1
+ 662 01a2 9C       		.byte	0x9c
+ 663 01a3 09       		.uleb128 0x9
+ 664 01a4 06000000 		.4byte	.LASF28
+ 665 01a8 01       		.byte	0x1
+ 666 01a9 8601     		.2byte	0x186
+ 667 01ab 77000000 		.4byte	0x77
+ 668 01af 00000000 		.4byte	.LFB10
+ 669 01b3 0C000000 		.4byte	.LFE10-.LFB10
+ 670 01b7 01       		.uleb128 0x1
+ 671 01b8 9C       		.byte	0x9c
+ 672 01b9 0A       		.uleb128 0xa
+ 673 01ba 03010000 		.4byte	.LASF29
+ 674 01be 01       		.byte	0x1
+ 675 01bf 9F01     		.2byte	0x19f
+ 676 01c1 00000000 		.4byte	.LFB11
+ 677 01c5 0C000000 		.4byte	.LFE11-.LFB11
+ 678 01c9 01       		.uleb128 0x1
+ 679 01ca 9C       		.byte	0x9c
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 21
+
+
+ 680 01cb DE010000 		.4byte	0x1de
+ 681 01cf 0B       		.uleb128 0xb
+ 682 01d0 68000000 		.4byte	.LASF30
+ 683 01d4 01       		.byte	0x1
+ 684 01d5 9F01     		.2byte	0x19f
+ 685 01d7 77000000 		.4byte	0x77
+ 686 01db 01       		.uleb128 0x1
+ 687 01dc 50       		.byte	0x50
+ 688 01dd 00       		.byte	0
+ 689 01de 07       		.uleb128 0x7
+ 690 01df EE020000 		.4byte	.LASF31
+ 691 01e3 01       		.byte	0x1
+ 692 01e4 25       		.byte	0x25
+ 693 01e5 00000000 		.4byte	.LFB0
+ 694 01e9 64000000 		.4byte	.LFE0-.LFB0
+ 695 01ed 01       		.uleb128 0x1
+ 696 01ee 9C       		.byte	0x9c
+ 697 01ef 2D020000 		.4byte	0x22d
+ 698 01f3 0F       		.uleb128 0xf
+ 699 01f4 4A000000 		.4byte	.LVL6
+ 700 01f8 B9010000 		.4byte	0x1b9
+ 701 01fc 08020000 		.4byte	0x208
+ 702 0200 0E       		.uleb128 0xe
+ 703 0201 01       		.uleb128 0x1
+ 704 0202 50       		.byte	0x50
+ 705 0203 03       		.uleb128 0x3
+ 706 0204 0A       		.byte	0xa
+ 707 0205 FF0F     		.2byte	0xfff
+ 708 0207 00       		.byte	0
+ 709 0208 0F       		.uleb128 0xf
+ 710 0209 52000000 		.4byte	.LVL7
+ 711 020d 57010000 		.4byte	0x157
+ 712 0211 1D020000 		.4byte	0x21d
+ 713 0215 0E       		.uleb128 0xe
+ 714 0216 01       		.uleb128 0x1
+ 715 0217 50       		.byte	0x50
+ 716 0218 03       		.uleb128 0x3
+ 717 0219 0A       		.byte	0xa
+ 718 021a FF0F     		.2byte	0xfff
+ 719 021c 00       		.byte	0
+ 720 021d 0D       		.uleb128 0xd
+ 721 021e 58000000 		.4byte	.LVL8
+ 722 0222 E3000000 		.4byte	0xe3
+ 723 0226 0E       		.uleb128 0xe
+ 724 0227 01       		.uleb128 0x1
+ 725 0228 50       		.byte	0x50
+ 726 0229 01       		.uleb128 0x1
+ 727 022a 30       		.byte	0x30
+ 728 022b 00       		.byte	0
+ 729 022c 00       		.byte	0
+ 730 022d 07       		.uleb128 0x7
+ 731 022e C7020000 		.4byte	.LASF32
+ 732 0232 01       		.byte	0x1
+ 733 0233 B2       		.byte	0xb2
+ 734 0234 00000000 		.4byte	.LFB2
+ 735 0238 1C000000 		.4byte	.LFE2-.LFB2
+ 736 023c 01       		.uleb128 0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 22
+
+
+ 737 023d 9C       		.byte	0x9c
+ 738 023e 55020000 		.4byte	0x255
+ 739 0242 10       		.uleb128 0x10
+ 740 0243 0C000000 		.4byte	.LVL9
+ 741 0247 DE010000 		.4byte	0x1de
+ 742 024b 10       		.uleb128 0x10
+ 743 024c 16000000 		.4byte	.LVL10
+ 744 0250 C1000000 		.4byte	0xc1
+ 745 0254 00       		.byte	0
+ 746 0255 09       		.uleb128 0x9
+ 747 0256 9C000000 		.4byte	.LASF33
+ 748 025a 01       		.byte	0x1
+ 749 025b B601     		.2byte	0x1b6
+ 750 025d 77000000 		.4byte	0x77
+ 751 0261 00000000 		.4byte	.LFB12
+ 752 0265 0C000000 		.4byte	.LFE12-.LFB12
+ 753 0269 01       		.uleb128 0x1
+ 754 026a 9C       		.byte	0x9c
+ 755 026b 11       		.uleb128 0x11
+ 756 026c 0D030000 		.4byte	.LASF37
+ 757 0270 01       		.byte	0x1
+ 758 0271 15       		.byte	0x15
+ 759 0272 6B000000 		.4byte	0x6b
+ 760 0276 05       		.uleb128 0x5
+ 761 0277 03       		.byte	0x3
+ 762 0278 00000000 		.4byte	Noise_Clk_Div_initVar
+ 763 027c 12       		.uleb128 0x12
+ 764 027d 84020000 		.4byte	.LASF38
+ 765 0281 03       		.byte	0x3
+ 766 0282 7F       		.byte	0x7f
+ 767 0283 13       		.uleb128 0x13
+ 768 0284 6B000000 		.4byte	0x6b
+ 769 0288 00       		.byte	0
+ 770 0289 00       		.byte	0
+ 771              		.section	.debug_abbrev,"",%progbits
+ 772              	.Ldebug_abbrev0:
+ 773 0000 01       		.uleb128 0x1
+ 774 0001 11       		.uleb128 0x11
+ 775 0002 01       		.byte	0x1
+ 776 0003 25       		.uleb128 0x25
+ 777 0004 0E       		.uleb128 0xe
+ 778 0005 13       		.uleb128 0x13
+ 779 0006 0B       		.uleb128 0xb
+ 780 0007 03       		.uleb128 0x3
+ 781 0008 0E       		.uleb128 0xe
+ 782 0009 1B       		.uleb128 0x1b
+ 783 000a 0E       		.uleb128 0xe
+ 784 000b 55       		.uleb128 0x55
+ 785 000c 17       		.uleb128 0x17
+ 786 000d 11       		.uleb128 0x11
+ 787 000e 01       		.uleb128 0x1
+ 788 000f 10       		.uleb128 0x10
+ 789 0010 17       		.uleb128 0x17
+ 790 0011 00       		.byte	0
+ 791 0012 00       		.byte	0
+ 792 0013 02       		.uleb128 0x2
+ 793 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 23
+
+
+ 794 0015 00       		.byte	0
+ 795 0016 0B       		.uleb128 0xb
+ 796 0017 0B       		.uleb128 0xb
+ 797 0018 3E       		.uleb128 0x3e
+ 798 0019 0B       		.uleb128 0xb
+ 799 001a 03       		.uleb128 0x3
+ 800 001b 0E       		.uleb128 0xe
+ 801 001c 00       		.byte	0
+ 802 001d 00       		.byte	0
+ 803 001e 03       		.uleb128 0x3
+ 804 001f 24       		.uleb128 0x24
+ 805 0020 00       		.byte	0
+ 806 0021 0B       		.uleb128 0xb
+ 807 0022 0B       		.uleb128 0xb
+ 808 0023 3E       		.uleb128 0x3e
+ 809 0024 0B       		.uleb128 0xb
+ 810 0025 03       		.uleb128 0x3
+ 811 0026 08       		.uleb128 0x8
+ 812 0027 00       		.byte	0
+ 813 0028 00       		.byte	0
+ 814 0029 04       		.uleb128 0x4
+ 815 002a 16       		.uleb128 0x16
+ 816 002b 00       		.byte	0
+ 817 002c 03       		.uleb128 0x3
+ 818 002d 0E       		.uleb128 0xe
+ 819 002e 3A       		.uleb128 0x3a
+ 820 002f 0B       		.uleb128 0xb
+ 821 0030 3B       		.uleb128 0x3b
+ 822 0031 05       		.uleb128 0x5
+ 823 0032 49       		.uleb128 0x49
+ 824 0033 13       		.uleb128 0x13
+ 825 0034 00       		.byte	0
+ 826 0035 00       		.byte	0
+ 827 0036 05       		.uleb128 0x5
+ 828 0037 35       		.uleb128 0x35
+ 829 0038 00       		.byte	0
+ 830 0039 49       		.uleb128 0x49
+ 831 003a 13       		.uleb128 0x13
+ 832 003b 00       		.byte	0
+ 833 003c 00       		.byte	0
+ 834 003d 06       		.uleb128 0x6
+ 835 003e 2E       		.uleb128 0x2e
+ 836 003f 00       		.byte	0
+ 837 0040 3F       		.uleb128 0x3f
+ 838 0041 19       		.uleb128 0x19
+ 839 0042 03       		.uleb128 0x3
+ 840 0043 0E       		.uleb128 0xe
+ 841 0044 3A       		.uleb128 0x3a
+ 842 0045 0B       		.uleb128 0xb
+ 843 0046 3B       		.uleb128 0x3b
+ 844 0047 0B       		.uleb128 0xb
+ 845 0048 27       		.uleb128 0x27
+ 846 0049 19       		.uleb128 0x19
+ 847 004a 11       		.uleb128 0x11
+ 848 004b 01       		.uleb128 0x1
+ 849 004c 12       		.uleb128 0x12
+ 850 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 24
+
+
+ 851 004e 40       		.uleb128 0x40
+ 852 004f 18       		.uleb128 0x18
+ 853 0050 9742     		.uleb128 0x2117
+ 854 0052 19       		.uleb128 0x19
+ 855 0053 00       		.byte	0
+ 856 0054 00       		.byte	0
+ 857 0055 07       		.uleb128 0x7
+ 858 0056 2E       		.uleb128 0x2e
+ 859 0057 01       		.byte	0x1
+ 860 0058 3F       		.uleb128 0x3f
+ 861 0059 19       		.uleb128 0x19
+ 862 005a 03       		.uleb128 0x3
+ 863 005b 0E       		.uleb128 0xe
+ 864 005c 3A       		.uleb128 0x3a
+ 865 005d 0B       		.uleb128 0xb
+ 866 005e 3B       		.uleb128 0x3b
+ 867 005f 0B       		.uleb128 0xb
+ 868 0060 27       		.uleb128 0x27
+ 869 0061 19       		.uleb128 0x19
+ 870 0062 11       		.uleb128 0x11
+ 871 0063 01       		.uleb128 0x1
+ 872 0064 12       		.uleb128 0x12
+ 873 0065 06       		.uleb128 0x6
+ 874 0066 40       		.uleb128 0x40
+ 875 0067 18       		.uleb128 0x18
+ 876 0068 9742     		.uleb128 0x2117
+ 877 006a 19       		.uleb128 0x19
+ 878 006b 01       		.uleb128 0x1
+ 879 006c 13       		.uleb128 0x13
+ 880 006d 00       		.byte	0
+ 881 006e 00       		.byte	0
+ 882 006f 08       		.uleb128 0x8
+ 883 0070 05       		.uleb128 0x5
+ 884 0071 00       		.byte	0
+ 885 0072 03       		.uleb128 0x3
+ 886 0073 0E       		.uleb128 0xe
+ 887 0074 3A       		.uleb128 0x3a
+ 888 0075 0B       		.uleb128 0xb
+ 889 0076 3B       		.uleb128 0x3b
+ 890 0077 0B       		.uleb128 0xb
+ 891 0078 49       		.uleb128 0x49
+ 892 0079 13       		.uleb128 0x13
+ 893 007a 02       		.uleb128 0x2
+ 894 007b 18       		.uleb128 0x18
+ 895 007c 00       		.byte	0
+ 896 007d 00       		.byte	0
+ 897 007e 09       		.uleb128 0x9
+ 898 007f 2E       		.uleb128 0x2e
+ 899 0080 00       		.byte	0
+ 900 0081 3F       		.uleb128 0x3f
+ 901 0082 19       		.uleb128 0x19
+ 902 0083 03       		.uleb128 0x3
+ 903 0084 0E       		.uleb128 0xe
+ 904 0085 3A       		.uleb128 0x3a
+ 905 0086 0B       		.uleb128 0xb
+ 906 0087 3B       		.uleb128 0x3b
+ 907 0088 05       		.uleb128 0x5
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 25
+
+
+ 908 0089 27       		.uleb128 0x27
+ 909 008a 19       		.uleb128 0x19
+ 910 008b 49       		.uleb128 0x49
+ 911 008c 13       		.uleb128 0x13
+ 912 008d 11       		.uleb128 0x11
+ 913 008e 01       		.uleb128 0x1
+ 914 008f 12       		.uleb128 0x12
+ 915 0090 06       		.uleb128 0x6
+ 916 0091 40       		.uleb128 0x40
+ 917 0092 18       		.uleb128 0x18
+ 918 0093 9742     		.uleb128 0x2117
+ 919 0095 19       		.uleb128 0x19
+ 920 0096 00       		.byte	0
+ 921 0097 00       		.byte	0
+ 922 0098 0A       		.uleb128 0xa
+ 923 0099 2E       		.uleb128 0x2e
+ 924 009a 01       		.byte	0x1
+ 925 009b 3F       		.uleb128 0x3f
+ 926 009c 19       		.uleb128 0x19
+ 927 009d 03       		.uleb128 0x3
+ 928 009e 0E       		.uleb128 0xe
+ 929 009f 3A       		.uleb128 0x3a
+ 930 00a0 0B       		.uleb128 0xb
+ 931 00a1 3B       		.uleb128 0x3b
+ 932 00a2 05       		.uleb128 0x5
+ 933 00a3 27       		.uleb128 0x27
+ 934 00a4 19       		.uleb128 0x19
+ 935 00a5 11       		.uleb128 0x11
+ 936 00a6 01       		.uleb128 0x1
+ 937 00a7 12       		.uleb128 0x12
+ 938 00a8 06       		.uleb128 0x6
+ 939 00a9 40       		.uleb128 0x40
+ 940 00aa 18       		.uleb128 0x18
+ 941 00ab 9742     		.uleb128 0x2117
+ 942 00ad 19       		.uleb128 0x19
+ 943 00ae 01       		.uleb128 0x1
+ 944 00af 13       		.uleb128 0x13
+ 945 00b0 00       		.byte	0
+ 946 00b1 00       		.byte	0
+ 947 00b2 0B       		.uleb128 0xb
+ 948 00b3 05       		.uleb128 0x5
+ 949 00b4 00       		.byte	0
+ 950 00b5 03       		.uleb128 0x3
+ 951 00b6 0E       		.uleb128 0xe
+ 952 00b7 3A       		.uleb128 0x3a
+ 953 00b8 0B       		.uleb128 0xb
+ 954 00b9 3B       		.uleb128 0x3b
+ 955 00ba 05       		.uleb128 0x5
+ 956 00bb 49       		.uleb128 0x49
+ 957 00bc 13       		.uleb128 0x13
+ 958 00bd 02       		.uleb128 0x2
+ 959 00be 18       		.uleb128 0x18
+ 960 00bf 00       		.byte	0
+ 961 00c0 00       		.byte	0
+ 962 00c1 0C       		.uleb128 0xc
+ 963 00c2 05       		.uleb128 0x5
+ 964 00c3 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 26
+
+
+ 965 00c4 03       		.uleb128 0x3
+ 966 00c5 0E       		.uleb128 0xe
+ 967 00c6 3A       		.uleb128 0x3a
+ 968 00c7 0B       		.uleb128 0xb
+ 969 00c8 3B       		.uleb128 0x3b
+ 970 00c9 05       		.uleb128 0x5
+ 971 00ca 49       		.uleb128 0x49
+ 972 00cb 13       		.uleb128 0x13
+ 973 00cc 02       		.uleb128 0x2
+ 974 00cd 17       		.uleb128 0x17
+ 975 00ce 00       		.byte	0
+ 976 00cf 00       		.byte	0
+ 977 00d0 0D       		.uleb128 0xd
+ 978 00d1 898201   		.uleb128 0x4109
+ 979 00d4 01       		.byte	0x1
+ 980 00d5 11       		.uleb128 0x11
+ 981 00d6 01       		.uleb128 0x1
+ 982 00d7 31       		.uleb128 0x31
+ 983 00d8 13       		.uleb128 0x13
+ 984 00d9 00       		.byte	0
+ 985 00da 00       		.byte	0
+ 986 00db 0E       		.uleb128 0xe
+ 987 00dc 8A8201   		.uleb128 0x410a
+ 988 00df 00       		.byte	0
+ 989 00e0 02       		.uleb128 0x2
+ 990 00e1 18       		.uleb128 0x18
+ 991 00e2 9142     		.uleb128 0x2111
+ 992 00e4 18       		.uleb128 0x18
+ 993 00e5 00       		.byte	0
+ 994 00e6 00       		.byte	0
+ 995 00e7 0F       		.uleb128 0xf
+ 996 00e8 898201   		.uleb128 0x4109
+ 997 00eb 01       		.byte	0x1
+ 998 00ec 11       		.uleb128 0x11
+ 999 00ed 01       		.uleb128 0x1
+ 1000 00ee 31       		.uleb128 0x31
+ 1001 00ef 13       		.uleb128 0x13
+ 1002 00f0 01       		.uleb128 0x1
+ 1003 00f1 13       		.uleb128 0x13
+ 1004 00f2 00       		.byte	0
+ 1005 00f3 00       		.byte	0
+ 1006 00f4 10       		.uleb128 0x10
+ 1007 00f5 898201   		.uleb128 0x4109
+ 1008 00f8 00       		.byte	0
+ 1009 00f9 11       		.uleb128 0x11
+ 1010 00fa 01       		.uleb128 0x1
+ 1011 00fb 31       		.uleb128 0x31
+ 1012 00fc 13       		.uleb128 0x13
+ 1013 00fd 00       		.byte	0
+ 1014 00fe 00       		.byte	0
+ 1015 00ff 11       		.uleb128 0x11
+ 1016 0100 34       		.uleb128 0x34
+ 1017 0101 00       		.byte	0
+ 1018 0102 03       		.uleb128 0x3
+ 1019 0103 0E       		.uleb128 0xe
+ 1020 0104 3A       		.uleb128 0x3a
+ 1021 0105 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 27
+
+
+ 1022 0106 3B       		.uleb128 0x3b
+ 1023 0107 0B       		.uleb128 0xb
+ 1024 0108 49       		.uleb128 0x49
+ 1025 0109 13       		.uleb128 0x13
+ 1026 010a 3F       		.uleb128 0x3f
+ 1027 010b 19       		.uleb128 0x19
+ 1028 010c 02       		.uleb128 0x2
+ 1029 010d 18       		.uleb128 0x18
+ 1030 010e 00       		.byte	0
+ 1031 010f 00       		.byte	0
+ 1032 0110 12       		.uleb128 0x12
+ 1033 0111 2E       		.uleb128 0x2e
+ 1034 0112 01       		.byte	0x1
+ 1035 0113 3F       		.uleb128 0x3f
+ 1036 0114 19       		.uleb128 0x19
+ 1037 0115 03       		.uleb128 0x3
+ 1038 0116 0E       		.uleb128 0xe
+ 1039 0117 3A       		.uleb128 0x3a
+ 1040 0118 0B       		.uleb128 0xb
+ 1041 0119 3B       		.uleb128 0x3b
+ 1042 011a 0B       		.uleb128 0xb
+ 1043 011b 27       		.uleb128 0x27
+ 1044 011c 19       		.uleb128 0x19
+ 1045 011d 3C       		.uleb128 0x3c
+ 1046 011e 19       		.uleb128 0x19
+ 1047 011f 00       		.byte	0
+ 1048 0120 00       		.byte	0
+ 1049 0121 13       		.uleb128 0x13
+ 1050 0122 05       		.uleb128 0x5
+ 1051 0123 00       		.byte	0
+ 1052 0124 49       		.uleb128 0x49
+ 1053 0125 13       		.uleb128 0x13
+ 1054 0126 00       		.byte	0
+ 1055 0127 00       		.byte	0
+ 1056 0128 00       		.byte	0
+ 1057              		.section	.debug_loc,"",%progbits
+ 1058              	.Ldebug_loc0:
+ 1059              	.LLST0:
+ 1060 0000 00000000 		.4byte	.LVL2
+ 1061 0004 10000000 		.4byte	.LVL3
+ 1062 0008 0100     		.2byte	0x1
+ 1063 000a 50       		.byte	0x50
+ 1064 000b 10000000 		.4byte	.LVL3
+ 1065 000f 34000000 		.4byte	.LFE8
+ 1066 0013 0400     		.2byte	0x4
+ 1067 0015 F3       		.byte	0xf3
+ 1068 0016 01       		.uleb128 0x1
+ 1069 0017 50       		.byte	0x50
+ 1070 0018 9F       		.byte	0x9f
+ 1071 0019 00000000 		.4byte	0
+ 1072 001d 00000000 		.4byte	0
+ 1073              		.section	.debug_aranges,"",%progbits
+ 1074 0000 7C000000 		.4byte	0x7c
+ 1075 0004 0200     		.2byte	0x2
+ 1076 0006 00000000 		.4byte	.Ldebug_info0
+ 1077 000a 04       		.byte	0x4
+ 1078 000b 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 28
+
+
+ 1079 000c 0000     		.2byte	0
+ 1080 000e 0000     		.2byte	0
+ 1081 0010 00000000 		.4byte	.LFB1
+ 1082 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1083 0018 00000000 		.4byte	.LFB3
+ 1084 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1085 0020 00000000 		.4byte	.LFB4
+ 1086 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1087 0028 00000000 		.4byte	.LFB5
+ 1088 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1089 0030 00000000 		.4byte	.LFB6
+ 1090 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1091 0038 00000000 		.4byte	.LFB7
+ 1092 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1093 0040 00000000 		.4byte	.LFB8
+ 1094 0044 34000000 		.4byte	.LFE8-.LFB8
+ 1095 0048 00000000 		.4byte	.LFB9
+ 1096 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1097 0050 00000000 		.4byte	.LFB10
+ 1098 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1099 0058 00000000 		.4byte	.LFB11
+ 1100 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1101 0060 00000000 		.4byte	.LFB0
+ 1102 0064 64000000 		.4byte	.LFE0-.LFB0
+ 1103 0068 00000000 		.4byte	.LFB2
+ 1104 006c 1C000000 		.4byte	.LFE2-.LFB2
+ 1105 0070 00000000 		.4byte	.LFB12
+ 1106 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1107 0078 00000000 		.4byte	0
+ 1108 007c 00000000 		.4byte	0
+ 1109              		.section	.debug_ranges,"",%progbits
+ 1110              	.Ldebug_ranges0:
+ 1111 0000 00000000 		.4byte	.LFB1
+ 1112 0004 28000000 		.4byte	.LFE1
+ 1113 0008 00000000 		.4byte	.LFB3
+ 1114 000c 28000000 		.4byte	.LFE3
+ 1115 0010 00000000 		.4byte	.LFB4
+ 1116 0014 0C000000 		.4byte	.LFE4
+ 1117 0018 00000000 		.4byte	.LFB5
+ 1118 001c 0C000000 		.4byte	.LFE5
+ 1119 0020 00000000 		.4byte	.LFB6
+ 1120 0024 0C000000 		.4byte	.LFE6
+ 1121 0028 00000000 		.4byte	.LFB7
+ 1122 002c 0C000000 		.4byte	.LFE7
+ 1123 0030 00000000 		.4byte	.LFB8
+ 1124 0034 34000000 		.4byte	.LFE8
+ 1125 0038 00000000 		.4byte	.LFB9
+ 1126 003c 14000000 		.4byte	.LFE9
+ 1127 0040 00000000 		.4byte	.LFB10
+ 1128 0044 0C000000 		.4byte	.LFE10
+ 1129 0048 00000000 		.4byte	.LFB11
+ 1130 004c 0C000000 		.4byte	.LFE11
+ 1131 0050 00000000 		.4byte	.LFB0
+ 1132 0054 64000000 		.4byte	.LFE0
+ 1133 0058 00000000 		.4byte	.LFB2
+ 1134 005c 1C000000 		.4byte	.LFE2
+ 1135 0060 00000000 		.4byte	.LFB12
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 29
+
+
+ 1136 0064 0C000000 		.4byte	.LFE12
+ 1137 0068 00000000 		.4byte	0
+ 1138 006c 00000000 		.4byte	0
+ 1139              		.section	.debug_line,"",%progbits
+ 1140              	.Ldebug_line0:
+ 1141 0000 5D010000 		.section	.debug_str,"MS",%progbits,1
+ 1141      02005500 
+ 1141      00000201 
+ 1141      FB0E0D00 
+ 1141      01010101 
+ 1142              	.LASF15:
+ 1143 0000 72656731 		.ascii	"reg16\000"
+ 1143      3600
+ 1144              	.LASF28:
+ 1145 0006 4E6F6973 		.ascii	"Noise_Clk_Div_ReadCapture\000"
+ 1145      655F436C 
+ 1145      6B5F4469 
+ 1145      765F5265 
+ 1145      61644361 
+ 1146              	.LASF35:
+ 1147 0020 47656E65 		.ascii	"Generated_Source\\PSoC5\\Noise_Clk_Div.c\000"
+ 1147      72617465 
+ 1147      645F536F 
+ 1147      75726365 
+ 1147      5C50536F 
+ 1148              	.LASF19:
+ 1149 0047 4E6F6973 		.ascii	"Noise_Clk_Div_ReadStatusRegister\000"
+ 1149      655F436C 
+ 1149      6B5F4469 
+ 1149      765F5265 
+ 1149      61645374 
+ 1150              	.LASF30:
+ 1151 0068 70657269 		.ascii	"period\000"
+ 1151      6F6400
+ 1152              	.LASF3:
+ 1153 006f 73686F72 		.ascii	"short unsigned int\000"
+ 1153      7420756E 
+ 1153      7369676E 
+ 1153      65642069 
+ 1153      6E7400
+ 1154              	.LASF27:
+ 1155 0082 4E6F6973 		.ascii	"Noise_Clk_Div_ReadCounter\000"
+ 1155      655F436C 
+ 1155      6B5F4469 
+ 1155      765F5265 
+ 1155      6164436F 
+ 1156              	.LASF33:
+ 1157 009c 4E6F6973 		.ascii	"Noise_Clk_Div_ReadPeriod\000"
+ 1157      655F436C 
+ 1157      6B5F4469 
+ 1157      765F5265 
+ 1157      61645065 
+ 1158              	.LASF18:
+ 1159 00b5 4E6F6973 		.ascii	"Noise_Clk_Div_Stop\000"
+ 1159      655F436C 
+ 1159      6B5F4469 
+ 1159      765F5374 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 30
+
+
+ 1159      6F7000
+ 1160              	.LASF11:
+ 1161 00c8 666C6F61 		.ascii	"float\000"
+ 1161      7400
+ 1162              	.LASF26:
+ 1163 00ce 636F756E 		.ascii	"counter\000"
+ 1163      74657200 
+ 1164              	.LASF1:
+ 1165 00d6 756E7369 		.ascii	"unsigned char\000"
+ 1165      676E6564 
+ 1165      20636861 
+ 1165      7200
+ 1166              	.LASF21:
+ 1167 00e4 4E6F6973 		.ascii	"Noise_Clk_Div_SetInterruptMode\000"
+ 1167      655F436C 
+ 1167      6B5F4469 
+ 1167      765F5365 
+ 1167      74496E74 
+ 1168              	.LASF29:
+ 1169 0103 4E6F6973 		.ascii	"Noise_Clk_Div_WritePeriod\000"
+ 1169      655F436C 
+ 1169      6B5F4469 
+ 1169      765F5772 
+ 1169      69746550 
+ 1170              	.LASF5:
+ 1171 011d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1171      20756E73 
+ 1171      69676E65 
+ 1171      6420696E 
+ 1171      7400
+ 1172              	.LASF9:
+ 1173 012f 75696E74 		.ascii	"uint8\000"
+ 1173      3800
+ 1174              	.LASF24:
+ 1175 0135 636F6E74 		.ascii	"control\000"
+ 1175      726F6C00 
+ 1176              	.LASF23:
+ 1177 013d 696E7465 		.ascii	"interruptsMask\000"
+ 1177      72727570 
+ 1177      74734D61 
+ 1177      736B00
+ 1178              	.LASF22:
+ 1179 014c 4E6F6973 		.ascii	"Noise_Clk_Div_WriteControlRegister\000"
+ 1179      655F436C 
+ 1179      6B5F4469 
+ 1179      765F5772 
+ 1179      69746543 
+ 1180              	.LASF12:
+ 1181 016f 646F7562 		.ascii	"double\000"
+ 1181      6C6500
+ 1182              	.LASF17:
+ 1183 0176 4E6F6973 		.ascii	"Noise_Clk_Div_Enable\000"
+ 1183      655F436C 
+ 1183      6B5F4469 
+ 1183      765F456E 
+ 1183      61626C65 
+ 1184              	.LASF10:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 31
+
+
+ 1185 018b 75696E74 		.ascii	"uint16\000"
+ 1185      313600
+ 1186              	.LASF34:
+ 1187 0192 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1187      4320342E 
+ 1187      392E3320 
+ 1187      32303135 
+ 1187      30333033 
+ 1188 01c5 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1188      20726576 
+ 1188      6973696F 
+ 1188      6E203232 
+ 1188      31323230 
+ 1189 01f8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1189      66756E63 
+ 1189      74696F6E 
+ 1189      2D736563 
+ 1189      74696F6E 
+ 1190              	.LASF8:
+ 1191 0220 756E7369 		.ascii	"unsigned int\000"
+ 1191      676E6564 
+ 1191      20696E74 
+ 1191      00
+ 1192              	.LASF7:
+ 1193 022d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1193      206C6F6E 
+ 1193      6720756E 
+ 1193      7369676E 
+ 1193      65642069 
+ 1194              	.LASF36:
+ 1195 0244 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 1195      73657273 
+ 1195      5C323134 
+ 1195      30313635 
+ 1195      38365C44 
+ 1196 0272 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 1196      41505532 
+ 1196      4130332E 
+ 1196      63796473 
+ 1196      6E00
+ 1197              	.LASF38:
+ 1198 0284 43794861 		.ascii	"CyHalt\000"
+ 1198      6C7400
+ 1199              	.LASF14:
+ 1200 028b 72656738 		.ascii	"reg8\000"
+ 1200      00
+ 1201              	.LASF16:
+ 1202 0290 73697A65 		.ascii	"sizetype\000"
+ 1202      74797065 
+ 1202      00
+ 1203              	.LASF6:
+ 1204 0299 6C6F6E67 		.ascii	"long long int\000"
+ 1204      206C6F6E 
+ 1204      6720696E 
+ 1204      7400
+ 1205              	.LASF13:
+ 1206 02a7 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccmrpSgK.s 			page 32
+
+
+ 1206      00
+ 1207              	.LASF25:
+ 1208 02ac 4E6F6973 		.ascii	"Noise_Clk_Div_WriteCounter\000"
+ 1208      655F436C 
+ 1208      6B5F4469 
+ 1208      765F5772 
+ 1208      69746543 
+ 1209              	.LASF32:
+ 1210 02c7 4E6F6973 		.ascii	"Noise_Clk_Div_Start\000"
+ 1210      655F436C 
+ 1210      6B5F4469 
+ 1210      765F5374 
+ 1210      61727400 
+ 1211              	.LASF2:
+ 1212 02db 73686F72 		.ascii	"short int\000"
+ 1212      7420696E 
+ 1212      7400
+ 1213              	.LASF4:
+ 1214 02e5 6C6F6E67 		.ascii	"long int\000"
+ 1214      20696E74 
+ 1214      00
+ 1215              	.LASF31:
+ 1216 02ee 4E6F6973 		.ascii	"Noise_Clk_Div_Init\000"
+ 1216      655F436C 
+ 1216      6B5F4469 
+ 1216      765F496E 
+ 1216      697400
+ 1217              	.LASF0:
+ 1218 0301 7369676E 		.ascii	"signed char\000"
+ 1218      65642063 
+ 1218      68617200 
+ 1219              	.LASF37:
+ 1220 030d 4E6F6973 		.ascii	"Noise_Clk_Div_initVar\000"
+ 1220      655F436C 
+ 1220      6B5F4469 
+ 1220      765F696E 
+ 1220      69745661 
+ 1221              	.LASF20:
+ 1222 0323 4E6F6973 		.ascii	"Noise_Clk_Div_ReadControlRegister\000"
+ 1222      655F436C 
+ 1222      6B5F4469 
+ 1222      765F5265 
+ 1222      6164436F 
+ 1223              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

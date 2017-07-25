@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Components">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\TopDesign</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Pins</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Analog</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Clocks</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Interrupts</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\DMA</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\System</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Directives</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Flash Security</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\EEPROM</v>
+<v>APU2A03\APU2A03\Header Files</v>
+<v>APU2A03\APU2A03\Header Files\cyapicallbacks.h</v>
+<v>APU2A03\APU2A03\Source Files</v>
+<v>APU2A03\APU2A03\Source Files\main.c</v>
+<v>APU2A03\APU2A03\Generated_Source</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179\Clock_179.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179\Clock_179.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1\Counter_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1\Counter_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1\Counter_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cmsis_armcc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cmsis_gcc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\DAC_Clk</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\DAC_Clk\DAC_Clk.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\DAC_Clk\DAC_Clk.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter\Length_Counter.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter\Length_Counter.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter\Length_Counter_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter_1\Length_Counter_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter_1\Length_Counter_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Length_Counter_1\Length_Counter_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\LFSR</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\LFSR\LFSR.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\LFSR\LFSR.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\LFSR\LFSR_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART\MIDI1_UART.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART\MIDI1_UART.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART\MIDI1_UART_BOOT.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART\MIDI1_UART_INT.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART\MIDI1_UART_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART_IntClock</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART_IntClock\MIDI1_UART_IntClock.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\MIDI1_UART_IntClock\MIDI1_UART_IntClock.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Clk_Div</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Clk_Div\Noise_Clk_Div.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Clk_Div\Noise_Clk_Div.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Clk_Div\Noise_Clk_Div_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Out</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Out\Noise_Out.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Out\Noise_Out.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Out\Noise_Out_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Vol_Clk_Div</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Vol_Clk_Div\Noise_Vol_Clk_Div.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Vol_Clk_Div\Noise_Vol_Clk_Div.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Noise_Vol_Clk_Div\Noise_Vol_Clk_Div_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_1\Pin_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_1\Pin_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_1\Pin_1_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_2</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_2\Pin_2.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_2\Pin_2.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_2\Pin_2_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_3</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_3\Pin_3.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_3\Pin_3.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_3\Pin_3_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_6</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_6\Pin_6.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_6\Pin_6.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Pin_6\Pin_6_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\rectangle_generator</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\rectangle_generator\rectangle_generator.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\rectangle_generator\rectangle_generator.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\rectangle_generator\rectangle_generator_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Status_Reg_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Status_Reg_1\Status_Reg_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Status_Reg_1\Status_Reg_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Tri_Divider</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Tri_Divider\Tri_Divider.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Tri_Divider\Tri_Divider.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Tri_Divider\Tri_Divider_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_audio.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_audio.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_boot.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_cdc.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_cdc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_cdc.inf</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_cls.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_cydmac.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_descr.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_drv.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_episr.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_hid.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_hid.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_midi.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_midi.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_msc.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_msc.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_pm.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_pvt.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_std.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1\USBMIDI_1_vnd.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dm</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dm\USBMIDI_1_Dm.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dm\USBMIDI_1_Dm.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dm\USBMIDI_1_Dm_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dp</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dp\USBMIDI_1_Dp.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dp\USBMIDI_1_Dp.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\USBMIDI_1_Dp\USBMIDI_1_Dp_aliases.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\VDAC8_Noise</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\VDAC8_Noise\VDAC8_Noise.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\VDAC8_Noise\VDAC8_Noise.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\VDAC8_Noise\VDAC8_Noise_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\volume_generator</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\volume_generator\volume_generator.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\volume_generator\volume_generator.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\volume_generator\volume_generator_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevice.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfitter.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\cymetadata.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\project.h</v>
+<v>APU2A03\Library02</v>
+<v>APU2A03\Library02\Header Files</v>
+<v>APU2A03\Library02\Source Files</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\TopDesign</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Pins</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Analog</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Clocks</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Interrupts</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\DMA</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\System</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Directives</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\Flash Security</v>
+<v>APU2A03\APU2A03\APU2A03.cydwr\EEPROM</v>
+<v>APU2A03\APU2A03\Header Files</v>
+<v>APU2A03\APU2A03\Header Files\cyapicallbacks.h</v>
+<v>APU2A03\APU2A03\Source Files</v>
+<v>APU2A03\APU2A03\Source Files\main.c</v>
+<v>APU2A03\APU2A03\Generated_Source</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179\Clock_179.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Clock_179\Clock_179.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_1\Control_Reg_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_2\Control_Reg_2_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_3\Control_Reg_3_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Control_Reg_4\Control_Reg_4_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_1\Count7_1_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2.h</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Count7_2\Count7_2_PM.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1\Counter_1.c</v>
+<v>APU2A03\APU2A03\Generated_Source\PSoC5\Counter_1\Counter_1.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="APU2A03\APU2A03">
+<ExpandedNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\clock_divider</v>
+<v>APU2A03\APU2A03\clock_divider\clock_divider.cysym</v>
+<v>APU2A03\APU2A03\clock_divider\clock_divider.v</v>
+<v>APU2A03\APU2A03\comparator</v>
+<v>APU2A03\APU2A03\comparator\comparator.cysym</v>
+<v>APU2A03\APU2A03\comparator\comparator.v</v>
+<v>APU2A03\APU2A03\component01</v>
+<v>APU2A03\APU2A03\component01\component01.cysym</v>
+<v>APU2A03\APU2A03\component01\component01.v</v>
+<v>APU2A03\APU2A03\Frame_Sequencer</v>
+<v>APU2A03\APU2A03\Frame_Sequencer\Frame_Sequencer.cysym</v>
+<v>APU2A03\APU2A03\Frame_Sequencer\Frame_Sequencer.v</v>
+<v>APU2A03\APU2A03\freq_generator</v>
+<v>APU2A03\APU2A03\freq_generator\freq_generator.cyudb</v>
+<v>APU2A03\APU2A03\internal_period</v>
+<v>APU2A03\APU2A03\internal_period\internal_period.cysym</v>
+<v>APU2A03\APU2A03\internal_period\internal_period.v</v>
+<v>APU2A03\APU2A03\Linear_Counter</v>
+<v>APU2A03\APU2A03\Linear_Counter\Linear_Counter.cysym</v>
+<v>APU2A03\APU2A03\Linear_Counter\Linear_Counter.v</v>
+<v>APU2A03\APU2A03\rectangle_generator</v>
+<v>APU2A03\APU2A03\rectangle_generator\rectangle_generator.cysym</v>
+<v>APU2A03\APU2A03\rectangle_generator\rectangle_generator.v</v>
+<v>APU2A03\APU2A03\Sampler</v>
+<v>APU2A03\APU2A03\Sampler\Sampler.cysym</v>
+<v>APU2A03\APU2A03\Sampler\Sampler.v</v>
+<v>APU2A03\APU2A03\TopDesign</v>
+<v>APU2A03\APU2A03\TopDesign\TopDesign.cysch</v>
+<v>APU2A03\APU2A03\Triangle_Gen</v>
+<v>APU2A03\APU2A03\Triangle_Gen\Triangle_Gen.cysym</v>
+<v>APU2A03\APU2A03\Triangle_Gen\Triangle_Gen.v</v>
+<v>APU2A03\APU2A03\volume_generator\volume_generator.cysym</v>
+<v>APU2A03\APU2A03\volume_generator\volume_generator.v</v>
+<v>APU2A03\Library02</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\clock_divider</v>
+<v>APU2A03\APU2A03\clock_divider\clock_divider.cysym</v>
+<v>APU2A03\APU2A03\clock_divider\clock_divider.v</v>
+<v>APU2A03\APU2A03\comparator</v>
+<v>APU2A03\APU2A03\comparator\comparator.cysym</v>
+<v>APU2A03\APU2A03\comparator\comparator.v</v>
+<v>APU2A03\APU2A03\component01</v>
+<v>APU2A03\APU2A03\component01\component01.cysym</v>
+<v>APU2A03\APU2A03\component01\component01.v</v>
+<v>APU2A03\APU2A03\Frame_Sequencer</v>
+<v>APU2A03\APU2A03\Frame_Sequencer\Frame_Sequencer.cysym</v>
+<v>APU2A03\APU2A03\Frame_Sequencer\Frame_Sequencer.v</v>
+<v>APU2A03\APU2A03\freq_generator</v>
+<v>APU2A03\APU2A03\freq_generator\freq_generator.cyudb</v>
+<v>APU2A03\APU2A03\internal_period</v>
+<v>APU2A03\APU2A03\internal_period\internal_period.cysym</v>
+<v>APU2A03\APU2A03\internal_period\internal_period.v</v>
+<v>APU2A03\APU2A03\Linear_Counter</v>
+<v>APU2A03\APU2A03\Linear_Counter\Linear_Counter.cysym</v>
+<v>APU2A03\APU2A03\Linear_Counter\Linear_Counter.v</v>
+<v>APU2A03\APU2A03\rectangle_generator</v>
+<v>APU2A03\APU2A03\rectangle_generator\rectangle_generator.cysym</v>
+<v>APU2A03\APU2A03\rectangle_generator\rectangle_generator.v</v>
+<v>APU2A03\APU2A03\Sampler</v>
+<v>APU2A03\APU2A03\Sampler\Sampler.cysym</v>
+<v>APU2A03\APU2A03\Sampler\Sampler.v</v>
+<v>APU2A03\APU2A03\TopDesign</v>
+<v>APU2A03\APU2A03\TopDesign\TopDesign.cysch</v>
+<v>APU2A03\APU2A03\Triangle_Gen</v>
+<v>APU2A03\APU2A03\Triangle_Gen\Triangle_Gen.cysym</v>
+<v>APU2A03\APU2A03\Triangle_Gen\Triangle_Gen.v</v>
+<v>APU2A03\APU2A03\volume_generator</v>
+<v>APU2A03\Library02</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\CortexM3</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_179.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_1_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_2.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_2_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_3.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_3_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_4.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Control_Reg_4_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Count7_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Count7_1_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Count7_2.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Count7_2_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Counter_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Counter_1_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\DAC_Clk.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Length_Counter.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Length_Counter_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Length_Counter_1_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Length_Counter_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\LFSR.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\LFSR_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\MIDI1_UART.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\MIDI1_UART_BOOT.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\MIDI1_UART_INT.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\MIDI1_UART_IntClock.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\MIDI1_UART_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Noise_Clk_Div.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Noise_Clk_Div_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Noise_Out.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Noise_Vol_Clk_Div.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Noise_Vol_Clk_Div_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_2.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_3.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_6.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\rectangle_generator.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\rectangle_generator_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Status_Reg_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Tri_Divider.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\Tri_Divider_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_audio.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_boot.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_cdc.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_cls.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_descr.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_Dm.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_Dp.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_drv.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_episr.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_hid.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_midi.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_msc.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_pm.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_std.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\USBMIDI_1_vnd.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\VDAC8_Noise.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\VDAC8_Noise_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\volume_generator.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\Listing Files\volume_generator_PM.lst</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\APU2A03.elf</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\APU2A03.hex</v>
+<v>APU2A03\APU2A03\CortexM3\ARM_GCC_493\Debug\APU2A03.map</v>
+<v>APU2A03\APU2A03\APU2A03.gpdsc</v>
+<v>APU2A03\APU2A03\APU2A03.rpt</v>
+<v>APU2A03\APU2A03\APU2A03_timing.html</v>
+<v>APU2A03\Library02</v>
+<v>APU2A03\Library02\CortexM0</v>
+<v>APU2A03\Library02\CortexM0\ARM_GCC_493</v>
+<v>APU2A03\Library02\CortexM0\ARM_GCC_493\Debug</v>
+<v>APU2A03\Library02\CortexM0\ARM_GCC_493\Debug\Library02.a</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\PSoC 5LP Architecture TRM</v>
+<v>APU2A03\APU2A03\CY8C58LP Family Datasheet</v>
+<v>APU2A03\APU2A03\System Reference Guides</v>
+<v>APU2A03\APU2A03\System Reference Guides\cy_boot_v5_50</v>
+<v>APU2A03\APU2A03\and_v1_0</v>
+<v>APU2A03\APU2A03\and_v1_0\and_v1_0.pdf</v>
+<v>APU2A03\APU2A03\Count7_v1_0</v>
+<v>APU2A03\APU2A03\Count7_v1_0\Count7_v1_0.pdf</v>
+<v>APU2A03\APU2A03\Counter_v3_0</v>
+<v>APU2A03\APU2A03\Counter_v3_0\Counter_v3_0.pdf</v>
+<v>APU2A03\APU2A03\cy_clock_v2_20</v>
+<v>APU2A03\APU2A03\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>APU2A03\APU2A03\cy_constant_v1_0</v>
+<v>APU2A03\APU2A03\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>APU2A03\APU2A03\cy_pins_v2_20</v>
+<v>APU2A03\APU2A03\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>APU2A03\APU2A03\CyControlReg_v1_80</v>
+<v>APU2A03\APU2A03\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
+<v>APU2A03\APU2A03\CyStatusReg_v1_90.pdf</v>
+<v>APU2A03\APU2A03\not_v1_0.pdf</v>
+<v>APU2A03\APU2A03\PRS_v2_40.pdf</v>
+<v>APU2A03\APU2A03\ShiftReg_v2_30.pdf</v>
+<v>APU2A03\APU2A03\UART_v2_50.pdf</v>
+<v>APU2A03\APU2A03\USBFS_v3_10.pdf</v>
+<v>APU2A03\APU2A03\VDAC8_v1_90.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>APU2A03</v>
+<v>APU2A03\APU2A03</v>
+<v>APU2A03\APU2A03\PSoC 5LP Architecture TRM</v>
+<v>APU2A03\APU2A03\CY8C58LP Family Datasheet</v>
+<v>APU2A03\APU2A03\System Reference Guides</v>
+<v>APU2A03\APU2A03\System Reference Guides\cy_boot_v5_50</v>
+<v>APU2A03\APU2A03\and_v1_0</v>
+<v>APU2A03\APU2A03\and_v1_0\and_v1_0.pdf</v>
+<v>APU2A03\APU2A03\Count7_v1_0</v>
+<v>APU2A03\APU2A03\Count7_v1_0\Count7_v1_0.pdf</v>
+<v>APU2A03\APU2A03\Counter_v3_0</v>
+<v>APU2A03\APU2A03\Counter_v3_0\Counter_v3_0.pdf</v>
+<v>APU2A03\APU2A03\cy_clock_v2_20</v>
+<v>APU2A03\APU2A03\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>APU2A03\APU2A03\cy_constant_v1_0</v>
+<v>APU2A03\APU2A03\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>APU2A03\APU2A03\cy_pins_v2_20</v>
+<v>APU2A03\APU2A03\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>APU2A03\APU2A03\CyControlReg_v1_80</v>
+<v>APU2A03\APU2A03\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
+<v>APU2A03\APU2A03\CyStatusReg_v1_90.pdf</v>
+<v>APU2A03\APU2A03\not_v1_0.pdf</v>
+<v>APU2A03\APU2A03\PRS_v2_40.pdf</v>
+<v>APU2A03\APU2A03\ShiftReg_v2_30.pdf</v>
+<v>APU2A03\APU2A03\UART_v2_50.pdf</v>
+<v>APU2A03\APU2A03\USBFS_v3_10.pdf</v>
+<v>APU2A03\APU2A03\VDAC8_v1_90.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\APU2A03.cydsn\clock_divider\clock_divider.cysym" />
+<name v=".\APU2A03.cydsn\clock_divider\clock_divider.v" />
+<name v=".\APU2A03.cydsn\volume_generator\volume_generator.cysym" />
+<name v=".\APU2A03.cydsn\volume_generator\volume_generator.v" />
+<name v=".\APU2A03.cydsn\Triangle_Gen\Triangle_Gen.cysym" />
+<name v=".\APU2A03.cydsn\Triangle_Gen\Triangle_Gen.v" />
+<name v=".\APU2A03.cydsn\Linear_Counter\Linear_Counter.cysym" />
+<name v=".\APU2A03.cydsn\Linear_Counter\Linear_Counter.v" />
+<name v=".\APU2A03.cydsn\Frame_Sequencer\Frame_Sequencer.cysym" />
+<name v=".\APU2A03.cydsn\Frame_Sequencer\Frame_Sequencer.v" />
+<name v=".\APU2A03.cydsn\APU2A03.cydwr" />
+<name v=".\APU2A03.cydsn\Sampler\Sampler.cysym" />
+<name v=".\APU2A03.cydsn\Sampler\Sampler.v" />
+<name v=".\APU2A03.cydsn\rectangle_generator\rectangle_generator.cysym" />
+<name v=".\APU2A03.cydsn\rectangle_generator\rectangle_generator.v" />
+<name v=".\APU2A03.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\APU2A03.cydsn\comparator\comparator.cysym" />
+<name v=".\APU2A03.cydsn\comparator\comparator.v" />
+<name v=".\APU2A03.cydsn\internal_period\internal_period.cysym" />
+<name v=".\APU2A03.cydsn\internal_period\internal_period.v" />
+<name v=".\APU2A03.cydsn\freq_generator\freq_generator.cyudb" />
+<name v=".\APU2A03.cydsn\component01\component01.cysym" />
+<name v=".\APU2A03.cydsn\component01\component01.v" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="992, 634" SelectedTabbedMdiWindow="168c9900-0502-455c-b6ac-8a037bf79ede"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="3db44666-db6c-4649-9ae7-4d6eae2d2fa3" /><DocumentWindow Key="6f517398-54ad-4d81-bc81-3e9d9510e791" Guid="dc803fc8-ba37-409f-a6bf-f16cc05d2af3" /><DocumentWindow Key="216a12af-4920-47a2-b353-8775e499d6b5" Guid="f92d5fd8-e083-4855-8a56-c09cee3634e6" /><DocumentWindow Key="af475a17-949d-4442-8dfd-9cc7d4bb8c10" Guid="bf128e92-a47c-4e26-90d0-65af5a626526" /><DocumentWindow Key="bfaccc44-b46e-4b67-bf2b-76a0c52758c7" Guid="e6c15516-66de-4da4-8069-0eabd42094eb" /><DocumentWindow Key="84ea38a4-16da-401e-b425-2329d01d0a39" Guid="816f4d41-e4a6-4337-93a3-2c32c4cb6fb8" /><DocumentWindow Key="b2d7ec91-088d-447a-86ba-c20d8af19366" Guid="2d7c7794-89cd-4a10-a6e0-fd66a8d8ba42" /><DocumentWindow Key="af2e4c63-1e08-4648-b1e3-29c36facf6e4" Guid="a2edc983-ada8-484b-9fa2-bbc676f21504" /><DocumentWindow Key="b0ddad2f-d2e7-44fb-b675-39cb92cf275f" Guid="a21bbef8-944f-498d-b0ac-0b132225ff87" /><DocumentWindow Key="35c7878b-f8b0-4ec6-b3de-be97793d7290" Guid="e87db8d3-3a18-4561-8157-ba7070a4306c" /><DocumentWindow Key="4ecbe927-6093-4e62-b279-3cdd16f4406f" Guid="6463584c-f803-4275-9625-cb08b8995a3a" /><DocumentWindow Key="c7a33efa-4bcd-4337-930b-5a237b0749e3" Guid="d7b88d86-92e3-4feb-9631-d37dbe35f8fa" /><DocumentWindow Key="03095a96-fd7b-45b0-a34e-7314a9c3d92d" Guid="4ce402b6-8728-49cb-896b-9e2c3dc4118e" /><DocumentWindow Key="23e52351-f351-4edf-a227-9b5954264b9d" Guid="f69cfbfa-353c-45e3-95f4-e44229ee0a92" /><DocumentWindow Key="f1770ce6-1eb9-478c-b5e5-476f5269bc5c" Guid="c6c7d69d-742d-4782-b252-a0a8c9dc2256" /><DocumentWindow Key="b599cdf6-bb4f-40fe-98b0-32c7e9b39e81" Guid="f56af539-dcdc-4a31-a047-2a152fa6fe56" /><DocumentWindow Key="a8558dc9-3627-4f44-bb67-fb4ed42ae12b" Guid="168c9900-0502-455c-b6ac-8a037bf79ede" /><DocumentWindow Key="d12338ad-0253-465e-8f69-9b92acf54026" Guid="40368083-d54b-4f33-92a6-f9ea99854207" /><DocumentWindow Key="7d01936d-4a09-4b3d-acf7-4a58472fe93c" Guid="1fca6516-3d3b-4f58-80ef-4157d689f4ef" /><DocumentWindow Key="45cca889-5f4c-40f6-a5a4-e31db8fcef1e" Guid="e3e098eb-1cd6-402a-b93e-2d6a9f26cf26" /><DocumentWindow Key="4a725d2c-de33-4ee1-b2b1-9c26dbc0f617" Guid="98db8ef4-ea04-48a3-bc25-e7c25847db93" /><DocumentWindow Key="66a65491-d326-4c22-ba53-3a882ef44d53" Guid="19d30138-2ab8-4c51-9a09-156f9260d577" /><DocumentWindow Key="f95b1c74-3511-437f-9243-908163b01485" Guid="6d6021e8-e3fa-4448-9024-359a6aad5fc5" /><DocumentWindow Key="24be4cc2-a835-44f4-a623-564e19edbe89" Guid="59bf98bf-51e9-4b73-b230-4971fffd31eb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

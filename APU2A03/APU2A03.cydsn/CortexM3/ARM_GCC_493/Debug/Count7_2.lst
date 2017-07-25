@@ -1,0 +1,1288 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Count7_2.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Count7_2_Init,"ax",%progbits
+  19              		.align	2
+  20              		.global	Count7_2_Init
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Count7_2_Init, %function
+  24              	Count7_2_Init:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\Count7_2.c"
+   1:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Count7_2.c **** * File Name: Count7_2.c
+   3:Generated_Source\PSoC5/Count7_2.c **** * Version 1.0
+   4:Generated_Source\PSoC5/Count7_2.c **** *
+   5:Generated_Source\PSoC5/Count7_2.c **** * Description:
+   6:Generated_Source\PSoC5/Count7_2.c **** *  This file provides source code for the Count7 component's API.
+   7:Generated_Source\PSoC5/Count7_2.c **** *
+   8:Generated_Source\PSoC5/Count7_2.c **** * Note:
+   9:Generated_Source\PSoC5/Count7_2.c **** *
+  10:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/Count7_2.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/Count7_2.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/Count7_2.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/Count7_2.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/Count7_2.c **** 
+  17:Generated_Source\PSoC5/Count7_2.c **** #include "Count7_2.h"
+  18:Generated_Source\PSoC5/Count7_2.c **** #include "CyLib.h"
+  19:Generated_Source\PSoC5/Count7_2.c **** 
+  20:Generated_Source\PSoC5/Count7_2.c **** 
+  21:Generated_Source\PSoC5/Count7_2.c **** uint8 Count7_2_initVar = 0u;
+  22:Generated_Source\PSoC5/Count7_2.c **** 
+  23:Generated_Source\PSoC5/Count7_2.c **** 
+  24:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_Init
+  26:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Count7_2.c **** *
+  28:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+  29:Generated_Source\PSoC5/Count7_2.c **** *  Initializes or restores the component according to the parameter editor
+  30:Generated_Source\PSoC5/Count7_2.c **** *  settings.
+  31:Generated_Source\PSoC5/Count7_2.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+  33:Generated_Source\PSoC5/Count7_2.c **** *  None
+  34:Generated_Source\PSoC5/Count7_2.c **** *
+  35:Generated_Source\PSoC5/Count7_2.c **** * Return:
+  36:Generated_Source\PSoC5/Count7_2.c **** *  None
+  37:Generated_Source\PSoC5/Count7_2.c **** *
+  38:Generated_Source\PSoC5/Count7_2.c **** * Theory:
+  39:Generated_Source\PSoC5/Count7_2.c **** *  It is not necessary to call Count7_Init() because the Count7_Start() API
+  40:Generated_Source\PSoC5/Count7_2.c **** *  calls this function and is the preferred method to begin component
+  41:Generated_Source\PSoC5/Count7_2.c **** *  operation.
+  42:Generated_Source\PSoC5/Count7_2.c **** *
+  43:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+  44:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_Init(void) 
+  45:Generated_Source\PSoC5/Count7_2.c **** {
+  27              		.loc 1 45 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  46:Generated_Source\PSoC5/Count7_2.c ****     /* Set the initial period value from parameter editor */
+  47:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_PERIOD_REG = Count7_2_INITIAL_PERIOD;
+  32              		.loc 1 47 0
+  33 0000 0722     		movs	r2, #7
+  34 0002 014B     		ldr	r3, .L2
+  35 0004 1A70     		strb	r2, [r3]
+  36 0006 7047     		bx	lr
+  37              	.L3:
+  38              		.align	2
+  39              	.L2:
+  40 0008 85650040 		.word	1073767813
+  41              		.cfi_endproc
+  42              	.LFE0:
+  43              		.size	Count7_2_Init, .-Count7_2_Init
+  44              		.section	.text.Count7_2_Enable,"ax",%progbits
+  45              		.align	2
+  46              		.global	Count7_2_Enable
+  47              		.thumb
+  48              		.thumb_func
+  49              		.type	Count7_2_Enable, %function
+  50              	Count7_2_Enable:
+  51              	.LFB1:
+  48:Generated_Source\PSoC5/Count7_2.c **** }
+  49:Generated_Source\PSoC5/Count7_2.c **** 
+  50:Generated_Source\PSoC5/Count7_2.c **** 
+  51:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+  52:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_Enable
+  53:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+  54:Generated_Source\PSoC5/Count7_2.c **** *
+  55:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+  56:Generated_Source\PSoC5/Count7_2.c **** *  Enables the software enable of the counter.
+  57:Generated_Source\PSoC5/Count7_2.c **** *
+  58:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+  59:Generated_Source\PSoC5/Count7_2.c **** *  None
+  60:Generated_Source\PSoC5/Count7_2.c **** *
+  61:Generated_Source\PSoC5/Count7_2.c **** * Return:
+  62:Generated_Source\PSoC5/Count7_2.c **** *  None
+  63:Generated_Source\PSoC5/Count7_2.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 3
+
+
+  64:Generated_Source\PSoC5/Count7_2.c **** * Theory:
+  65:Generated_Source\PSoC5/Count7_2.c **** *  It is not necessary to call Count7_Enable() because the Count7_Start() API
+  66:Generated_Source\PSoC5/Count7_2.c **** *  calls this function, which is the preferred method to begin component
+  67:Generated_Source\PSoC5/Count7_2.c **** *  operation.
+  68:Generated_Source\PSoC5/Count7_2.c **** *  This API performs modification of auxiliary control register which is a
+  69:Generated_Source\PSoC5/Count7_2.c **** *  shared resource so it is required to disable interrupts until the
+  70:Generated_Source\PSoC5/Count7_2.c **** *  modification will complete.
+  71:Generated_Source\PSoC5/Count7_2.c **** *
+  72:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+  73:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_Enable(void) 
+  74:Generated_Source\PSoC5/Count7_2.c **** {
+  52              		.loc 1 74 0
+  53              		.cfi_startproc
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 0, uses_anonymous_args = 0
+  56 0000 08B5     		push	{r3, lr}
+  57              		.cfi_def_cfa_offset 8
+  58              		.cfi_offset 3, -8
+  59              		.cfi_offset 14, -4
+  75:Generated_Source\PSoC5/Count7_2.c ****     uint8 interruptState;
+  76:Generated_Source\PSoC5/Count7_2.c **** 
+  77:Generated_Source\PSoC5/Count7_2.c ****     interruptState = CyEnterCriticalSection();
+  60              		.loc 1 77 0
+  61 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  62              	.LVL0:
+  78:Generated_Source\PSoC5/Count7_2.c ****     /* Set the counter start bit in auxiliary control. If routed enable
+  79:Generated_Source\PSoC5/Count7_2.c ****     * isn't used then this will immediately star the Count7 operation.
+  80:Generated_Source\PSoC5/Count7_2.c ****     */
+  81:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_AUX_CONTROL_REG |= Count7_2_COUNTER_START;
+  63              		.loc 1 81 0
+  64 0006 044A     		ldr	r2, .L6
+  65 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  66 000a 43F02003 		orr	r3, r3, #32
+  67 000e 1370     		strb	r3, [r2]
+  82:Generated_Source\PSoC5/Count7_2.c **** 
+  83:Generated_Source\PSoC5/Count7_2.c ****     CyExitCriticalSection(interruptState);
+  68              		.loc 1 83 0
+  69 0010 FFF7FEFF 		bl	CyExitCriticalSection
+  70              	.LVL1:
+  71 0014 08BD     		pop	{r3, pc}
+  72              	.L7:
+  73 0016 00BF     		.align	2
+  74              	.L6:
+  75 0018 95650040 		.word	1073767829
+  76              		.cfi_endproc
+  77              	.LFE1:
+  78              		.size	Count7_2_Enable, .-Count7_2_Enable
+  79              		.section	.text.Count7_2_Start,"ax",%progbits
+  80              		.align	2
+  81              		.global	Count7_2_Start
+  82              		.thumb
+  83              		.thumb_func
+  84              		.type	Count7_2_Start, %function
+  85              	Count7_2_Start:
+  86              	.LFB2:
+  84:Generated_Source\PSoC5/Count7_2.c **** }
+  85:Generated_Source\PSoC5/Count7_2.c **** 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 4
+
+
+  86:Generated_Source\PSoC5/Count7_2.c **** 
+  87:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_Start
+  89:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/Count7_2.c **** *
+  91:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+  92:Generated_Source\PSoC5/Count7_2.c **** *  Performs all of the required initialization for the component and enables
+  93:Generated_Source\PSoC5/Count7_2.c **** *  the counter. The first time the routine is executed, the period is set as
+  94:Generated_Source\PSoC5/Count7_2.c **** *  configured in the customizer. When called to restart the counter following a
+  95:Generated_Source\PSoC5/Count7_2.c **** *  Count7_Stop() call, the current period value is retained.
+  96:Generated_Source\PSoC5/Count7_2.c **** *
+  97:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+  98:Generated_Source\PSoC5/Count7_2.c **** *  None.
+  99:Generated_Source\PSoC5/Count7_2.c **** *
+ 100:Generated_Source\PSoC5/Count7_2.c **** * Global Variables:
+ 101:Generated_Source\PSoC5/Count7_2.c **** *  Count7_2_initVar - global variable.
+ 102:Generated_Source\PSoC5/Count7_2.c **** *
+ 103:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 104:Generated_Source\PSoC5/Count7_2.c **** *  None.
+ 105:Generated_Source\PSoC5/Count7_2.c **** *
+ 106:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 107:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_Start(void) 
+ 108:Generated_Source\PSoC5/Count7_2.c **** {
+  87              		.loc 1 108 0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91 0000 08B5     		push	{r3, lr}
+  92              		.cfi_def_cfa_offset 8
+  93              		.cfi_offset 3, -8
+  94              		.cfi_offset 14, -4
+ 109:Generated_Source\PSoC5/Count7_2.c ****     /* If not initialized then perform initialization */
+ 110:Generated_Source\PSoC5/Count7_2.c ****     if(Count7_2_initVar == 0u)
+  95              		.loc 1 110 0
+  96 0002 054B     		ldr	r3, .L11
+  97 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  98 0006 23B9     		cbnz	r3, .L9
+ 111:Generated_Source\PSoC5/Count7_2.c ****     {
+ 112:Generated_Source\PSoC5/Count7_2.c ****         Count7_2_Init();
+  99              		.loc 1 112 0
+ 100 0008 FFF7FEFF 		bl	Count7_2_Init
+ 101              	.LVL2:
+ 113:Generated_Source\PSoC5/Count7_2.c ****         Count7_2_initVar = 1u;
+ 102              		.loc 1 113 0
+ 103 000c 0122     		movs	r2, #1
+ 104 000e 024B     		ldr	r3, .L11
+ 105 0010 1A70     		strb	r2, [r3]
+ 106              	.L9:
+ 114:Generated_Source\PSoC5/Count7_2.c ****     }
+ 115:Generated_Source\PSoC5/Count7_2.c **** 
+ 116:Generated_Source\PSoC5/Count7_2.c ****     /* Enable Count7 */
+ 117:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_Enable();
+ 107              		.loc 1 117 0
+ 108 0012 FFF7FEFF 		bl	Count7_2_Enable
+ 109              	.LVL3:
+ 110 0016 08BD     		pop	{r3, pc}
+ 111              	.L12:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 5
+
+
+ 112              		.align	2
+ 113              	.L11:
+ 114 0018 00000000 		.word	.LANCHOR0
+ 115              		.cfi_endproc
+ 116              	.LFE2:
+ 117              		.size	Count7_2_Start, .-Count7_2_Start
+ 118              		.section	.text.Count7_2_Stop,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	Count7_2_Stop
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.type	Count7_2_Stop, %function
+ 124              	Count7_2_Stop:
+ 125              	.LFB3:
+ 118:Generated_Source\PSoC5/Count7_2.c **** }
+ 119:Generated_Source\PSoC5/Count7_2.c **** 
+ 120:Generated_Source\PSoC5/Count7_2.c **** 
+ 121:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+ 122:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_Stop
+ 123:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+ 124:Generated_Source\PSoC5/Count7_2.c **** *
+ 125:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+ 126:Generated_Source\PSoC5/Count7_2.c **** *  Disables the software enable of the counter.
+ 127:Generated_Source\PSoC5/Count7_2.c **** *
+ 128:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+ 129:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 130:Generated_Source\PSoC5/Count7_2.c **** *
+ 131:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 132:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 133:Generated_Source\PSoC5/Count7_2.c **** *
+ 134:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 135:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_Stop(void) 
+ 136:Generated_Source\PSoC5/Count7_2.c **** {
+ 126              		.loc 1 136 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130 0000 08B5     		push	{r3, lr}
+ 131              		.cfi_def_cfa_offset 8
+ 132              		.cfi_offset 3, -8
+ 133              		.cfi_offset 14, -4
+ 137:Generated_Source\PSoC5/Count7_2.c ****     uint8 interruptState;
+ 138:Generated_Source\PSoC5/Count7_2.c **** 
+ 139:Generated_Source\PSoC5/Count7_2.c ****     interruptState = CyEnterCriticalSection();
+ 134              		.loc 1 139 0
+ 135 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+ 136              	.LVL4:
+ 140:Generated_Source\PSoC5/Count7_2.c ****     /* Clear the counter start bit in auxiliary control. */
+ 141:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_AUX_CONTROL_REG &= (uint8) ~((uint8) Count7_2_COUNTER_START);
+ 137              		.loc 1 141 0
+ 138 0006 044A     		ldr	r2, .L15
+ 139 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 140 000a 03F0DF03 		and	r3, r3, #223
+ 141 000e 1370     		strb	r3, [r2]
+ 142:Generated_Source\PSoC5/Count7_2.c **** 
+ 143:Generated_Source\PSoC5/Count7_2.c ****     CyExitCriticalSection(interruptState);
+ 142              		.loc 1 143 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 6
+
+
+ 143 0010 FFF7FEFF 		bl	CyExitCriticalSection
+ 144              	.LVL5:
+ 145 0014 08BD     		pop	{r3, pc}
+ 146              	.L16:
+ 147 0016 00BF     		.align	2
+ 148              	.L15:
+ 149 0018 95650040 		.word	1073767829
+ 150              		.cfi_endproc
+ 151              	.LFE3:
+ 152              		.size	Count7_2_Stop, .-Count7_2_Stop
+ 153              		.section	.text.Count7_2_WriteCounter,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	Count7_2_WriteCounter
+ 156              		.thumb
+ 157              		.thumb_func
+ 158              		.type	Count7_2_WriteCounter, %function
+ 159              	Count7_2_WriteCounter:
+ 160              	.LFB4:
+ 144:Generated_Source\PSoC5/Count7_2.c **** }
+ 145:Generated_Source\PSoC5/Count7_2.c **** 
+ 146:Generated_Source\PSoC5/Count7_2.c **** 
+ 147:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+ 148:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_WriteCounter
+ 149:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+ 150:Generated_Source\PSoC5/Count7_2.c **** *
+ 151:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+ 152:Generated_Source\PSoC5/Count7_2.c **** *  This function writes the counter directly. The counter should be disabled
+ 153:Generated_Source\PSoC5/Count7_2.c **** *  before calling this function.
+ 154:Generated_Source\PSoC5/Count7_2.c **** *
+ 155:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+ 156:Generated_Source\PSoC5/Count7_2.c **** *  count - Value to be written to counter.
+ 157:Generated_Source\PSoC5/Count7_2.c **** *
+ 158:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 159:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 160:Generated_Source\PSoC5/Count7_2.c **** *
+ 161:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 162:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_WriteCounter(uint8 count) 
+ 163:Generated_Source\PSoC5/Count7_2.c **** {
+ 161              		.loc 1 163 0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 166              	.LVL6:
+ 164:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_COUNT_REG = (count & Count7_2_COUNT_7BIT_MASK);
+ 167              		.loc 1 164 0
+ 168 0000 00F07F00 		and	r0, r0, #127
+ 169              	.LVL7:
+ 170 0004 014B     		ldr	r3, .L18
+ 171 0006 1870     		strb	r0, [r3]
+ 172 0008 7047     		bx	lr
+ 173              	.L19:
+ 174 000a 00BF     		.align	2
+ 175              	.L18:
+ 176 000c 75650040 		.word	1073767797
+ 177              		.cfi_endproc
+ 178              	.LFE4:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 7
+
+
+ 179              		.size	Count7_2_WriteCounter, .-Count7_2_WriteCounter
+ 180              		.section	.text.Count7_2_ReadCounter,"ax",%progbits
+ 181              		.align	2
+ 182              		.global	Count7_2_ReadCounter
+ 183              		.thumb
+ 184              		.thumb_func
+ 185              		.type	Count7_2_ReadCounter, %function
+ 186              	Count7_2_ReadCounter:
+ 187              	.LFB5:
+ 165:Generated_Source\PSoC5/Count7_2.c **** }
+ 166:Generated_Source\PSoC5/Count7_2.c **** 
+ 167:Generated_Source\PSoC5/Count7_2.c **** 
+ 168:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+ 169:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_ReadCounter
+ 170:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+ 171:Generated_Source\PSoC5/Count7_2.c **** *
+ 172:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+ 173:Generated_Source\PSoC5/Count7_2.c **** *  This function reads the counter value.
+ 174:Generated_Source\PSoC5/Count7_2.c **** *
+ 175:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+ 176:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 177:Generated_Source\PSoC5/Count7_2.c **** *
+ 178:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 179:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 180:Generated_Source\PSoC5/Count7_2.c **** *
+ 181:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 182:Generated_Source\PSoC5/Count7_2.c **** uint8 Count7_2_ReadCounter(void) 
+ 183:Generated_Source\PSoC5/Count7_2.c **** {
+ 188              		.loc 1 183 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 184:Generated_Source\PSoC5/Count7_2.c ****     return(Count7_2_COUNT_REG & Count7_2_COUNT_7BIT_MASK);
+ 193              		.loc 1 184 0
+ 194 0000 024B     		ldr	r3, .L21
+ 195 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 185:Generated_Source\PSoC5/Count7_2.c **** }
+ 196              		.loc 1 185 0
+ 197 0004 00F07F00 		and	r0, r0, #127
+ 198 0008 7047     		bx	lr
+ 199              	.L22:
+ 200 000a 00BF     		.align	2
+ 201              	.L21:
+ 202 000c 75650040 		.word	1073767797
+ 203              		.cfi_endproc
+ 204              	.LFE5:
+ 205              		.size	Count7_2_ReadCounter, .-Count7_2_ReadCounter
+ 206              		.section	.text.Count7_2_WritePeriod,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	Count7_2_WritePeriod
+ 209              		.thumb
+ 210              		.thumb_func
+ 211              		.type	Count7_2_WritePeriod, %function
+ 212              	Count7_2_WritePeriod:
+ 213              	.LFB6:
+ 186:Generated_Source\PSoC5/Count7_2.c **** 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 8
+
+
+ 187:Generated_Source\PSoC5/Count7_2.c **** 
+ 188:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+ 189:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_WritePeriod
+ 190:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+ 191:Generated_Source\PSoC5/Count7_2.c **** *
+ 192:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+ 193:Generated_Source\PSoC5/Count7_2.c **** *  This function writes the period register. The actual period is one greater
+ 194:Generated_Source\PSoC5/Count7_2.c **** *  than the value in the period register since the counting sequence starts
+ 195:Generated_Source\PSoC5/Count7_2.c **** *  with the period register and counts down to 0 inclusive. The period of the
+ 196:Generated_Source\PSoC5/Count7_2.c **** *  counter output does not change until the counter is reloaded following the
+ 197:Generated_Source\PSoC5/Count7_2.c **** *  terminal count value of 0 or due to a hardware load signal.
+ 198:Generated_Source\PSoC5/Count7_2.c **** *
+ 199:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+ 200:Generated_Source\PSoC5/Count7_2.c **** *  period - Period value to be written.
+ 201:Generated_Source\PSoC5/Count7_2.c **** *
+ 202:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 203:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 204:Generated_Source\PSoC5/Count7_2.c **** *
+ 205:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 206:Generated_Source\PSoC5/Count7_2.c **** void Count7_2_WritePeriod(uint8 period) 
+ 207:Generated_Source\PSoC5/Count7_2.c **** {
+ 214              		.loc 1 207 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218              		@ link register save eliminated.
+ 219              	.LVL8:
+ 208:Generated_Source\PSoC5/Count7_2.c ****     Count7_2_PERIOD_REG = period;
+ 220              		.loc 1 208 0
+ 221 0000 014B     		ldr	r3, .L24
+ 222 0002 1870     		strb	r0, [r3]
+ 223 0004 7047     		bx	lr
+ 224              	.L25:
+ 225 0006 00BF     		.align	2
+ 226              	.L24:
+ 227 0008 85650040 		.word	1073767813
+ 228              		.cfi_endproc
+ 229              	.LFE6:
+ 230              		.size	Count7_2_WritePeriod, .-Count7_2_WritePeriod
+ 231              		.section	.text.Count7_2_ReadPeriod,"ax",%progbits
+ 232              		.align	2
+ 233              		.global	Count7_2_ReadPeriod
+ 234              		.thumb
+ 235              		.thumb_func
+ 236              		.type	Count7_2_ReadPeriod, %function
+ 237              	Count7_2_ReadPeriod:
+ 238              	.LFB7:
+ 209:Generated_Source\PSoC5/Count7_2.c **** }
+ 210:Generated_Source\PSoC5/Count7_2.c **** 
+ 211:Generated_Source\PSoC5/Count7_2.c **** 
+ 212:Generated_Source\PSoC5/Count7_2.c **** /*******************************************************************************
+ 213:Generated_Source\PSoC5/Count7_2.c **** * Function Name: Count7_2_ReadPeriod
+ 214:Generated_Source\PSoC5/Count7_2.c **** ********************************************************************************
+ 215:Generated_Source\PSoC5/Count7_2.c **** *
+ 216:Generated_Source\PSoC5/Count7_2.c **** * Summary:
+ 217:Generated_Source\PSoC5/Count7_2.c **** *  This function reads the period register.
+ 218:Generated_Source\PSoC5/Count7_2.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 9
+
+
+ 219:Generated_Source\PSoC5/Count7_2.c **** * Parameters:
+ 220:Generated_Source\PSoC5/Count7_2.c **** *  None
+ 221:Generated_Source\PSoC5/Count7_2.c **** *
+ 222:Generated_Source\PSoC5/Count7_2.c **** * Return:
+ 223:Generated_Source\PSoC5/Count7_2.c **** *  uint8 - Current period value.
+ 224:Generated_Source\PSoC5/Count7_2.c **** *
+ 225:Generated_Source\PSoC5/Count7_2.c **** *******************************************************************************/
+ 226:Generated_Source\PSoC5/Count7_2.c **** uint8 Count7_2_ReadPeriod(void) 
+ 227:Generated_Source\PSoC5/Count7_2.c **** {
+ 239              		.loc 1 227 0
+ 240              		.cfi_startproc
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243              		@ link register save eliminated.
+ 228:Generated_Source\PSoC5/Count7_2.c ****     return(Count7_2_PERIOD_REG);
+ 244              		.loc 1 228 0
+ 245 0000 014B     		ldr	r3, .L27
+ 246 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 229:Generated_Source\PSoC5/Count7_2.c **** }
+ 247              		.loc 1 229 0
+ 248 0004 7047     		bx	lr
+ 249              	.L28:
+ 250 0006 00BF     		.align	2
+ 251              	.L27:
+ 252 0008 85650040 		.word	1073767813
+ 253              		.cfi_endproc
+ 254              	.LFE7:
+ 255              		.size	Count7_2_ReadPeriod, .-Count7_2_ReadPeriod
+ 256              		.global	Count7_2_initVar
+ 257              		.bss
+ 258              		.set	.LANCHOR0,. + 0
+ 259              		.type	Count7_2_initVar, %object
+ 260              		.size	Count7_2_initVar, 1
+ 261              	Count7_2_initVar:
+ 262 0000 00       		.space	1
+ 263              		.text
+ 264              	.Letext0:
+ 265              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 266              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 267              		.section	.debug_info,"",%progbits
+ 268              	.Ldebug_info0:
+ 269 0000 E3010000 		.4byte	0x1e3
+ 270 0004 0400     		.2byte	0x4
+ 271 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 272 000a 04       		.byte	0x4
+ 273 000b 01       		.uleb128 0x1
+ 274 000c D5000000 		.4byte	.LASF25
+ 275 0010 01       		.byte	0x1
+ 276 0011 55020000 		.4byte	.LASF26
+ 277 0015 9D010000 		.4byte	.LASF27
+ 278 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 279 001d 00000000 		.4byte	0
+ 280 0021 00000000 		.4byte	.Ldebug_line0
+ 281 0025 02       		.uleb128 0x2
+ 282 0026 01       		.byte	0x1
+ 283 0027 06       		.byte	0x6
+ 284 0028 77020000 		.4byte	.LASF0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 10
+
+
+ 285 002c 02       		.uleb128 0x2
+ 286 002d 01       		.byte	0x1
+ 287 002e 08       		.byte	0x8
+ 288 002f 5F000000 		.4byte	.LASF1
+ 289 0033 02       		.uleb128 0x2
+ 290 0034 02       		.byte	0x2
+ 291 0035 05       		.byte	0x5
+ 292 0036 1D020000 		.4byte	.LASF2
+ 293 003a 02       		.uleb128 0x2
+ 294 003b 02       		.byte	0x2
+ 295 003c 07       		.byte	0x7
+ 296 003d 2F000000 		.4byte	.LASF3
+ 297 0041 02       		.uleb128 0x2
+ 298 0042 04       		.byte	0x4
+ 299 0043 05       		.byte	0x5
+ 300 0044 4C020000 		.4byte	.LASF4
+ 301 0048 02       		.uleb128 0x2
+ 302 0049 04       		.byte	0x4
+ 303 004a 07       		.byte	0x7
+ 304 004b 81000000 		.4byte	.LASF5
+ 305 004f 02       		.uleb128 0x2
+ 306 0050 08       		.byte	0x8
+ 307 0051 05       		.byte	0x5
+ 308 0052 0A020000 		.4byte	.LASF6
+ 309 0056 02       		.uleb128 0x2
+ 310 0057 08       		.byte	0x8
+ 311 0058 07       		.byte	0x7
+ 312 0059 48000000 		.4byte	.LASF7
+ 313 005d 03       		.uleb128 0x3
+ 314 005e 04       		.byte	0x4
+ 315 005f 05       		.byte	0x5
+ 316 0060 696E7400 		.ascii	"int\000"
+ 317 0064 02       		.uleb128 0x2
+ 318 0065 04       		.byte	0x4
+ 319 0066 07       		.byte	0x7
+ 320 0067 7A010000 		.4byte	.LASF8
+ 321 006b 04       		.uleb128 0x4
+ 322 006c 93000000 		.4byte	.LASF12
+ 323 0070 02       		.byte	0x2
+ 324 0071 9201     		.2byte	0x192
+ 325 0073 2C000000 		.4byte	0x2c
+ 326 0077 02       		.uleb128 0x2
+ 327 0078 04       		.byte	0x4
+ 328 0079 04       		.byte	0x4
+ 329 007a 42000000 		.4byte	.LASF9
+ 330 007e 02       		.uleb128 0x2
+ 331 007f 08       		.byte	0x8
+ 332 0080 04       		.byte	0x4
+ 333 0081 BF000000 		.4byte	.LASF10
+ 334 0085 02       		.uleb128 0x2
+ 335 0086 01       		.byte	0x1
+ 336 0087 08       		.byte	0x8
+ 337 0088 18020000 		.4byte	.LASF11
+ 338 008c 04       		.uleb128 0x4
+ 339 008d 6D000000 		.4byte	.LASF13
+ 340 0091 02       		.byte	0x2
+ 341 0092 3C02     		.2byte	0x23c
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 11
+
+
+ 342 0094 98000000 		.4byte	0x98
+ 343 0098 05       		.uleb128 0x5
+ 344 0099 6B000000 		.4byte	0x6b
+ 345 009d 02       		.uleb128 0x2
+ 346 009e 04       		.byte	0x4
+ 347 009f 07       		.byte	0x7
+ 348 00a0 EB010000 		.4byte	.LASF14
+ 349 00a4 06       		.uleb128 0x6
+ 350 00a5 DD010000 		.4byte	.LASF28
+ 351 00a9 01       		.byte	0x1
+ 352 00aa 2C       		.byte	0x2c
+ 353 00ab 00000000 		.4byte	.LFB0
+ 354 00af 0C000000 		.4byte	.LFE0-.LFB0
+ 355 00b3 01       		.uleb128 0x1
+ 356 00b4 9C       		.byte	0x9c
+ 357 00b5 07       		.uleb128 0x7
+ 358 00b6 3C020000 		.4byte	.LASF15
+ 359 00ba 01       		.byte	0x1
+ 360 00bb 49       		.byte	0x49
+ 361 00bc 00000000 		.4byte	.LFB1
+ 362 00c0 1C000000 		.4byte	.LFE1-.LFB1
+ 363 00c4 01       		.uleb128 0x1
+ 364 00c5 9C       		.byte	0x9c
+ 365 00c6 EC000000 		.4byte	0xec
+ 366 00ca 08       		.uleb128 0x8
+ 367 00cb 72000000 		.4byte	.LASF18
+ 368 00cf 01       		.byte	0x1
+ 369 00d0 4B       		.byte	0x4b
+ 370 00d1 6B000000 		.4byte	0x6b
+ 371 00d5 00000000 		.4byte	.LLST0
+ 372 00d9 09       		.uleb128 0x9
+ 373 00da 06000000 		.4byte	.LVL0
+ 374 00de CE010000 		.4byte	0x1ce
+ 375 00e2 09       		.uleb128 0x9
+ 376 00e3 14000000 		.4byte	.LVL1
+ 377 00e7 D9010000 		.4byte	0x1d9
+ 378 00eb 00       		.byte	0
+ 379 00ec 07       		.uleb128 0x7
+ 380 00ed C6000000 		.4byte	.LASF16
+ 381 00f1 01       		.byte	0x1
+ 382 00f2 6B       		.byte	0x6b
+ 383 00f3 00000000 		.4byte	.LFB2
+ 384 00f7 1C000000 		.4byte	.LFE2-.LFB2
+ 385 00fb 01       		.uleb128 0x1
+ 386 00fc 9C       		.byte	0x9c
+ 387 00fd 14010000 		.4byte	0x114
+ 388 0101 09       		.uleb128 0x9
+ 389 0102 0C000000 		.4byte	.LVL2
+ 390 0106 A4000000 		.4byte	0xa4
+ 391 010a 09       		.uleb128 0x9
+ 392 010b 16000000 		.4byte	.LVL3
+ 393 010f B5000000 		.4byte	0xb5
+ 394 0113 00       		.byte	0
+ 395 0114 07       		.uleb128 0x7
+ 396 0115 00000000 		.4byte	.LASF17
+ 397 0119 01       		.byte	0x1
+ 398 011a 87       		.byte	0x87
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 12
+
+
+ 399 011b 00000000 		.4byte	.LFB3
+ 400 011f 1C000000 		.4byte	.LFE3-.LFB3
+ 401 0123 01       		.uleb128 0x1
+ 402 0124 9C       		.byte	0x9c
+ 403 0125 4B010000 		.4byte	0x14b
+ 404 0129 08       		.uleb128 0x8
+ 405 012a 72000000 		.4byte	.LASF18
+ 406 012e 01       		.byte	0x1
+ 407 012f 89       		.byte	0x89
+ 408 0130 6B000000 		.4byte	0x6b
+ 409 0134 13000000 		.4byte	.LLST1
+ 410 0138 09       		.uleb128 0x9
+ 411 0139 06000000 		.4byte	.LVL4
+ 412 013d CE010000 		.4byte	0x1ce
+ 413 0141 09       		.uleb128 0x9
+ 414 0142 14000000 		.4byte	.LVL5
+ 415 0146 D9010000 		.4byte	0x1d9
+ 416 014a 00       		.byte	0
+ 417 014b 07       		.uleb128 0x7
+ 418 014c F4010000 		.4byte	.LASF19
+ 419 0150 01       		.byte	0x1
+ 420 0151 A2       		.byte	0xa2
+ 421 0152 00000000 		.4byte	.LFB4
+ 422 0156 10000000 		.4byte	.LFE4-.LFB4
+ 423 015a 01       		.uleb128 0x1
+ 424 015b 9C       		.byte	0x9c
+ 425 015c 70010000 		.4byte	0x170
+ 426 0160 0A       		.uleb128 0xa
+ 427 0161 22000000 		.4byte	.LASF21
+ 428 0165 01       		.byte	0x1
+ 429 0166 A2       		.byte	0xa2
+ 430 0167 6B000000 		.4byte	0x6b
+ 431 016b 26000000 		.4byte	.LLST2
+ 432 016f 00       		.byte	0
+ 433 0170 0B       		.uleb128 0xb
+ 434 0171 27020000 		.4byte	.LASF23
+ 435 0175 01       		.byte	0x1
+ 436 0176 B6       		.byte	0xb6
+ 437 0177 6B000000 		.4byte	0x6b
+ 438 017b 00000000 		.4byte	.LFB5
+ 439 017f 10000000 		.4byte	.LFE5-.LFB5
+ 440 0183 01       		.uleb128 0x1
+ 441 0184 9C       		.byte	0x9c
+ 442 0185 07       		.uleb128 0x7
+ 443 0186 AA000000 		.4byte	.LASF20
+ 444 018a 01       		.byte	0x1
+ 445 018b CE       		.byte	0xce
+ 446 018c 00000000 		.4byte	.LFB6
+ 447 0190 0C000000 		.4byte	.LFE6-.LFB6
+ 448 0194 01       		.uleb128 0x1
+ 449 0195 9C       		.byte	0x9c
+ 450 0196 A8010000 		.4byte	0x1a8
+ 451 019a 0C       		.uleb128 0xc
+ 452 019b 28000000 		.4byte	.LASF22
+ 453 019f 01       		.byte	0x1
+ 454 01a0 CE       		.byte	0xce
+ 455 01a1 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 13
+
+
+ 456 01a5 01       		.uleb128 0x1
+ 457 01a6 50       		.byte	0x50
+ 458 01a7 00       		.byte	0
+ 459 01a8 0B       		.uleb128 0xb
+ 460 01a9 0E000000 		.4byte	.LASF24
+ 461 01ad 01       		.byte	0x1
+ 462 01ae E2       		.byte	0xe2
+ 463 01af 6B000000 		.4byte	0x6b
+ 464 01b3 00000000 		.4byte	.LFB7
+ 465 01b7 0C000000 		.4byte	.LFE7-.LFB7
+ 466 01bb 01       		.uleb128 0x1
+ 467 01bc 9C       		.byte	0x9c
+ 468 01bd 0D       		.uleb128 0xd
+ 469 01be 99000000 		.4byte	.LASF29
+ 470 01c2 01       		.byte	0x1
+ 471 01c3 15       		.byte	0x15
+ 472 01c4 6B000000 		.4byte	0x6b
+ 473 01c8 05       		.uleb128 0x5
+ 474 01c9 03       		.byte	0x3
+ 475 01ca 00000000 		.4byte	Count7_2_initVar
+ 476 01ce 0E       		.uleb128 0xe
+ 477 01cf 63010000 		.4byte	.LASF30
+ 478 01d3 03       		.byte	0x3
+ 479 01d4 7D       		.byte	0x7d
+ 480 01d5 6B000000 		.4byte	0x6b
+ 481 01d9 0F       		.uleb128 0xf
+ 482 01da 87010000 		.4byte	.LASF31
+ 483 01de 03       		.byte	0x3
+ 484 01df 7E       		.byte	0x7e
+ 485 01e0 10       		.uleb128 0x10
+ 486 01e1 6B000000 		.4byte	0x6b
+ 487 01e5 00       		.byte	0
+ 488 01e6 00       		.byte	0
+ 489              		.section	.debug_abbrev,"",%progbits
+ 490              	.Ldebug_abbrev0:
+ 491 0000 01       		.uleb128 0x1
+ 492 0001 11       		.uleb128 0x11
+ 493 0002 01       		.byte	0x1
+ 494 0003 25       		.uleb128 0x25
+ 495 0004 0E       		.uleb128 0xe
+ 496 0005 13       		.uleb128 0x13
+ 497 0006 0B       		.uleb128 0xb
+ 498 0007 03       		.uleb128 0x3
+ 499 0008 0E       		.uleb128 0xe
+ 500 0009 1B       		.uleb128 0x1b
+ 501 000a 0E       		.uleb128 0xe
+ 502 000b 55       		.uleb128 0x55
+ 503 000c 17       		.uleb128 0x17
+ 504 000d 11       		.uleb128 0x11
+ 505 000e 01       		.uleb128 0x1
+ 506 000f 10       		.uleb128 0x10
+ 507 0010 17       		.uleb128 0x17
+ 508 0011 00       		.byte	0
+ 509 0012 00       		.byte	0
+ 510 0013 02       		.uleb128 0x2
+ 511 0014 24       		.uleb128 0x24
+ 512 0015 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 14
+
+
+ 513 0016 0B       		.uleb128 0xb
+ 514 0017 0B       		.uleb128 0xb
+ 515 0018 3E       		.uleb128 0x3e
+ 516 0019 0B       		.uleb128 0xb
+ 517 001a 03       		.uleb128 0x3
+ 518 001b 0E       		.uleb128 0xe
+ 519 001c 00       		.byte	0
+ 520 001d 00       		.byte	0
+ 521 001e 03       		.uleb128 0x3
+ 522 001f 24       		.uleb128 0x24
+ 523 0020 00       		.byte	0
+ 524 0021 0B       		.uleb128 0xb
+ 525 0022 0B       		.uleb128 0xb
+ 526 0023 3E       		.uleb128 0x3e
+ 527 0024 0B       		.uleb128 0xb
+ 528 0025 03       		.uleb128 0x3
+ 529 0026 08       		.uleb128 0x8
+ 530 0027 00       		.byte	0
+ 531 0028 00       		.byte	0
+ 532 0029 04       		.uleb128 0x4
+ 533 002a 16       		.uleb128 0x16
+ 534 002b 00       		.byte	0
+ 535 002c 03       		.uleb128 0x3
+ 536 002d 0E       		.uleb128 0xe
+ 537 002e 3A       		.uleb128 0x3a
+ 538 002f 0B       		.uleb128 0xb
+ 539 0030 3B       		.uleb128 0x3b
+ 540 0031 05       		.uleb128 0x5
+ 541 0032 49       		.uleb128 0x49
+ 542 0033 13       		.uleb128 0x13
+ 543 0034 00       		.byte	0
+ 544 0035 00       		.byte	0
+ 545 0036 05       		.uleb128 0x5
+ 546 0037 35       		.uleb128 0x35
+ 547 0038 00       		.byte	0
+ 548 0039 49       		.uleb128 0x49
+ 549 003a 13       		.uleb128 0x13
+ 550 003b 00       		.byte	0
+ 551 003c 00       		.byte	0
+ 552 003d 06       		.uleb128 0x6
+ 553 003e 2E       		.uleb128 0x2e
+ 554 003f 00       		.byte	0
+ 555 0040 3F       		.uleb128 0x3f
+ 556 0041 19       		.uleb128 0x19
+ 557 0042 03       		.uleb128 0x3
+ 558 0043 0E       		.uleb128 0xe
+ 559 0044 3A       		.uleb128 0x3a
+ 560 0045 0B       		.uleb128 0xb
+ 561 0046 3B       		.uleb128 0x3b
+ 562 0047 0B       		.uleb128 0xb
+ 563 0048 27       		.uleb128 0x27
+ 564 0049 19       		.uleb128 0x19
+ 565 004a 11       		.uleb128 0x11
+ 566 004b 01       		.uleb128 0x1
+ 567 004c 12       		.uleb128 0x12
+ 568 004d 06       		.uleb128 0x6
+ 569 004e 40       		.uleb128 0x40
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 15
+
+
+ 570 004f 18       		.uleb128 0x18
+ 571 0050 9742     		.uleb128 0x2117
+ 572 0052 19       		.uleb128 0x19
+ 573 0053 00       		.byte	0
+ 574 0054 00       		.byte	0
+ 575 0055 07       		.uleb128 0x7
+ 576 0056 2E       		.uleb128 0x2e
+ 577 0057 01       		.byte	0x1
+ 578 0058 3F       		.uleb128 0x3f
+ 579 0059 19       		.uleb128 0x19
+ 580 005a 03       		.uleb128 0x3
+ 581 005b 0E       		.uleb128 0xe
+ 582 005c 3A       		.uleb128 0x3a
+ 583 005d 0B       		.uleb128 0xb
+ 584 005e 3B       		.uleb128 0x3b
+ 585 005f 0B       		.uleb128 0xb
+ 586 0060 27       		.uleb128 0x27
+ 587 0061 19       		.uleb128 0x19
+ 588 0062 11       		.uleb128 0x11
+ 589 0063 01       		.uleb128 0x1
+ 590 0064 12       		.uleb128 0x12
+ 591 0065 06       		.uleb128 0x6
+ 592 0066 40       		.uleb128 0x40
+ 593 0067 18       		.uleb128 0x18
+ 594 0068 9742     		.uleb128 0x2117
+ 595 006a 19       		.uleb128 0x19
+ 596 006b 01       		.uleb128 0x1
+ 597 006c 13       		.uleb128 0x13
+ 598 006d 00       		.byte	0
+ 599 006e 00       		.byte	0
+ 600 006f 08       		.uleb128 0x8
+ 601 0070 34       		.uleb128 0x34
+ 602 0071 00       		.byte	0
+ 603 0072 03       		.uleb128 0x3
+ 604 0073 0E       		.uleb128 0xe
+ 605 0074 3A       		.uleb128 0x3a
+ 606 0075 0B       		.uleb128 0xb
+ 607 0076 3B       		.uleb128 0x3b
+ 608 0077 0B       		.uleb128 0xb
+ 609 0078 49       		.uleb128 0x49
+ 610 0079 13       		.uleb128 0x13
+ 611 007a 02       		.uleb128 0x2
+ 612 007b 17       		.uleb128 0x17
+ 613 007c 00       		.byte	0
+ 614 007d 00       		.byte	0
+ 615 007e 09       		.uleb128 0x9
+ 616 007f 898201   		.uleb128 0x4109
+ 617 0082 00       		.byte	0
+ 618 0083 11       		.uleb128 0x11
+ 619 0084 01       		.uleb128 0x1
+ 620 0085 31       		.uleb128 0x31
+ 621 0086 13       		.uleb128 0x13
+ 622 0087 00       		.byte	0
+ 623 0088 00       		.byte	0
+ 624 0089 0A       		.uleb128 0xa
+ 625 008a 05       		.uleb128 0x5
+ 626 008b 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 16
+
+
+ 627 008c 03       		.uleb128 0x3
+ 628 008d 0E       		.uleb128 0xe
+ 629 008e 3A       		.uleb128 0x3a
+ 630 008f 0B       		.uleb128 0xb
+ 631 0090 3B       		.uleb128 0x3b
+ 632 0091 0B       		.uleb128 0xb
+ 633 0092 49       		.uleb128 0x49
+ 634 0093 13       		.uleb128 0x13
+ 635 0094 02       		.uleb128 0x2
+ 636 0095 17       		.uleb128 0x17
+ 637 0096 00       		.byte	0
+ 638 0097 00       		.byte	0
+ 639 0098 0B       		.uleb128 0xb
+ 640 0099 2E       		.uleb128 0x2e
+ 641 009a 00       		.byte	0
+ 642 009b 3F       		.uleb128 0x3f
+ 643 009c 19       		.uleb128 0x19
+ 644 009d 03       		.uleb128 0x3
+ 645 009e 0E       		.uleb128 0xe
+ 646 009f 3A       		.uleb128 0x3a
+ 647 00a0 0B       		.uleb128 0xb
+ 648 00a1 3B       		.uleb128 0x3b
+ 649 00a2 0B       		.uleb128 0xb
+ 650 00a3 27       		.uleb128 0x27
+ 651 00a4 19       		.uleb128 0x19
+ 652 00a5 49       		.uleb128 0x49
+ 653 00a6 13       		.uleb128 0x13
+ 654 00a7 11       		.uleb128 0x11
+ 655 00a8 01       		.uleb128 0x1
+ 656 00a9 12       		.uleb128 0x12
+ 657 00aa 06       		.uleb128 0x6
+ 658 00ab 40       		.uleb128 0x40
+ 659 00ac 18       		.uleb128 0x18
+ 660 00ad 9742     		.uleb128 0x2117
+ 661 00af 19       		.uleb128 0x19
+ 662 00b0 00       		.byte	0
+ 663 00b1 00       		.byte	0
+ 664 00b2 0C       		.uleb128 0xc
+ 665 00b3 05       		.uleb128 0x5
+ 666 00b4 00       		.byte	0
+ 667 00b5 03       		.uleb128 0x3
+ 668 00b6 0E       		.uleb128 0xe
+ 669 00b7 3A       		.uleb128 0x3a
+ 670 00b8 0B       		.uleb128 0xb
+ 671 00b9 3B       		.uleb128 0x3b
+ 672 00ba 0B       		.uleb128 0xb
+ 673 00bb 49       		.uleb128 0x49
+ 674 00bc 13       		.uleb128 0x13
+ 675 00bd 02       		.uleb128 0x2
+ 676 00be 18       		.uleb128 0x18
+ 677 00bf 00       		.byte	0
+ 678 00c0 00       		.byte	0
+ 679 00c1 0D       		.uleb128 0xd
+ 680 00c2 34       		.uleb128 0x34
+ 681 00c3 00       		.byte	0
+ 682 00c4 03       		.uleb128 0x3
+ 683 00c5 0E       		.uleb128 0xe
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 17
+
+
+ 684 00c6 3A       		.uleb128 0x3a
+ 685 00c7 0B       		.uleb128 0xb
+ 686 00c8 3B       		.uleb128 0x3b
+ 687 00c9 0B       		.uleb128 0xb
+ 688 00ca 49       		.uleb128 0x49
+ 689 00cb 13       		.uleb128 0x13
+ 690 00cc 3F       		.uleb128 0x3f
+ 691 00cd 19       		.uleb128 0x19
+ 692 00ce 02       		.uleb128 0x2
+ 693 00cf 18       		.uleb128 0x18
+ 694 00d0 00       		.byte	0
+ 695 00d1 00       		.byte	0
+ 696 00d2 0E       		.uleb128 0xe
+ 697 00d3 2E       		.uleb128 0x2e
+ 698 00d4 00       		.byte	0
+ 699 00d5 3F       		.uleb128 0x3f
+ 700 00d6 19       		.uleb128 0x19
+ 701 00d7 03       		.uleb128 0x3
+ 702 00d8 0E       		.uleb128 0xe
+ 703 00d9 3A       		.uleb128 0x3a
+ 704 00da 0B       		.uleb128 0xb
+ 705 00db 3B       		.uleb128 0x3b
+ 706 00dc 0B       		.uleb128 0xb
+ 707 00dd 27       		.uleb128 0x27
+ 708 00de 19       		.uleb128 0x19
+ 709 00df 49       		.uleb128 0x49
+ 710 00e0 13       		.uleb128 0x13
+ 711 00e1 3C       		.uleb128 0x3c
+ 712 00e2 19       		.uleb128 0x19
+ 713 00e3 00       		.byte	0
+ 714 00e4 00       		.byte	0
+ 715 00e5 0F       		.uleb128 0xf
+ 716 00e6 2E       		.uleb128 0x2e
+ 717 00e7 01       		.byte	0x1
+ 718 00e8 3F       		.uleb128 0x3f
+ 719 00e9 19       		.uleb128 0x19
+ 720 00ea 03       		.uleb128 0x3
+ 721 00eb 0E       		.uleb128 0xe
+ 722 00ec 3A       		.uleb128 0x3a
+ 723 00ed 0B       		.uleb128 0xb
+ 724 00ee 3B       		.uleb128 0x3b
+ 725 00ef 0B       		.uleb128 0xb
+ 726 00f0 27       		.uleb128 0x27
+ 727 00f1 19       		.uleb128 0x19
+ 728 00f2 3C       		.uleb128 0x3c
+ 729 00f3 19       		.uleb128 0x19
+ 730 00f4 00       		.byte	0
+ 731 00f5 00       		.byte	0
+ 732 00f6 10       		.uleb128 0x10
+ 733 00f7 05       		.uleb128 0x5
+ 734 00f8 00       		.byte	0
+ 735 00f9 49       		.uleb128 0x49
+ 736 00fa 13       		.uleb128 0x13
+ 737 00fb 00       		.byte	0
+ 738 00fc 00       		.byte	0
+ 739 00fd 00       		.byte	0
+ 740              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 18
+
+
+ 741              	.Ldebug_loc0:
+ 742              	.LLST0:
+ 743 0000 06000000 		.4byte	.LVL0
+ 744 0004 13000000 		.4byte	.LVL1-1
+ 745 0008 0100     		.2byte	0x1
+ 746 000a 50       		.byte	0x50
+ 747 000b 00000000 		.4byte	0
+ 748 000f 00000000 		.4byte	0
+ 749              	.LLST1:
+ 750 0013 06000000 		.4byte	.LVL4
+ 751 0017 13000000 		.4byte	.LVL5-1
+ 752 001b 0100     		.2byte	0x1
+ 753 001d 50       		.byte	0x50
+ 754 001e 00000000 		.4byte	0
+ 755 0022 00000000 		.4byte	0
+ 756              	.LLST2:
+ 757 0026 00000000 		.4byte	.LVL6
+ 758 002a 04000000 		.4byte	.LVL7
+ 759 002e 0100     		.2byte	0x1
+ 760 0030 50       		.byte	0x50
+ 761 0031 04000000 		.4byte	.LVL7
+ 762 0035 10000000 		.4byte	.LFE4
+ 763 0039 0400     		.2byte	0x4
+ 764 003b F3       		.byte	0xf3
+ 765 003c 01       		.uleb128 0x1
+ 766 003d 50       		.byte	0x50
+ 767 003e 9F       		.byte	0x9f
+ 768 003f 00000000 		.4byte	0
+ 769 0043 00000000 		.4byte	0
+ 770              		.section	.debug_aranges,"",%progbits
+ 771 0000 54000000 		.4byte	0x54
+ 772 0004 0200     		.2byte	0x2
+ 773 0006 00000000 		.4byte	.Ldebug_info0
+ 774 000a 04       		.byte	0x4
+ 775 000b 00       		.byte	0
+ 776 000c 0000     		.2byte	0
+ 777 000e 0000     		.2byte	0
+ 778 0010 00000000 		.4byte	.LFB0
+ 779 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 780 0018 00000000 		.4byte	.LFB1
+ 781 001c 1C000000 		.4byte	.LFE1-.LFB1
+ 782 0020 00000000 		.4byte	.LFB2
+ 783 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 784 0028 00000000 		.4byte	.LFB3
+ 785 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 786 0030 00000000 		.4byte	.LFB4
+ 787 0034 10000000 		.4byte	.LFE4-.LFB4
+ 788 0038 00000000 		.4byte	.LFB5
+ 789 003c 10000000 		.4byte	.LFE5-.LFB5
+ 790 0040 00000000 		.4byte	.LFB6
+ 791 0044 0C000000 		.4byte	.LFE6-.LFB6
+ 792 0048 00000000 		.4byte	.LFB7
+ 793 004c 0C000000 		.4byte	.LFE7-.LFB7
+ 794 0050 00000000 		.4byte	0
+ 795 0054 00000000 		.4byte	0
+ 796              		.section	.debug_ranges,"",%progbits
+ 797              	.Ldebug_ranges0:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 19
+
+
+ 798 0000 00000000 		.4byte	.LFB0
+ 799 0004 0C000000 		.4byte	.LFE0
+ 800 0008 00000000 		.4byte	.LFB1
+ 801 000c 1C000000 		.4byte	.LFE1
+ 802 0010 00000000 		.4byte	.LFB2
+ 803 0014 1C000000 		.4byte	.LFE2
+ 804 0018 00000000 		.4byte	.LFB3
+ 805 001c 1C000000 		.4byte	.LFE3
+ 806 0020 00000000 		.4byte	.LFB4
+ 807 0024 10000000 		.4byte	.LFE4
+ 808 0028 00000000 		.4byte	.LFB5
+ 809 002c 10000000 		.4byte	.LFE5
+ 810 0030 00000000 		.4byte	.LFB6
+ 811 0034 0C000000 		.4byte	.LFE6
+ 812 0038 00000000 		.4byte	.LFB7
+ 813 003c 0C000000 		.4byte	.LFE7
+ 814 0040 00000000 		.4byte	0
+ 815 0044 00000000 		.4byte	0
+ 816              		.section	.debug_line,"",%progbits
+ 817              	.Ldebug_line0:
+ 818 0000 E6000000 		.section	.debug_str,"MS",%progbits,1
+ 818      02005000 
+ 818      00000201 
+ 818      FB0E0D00 
+ 818      01010101 
+ 819              	.LASF17:
+ 820 0000 436F756E 		.ascii	"Count7_2_Stop\000"
+ 820      74375F32 
+ 820      5F53746F 
+ 820      7000
+ 821              	.LASF24:
+ 822 000e 436F756E 		.ascii	"Count7_2_ReadPeriod\000"
+ 822      74375F32 
+ 822      5F526561 
+ 822      64506572 
+ 822      696F6400 
+ 823              	.LASF21:
+ 824 0022 636F756E 		.ascii	"count\000"
+ 824      7400
+ 825              	.LASF22:
+ 826 0028 70657269 		.ascii	"period\000"
+ 826      6F6400
+ 827              	.LASF3:
+ 828 002f 73686F72 		.ascii	"short unsigned int\000"
+ 828      7420756E 
+ 828      7369676E 
+ 828      65642069 
+ 828      6E7400
+ 829              	.LASF9:
+ 830 0042 666C6F61 		.ascii	"float\000"
+ 830      7400
+ 831              	.LASF7:
+ 832 0048 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 832      206C6F6E 
+ 832      6720756E 
+ 832      7369676E 
+ 832      65642069 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 20
+
+
+ 833              	.LASF1:
+ 834 005f 756E7369 		.ascii	"unsigned char\000"
+ 834      676E6564 
+ 834      20636861 
+ 834      7200
+ 835              	.LASF13:
+ 836 006d 72656738 		.ascii	"reg8\000"
+ 836      00
+ 837              	.LASF18:
+ 838 0072 696E7465 		.ascii	"interruptState\000"
+ 838      72727570 
+ 838      74537461 
+ 838      746500
+ 839              	.LASF5:
+ 840 0081 6C6F6E67 		.ascii	"long unsigned int\000"
+ 840      20756E73 
+ 840      69676E65 
+ 840      6420696E 
+ 840      7400
+ 841              	.LASF12:
+ 842 0093 75696E74 		.ascii	"uint8\000"
+ 842      3800
+ 843              	.LASF29:
+ 844 0099 436F756E 		.ascii	"Count7_2_initVar\000"
+ 844      74375F32 
+ 844      5F696E69 
+ 844      74566172 
+ 844      00
+ 845              	.LASF20:
+ 846 00aa 436F756E 		.ascii	"Count7_2_WritePeriod\000"
+ 846      74375F32 
+ 846      5F577269 
+ 846      74655065 
+ 846      72696F64 
+ 847              	.LASF10:
+ 848 00bf 646F7562 		.ascii	"double\000"
+ 848      6C6500
+ 849              	.LASF16:
+ 850 00c6 436F756E 		.ascii	"Count7_2_Start\000"
+ 850      74375F32 
+ 850      5F537461 
+ 850      727400
+ 851              	.LASF25:
+ 852 00d5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 852      4320342E 
+ 852      392E3320 
+ 852      32303135 
+ 852      30333033 
+ 853 0108 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 853      20726576 
+ 853      6973696F 
+ 853      6E203232 
+ 853      31323230 
+ 854 013b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 854      66756E63 
+ 854      74696F6E 
+ 854      2D736563 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 21
+
+
+ 854      74696F6E 
+ 855              	.LASF30:
+ 856 0163 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 856      74657243 
+ 856      72697469 
+ 856      63616C53 
+ 856      65637469 
+ 857              	.LASF8:
+ 858 017a 756E7369 		.ascii	"unsigned int\000"
+ 858      676E6564 
+ 858      20696E74 
+ 858      00
+ 859              	.LASF31:
+ 860 0187 43794578 		.ascii	"CyExitCriticalSection\000"
+ 860      69744372 
+ 860      69746963 
+ 860      616C5365 
+ 860      6374696F 
+ 861              	.LASF27:
+ 862 019d 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 862      73657273 
+ 862      5C323134 
+ 862      30313635 
+ 862      38365C44 
+ 863 01cb 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 863      41505532 
+ 863      4130332E 
+ 863      63796473 
+ 863      6E00
+ 864              	.LASF28:
+ 865 01dd 436F756E 		.ascii	"Count7_2_Init\000"
+ 865      74375F32 
+ 865      5F496E69 
+ 865      7400
+ 866              	.LASF14:
+ 867 01eb 73697A65 		.ascii	"sizetype\000"
+ 867      74797065 
+ 867      00
+ 868              	.LASF19:
+ 869 01f4 436F756E 		.ascii	"Count7_2_WriteCounter\000"
+ 869      74375F32 
+ 869      5F577269 
+ 869      7465436F 
+ 869      756E7465 
+ 870              	.LASF6:
+ 871 020a 6C6F6E67 		.ascii	"long long int\000"
+ 871      206C6F6E 
+ 871      6720696E 
+ 871      7400
+ 872              	.LASF11:
+ 873 0218 63686172 		.ascii	"char\000"
+ 873      00
+ 874              	.LASF2:
+ 875 021d 73686F72 		.ascii	"short int\000"
+ 875      7420696E 
+ 875      7400
+ 876              	.LASF23:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc7nIiDa.s 			page 22
+
+
+ 877 0227 436F756E 		.ascii	"Count7_2_ReadCounter\000"
+ 877      74375F32 
+ 877      5F526561 
+ 877      64436F75 
+ 877      6E746572 
+ 878              	.LASF15:
+ 879 023c 436F756E 		.ascii	"Count7_2_Enable\000"
+ 879      74375F32 
+ 879      5F456E61 
+ 879      626C6500 
+ 880              	.LASF4:
+ 881 024c 6C6F6E67 		.ascii	"long int\000"
+ 881      20696E74 
+ 881      00
+ 882              	.LASF26:
+ 883 0255 47656E65 		.ascii	"Generated_Source\\PSoC5\\Count7_2.c\000"
+ 883      72617465 
+ 883      645F536F 
+ 883      75726365 
+ 883      5C50536F 
+ 884              	.LASF0:
+ 885 0277 7369676E 		.ascii	"signed char\000"
+ 885      65642063 
+ 885      68617200 
+ 886              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

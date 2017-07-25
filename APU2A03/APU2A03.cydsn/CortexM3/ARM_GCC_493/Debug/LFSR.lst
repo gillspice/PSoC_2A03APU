@@ -1,0 +1,1975 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LFSR.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.LFSR_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	LFSR_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	LFSR_Enable, %function
+  24              	LFSR_Enable:
+  25              	.LFB1:
+  26              		.file 1 "Generated_Source\\PSoC5\\LFSR.c"
+   1:Generated_Source\PSoC5/LFSR.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LFSR.c **** * File Name: LFSR.c
+   3:Generated_Source\PSoC5/LFSR.c **** * Version 2.40
+   4:Generated_Source\PSoC5/LFSR.c **** *
+   5:Generated_Source\PSoC5/LFSR.c **** * Description:
+   6:Generated_Source\PSoC5/LFSR.c **** *  This file provides the source code to the API for the PRS component
+   7:Generated_Source\PSoC5/LFSR.c **** *
+   8:Generated_Source\PSoC5/LFSR.c **** * Note:
+   9:Generated_Source\PSoC5/LFSR.c **** *  None
+  10:Generated_Source\PSoC5/LFSR.c **** *
+  11:Generated_Source\PSoC5/LFSR.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/LFSR.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/LFSR.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/LFSR.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/LFSR.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/LFSR.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/LFSR.c **** 
+  18:Generated_Source\PSoC5/LFSR.c **** #include "LFSR.h"
+  19:Generated_Source\PSoC5/LFSR.c **** 
+  20:Generated_Source\PSoC5/LFSR.c **** uint8 LFSR_initVar = 0u;
+  21:Generated_Source\PSoC5/LFSR.c **** 
+  22:Generated_Source\PSoC5/LFSR.c **** LFSR_BACKUP_STRUCT LFSR_backup =
+  23:Generated_Source\PSoC5/LFSR.c **** {
+  24:Generated_Source\PSoC5/LFSR.c ****     0x00u, /* enableState; */
+  25:Generated_Source\PSoC5/LFSR.c **** 
+  26:Generated_Source\PSoC5/LFSR.c ****     #if (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)
+  27:Generated_Source\PSoC5/LFSR.c ****         /* Save dff register for time mult */
+  28:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+  29:Generated_Source\PSoC5/LFSR.c ****             LFSR_INIT_STATE, /* dffStatus; */
+  30:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End LFSR_TIME_MULTIPLEXING_ENABLE */
+  31:Generated_Source\PSoC5/LFSR.c **** 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 2
+
+
+  32:Generated_Source\PSoC5/LFSR.c ****         /* Save A0 and A1 registers are none-retention */
+  33:Generated_Source\PSoC5/LFSR.c ****         #if(LFSR_PRS_SIZE <= 32u)
+  34:Generated_Source\PSoC5/LFSR.c ****             LFSR_DEFAULT_SEED, /* seed */
+  35:Generated_Source\PSoC5/LFSR.c **** 
+  36:Generated_Source\PSoC5/LFSR.c ****         #else
+  37:Generated_Source\PSoC5/LFSR.c ****             LFSR_DEFAULT_SEED_UPPER, /* seedUpper; */
+  38:Generated_Source\PSoC5/LFSR.c ****             LFSR_DEFAULT_SEED_LOWER, /* seedLower; */
+  39:Generated_Source\PSoC5/LFSR.c **** 
+  40:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+  41:Generated_Source\PSoC5/LFSR.c **** 
+  42:Generated_Source\PSoC5/LFSR.c ****     #endif  /* End (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) */
+  43:Generated_Source\PSoC5/LFSR.c **** };
+  44:Generated_Source\PSoC5/LFSR.c **** 
+  45:Generated_Source\PSoC5/LFSR.c **** 
+  46:Generated_Source\PSoC5/LFSR.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/LFSR.c **** * Function Name: LFSR_Init
+  48:Generated_Source\PSoC5/LFSR.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/LFSR.c **** *
+  50:Generated_Source\PSoC5/LFSR.c **** * Summary:
+  51:Generated_Source\PSoC5/LFSR.c **** *  Initializes seed and polynomial registers with initial values.
+  52:Generated_Source\PSoC5/LFSR.c **** *
+  53:Generated_Source\PSoC5/LFSR.c **** * Parameters:
+  54:Generated_Source\PSoC5/LFSR.c **** *  void
+  55:Generated_Source\PSoC5/LFSR.c **** *
+  56:Generated_Source\PSoC5/LFSR.c **** * Return:
+  57:Generated_Source\PSoC5/LFSR.c **** *  void
+  58:Generated_Source\PSoC5/LFSR.c **** *
+  59:Generated_Source\PSoC5/LFSR.c **** *******************************************************************************/
+  60:Generated_Source\PSoC5/LFSR.c **** void LFSR_Init(void) 
+  61:Generated_Source\PSoC5/LFSR.c **** {
+  62:Generated_Source\PSoC5/LFSR.c ****     /* Writes seed value and ponynom value provided for customizer */
+  63:Generated_Source\PSoC5/LFSR.c ****     #if (LFSR_PRS_SIZE <= 32u)
+  64:Generated_Source\PSoC5/LFSR.c ****         LFSR_WritePolynomial(LFSR_DEFAULT_POLYNOM);
+  65:Generated_Source\PSoC5/LFSR.c ****         LFSR_WriteSeed(LFSR_DEFAULT_SEED);
+  66:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+  67:Generated_Source\PSoC5/LFSR.c ****             LFSR_ResetSeedInit(LFSR_DEFAULT_SEED);
+  68:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+  69:Generated_Source\PSoC5/LFSR.c ****             LFSR_Enable();
+  70:Generated_Source\PSoC5/LFSR.c ****     #else
+  71:Generated_Source\PSoC5/LFSR.c ****         LFSR_WritePolynomialUpper(LFSR_DEFAULT_POLYNOM_UPPER);
+  72:Generated_Source\PSoC5/LFSR.c ****         LFSR_WritePolynomialLower(LFSR_DEFAULT_POLYNOM_LOWER);
+  73:Generated_Source\PSoC5/LFSR.c ****         LFSR_WriteSeedUpper(LFSR_DEFAULT_SEED_UPPER);
+  74:Generated_Source\PSoC5/LFSR.c ****         LFSR_WriteSeedLower(LFSR_DEFAULT_SEED_LOWER);
+  75:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+  76:Generated_Source\PSoC5/LFSR.c ****             LFSR_ResetSeedInitUpper(LFSR_DEFAULT_SEED_UPPER);
+  77:Generated_Source\PSoC5/LFSR.c ****             LFSR_ResetSeedInitLower(LFSR_DEFAULT_SEED_LOWER);
+  78:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+  79:Generated_Source\PSoC5/LFSR.c ****             LFSR_Enable();
+  80:Generated_Source\PSoC5/LFSR.c ****     #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+  81:Generated_Source\PSoC5/LFSR.c **** }
+  82:Generated_Source\PSoC5/LFSR.c **** 
+  83:Generated_Source\PSoC5/LFSR.c **** 
+  84:Generated_Source\PSoC5/LFSR.c **** /*******************************************************************************
+  85:Generated_Source\PSoC5/LFSR.c **** * Function Name: LFSR_Enable
+  86:Generated_Source\PSoC5/LFSR.c **** ********************************************************************************
+  87:Generated_Source\PSoC5/LFSR.c **** *
+  88:Generated_Source\PSoC5/LFSR.c **** * Summary:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 3
+
+
+  89:Generated_Source\PSoC5/LFSR.c **** *  Starts PRS computation on rising edge of input clock.
+  90:Generated_Source\PSoC5/LFSR.c **** *
+  91:Generated_Source\PSoC5/LFSR.c **** * Parameters:
+  92:Generated_Source\PSoC5/LFSR.c **** *  void
+  93:Generated_Source\PSoC5/LFSR.c **** *
+  94:Generated_Source\PSoC5/LFSR.c **** * Return:
+  95:Generated_Source\PSoC5/LFSR.c **** *  void
+  96:Generated_Source\PSoC5/LFSR.c **** *
+  97:Generated_Source\PSoC5/LFSR.c **** *******************************************************************************/
+  98:Generated_Source\PSoC5/LFSR.c **** void LFSR_Enable(void) 
+  99:Generated_Source\PSoC5/LFSR.c **** {
+  27              		.loc 1 99 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 100:Generated_Source\PSoC5/LFSR.c ****         LFSR_CONTROL_REG |= LFSR_CTRL_ENABLE;
+  32              		.loc 1 100 0
+  33 0000 024A     		ldr	r2, .L2
+  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  35 0004 43F00103 		orr	r3, r3, #1
+  36 0008 1370     		strb	r3, [r2]
+  37 000a 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 000c 75640040 		.word	1073767541
+  42              		.cfi_endproc
+  43              	.LFE1:
+  44              		.size	LFSR_Enable, .-LFSR_Enable
+  45              		.section	.text.LFSR_Stop,"ax",%progbits
+  46              		.align	2
+  47              		.global	LFSR_Stop
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	LFSR_Stop, %function
+  51              	LFSR_Stop:
+  52              	.LFB3:
+ 101:Generated_Source\PSoC5/LFSR.c **** }
+ 102:Generated_Source\PSoC5/LFSR.c **** 
+ 103:Generated_Source\PSoC5/LFSR.c **** 
+ 104:Generated_Source\PSoC5/LFSR.c **** /*******************************************************************************
+ 105:Generated_Source\PSoC5/LFSR.c **** * Function Name: LFSR_Start
+ 106:Generated_Source\PSoC5/LFSR.c **** ********************************************************************************
+ 107:Generated_Source\PSoC5/LFSR.c **** *
+ 108:Generated_Source\PSoC5/LFSR.c **** * Summary:
+ 109:Generated_Source\PSoC5/LFSR.c **** *  Initializes seed and polynomial registers with initial values. Computation
+ 110:Generated_Source\PSoC5/LFSR.c **** *  of PRS starts on rising edge of input clock.
+ 111:Generated_Source\PSoC5/LFSR.c **** *
+ 112:Generated_Source\PSoC5/LFSR.c **** * Parameters:
+ 113:Generated_Source\PSoC5/LFSR.c **** *  void
+ 114:Generated_Source\PSoC5/LFSR.c **** *
+ 115:Generated_Source\PSoC5/LFSR.c **** * Return:
+ 116:Generated_Source\PSoC5/LFSR.c **** *  void
+ 117:Generated_Source\PSoC5/LFSR.c **** *
+ 118:Generated_Source\PSoC5/LFSR.c **** * Global variables:
+ 119:Generated_Source\PSoC5/LFSR.c **** *  LFSR_initVar: global variable is used to indicate initial
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 4
+
+
+ 120:Generated_Source\PSoC5/LFSR.c **** *  configuration of this component.  The variable is initialized to zero and set
+ 121:Generated_Source\PSoC5/LFSR.c **** *  to 1 the first time LFSR_Start() is called. This allows
+ 122:Generated_Source\PSoC5/LFSR.c **** *  enable/disable component without re-initialization in all subsequent calls
+ 123:Generated_Source\PSoC5/LFSR.c **** *  to the LFSR_Start() routine.
+ 124:Generated_Source\PSoC5/LFSR.c **** *
+ 125:Generated_Source\PSoC5/LFSR.c **** *******************************************************************************/
+ 126:Generated_Source\PSoC5/LFSR.c **** void LFSR_Start(void) 
+ 127:Generated_Source\PSoC5/LFSR.c **** {
+ 128:Generated_Source\PSoC5/LFSR.c ****     /* Writes seed value and ponynom value provided from customizer */
+ 129:Generated_Source\PSoC5/LFSR.c ****     if (LFSR_initVar == 0u)
+ 130:Generated_Source\PSoC5/LFSR.c ****     {
+ 131:Generated_Source\PSoC5/LFSR.c ****         LFSR_Init();
+ 132:Generated_Source\PSoC5/LFSR.c ****         LFSR_initVar = 1u;
+ 133:Generated_Source\PSoC5/LFSR.c ****     }
+ 134:Generated_Source\PSoC5/LFSR.c **** 
+ 135:Generated_Source\PSoC5/LFSR.c ****     LFSR_Enable();
+ 136:Generated_Source\PSoC5/LFSR.c **** }
+ 137:Generated_Source\PSoC5/LFSR.c **** 
+ 138:Generated_Source\PSoC5/LFSR.c **** 
+ 139:Generated_Source\PSoC5/LFSR.c **** /*******************************************************************************
+ 140:Generated_Source\PSoC5/LFSR.c **** * Function Name: LFSR_Stop
+ 141:Generated_Source\PSoC5/LFSR.c **** ********************************************************************************
+ 142:Generated_Source\PSoC5/LFSR.c **** *
+ 143:Generated_Source\PSoC5/LFSR.c **** * Summary:
+ 144:Generated_Source\PSoC5/LFSR.c **** *  Stops PRS computation.
+ 145:Generated_Source\PSoC5/LFSR.c **** *
+ 146:Generated_Source\PSoC5/LFSR.c **** * Parameters:
+ 147:Generated_Source\PSoC5/LFSR.c **** *  void
+ 148:Generated_Source\PSoC5/LFSR.c **** *
+ 149:Generated_Source\PSoC5/LFSR.c **** * Return:
+ 150:Generated_Source\PSoC5/LFSR.c **** *  void
+ 151:Generated_Source\PSoC5/LFSR.c **** *
+ 152:Generated_Source\PSoC5/LFSR.c **** *******************************************************************************/
+ 153:Generated_Source\PSoC5/LFSR.c **** void LFSR_Stop(void) 
+ 154:Generated_Source\PSoC5/LFSR.c **** {
+  53              		.loc 1 154 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              		@ link register save eliminated.
+ 155:Generated_Source\PSoC5/LFSR.c ****     LFSR_CONTROL_REG &= ((uint8)~LFSR_CTRL_ENABLE);
+  58              		.loc 1 155 0
+  59 0000 024A     		ldr	r2, .L5
+  60 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  61 0004 03F0FE03 		and	r3, r3, #254
+  62 0008 1370     		strb	r3, [r2]
+  63 000a 7047     		bx	lr
+  64              	.L6:
+  65              		.align	2
+  66              	.L5:
+  67 000c 75640040 		.word	1073767541
+  68              		.cfi_endproc
+  69              	.LFE3:
+  70              		.size	LFSR_Stop, .-LFSR_Stop
+  71              		.section	.text.LFSR_ResetSeedInit,"ax",%progbits
+  72              		.align	2
+  73              		.global	LFSR_ResetSeedInit
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 5
+
+
+  74              		.thumb
+  75              		.thumb_func
+  76              		.type	LFSR_ResetSeedInit, %function
+  77              	LFSR_ResetSeedInit:
+  78              	.LFB4:
+ 156:Generated_Source\PSoC5/LFSR.c **** }
+ 157:Generated_Source\PSoC5/LFSR.c **** 
+ 158:Generated_Source\PSoC5/LFSR.c **** 
+ 159:Generated_Source\PSoC5/LFSR.c **** #if (LFSR_RUN_MODE == LFSR__APISINGLESTEP)
+ 160:Generated_Source\PSoC5/LFSR.c ****     /*******************************************************************************
+ 161:Generated_Source\PSoC5/LFSR.c ****     * FUNCTION NAME: LFSR_Step
+ 162:Generated_Source\PSoC5/LFSR.c ****     ********************************************************************************
+ 163:Generated_Source\PSoC5/LFSR.c ****     *
+ 164:Generated_Source\PSoC5/LFSR.c ****     * Summary:
+ 165:Generated_Source\PSoC5/LFSR.c ****     *  Increments the PRS by one when API single step mode is used.
+ 166:Generated_Source\PSoC5/LFSR.c ****     *
+ 167:Generated_Source\PSoC5/LFSR.c ****     * Parameters:
+ 168:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 169:Generated_Source\PSoC5/LFSR.c ****     *
+ 170:Generated_Source\PSoC5/LFSR.c ****     * Return:
+ 171:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 172:Generated_Source\PSoC5/LFSR.c ****     *
+ 173:Generated_Source\PSoC5/LFSR.c ****     *******************************************************************************/
+ 174:Generated_Source\PSoC5/LFSR.c ****     void LFSR_Step(void) 
+ 175:Generated_Source\PSoC5/LFSR.c ****     {
+ 176:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 177:Generated_Source\PSoC5/LFSR.c ****             /* Makes 4 pulse, 4x for Time Mult */
+ 178:Generated_Source\PSoC5/LFSR.c ****             LFSR_EXECUTE_STEP;
+ 179:Generated_Source\PSoC5/LFSR.c ****             LFSR_EXECUTE_STEP;
+ 180:Generated_Source\PSoC5/LFSR.c ****             LFSR_EXECUTE_STEP;
+ 181:Generated_Source\PSoC5/LFSR.c ****             LFSR_EXECUTE_STEP;
+ 182:Generated_Source\PSoC5/LFSR.c **** 
+ 183:Generated_Source\PSoC5/LFSR.c ****         #else
+ 184:Generated_Source\PSoC5/LFSR.c ****             /* One pulse without Time mult required */
+ 185:Generated_Source\PSoC5/LFSR.c ****             LFSR_EXECUTE_STEP;
+ 186:Generated_Source\PSoC5/LFSR.c **** 
+ 187:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End LFSR_TIME_MULTIPLEXING_ENABLE */
+ 188:Generated_Source\PSoC5/LFSR.c ****     }
+ 189:Generated_Source\PSoC5/LFSR.c **** #endif  /* End (LFSR_RUN_MODE == LFSR__APISINGLESTEP) */
+ 190:Generated_Source\PSoC5/LFSR.c **** 
+ 191:Generated_Source\PSoC5/LFSR.c **** 
+ 192:Generated_Source\PSoC5/LFSR.c **** #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+ 193:Generated_Source\PSoC5/LFSR.c ****     #if (LFSR_PRS_SIZE <= 32u) /* 8-32 bits PRS */
+ 194:Generated_Source\PSoC5/LFSR.c ****         /*******************************************************************************
+ 195:Generated_Source\PSoC5/LFSR.c ****         * FUNCTION NAME: LFSR_ResetSeedInit
+ 196:Generated_Source\PSoC5/LFSR.c ****         ********************************************************************************
+ 197:Generated_Source\PSoC5/LFSR.c ****         *
+ 198:Generated_Source\PSoC5/LFSR.c ****         * Summary:
+ 199:Generated_Source\PSoC5/LFSR.c ****         *  Increments the PRS by one when API single step mode is used.
+ 200:Generated_Source\PSoC5/LFSR.c ****         *
+ 201:Generated_Source\PSoC5/LFSR.c ****         * Parameters:
+ 202:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 203:Generated_Source\PSoC5/LFSR.c ****         *
+ 204:Generated_Source\PSoC5/LFSR.c ****         * Return:
+ 205:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 206:Generated_Source\PSoC5/LFSR.c ****         *
+ 207:Generated_Source\PSoC5/LFSR.c ****         *******************************************************************************/
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 6
+
+
+ 208:Generated_Source\PSoC5/LFSR.c ****         void LFSR_ResetSeedInit(uint16 seed)
+ 209:Generated_Source\PSoC5/LFSR.c ****                                             
+ 210:Generated_Source\PSoC5/LFSR.c ****         {
+  79              		.loc 1 210 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              	.LVL0:
+  84 0000 10B5     		push	{r4, lr}
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 4, -8
+  87              		.cfi_offset 14, -4
+ 211:Generated_Source\PSoC5/LFSR.c ****             uint8 enableInterrupts;
+ 212:Generated_Source\PSoC5/LFSR.c **** 
+ 213:Generated_Source\PSoC5/LFSR.c ****             /* Mask the Seed to cut unused bits */
+ 214:Generated_Source\PSoC5/LFSR.c ****             seed &= LFSR_MASK;
+  88              		.loc 1 214 0
+  89 0002 C0F30D04 		ubfx	r4, r0, #0, #14
+  90              	.LVL1:
+ 215:Generated_Source\PSoC5/LFSR.c **** 
+ 216:Generated_Source\PSoC5/LFSR.c ****             /* Change AuxControl reg, need to be safety */
+ 217:Generated_Source\PSoC5/LFSR.c ****             enableInterrupts = CyEnterCriticalSection();
+  91              		.loc 1 217 0
+  92 0006 FFF7FEFF 		bl	CyEnterCriticalSection
+  93              	.LVL2:
+ 218:Generated_Source\PSoC5/LFSR.c **** 
+ 219:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 220:Generated_Source\PSoC5/LFSR.c ****                 /* Set FIFOs to single register */
+ 221:Generated_Source\PSoC5/LFSR.c ****                 LFSR_AUX_CONTROL_A_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 222:Generated_Source\PSoC5/LFSR.c **** 
+ 223:Generated_Source\PSoC5/LFSR.c ****                 #if(LFSR_PRS_SIZE > 16u)       /* 17-32 bits PRS */
+ 224:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_B_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 225:Generated_Source\PSoC5/LFSR.c ****                 #endif  /* End (LFSR_PRS_SIZE <= 8u) */
+ 226:Generated_Source\PSoC5/LFSR.c **** 
+ 227:Generated_Source\PSoC5/LFSR.c ****                 /* AuxControl reg settings are done */
+ 228:Generated_Source\PSoC5/LFSR.c ****                 CyExitCriticalSection(enableInterrupts);
+ 229:Generated_Source\PSoC5/LFSR.c **** 
+ 230:Generated_Source\PSoC5/LFSR.c ****                 /* Write Seed COPY */
+ 231:Generated_Source\PSoC5/LFSR.c ****                 #if (LFSR_PRS_SIZE <= 16u)          /* 16 bits PRS */
+ 232:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_A__A1_REG = HI8(seed);
+ 233:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_A__A0_REG = LO8(seed);
+ 234:Generated_Source\PSoC5/LFSR.c **** 
+ 235:Generated_Source\PSoC5/LFSR.c ****                 #elif (LFSR_PRS_SIZE <= 24u)        /* 24 bits PRS */
+ 236:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_B__A1_REG = LO8(HI16(seed));
+ 237:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_B__A0_REG = HI8(seed);
+ 238:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_A__A0_REG = LO8(seed);
+ 239:Generated_Source\PSoC5/LFSR.c **** 
+ 240:Generated_Source\PSoC5/LFSR.c ****                 #else                                           /* 32 bits PRS */
+ 241:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_B__A1_REG = HI8(HI16(seed));
+ 242:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_A__A1_REG = LO8(HI16(seed));
+ 243:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_B__A0_REG = HI8(seed);
+ 244:Generated_Source\PSoC5/LFSR.c ****                     LFSR_SEED_COPY_A__A0_REG = LO8(seed);
+ 245:Generated_Source\PSoC5/LFSR.c ****                 #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 246:Generated_Source\PSoC5/LFSR.c **** 
+ 247:Generated_Source\PSoC5/LFSR.c ****             #else
+ 248:Generated_Source\PSoC5/LFSR.c ****                 /* Set FIFOs to single register */
+ 249:Generated_Source\PSoC5/LFSR.c ****                 #if (LFSR_PRS_SIZE <= 8u)      /* 8 bits PRS */
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 7
+
+
+ 250:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_A_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 251:Generated_Source\PSoC5/LFSR.c **** 
+ 252:Generated_Source\PSoC5/LFSR.c ****                 #elif (LFSR_PRS_SIZE <= 16u)      /* 16 bits PRS */
+ 253:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_A_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+  94              		.loc 1 253 0
+  95 000a 074A     		ldr	r2, .L9
+  96 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  97 000e 43F00303 		orr	r3, r3, #3
+  98 0012 1370     		strb	r3, [r2]
+ 254:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_B_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+  99              		.loc 1 254 0
+ 100 0014 0132     		adds	r2, r2, #1
+ 101 0016 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 102 0018 43F00303 		orr	r3, r3, #3
+ 103 001c 1370     		strb	r3, [r2]
+ 255:Generated_Source\PSoC5/LFSR.c **** 
+ 256:Generated_Source\PSoC5/LFSR.c ****                 #elif (LFSR_PRS_SIZE <= 24u)      /* 24-39 bits PRS */
+ 257:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_A_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 258:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_B_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 259:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_C_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 260:Generated_Source\PSoC5/LFSR.c **** 
+ 261:Generated_Source\PSoC5/LFSR.c ****                 #elif (LFSR_PRS_SIZE <= 32u)      /* 40-55 bits PRS */
+ 262:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_A_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 263:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_B_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 264:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_C_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 265:Generated_Source\PSoC5/LFSR.c ****                     LFSR_AUX_CONTROL_D_REG  |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 266:Generated_Source\PSoC5/LFSR.c **** 
+ 267:Generated_Source\PSoC5/LFSR.c ****                 #endif  /* End (LFSR_PRS_SIZE <= 8u) */
+ 268:Generated_Source\PSoC5/LFSR.c **** 
+ 269:Generated_Source\PSoC5/LFSR.c ****                 /* AuxControl reg setting are done */
+ 270:Generated_Source\PSoC5/LFSR.c ****                 CyExitCriticalSection(enableInterrupts);
+ 104              		.loc 1 270 0
+ 105 001e FFF7FEFF 		bl	CyExitCriticalSection
+ 106              	.LVL3:
+ 271:Generated_Source\PSoC5/LFSR.c **** 
+ 272:Generated_Source\PSoC5/LFSR.c ****                 /* Write Seed COPY */
+ 273:Generated_Source\PSoC5/LFSR.c ****                 CY_SET_REG16(LFSR_SEED_COPY_PTR, seed);
+ 107              		.loc 1 273 0
+ 108 0022 024B     		ldr	r3, .L9+4
+ 109 0024 1C80     		strh	r4, [r3]	@ movhi
+ 110 0026 10BD     		pop	{r4, pc}
+ 111              	.LVL4:
+ 112              	.L10:
+ 113              		.align	2
+ 114              	.L9:
+ 115 0028 96640040 		.word	1073767574
+ 116 002c 46640040 		.word	1073767494
+ 117              		.cfi_endproc
+ 118              	.LFE4:
+ 119              		.size	LFSR_ResetSeedInit, .-LFSR_ResetSeedInit
+ 120              		.section	.text.LFSR_Read,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	LFSR_Read
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	LFSR_Read, %function
+ 126              	LFSR_Read:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 8
+
+
+ 127              	.LFB5:
+ 274:Generated_Source\PSoC5/LFSR.c **** 
+ 275:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_TIME_MULTIPLEXING_ENABLE) */
+ 276:Generated_Source\PSoC5/LFSR.c ****         }
+ 277:Generated_Source\PSoC5/LFSR.c **** 
+ 278:Generated_Source\PSoC5/LFSR.c ****     #else
+ 279:Generated_Source\PSoC5/LFSR.c **** 
+ 280:Generated_Source\PSoC5/LFSR.c ****         /*******************************************************************************
+ 281:Generated_Source\PSoC5/LFSR.c ****         * FUNCTION NAME: LFSR_ResetSeedInitUpper
+ 282:Generated_Source\PSoC5/LFSR.c ****         ********************************************************************************
+ 283:Generated_Source\PSoC5/LFSR.c ****         *
+ 284:Generated_Source\PSoC5/LFSR.c ****         * Summary:
+ 285:Generated_Source\PSoC5/LFSR.c ****         *  Increments the PRS by one when API single step mode is used.
+ 286:Generated_Source\PSoC5/LFSR.c ****         *
+ 287:Generated_Source\PSoC5/LFSR.c ****         * Parameters:
+ 288:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 289:Generated_Source\PSoC5/LFSR.c ****         *
+ 290:Generated_Source\PSoC5/LFSR.c ****         * Return:
+ 291:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 292:Generated_Source\PSoC5/LFSR.c ****         *
+ 293:Generated_Source\PSoC5/LFSR.c ****         *******************************************************************************/
+ 294:Generated_Source\PSoC5/LFSR.c ****         void LFSR_ResetSeedInitUpper(uint32 seed) 
+ 295:Generated_Source\PSoC5/LFSR.c ****         {
+ 296:Generated_Source\PSoC5/LFSR.c **** 			uint8 enableInterrupts;
+ 297:Generated_Source\PSoC5/LFSR.c **** 
+ 298:Generated_Source\PSoC5/LFSR.c **** 			/* Mask the Seed Upper half to cut unused bits */
+ 299:Generated_Source\PSoC5/LFSR.c ****             seed &= LFSR_MASK;
+ 300:Generated_Source\PSoC5/LFSR.c **** 
+ 301:Generated_Source\PSoC5/LFSR.c **** 			/* Change AuxControl reg, need to be safety */
+ 302:Generated_Source\PSoC5/LFSR.c ****             enableInterrupts = CyEnterCriticalSection();
+ 303:Generated_Source\PSoC5/LFSR.c **** 
+ 304:Generated_Source\PSoC5/LFSR.c ****             /* Set FIFOs to single register */
+ 305:Generated_Source\PSoC5/LFSR.c ****             LFSR_AUX_CONTROL_A_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 306:Generated_Source\PSoC5/LFSR.c ****             LFSR_AUX_CONTROL_B_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 307:Generated_Source\PSoC5/LFSR.c ****             LFSR_AUX_CONTROL_C_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 308:Generated_Source\PSoC5/LFSR.c **** 
+ 309:Generated_Source\PSoC5/LFSR.c **** 			#if (LFSR_PRS_SIZE > 48u)               /* 49-64 bits PRS */
+ 310:Generated_Source\PSoC5/LFSR.c ****                 LFSR_AUX_CONTROL_D_REG |= LFSR_AUXCTRL_FIFO_SINGLE_REG;
+ 311:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 8u) */
+ 312:Generated_Source\PSoC5/LFSR.c **** 
+ 313:Generated_Source\PSoC5/LFSR.c ****             /* AuxControl reg settings are done */
+ 314:Generated_Source\PSoC5/LFSR.c ****             CyExitCriticalSection(enableInterrupts);
+ 315:Generated_Source\PSoC5/LFSR.c **** 
+ 316:Generated_Source\PSoC5/LFSR.c ****             /* Write Seed Upper COPY */
+ 317:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 40u)          /* 40 bits PRS */
+ 318:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_C__A1_REG = LO8(seed);
+ 319:Generated_Source\PSoC5/LFSR.c **** 
+ 320:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 48u)        /* 48 bits PRS */
+ 321:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_C__A1_REG = HI8(seed);
+ 322:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_B__A1_REG = LO8(seed);
+ 323:Generated_Source\PSoC5/LFSR.c **** 
+ 324:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 56u)        /* 56 bits PRS */
+ 325:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_D__A1_REG = LO8(HI16(seed));
+ 326:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_C__A1_REG = HI8(seed);
+ 327:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_B__A1_REG = HI8(seed);
+ 328:Generated_Source\PSoC5/LFSR.c **** 
+ 329:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 64 bits PRS */
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 9
+
+
+ 330:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_D__A1_REG = HI8(HI16(seed));
+ 331:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_C__A1_REG = LO8(HI16(seed));
+ 332:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_B__A1_REG = HI8(seed);
+ 333:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_UPPER_COPY_A__A1_REG = LO8(seed);
+ 334:Generated_Source\PSoC5/LFSR.c **** 
+ 335:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 336:Generated_Source\PSoC5/LFSR.c ****         }
+ 337:Generated_Source\PSoC5/LFSR.c **** 
+ 338:Generated_Source\PSoC5/LFSR.c **** 
+ 339:Generated_Source\PSoC5/LFSR.c ****         /*******************************************************************************
+ 340:Generated_Source\PSoC5/LFSR.c ****         * FUNCTION NAME: LFSR_ResetSeedInitLower
+ 341:Generated_Source\PSoC5/LFSR.c ****         ********************************************************************************
+ 342:Generated_Source\PSoC5/LFSR.c ****         *
+ 343:Generated_Source\PSoC5/LFSR.c ****         * Summary:
+ 344:Generated_Source\PSoC5/LFSR.c ****         *  Increments the PRS by one when API single step mode is used.
+ 345:Generated_Source\PSoC5/LFSR.c ****         *
+ 346:Generated_Source\PSoC5/LFSR.c ****         * Parameters:
+ 347:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 348:Generated_Source\PSoC5/LFSR.c ****         *
+ 349:Generated_Source\PSoC5/LFSR.c ****         * Return:
+ 350:Generated_Source\PSoC5/LFSR.c ****         *  void
+ 351:Generated_Source\PSoC5/LFSR.c ****         *
+ 352:Generated_Source\PSoC5/LFSR.c ****         *******************************************************************************/
+ 353:Generated_Source\PSoC5/LFSR.c ****         void LFSR_ResetSeedInitLower(uint32 seed) 
+ 354:Generated_Source\PSoC5/LFSR.c ****         {
+ 355:Generated_Source\PSoC5/LFSR.c ****             /* Write Seed Lower COPY */
+ 356:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 40u)          /* 40 bits PRS */
+ 357:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_B__A1_REG = HI8(HI16(seed));
+ 358:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_C__A0_REG = LO8(HI16(seed));
+ 359:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_B__A0_REG = HI8(seed);
+ 360:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_A__A0_REG = LO8(seed);
+ 361:Generated_Source\PSoC5/LFSR.c **** 
+ 362:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 48u)        /* 48 bits PRS */
+ 363:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_A__A1_REG = HI8(HI16(seed));
+ 364:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_C__A0_REG = LO8(HI16(seed));
+ 365:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_B__A0_REG = HI8(seed);
+ 366:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_A__A0_REG = LO8(seed);
+ 367:Generated_Source\PSoC5/LFSR.c **** 
+ 368:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 64 bits PRS */
+ 369:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_D__A0_REG = HI8(HI16(seed));
+ 370:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_C__A0_REG = LO8(HI16(seed));
+ 371:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_B__A0_REG = HI8(seed);
+ 372:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_LOWER_COPY_A__A0_REG = LO8(seed);
+ 373:Generated_Source\PSoC5/LFSR.c **** 
+ 374:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 375:Generated_Source\PSoC5/LFSR.c ****         }
+ 376:Generated_Source\PSoC5/LFSR.c **** 
+ 377:Generated_Source\PSoC5/LFSR.c ****     #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 378:Generated_Source\PSoC5/LFSR.c **** 
+ 379:Generated_Source\PSoC5/LFSR.c **** #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+ 380:Generated_Source\PSoC5/LFSR.c **** 
+ 381:Generated_Source\PSoC5/LFSR.c **** 
+ 382:Generated_Source\PSoC5/LFSR.c **** #if(LFSR_PRS_SIZE <= 32u) /* 8-32 bits PRS */
+ 383:Generated_Source\PSoC5/LFSR.c ****     /*******************************************************************************
+ 384:Generated_Source\PSoC5/LFSR.c ****     * Function Name: LFSR_Read
+ 385:Generated_Source\PSoC5/LFSR.c ****     ********************************************************************************
+ 386:Generated_Source\PSoC5/LFSR.c ****     *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 10
+
+
+ 387:Generated_Source\PSoC5/LFSR.c ****     * Summary:
+ 388:Generated_Source\PSoC5/LFSR.c ****     *  Reads PRS value.
+ 389:Generated_Source\PSoC5/LFSR.c ****     *
+ 390:Generated_Source\PSoC5/LFSR.c ****     * Parameters:
+ 391:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 392:Generated_Source\PSoC5/LFSR.c ****     *
+ 393:Generated_Source\PSoC5/LFSR.c ****     * Return:
+ 394:Generated_Source\PSoC5/LFSR.c ****     *  Returns PRS value.
+ 395:Generated_Source\PSoC5/LFSR.c ****     *
+ 396:Generated_Source\PSoC5/LFSR.c ****     * Side Effects:
+ 397:Generated_Source\PSoC5/LFSR.c ****     *  The seed value is cut according to mask = 2^(Resolution) - 1.
+ 398:Generated_Source\PSoC5/LFSR.c ****     *  For example if PRS Resolution is 14 bits the mask value is:
+ 399:Generated_Source\PSoC5/LFSR.c ****     *  mask = 2^(14) - 1 = 0x3FFFu.
+ 400:Generated_Source\PSoC5/LFSR.c ****     *  The seed value = 0xFFFFu is cut:
+ 401:Generated_Source\PSoC5/LFSR.c ****     *  seed & mask = 0xFFFFu & 0x3FFFu = 0x3FFFu.
+ 402:Generated_Source\PSoC5/LFSR.c ****     *
+ 403:Generated_Source\PSoC5/LFSR.c ****     *******************************************************************************/
+ 404:Generated_Source\PSoC5/LFSR.c ****     uint16 LFSR_Read(void) 
+ 405:Generated_Source\PSoC5/LFSR.c ****     {
+ 128              		.loc 1 405 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              		@ link register save eliminated.
+ 406:Generated_Source\PSoC5/LFSR.c ****         /* Read PRS */
+ 407:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 408:Generated_Source\PSoC5/LFSR.c **** 
+ 409:Generated_Source\PSoC5/LFSR.c ****             uint16 seed;
+ 410:Generated_Source\PSoC5/LFSR.c **** 
+ 411:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 16u)          /* 16 bits PRS */
+ 412:Generated_Source\PSoC5/LFSR.c ****                 seed = ((uint16) LFSR_SEED_A__A1_REG) << 8u;
+ 413:Generated_Source\PSoC5/LFSR.c ****                 seed |= LFSR_SEED_A__A0_REG;
+ 414:Generated_Source\PSoC5/LFSR.c **** 
+ 415:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 24u)        /* 24 bits PRS */
+ 416:Generated_Source\PSoC5/LFSR.c ****                 seed = ((uint32) (LFSR_SEED_B__A1_REG)) << 16u;
+ 417:Generated_Source\PSoC5/LFSR.c ****                 seed |= ((uint32) (LFSR_SEED_B__A0_REG)) << 8u;
+ 418:Generated_Source\PSoC5/LFSR.c ****                 seed |= LFSR_SEED_A__A0_REG;
+ 419:Generated_Source\PSoC5/LFSR.c **** 
+ 420:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 32 bits PRS */
+ 421:Generated_Source\PSoC5/LFSR.c ****                 seed = ((uint32) LFSR_SEED_B__A1_REG) << 24u;
+ 422:Generated_Source\PSoC5/LFSR.c ****                 seed |= ((uint32) LFSR_SEED_A__A1_REG) << 16u;
+ 423:Generated_Source\PSoC5/LFSR.c ****                 seed |= ((uint32) LFSR_SEED_B__A0_REG) << 8u;
+ 424:Generated_Source\PSoC5/LFSR.c ****                 seed |= LFSR_SEED_A__A0_REG;
+ 425:Generated_Source\PSoC5/LFSR.c **** 
+ 426:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 8u) */
+ 427:Generated_Source\PSoC5/LFSR.c **** 
+ 428:Generated_Source\PSoC5/LFSR.c ****             return (seed  & LFSR_MASK);
+ 429:Generated_Source\PSoC5/LFSR.c **** 
+ 430:Generated_Source\PSoC5/LFSR.c ****         #else
+ 431:Generated_Source\PSoC5/LFSR.c **** 
+ 432:Generated_Source\PSoC5/LFSR.c ****             return (CY_GET_REG16(LFSR_SEED_PTR) & LFSR_MASK);
+ 133              		.loc 1 432 0
+ 134 0000 024B     		ldr	r3, .L12
+ 135 0002 1888     		ldrh	r0, [r3]
+ 433:Generated_Source\PSoC5/LFSR.c **** 
+ 434:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_TIME_MULTIPLEXING_ENABLE) */
+ 435:Generated_Source\PSoC5/LFSR.c ****     }
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 11
+
+
+ 136              		.loc 1 435 0
+ 137 0004 C0F30D00 		ubfx	r0, r0, #0, #14
+ 138 0008 7047     		bx	lr
+ 139              	.L13:
+ 140 000a 00BF     		.align	2
+ 141              	.L12:
+ 142 000c 06640040 		.word	1073767430
+ 143              		.cfi_endproc
+ 144              	.LFE5:
+ 145              		.size	LFSR_Read, .-LFSR_Read
+ 146              		.section	.text.LFSR_WriteSeed,"ax",%progbits
+ 147              		.align	2
+ 148              		.global	LFSR_WriteSeed
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.type	LFSR_WriteSeed, %function
+ 152              	LFSR_WriteSeed:
+ 153              	.LFB6:
+ 436:Generated_Source\PSoC5/LFSR.c **** 
+ 437:Generated_Source\PSoC5/LFSR.c **** 
+ 438:Generated_Source\PSoC5/LFSR.c ****     /*******************************************************************************
+ 439:Generated_Source\PSoC5/LFSR.c ****     * Function Name: LFSR_WriteSeed
+ 440:Generated_Source\PSoC5/LFSR.c ****     ********************************************************************************
+ 441:Generated_Source\PSoC5/LFSR.c ****     *
+ 442:Generated_Source\PSoC5/LFSR.c ****     * Summary:
+ 443:Generated_Source\PSoC5/LFSR.c ****     *  Writes seed value.
+ 444:Generated_Source\PSoC5/LFSR.c ****     *
+ 445:Generated_Source\PSoC5/LFSR.c ****     * Parameters:
+ 446:Generated_Source\PSoC5/LFSR.c ****     *  seed:  Seed value.
+ 447:Generated_Source\PSoC5/LFSR.c ****     *
+ 448:Generated_Source\PSoC5/LFSR.c ****     * Return:
+ 449:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 450:Generated_Source\PSoC5/LFSR.c ****     *
+ 451:Generated_Source\PSoC5/LFSR.c ****     * Side Effects:
+ 452:Generated_Source\PSoC5/LFSR.c ****     *  The seed value is cut according to mask = 2^(Resolution) - 1.
+ 453:Generated_Source\PSoC5/LFSR.c ****     *  For example if PRS Resolution is 14 bits the mask value is:
+ 454:Generated_Source\PSoC5/LFSR.c ****     *  mask = 2^(14) - 1 = 0x3FFFu.
+ 455:Generated_Source\PSoC5/LFSR.c ****     *  The seed value = 0xFFFFu is cut:
+ 456:Generated_Source\PSoC5/LFSR.c ****     *  seed & mask = 0xFFFFu & 0x3FFFu = 0x3FFFu.
+ 457:Generated_Source\PSoC5/LFSR.c ****     *
+ 458:Generated_Source\PSoC5/LFSR.c ****     *******************************************************************************/
+ 459:Generated_Source\PSoC5/LFSR.c ****     void LFSR_WriteSeed(uint16 seed) 
+ 460:Generated_Source\PSoC5/LFSR.c ****     {
+ 154              		.loc 1 460 0
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 159              	.LVL5:
+ 461:Generated_Source\PSoC5/LFSR.c ****         /* Masks the Seed to cut unused bits */
+ 462:Generated_Source\PSoC5/LFSR.c ****         seed &= LFSR_MASK;
+ 160              		.loc 1 462 0
+ 161 0000 C0F30D00 		ubfx	r0, r0, #0, #14
+ 162              	.LVL6:
+ 463:Generated_Source\PSoC5/LFSR.c **** 
+ 464:Generated_Source\PSoC5/LFSR.c ****         /* Writes Seed */
+ 465:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 12
+
+
+ 466:Generated_Source\PSoC5/LFSR.c **** 
+ 467:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 16u)          /* 16 bits PRS */
+ 468:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_A__A1_REG = HI8(seed);
+ 469:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_A__A0_REG = LO8(seed);
+ 470:Generated_Source\PSoC5/LFSR.c **** 
+ 471:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 24u)        /* 24 bits PRS */
+ 472:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_B__A1_REG = LO8(HI16(seed));
+ 473:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_B__A0_REG = HI8(seed);
+ 474:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_A__A0_REG = LO8(seed);
+ 475:Generated_Source\PSoC5/LFSR.c **** 
+ 476:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 32 bits PRS */
+ 477:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_B__A1_REG = HI8(HI16(seed));
+ 478:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_A__A1_REG = LO8(HI16(seed));
+ 479:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_B__A0_REG = HI8(seed);
+ 480:Generated_Source\PSoC5/LFSR.c ****                 LFSR_SEED_A__A0_REG = LO8(seed);
+ 481:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 482:Generated_Source\PSoC5/LFSR.c **** 
+ 483:Generated_Source\PSoC5/LFSR.c ****             /* Resets triggers */
+ 484:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)
+ 485:Generated_Source\PSoC5/LFSR.c ****                 if((LFSR_sleepState & LFSR_NORMAL_SEQUENCE) != 0u)
+ 486:Generated_Source\PSoC5/LFSR.c ****                 {
+ 487:Generated_Source\PSoC5/LFSR.c ****                     LFSR_EXECUTE_DFF_RESET;
+ 488:Generated_Source\PSoC5/LFSR.c ****                 }
+ 489:Generated_Source\PSoC5/LFSR.c ****             #else
+ 490:Generated_Source\PSoC5/LFSR.c ****                 LFSR_EXECUTE_DFF_RESET;
+ 491:Generated_Source\PSoC5/LFSR.c ****             #endif  /* (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) */
+ 492:Generated_Source\PSoC5/LFSR.c **** 
+ 493:Generated_Source\PSoC5/LFSR.c ****         #else
+ 494:Generated_Source\PSoC5/LFSR.c **** 
+ 495:Generated_Source\PSoC5/LFSR.c ****             CY_SET_REG16(LFSR_SEED_PTR, seed);
+ 163              		.loc 1 495 0
+ 164 0004 014B     		ldr	r3, .L15
+ 165 0006 1880     		strh	r0, [r3]	@ movhi
+ 166 0008 7047     		bx	lr
+ 167              	.L16:
+ 168 000a 00BF     		.align	2
+ 169              	.L15:
+ 170 000c 06640040 		.word	1073767430
+ 171              		.cfi_endproc
+ 172              	.LFE6:
+ 173              		.size	LFSR_WriteSeed, .-LFSR_WriteSeed
+ 174              		.section	.text.LFSR_ReadPolynomial,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	LFSR_ReadPolynomial
+ 177              		.thumb
+ 178              		.thumb_func
+ 179              		.type	LFSR_ReadPolynomial, %function
+ 180              	LFSR_ReadPolynomial:
+ 181              	.LFB7:
+ 496:Generated_Source\PSoC5/LFSR.c **** 
+ 497:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_TIME_MULTIPLEXING_ENABLE) */
+ 498:Generated_Source\PSoC5/LFSR.c ****     }
+ 499:Generated_Source\PSoC5/LFSR.c **** 
+ 500:Generated_Source\PSoC5/LFSR.c **** 
+ 501:Generated_Source\PSoC5/LFSR.c ****     /*******************************************************************************
+ 502:Generated_Source\PSoC5/LFSR.c ****     * Function Name: LFSR_ReadPolynomial
+ 503:Generated_Source\PSoC5/LFSR.c ****     ********************************************************************************
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 13
+
+
+ 504:Generated_Source\PSoC5/LFSR.c ****     *
+ 505:Generated_Source\PSoC5/LFSR.c ****     * Summary:
+ 506:Generated_Source\PSoC5/LFSR.c ****     *  Reads PRS polynomial value.
+ 507:Generated_Source\PSoC5/LFSR.c ****     *
+ 508:Generated_Source\PSoC5/LFSR.c ****     * Parameters:
+ 509:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 510:Generated_Source\PSoC5/LFSR.c ****     *
+ 511:Generated_Source\PSoC5/LFSR.c ****     * Return:
+ 512:Generated_Source\PSoC5/LFSR.c ****     *  Returns PRS polynomial value.
+ 513:Generated_Source\PSoC5/LFSR.c ****     *
+ 514:Generated_Source\PSoC5/LFSR.c ****     *******************************************************************************/
+ 515:Generated_Source\PSoC5/LFSR.c ****     uint16 LFSR_ReadPolynomial(void)
+ 516:Generated_Source\PSoC5/LFSR.c ****                                 
+ 517:Generated_Source\PSoC5/LFSR.c ****     {
+ 182              		.loc 1 517 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+ 518:Generated_Source\PSoC5/LFSR.c ****         /* Reads polynomial */
+ 519:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 520:Generated_Source\PSoC5/LFSR.c **** 
+ 521:Generated_Source\PSoC5/LFSR.c ****             uint16 polynomial;
+ 522:Generated_Source\PSoC5/LFSR.c **** 
+ 523:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 16u)          /* 16 bits PRS */
+ 524:Generated_Source\PSoC5/LFSR.c ****                 polynomial = ((uint16) LFSR_POLYNOM_A__D1_REG) << 8u;
+ 525:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= (LFSR_POLYNOM_A__D0_REG);
+ 526:Generated_Source\PSoC5/LFSR.c **** 
+ 527:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 24u)        /* 24 bits PRS */
+ 528:Generated_Source\PSoC5/LFSR.c ****                 polynomial = ((uint32) LFSR_POLYNOM_B__D1_REG) << 16u;
+ 529:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= ((uint32) LFSR_POLYNOM_B__D0_REG) << 8u;
+ 530:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= LFSR_POLYNOM_A__D0_REG;
+ 531:Generated_Source\PSoC5/LFSR.c **** 
+ 532:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 32 bits PRS */
+ 533:Generated_Source\PSoC5/LFSR.c ****                 polynomial = ((uint32) LFSR_POLYNOM_B__D1_REG) << 24u;
+ 534:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= ((uint32) LFSR_POLYNOM_A__D1_REG) << 16u;
+ 535:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= ((uint32) LFSR_POLYNOM_B__D0_REG) << 8u;
+ 536:Generated_Source\PSoC5/LFSR.c ****                 polynomial |= LFSR_POLYNOM_A__D0_REG;
+ 537:Generated_Source\PSoC5/LFSR.c **** 
+ 538:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 539:Generated_Source\PSoC5/LFSR.c **** 
+ 540:Generated_Source\PSoC5/LFSR.c ****             return polynomial;
+ 541:Generated_Source\PSoC5/LFSR.c **** 
+ 542:Generated_Source\PSoC5/LFSR.c ****         #else
+ 543:Generated_Source\PSoC5/LFSR.c **** 
+ 544:Generated_Source\PSoC5/LFSR.c ****             return CY_GET_REG16(LFSR_POLYNOM_PTR);
+ 187              		.loc 1 544 0
+ 188 0000 014B     		ldr	r3, .L18
+ 189 0002 1888     		ldrh	r0, [r3]
+ 545:Generated_Source\PSoC5/LFSR.c **** 
+ 546:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_TIME_MULTIPLEXING_ENABLE) */
+ 547:Generated_Source\PSoC5/LFSR.c ****     }
+ 190              		.loc 1 547 0
+ 191 0004 80B2     		uxth	r0, r0
+ 192 0006 7047     		bx	lr
+ 193              	.L19:
+ 194              		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 14
+
+
+ 195              	.L18:
+ 196 0008 26640040 		.word	1073767462
+ 197              		.cfi_endproc
+ 198              	.LFE7:
+ 199              		.size	LFSR_ReadPolynomial, .-LFSR_ReadPolynomial
+ 200              		.section	.text.LFSR_WritePolynomial,"ax",%progbits
+ 201              		.align	2
+ 202              		.global	LFSR_WritePolynomial
+ 203              		.thumb
+ 204              		.thumb_func
+ 205              		.type	LFSR_WritePolynomial, %function
+ 206              	LFSR_WritePolynomial:
+ 207              	.LFB8:
+ 548:Generated_Source\PSoC5/LFSR.c **** 
+ 549:Generated_Source\PSoC5/LFSR.c **** 
+ 550:Generated_Source\PSoC5/LFSR.c ****     /*******************************************************************************
+ 551:Generated_Source\PSoC5/LFSR.c ****     * Function Name: LFSR_WritePolynomial
+ 552:Generated_Source\PSoC5/LFSR.c ****     ********************************************************************************
+ 553:Generated_Source\PSoC5/LFSR.c ****     *
+ 554:Generated_Source\PSoC5/LFSR.c ****     * Summary:
+ 555:Generated_Source\PSoC5/LFSR.c ****     *  Writes PRS polynomial value.
+ 556:Generated_Source\PSoC5/LFSR.c ****     *
+ 557:Generated_Source\PSoC5/LFSR.c ****     * Parameters:
+ 558:Generated_Source\PSoC5/LFSR.c ****     *  polynomial:  PRS polynomial.
+ 559:Generated_Source\PSoC5/LFSR.c ****     *
+ 560:Generated_Source\PSoC5/LFSR.c ****     * Return:
+ 561:Generated_Source\PSoC5/LFSR.c ****     *  void
+ 562:Generated_Source\PSoC5/LFSR.c ****     *
+ 563:Generated_Source\PSoC5/LFSR.c ****     * Side Effects:
+ 564:Generated_Source\PSoC5/LFSR.c ****     *  The polynomial value is cut according to mask = 2^(Resolution) - 1.
+ 565:Generated_Source\PSoC5/LFSR.c ****     *  For example if PRS Resolution is 14 bits the mask value is:
+ 566:Generated_Source\PSoC5/LFSR.c ****     *  mask = 2^(14) - 1 = 0x3FFFu.
+ 567:Generated_Source\PSoC5/LFSR.c ****     *  The polynomial value = 0xFFFFu is cut:
+ 568:Generated_Source\PSoC5/LFSR.c ****     *  polynomial & mask = 0xFFFFu & 0x3FFFu = 0x3FFFu.
+ 569:Generated_Source\PSoC5/LFSR.c ****     *
+ 570:Generated_Source\PSoC5/LFSR.c ****     *******************************************************************************/
+ 571:Generated_Source\PSoC5/LFSR.c ****     void LFSR_WritePolynomial(uint16 polynomial)
+ 572:Generated_Source\PSoC5/LFSR.c ****                                           
+ 573:Generated_Source\PSoC5/LFSR.c ****     {
+ 208              		.loc 1 573 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 213              	.LVL7:
+ 574:Generated_Source\PSoC5/LFSR.c ****         /* Mask polynomial to cut unused bits */
+ 575:Generated_Source\PSoC5/LFSR.c ****         polynomial &= LFSR_MASK;
+ 214              		.loc 1 575 0
+ 215 0000 C0F30D00 		ubfx	r0, r0, #0, #14
+ 216              	.LVL8:
+ 576:Generated_Source\PSoC5/LFSR.c **** 
+ 577:Generated_Source\PSoC5/LFSR.c ****         /* Write polynomial */
+ 578:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_TIME_MULTIPLEXING_ENABLE)
+ 579:Generated_Source\PSoC5/LFSR.c **** 
+ 580:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_PRS_SIZE <= 16u)          /* 16 bits PRS */
+ 581:Generated_Source\PSoC5/LFSR.c **** 
+ 582:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_A__D1_REG = HI8(polynomial);
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 15
+
+
+ 583:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_A__D0_REG = LO8(polynomial);
+ 584:Generated_Source\PSoC5/LFSR.c **** 
+ 585:Generated_Source\PSoC5/LFSR.c ****             #elif (LFSR_PRS_SIZE <= 24u)        /* 24 bits PRS */
+ 586:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_B__D1_REG = LO8(HI16(polynomial));
+ 587:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_B__D0_REG = HI8(polynomial);
+ 588:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_A__D0_REG = LO8(polynomial);
+ 589:Generated_Source\PSoC5/LFSR.c **** 
+ 590:Generated_Source\PSoC5/LFSR.c ****             #else                                           /* 32 bits PRS */
+ 591:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_B__D1_REG = HI8(HI16(polynomial));
+ 592:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_A__D1_REG = LO8(HI16(polynomial));
+ 593:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_B__D0_REG = HI8(polynomial);
+ 594:Generated_Source\PSoC5/LFSR.c ****                 LFSR_POLYNOM_A__D0_REG = LO8(polynomial);
+ 595:Generated_Source\PSoC5/LFSR.c **** 
+ 596:Generated_Source\PSoC5/LFSR.c ****             #endif  /* End (LFSR_PRS_SIZE <= 32u) */
+ 597:Generated_Source\PSoC5/LFSR.c **** 
+ 598:Generated_Source\PSoC5/LFSR.c ****             /* Resets triggers */
+ 599:Generated_Source\PSoC5/LFSR.c ****             #if (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK)
+ 600:Generated_Source\PSoC5/LFSR.c ****                 if((LFSR_sleepState & LFSR_NORMAL_SEQUENCE) != 0u)
+ 601:Generated_Source\PSoC5/LFSR.c ****                 {
+ 602:Generated_Source\PSoC5/LFSR.c ****                     LFSR_EXECUTE_DFF_RESET;
+ 603:Generated_Source\PSoC5/LFSR.c ****                 }
+ 604:Generated_Source\PSoC5/LFSR.c ****             #else
+ 605:Generated_Source\PSoC5/LFSR.c ****                 LFSR_EXECUTE_DFF_RESET;
+ 606:Generated_Source\PSoC5/LFSR.c ****             #endif  /* (LFSR_WAKEUP_BEHAVIOUR == LFSR__RESUMEWORK) */
+ 607:Generated_Source\PSoC5/LFSR.c **** 
+ 608:Generated_Source\PSoC5/LFSR.c ****         #else
+ 609:Generated_Source\PSoC5/LFSR.c **** 
+ 610:Generated_Source\PSoC5/LFSR.c ****             CY_SET_REG16(LFSR_POLYNOM_PTR, polynomial);
+ 217              		.loc 1 610 0
+ 218 0004 014B     		ldr	r3, .L21
+ 219 0006 1880     		strh	r0, [r3]	@ movhi
+ 220 0008 7047     		bx	lr
+ 221              	.L22:
+ 222 000a 00BF     		.align	2
+ 223              	.L21:
+ 224 000c 26640040 		.word	1073767462
+ 225              		.cfi_endproc
+ 226              	.LFE8:
+ 227              		.size	LFSR_WritePolynomial, .-LFSR_WritePolynomial
+ 228              		.section	.text.LFSR_Init,"ax",%progbits
+ 229              		.align	2
+ 230              		.global	LFSR_Init
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.type	LFSR_Init, %function
+ 234              	LFSR_Init:
+ 235              	.LFB0:
+  61:Generated_Source\PSoC5/LFSR.c ****     /* Writes seed value and ponynom value provided for customizer */
+ 236              		.loc 1 61 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240 0000 08B5     		push	{r3, lr}
+ 241              		.cfi_def_cfa_offset 8
+ 242              		.cfi_offset 3, -8
+ 243              		.cfi_offset 14, -4
+  64:Generated_Source\PSoC5/LFSR.c ****         LFSR_WriteSeed(LFSR_DEFAULT_SEED);
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 16
+
+
+ 244              		.loc 1 64 0
+ 245 0002 4FF45450 		mov	r0, #13568
+ 246 0006 FFF7FEFF 		bl	LFSR_WritePolynomial
+ 247              	.LVL9:
+  65:Generated_Source\PSoC5/LFSR.c ****         #if (LFSR_RUN_MODE == LFSR__CLOCKED)
+ 248              		.loc 1 65 0
+ 249 000a 43F6FF70 		movw	r0, #16383
+ 250 000e FFF7FEFF 		bl	LFSR_WriteSeed
+ 251              	.LVL10:
+  67:Generated_Source\PSoC5/LFSR.c ****         #endif  /* End (LFSR_RUN_MODE == LFSR__CLOCKED) */
+ 252              		.loc 1 67 0
+ 253 0012 43F6FF70 		movw	r0, #16383
+ 254 0016 FFF7FEFF 		bl	LFSR_ResetSeedInit
+ 255              	.LVL11:
+  69:Generated_Source\PSoC5/LFSR.c ****     #else
+ 256              		.loc 1 69 0
+ 257 001a FFF7FEFF 		bl	LFSR_Enable
+ 258              	.LVL12:
+ 259 001e 08BD     		pop	{r3, pc}
+ 260              		.cfi_endproc
+ 261              	.LFE0:
+ 262              		.size	LFSR_Init, .-LFSR_Init
+ 263              		.section	.text.LFSR_Start,"ax",%progbits
+ 264              		.align	2
+ 265              		.global	LFSR_Start
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.type	LFSR_Start, %function
+ 269              	LFSR_Start:
+ 270              	.LFB2:
+ 127:Generated_Source\PSoC5/LFSR.c ****     /* Writes seed value and ponynom value provided from customizer */
+ 271              		.loc 1 127 0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 0
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275 0000 08B5     		push	{r3, lr}
+ 276              		.cfi_def_cfa_offset 8
+ 277              		.cfi_offset 3, -8
+ 278              		.cfi_offset 14, -4
+ 129:Generated_Source\PSoC5/LFSR.c ****     {
+ 279              		.loc 1 129 0
+ 280 0002 054B     		ldr	r3, .L28
+ 281 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 282 0006 23B9     		cbnz	r3, .L26
+ 131:Generated_Source\PSoC5/LFSR.c ****         LFSR_initVar = 1u;
+ 283              		.loc 1 131 0
+ 284 0008 FFF7FEFF 		bl	LFSR_Init
+ 285              	.LVL13:
+ 132:Generated_Source\PSoC5/LFSR.c ****     }
+ 286              		.loc 1 132 0
+ 287 000c 0122     		movs	r2, #1
+ 288 000e 024B     		ldr	r3, .L28
+ 289 0010 1A70     		strb	r2, [r3]
+ 290              	.L26:
+ 135:Generated_Source\PSoC5/LFSR.c **** }
+ 291              		.loc 1 135 0
+ 292 0012 FFF7FEFF 		bl	LFSR_Enable
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 17
+
+
+ 293              	.LVL14:
+ 294 0016 08BD     		pop	{r3, pc}
+ 295              	.L29:
+ 296              		.align	2
+ 297              	.L28:
+ 298 0018 00000000 		.word	.LANCHOR0
+ 299              		.cfi_endproc
+ 300              	.LFE2:
+ 301              		.size	LFSR_Start, .-LFSR_Start
+ 302              		.global	LFSR_backup
+ 303              		.global	LFSR_initVar
+ 304              		.data
+ 305              		.align	2
+ 306              		.type	LFSR_backup, %object
+ 307              		.size	LFSR_backup, 4
+ 308              	LFSR_backup:
+ 309 0000 00       		.byte	0
+ 310 0001 00       		.space	1
+ 311 0002 FF3F     		.short	16383
+ 312              		.bss
+ 313              		.set	.LANCHOR0,. + 0
+ 314              		.type	LFSR_initVar, %object
+ 315              		.size	LFSR_initVar, 1
+ 316              	LFSR_initVar:
+ 317 0000 00       		.space	1
+ 318              		.text
+ 319              	.Letext0:
+ 320              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 321              		.file 3 "Generated_Source\\PSoC5\\LFSR.h"
+ 322              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
+ 323              		.section	.debug_info,"",%progbits
+ 324              	.Ldebug_info0:
+ 325 0000 8C020000 		.4byte	0x28c
+ 326 0004 0400     		.2byte	0x4
+ 327 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 328 000a 04       		.byte	0x4
+ 329 000b 01       		.uleb128 0x1
+ 330 000c 13010000 		.4byte	.LASF32
+ 331 0010 01       		.byte	0x1
+ 332 0011 65000000 		.4byte	.LASF33
+ 333 0015 ED010000 		.4byte	.LASF34
+ 334 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 335 001d 00000000 		.4byte	0
+ 336 0021 00000000 		.4byte	.Ldebug_line0
+ 337 0025 02       		.uleb128 0x2
+ 338 0026 01       		.byte	0x1
+ 339 0027 06       		.byte	0x6
+ 340 0028 9D020000 		.4byte	.LASF0
+ 341 002c 02       		.uleb128 0x2
+ 342 002d 01       		.byte	0x1
+ 343 002e 08       		.byte	0x8
+ 344 002f A5000000 		.4byte	.LASF1
+ 345 0033 02       		.uleb128 0x2
+ 346 0034 02       		.byte	0x2
+ 347 0035 05       		.byte	0x5
+ 348 0036 60020000 		.4byte	.LASF2
+ 349 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 18
+
+
+ 350 003b 02       		.byte	0x2
+ 351 003c 07       		.byte	0x7
+ 352 003d 1A000000 		.4byte	.LASF3
+ 353 0041 02       		.uleb128 0x2
+ 354 0042 04       		.byte	0x4
+ 355 0043 05       		.byte	0x5
+ 356 0044 88020000 		.4byte	.LASF4
+ 357 0048 02       		.uleb128 0x2
+ 358 0049 04       		.byte	0x4
+ 359 004a 07       		.byte	0x7
+ 360 004b B8010000 		.4byte	.LASF5
+ 361 004f 02       		.uleb128 0x2
+ 362 0050 08       		.byte	0x8
+ 363 0051 05       		.byte	0x5
+ 364 0052 4D020000 		.4byte	.LASF6
+ 365 0056 02       		.uleb128 0x2
+ 366 0057 08       		.byte	0x8
+ 367 0058 07       		.byte	0x7
+ 368 0059 83000000 		.4byte	.LASF7
+ 369 005d 03       		.uleb128 0x3
+ 370 005e 04       		.byte	0x4
+ 371 005f 05       		.byte	0x5
+ 372 0060 696E7400 		.ascii	"int\000"
+ 373 0064 02       		.uleb128 0x2
+ 374 0065 04       		.byte	0x4
+ 375 0066 07       		.byte	0x7
+ 376 0067 CA010000 		.4byte	.LASF8
+ 377 006b 04       		.uleb128 0x4
+ 378 006c D7000000 		.4byte	.LASF9
+ 379 0070 02       		.byte	0x2
+ 380 0071 9201     		.2byte	0x192
+ 381 0073 2C000000 		.4byte	0x2c
+ 382 0077 04       		.uleb128 0x4
+ 383 0078 00010000 		.4byte	.LASF10
+ 384 007c 02       		.byte	0x2
+ 385 007d 9301     		.2byte	0x193
+ 386 007f 3A000000 		.4byte	0x3a
+ 387 0083 02       		.uleb128 0x2
+ 388 0084 04       		.byte	0x4
+ 389 0085 04       		.byte	0x4
+ 390 0086 5F000000 		.4byte	.LASF11
+ 391 008a 02       		.uleb128 0x2
+ 392 008b 08       		.byte	0x8
+ 393 008c 04       		.byte	0x4
+ 394 008d EE000000 		.4byte	.LASF12
+ 395 0091 02       		.uleb128 0x2
+ 396 0092 01       		.byte	0x1
+ 397 0093 08       		.byte	0x8
+ 398 0094 5B020000 		.4byte	.LASF13
+ 399 0098 04       		.uleb128 0x4
+ 400 0099 B3000000 		.4byte	.LASF14
+ 401 009d 02       		.byte	0x2
+ 402 009e 3C02     		.2byte	0x23c
+ 403 00a0 A4000000 		.4byte	0xa4
+ 404 00a4 05       		.uleb128 0x5
+ 405 00a5 6B000000 		.4byte	0x6b
+ 406 00a9 04       		.uleb128 0x4
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 19
+
+
+ 407 00aa 00000000 		.4byte	.LASF15
+ 408 00ae 02       		.byte	0x2
+ 409 00af 3D02     		.2byte	0x23d
+ 410 00b1 B5000000 		.4byte	0xb5
+ 411 00b5 05       		.uleb128 0x5
+ 412 00b6 77000000 		.4byte	0x77
+ 413 00ba 02       		.uleb128 0x2
+ 414 00bb 04       		.byte	0x4
+ 415 00bc 07       		.byte	0x7
+ 416 00bd 3A020000 		.4byte	.LASF16
+ 417 00c1 06       		.uleb128 0x6
+ 418 00c2 04       		.byte	0x4
+ 419 00c3 03       		.byte	0x3
+ 420 00c4 37       		.byte	0x37
+ 421 00c5 E2000000 		.4byte	0xe2
+ 422 00c9 07       		.uleb128 0x7
+ 423 00ca 91020000 		.4byte	.LASF17
+ 424 00ce 03       		.byte	0x3
+ 425 00cf 39       		.byte	0x39
+ 426 00d0 6B000000 		.4byte	0x6b
+ 427 00d4 00       		.byte	0
+ 428 00d5 07       		.uleb128 0x7
+ 429 00d6 74020000 		.4byte	.LASF18
+ 430 00da 03       		.byte	0x3
+ 431 00db 43       		.byte	0x43
+ 432 00dc 77000000 		.4byte	0x77
+ 433 00e0 02       		.byte	0x2
+ 434 00e1 00       		.byte	0
+ 435 00e2 08       		.uleb128 0x8
+ 436 00e3 2D000000 		.4byte	.LASF19
+ 437 00e7 03       		.byte	0x3
+ 438 00e8 4D       		.byte	0x4d
+ 439 00e9 C1000000 		.4byte	0xc1
+ 440 00ed 09       		.uleb128 0x9
+ 441 00ee 40000000 		.4byte	.LASF20
+ 442 00f2 01       		.byte	0x1
+ 443 00f3 62       		.byte	0x62
+ 444 00f4 00000000 		.4byte	.LFB1
+ 445 00f8 10000000 		.4byte	.LFE1-.LFB1
+ 446 00fc 01       		.uleb128 0x1
+ 447 00fd 9C       		.byte	0x9c
+ 448 00fe 09       		.uleb128 0x9
+ 449 00ff 43020000 		.4byte	.LASF21
+ 450 0103 01       		.byte	0x1
+ 451 0104 99       		.byte	0x99
+ 452 0105 00000000 		.4byte	.LFB3
+ 453 0109 10000000 		.4byte	.LFE3-.LFB3
+ 454 010d 01       		.uleb128 0x1
+ 455 010e 9C       		.byte	0x9c
+ 456 010f 0A       		.uleb128 0xa
+ 457 0110 4C000000 		.4byte	.LASF22
+ 458 0114 01       		.byte	0x1
+ 459 0115 D0       		.byte	0xd0
+ 460 0116 00000000 		.4byte	.LFB4
+ 461 011a 30000000 		.4byte	.LFE4-.LFB4
+ 462 011e 01       		.uleb128 0x1
+ 463 011f 9C       		.byte	0x9c
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 20
+
+
+ 464 0120 55010000 		.4byte	0x155
+ 465 0124 0B       		.uleb128 0xb
+ 466 0125 74020000 		.4byte	.LASF18
+ 467 0129 01       		.byte	0x1
+ 468 012a D0       		.byte	0xd0
+ 469 012b 77000000 		.4byte	0x77
+ 470 012f 00000000 		.4byte	.LLST0
+ 471 0133 0C       		.uleb128 0xc
+ 472 0134 DD000000 		.4byte	.LASF35
+ 473 0138 01       		.byte	0x1
+ 474 0139 D3       		.byte	0xd3
+ 475 013a 6B000000 		.4byte	0x6b
+ 476 013e 2A000000 		.4byte	.LLST1
+ 477 0142 0D       		.uleb128 0xd
+ 478 0143 0A000000 		.4byte	.LVL2
+ 479 0147 77020000 		.4byte	0x277
+ 480 014b 0D       		.uleb128 0xd
+ 481 014c 22000000 		.4byte	.LVL3
+ 482 0150 82020000 		.4byte	0x282
+ 483 0154 00       		.byte	0
+ 484 0155 0E       		.uleb128 0xe
+ 485 0156 6A020000 		.4byte	.LASF24
+ 486 015a 01       		.byte	0x1
+ 487 015b 9401     		.2byte	0x194
+ 488 015d 77000000 		.4byte	0x77
+ 489 0161 00000000 		.4byte	.LFB5
+ 490 0165 10000000 		.4byte	.LFE5-.LFB5
+ 491 0169 01       		.uleb128 0x1
+ 492 016a 9C       		.byte	0x9c
+ 493 016b 0F       		.uleb128 0xf
+ 494 016c 79020000 		.4byte	.LASF23
+ 495 0170 01       		.byte	0x1
+ 496 0171 CB01     		.2byte	0x1cb
+ 497 0173 00000000 		.4byte	.LFB6
+ 498 0177 10000000 		.4byte	.LFE6-.LFB6
+ 499 017b 01       		.uleb128 0x1
+ 500 017c 9C       		.byte	0x9c
+ 501 017d 92010000 		.4byte	0x192
+ 502 0181 10       		.uleb128 0x10
+ 503 0182 74020000 		.4byte	.LASF18
+ 504 0186 01       		.byte	0x1
+ 505 0187 CB01     		.2byte	0x1cb
+ 506 0189 77000000 		.4byte	0x77
+ 507 018d 3D000000 		.4byte	.LLST2
+ 508 0191 00       		.byte	0
+ 509 0192 0E       		.uleb128 0xe
+ 510 0193 06000000 		.4byte	.LASF25
+ 511 0197 01       		.byte	0x1
+ 512 0198 0302     		.2byte	0x203
+ 513 019a 77000000 		.4byte	0x77
+ 514 019e 00000000 		.4byte	.LFB7
+ 515 01a2 0C000000 		.4byte	.LFE7-.LFB7
+ 516 01a6 01       		.uleb128 0x1
+ 517 01a7 9C       		.byte	0x9c
+ 518 01a8 0F       		.uleb128 0xf
+ 519 01a9 B8000000 		.4byte	.LASF26
+ 520 01ad 01       		.byte	0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 21
+
+
+ 521 01ae 3B02     		.2byte	0x23b
+ 522 01b0 00000000 		.4byte	.LFB8
+ 523 01b4 10000000 		.4byte	.LFE8-.LFB8
+ 524 01b8 01       		.uleb128 0x1
+ 525 01b9 9C       		.byte	0x9c
+ 526 01ba CF010000 		.4byte	0x1cf
+ 527 01be 10       		.uleb128 0x10
+ 528 01bf F5000000 		.4byte	.LASF27
+ 529 01c3 01       		.byte	0x1
+ 530 01c4 3B02     		.2byte	0x23b
+ 531 01c6 77000000 		.4byte	0x77
+ 532 01ca 5B000000 		.4byte	.LLST3
+ 533 01ce 00       		.byte	0
+ 534 01cf 0A       		.uleb128 0xa
+ 535 01d0 CD000000 		.4byte	.LASF28
+ 536 01d4 01       		.byte	0x1
+ 537 01d5 3C       		.byte	0x3c
+ 538 01d6 00000000 		.4byte	.LFB0
+ 539 01da 20000000 		.4byte	.LFE0-.LFB0
+ 540 01de 01       		.uleb128 0x1
+ 541 01df 9C       		.byte	0x9c
+ 542 01e0 2D020000 		.4byte	0x22d
+ 543 01e4 11       		.uleb128 0x11
+ 544 01e5 0A000000 		.4byte	.LVL9
+ 545 01e9 A8010000 		.4byte	0x1a8
+ 546 01ed F9010000 		.4byte	0x1f9
+ 547 01f1 12       		.uleb128 0x12
+ 548 01f2 01       		.uleb128 0x1
+ 549 01f3 50       		.byte	0x50
+ 550 01f4 03       		.uleb128 0x3
+ 551 01f5 0A       		.byte	0xa
+ 552 01f6 0035     		.2byte	0x3500
+ 553 01f8 00       		.byte	0
+ 554 01f9 11       		.uleb128 0x11
+ 555 01fa 12000000 		.4byte	.LVL10
+ 556 01fe 6B010000 		.4byte	0x16b
+ 557 0202 0E020000 		.4byte	0x20e
+ 558 0206 12       		.uleb128 0x12
+ 559 0207 01       		.uleb128 0x1
+ 560 0208 50       		.byte	0x50
+ 561 0209 03       		.uleb128 0x3
+ 562 020a 0A       		.byte	0xa
+ 563 020b FF3F     		.2byte	0x3fff
+ 564 020d 00       		.byte	0
+ 565 020e 11       		.uleb128 0x11
+ 566 020f 1A000000 		.4byte	.LVL11
+ 567 0213 0F010000 		.4byte	0x10f
+ 568 0217 23020000 		.4byte	0x223
+ 569 021b 12       		.uleb128 0x12
+ 570 021c 01       		.uleb128 0x1
+ 571 021d 50       		.byte	0x50
+ 572 021e 03       		.uleb128 0x3
+ 573 021f 0A       		.byte	0xa
+ 574 0220 FF3F     		.2byte	0x3fff
+ 575 0222 00       		.byte	0
+ 576 0223 0D       		.uleb128 0xd
+ 577 0224 1E000000 		.4byte	.LVL12
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 22
+
+
+ 578 0228 ED000000 		.4byte	0xed
+ 579 022c 00       		.byte	0
+ 580 022d 0A       		.uleb128 0xa
+ 581 022e 9A000000 		.4byte	.LASF29
+ 582 0232 01       		.byte	0x1
+ 583 0233 7E       		.byte	0x7e
+ 584 0234 00000000 		.4byte	.LFB2
+ 585 0238 1C000000 		.4byte	.LFE2-.LFB2
+ 586 023c 01       		.uleb128 0x1
+ 587 023d 9C       		.byte	0x9c
+ 588 023e 55020000 		.4byte	0x255
+ 589 0242 0D       		.uleb128 0xd
+ 590 0243 0C000000 		.4byte	.LVL13
+ 591 0247 CF010000 		.4byte	0x1cf
+ 592 024b 0D       		.uleb128 0xd
+ 593 024c 16000000 		.4byte	.LVL14
+ 594 0250 ED000000 		.4byte	0xed
+ 595 0254 00       		.byte	0
+ 596 0255 13       		.uleb128 0x13
+ 597 0256 2D020000 		.4byte	.LASF30
+ 598 025a 01       		.byte	0x1
+ 599 025b 14       		.byte	0x14
+ 600 025c 6B000000 		.4byte	0x6b
+ 601 0260 05       		.uleb128 0x5
+ 602 0261 03       		.byte	0x3
+ 603 0262 00000000 		.4byte	LFSR_initVar
+ 604 0266 13       		.uleb128 0x13
+ 605 0267 07010000 		.4byte	.LASF31
+ 606 026b 01       		.byte	0x1
+ 607 026c 16       		.byte	0x16
+ 608 026d E2000000 		.4byte	0xe2
+ 609 0271 05       		.uleb128 0x5
+ 610 0272 03       		.byte	0x3
+ 611 0273 00000000 		.4byte	LFSR_backup
+ 612 0277 14       		.uleb128 0x14
+ 613 0278 A1010000 		.4byte	.LASF36
+ 614 027c 04       		.byte	0x4
+ 615 027d 7D       		.byte	0x7d
+ 616 027e 6B000000 		.4byte	0x6b
+ 617 0282 15       		.uleb128 0x15
+ 618 0283 D7010000 		.4byte	.LASF37
+ 619 0287 04       		.byte	0x4
+ 620 0288 7E       		.byte	0x7e
+ 621 0289 16       		.uleb128 0x16
+ 622 028a 6B000000 		.4byte	0x6b
+ 623 028e 00       		.byte	0
+ 624 028f 00       		.byte	0
+ 625              		.section	.debug_abbrev,"",%progbits
+ 626              	.Ldebug_abbrev0:
+ 627 0000 01       		.uleb128 0x1
+ 628 0001 11       		.uleb128 0x11
+ 629 0002 01       		.byte	0x1
+ 630 0003 25       		.uleb128 0x25
+ 631 0004 0E       		.uleb128 0xe
+ 632 0005 13       		.uleb128 0x13
+ 633 0006 0B       		.uleb128 0xb
+ 634 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 23
+
+
+ 635 0008 0E       		.uleb128 0xe
+ 636 0009 1B       		.uleb128 0x1b
+ 637 000a 0E       		.uleb128 0xe
+ 638 000b 55       		.uleb128 0x55
+ 639 000c 17       		.uleb128 0x17
+ 640 000d 11       		.uleb128 0x11
+ 641 000e 01       		.uleb128 0x1
+ 642 000f 10       		.uleb128 0x10
+ 643 0010 17       		.uleb128 0x17
+ 644 0011 00       		.byte	0
+ 645 0012 00       		.byte	0
+ 646 0013 02       		.uleb128 0x2
+ 647 0014 24       		.uleb128 0x24
+ 648 0015 00       		.byte	0
+ 649 0016 0B       		.uleb128 0xb
+ 650 0017 0B       		.uleb128 0xb
+ 651 0018 3E       		.uleb128 0x3e
+ 652 0019 0B       		.uleb128 0xb
+ 653 001a 03       		.uleb128 0x3
+ 654 001b 0E       		.uleb128 0xe
+ 655 001c 00       		.byte	0
+ 656 001d 00       		.byte	0
+ 657 001e 03       		.uleb128 0x3
+ 658 001f 24       		.uleb128 0x24
+ 659 0020 00       		.byte	0
+ 660 0021 0B       		.uleb128 0xb
+ 661 0022 0B       		.uleb128 0xb
+ 662 0023 3E       		.uleb128 0x3e
+ 663 0024 0B       		.uleb128 0xb
+ 664 0025 03       		.uleb128 0x3
+ 665 0026 08       		.uleb128 0x8
+ 666 0027 00       		.byte	0
+ 667 0028 00       		.byte	0
+ 668 0029 04       		.uleb128 0x4
+ 669 002a 16       		.uleb128 0x16
+ 670 002b 00       		.byte	0
+ 671 002c 03       		.uleb128 0x3
+ 672 002d 0E       		.uleb128 0xe
+ 673 002e 3A       		.uleb128 0x3a
+ 674 002f 0B       		.uleb128 0xb
+ 675 0030 3B       		.uleb128 0x3b
+ 676 0031 05       		.uleb128 0x5
+ 677 0032 49       		.uleb128 0x49
+ 678 0033 13       		.uleb128 0x13
+ 679 0034 00       		.byte	0
+ 680 0035 00       		.byte	0
+ 681 0036 05       		.uleb128 0x5
+ 682 0037 35       		.uleb128 0x35
+ 683 0038 00       		.byte	0
+ 684 0039 49       		.uleb128 0x49
+ 685 003a 13       		.uleb128 0x13
+ 686 003b 00       		.byte	0
+ 687 003c 00       		.byte	0
+ 688 003d 06       		.uleb128 0x6
+ 689 003e 13       		.uleb128 0x13
+ 690 003f 01       		.byte	0x1
+ 691 0040 0B       		.uleb128 0xb
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 24
+
+
+ 692 0041 0B       		.uleb128 0xb
+ 693 0042 3A       		.uleb128 0x3a
+ 694 0043 0B       		.uleb128 0xb
+ 695 0044 3B       		.uleb128 0x3b
+ 696 0045 0B       		.uleb128 0xb
+ 697 0046 01       		.uleb128 0x1
+ 698 0047 13       		.uleb128 0x13
+ 699 0048 00       		.byte	0
+ 700 0049 00       		.byte	0
+ 701 004a 07       		.uleb128 0x7
+ 702 004b 0D       		.uleb128 0xd
+ 703 004c 00       		.byte	0
+ 704 004d 03       		.uleb128 0x3
+ 705 004e 0E       		.uleb128 0xe
+ 706 004f 3A       		.uleb128 0x3a
+ 707 0050 0B       		.uleb128 0xb
+ 708 0051 3B       		.uleb128 0x3b
+ 709 0052 0B       		.uleb128 0xb
+ 710 0053 49       		.uleb128 0x49
+ 711 0054 13       		.uleb128 0x13
+ 712 0055 38       		.uleb128 0x38
+ 713 0056 0B       		.uleb128 0xb
+ 714 0057 00       		.byte	0
+ 715 0058 00       		.byte	0
+ 716 0059 08       		.uleb128 0x8
+ 717 005a 16       		.uleb128 0x16
+ 718 005b 00       		.byte	0
+ 719 005c 03       		.uleb128 0x3
+ 720 005d 0E       		.uleb128 0xe
+ 721 005e 3A       		.uleb128 0x3a
+ 722 005f 0B       		.uleb128 0xb
+ 723 0060 3B       		.uleb128 0x3b
+ 724 0061 0B       		.uleb128 0xb
+ 725 0062 49       		.uleb128 0x49
+ 726 0063 13       		.uleb128 0x13
+ 727 0064 00       		.byte	0
+ 728 0065 00       		.byte	0
+ 729 0066 09       		.uleb128 0x9
+ 730 0067 2E       		.uleb128 0x2e
+ 731 0068 00       		.byte	0
+ 732 0069 3F       		.uleb128 0x3f
+ 733 006a 19       		.uleb128 0x19
+ 734 006b 03       		.uleb128 0x3
+ 735 006c 0E       		.uleb128 0xe
+ 736 006d 3A       		.uleb128 0x3a
+ 737 006e 0B       		.uleb128 0xb
+ 738 006f 3B       		.uleb128 0x3b
+ 739 0070 0B       		.uleb128 0xb
+ 740 0071 27       		.uleb128 0x27
+ 741 0072 19       		.uleb128 0x19
+ 742 0073 11       		.uleb128 0x11
+ 743 0074 01       		.uleb128 0x1
+ 744 0075 12       		.uleb128 0x12
+ 745 0076 06       		.uleb128 0x6
+ 746 0077 40       		.uleb128 0x40
+ 747 0078 18       		.uleb128 0x18
+ 748 0079 9742     		.uleb128 0x2117
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 25
+
+
+ 749 007b 19       		.uleb128 0x19
+ 750 007c 00       		.byte	0
+ 751 007d 00       		.byte	0
+ 752 007e 0A       		.uleb128 0xa
+ 753 007f 2E       		.uleb128 0x2e
+ 754 0080 01       		.byte	0x1
+ 755 0081 3F       		.uleb128 0x3f
+ 756 0082 19       		.uleb128 0x19
+ 757 0083 03       		.uleb128 0x3
+ 758 0084 0E       		.uleb128 0xe
+ 759 0085 3A       		.uleb128 0x3a
+ 760 0086 0B       		.uleb128 0xb
+ 761 0087 3B       		.uleb128 0x3b
+ 762 0088 0B       		.uleb128 0xb
+ 763 0089 27       		.uleb128 0x27
+ 764 008a 19       		.uleb128 0x19
+ 765 008b 11       		.uleb128 0x11
+ 766 008c 01       		.uleb128 0x1
+ 767 008d 12       		.uleb128 0x12
+ 768 008e 06       		.uleb128 0x6
+ 769 008f 40       		.uleb128 0x40
+ 770 0090 18       		.uleb128 0x18
+ 771 0091 9742     		.uleb128 0x2117
+ 772 0093 19       		.uleb128 0x19
+ 773 0094 01       		.uleb128 0x1
+ 774 0095 13       		.uleb128 0x13
+ 775 0096 00       		.byte	0
+ 776 0097 00       		.byte	0
+ 777 0098 0B       		.uleb128 0xb
+ 778 0099 05       		.uleb128 0x5
+ 779 009a 00       		.byte	0
+ 780 009b 03       		.uleb128 0x3
+ 781 009c 0E       		.uleb128 0xe
+ 782 009d 3A       		.uleb128 0x3a
+ 783 009e 0B       		.uleb128 0xb
+ 784 009f 3B       		.uleb128 0x3b
+ 785 00a0 0B       		.uleb128 0xb
+ 786 00a1 49       		.uleb128 0x49
+ 787 00a2 13       		.uleb128 0x13
+ 788 00a3 02       		.uleb128 0x2
+ 789 00a4 17       		.uleb128 0x17
+ 790 00a5 00       		.byte	0
+ 791 00a6 00       		.byte	0
+ 792 00a7 0C       		.uleb128 0xc
+ 793 00a8 34       		.uleb128 0x34
+ 794 00a9 00       		.byte	0
+ 795 00aa 03       		.uleb128 0x3
+ 796 00ab 0E       		.uleb128 0xe
+ 797 00ac 3A       		.uleb128 0x3a
+ 798 00ad 0B       		.uleb128 0xb
+ 799 00ae 3B       		.uleb128 0x3b
+ 800 00af 0B       		.uleb128 0xb
+ 801 00b0 49       		.uleb128 0x49
+ 802 00b1 13       		.uleb128 0x13
+ 803 00b2 02       		.uleb128 0x2
+ 804 00b3 17       		.uleb128 0x17
+ 805 00b4 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 26
+
+
+ 806 00b5 00       		.byte	0
+ 807 00b6 0D       		.uleb128 0xd
+ 808 00b7 898201   		.uleb128 0x4109
+ 809 00ba 00       		.byte	0
+ 810 00bb 11       		.uleb128 0x11
+ 811 00bc 01       		.uleb128 0x1
+ 812 00bd 31       		.uleb128 0x31
+ 813 00be 13       		.uleb128 0x13
+ 814 00bf 00       		.byte	0
+ 815 00c0 00       		.byte	0
+ 816 00c1 0E       		.uleb128 0xe
+ 817 00c2 2E       		.uleb128 0x2e
+ 818 00c3 00       		.byte	0
+ 819 00c4 3F       		.uleb128 0x3f
+ 820 00c5 19       		.uleb128 0x19
+ 821 00c6 03       		.uleb128 0x3
+ 822 00c7 0E       		.uleb128 0xe
+ 823 00c8 3A       		.uleb128 0x3a
+ 824 00c9 0B       		.uleb128 0xb
+ 825 00ca 3B       		.uleb128 0x3b
+ 826 00cb 05       		.uleb128 0x5
+ 827 00cc 27       		.uleb128 0x27
+ 828 00cd 19       		.uleb128 0x19
+ 829 00ce 49       		.uleb128 0x49
+ 830 00cf 13       		.uleb128 0x13
+ 831 00d0 11       		.uleb128 0x11
+ 832 00d1 01       		.uleb128 0x1
+ 833 00d2 12       		.uleb128 0x12
+ 834 00d3 06       		.uleb128 0x6
+ 835 00d4 40       		.uleb128 0x40
+ 836 00d5 18       		.uleb128 0x18
+ 837 00d6 9742     		.uleb128 0x2117
+ 838 00d8 19       		.uleb128 0x19
+ 839 00d9 00       		.byte	0
+ 840 00da 00       		.byte	0
+ 841 00db 0F       		.uleb128 0xf
+ 842 00dc 2E       		.uleb128 0x2e
+ 843 00dd 01       		.byte	0x1
+ 844 00de 3F       		.uleb128 0x3f
+ 845 00df 19       		.uleb128 0x19
+ 846 00e0 03       		.uleb128 0x3
+ 847 00e1 0E       		.uleb128 0xe
+ 848 00e2 3A       		.uleb128 0x3a
+ 849 00e3 0B       		.uleb128 0xb
+ 850 00e4 3B       		.uleb128 0x3b
+ 851 00e5 05       		.uleb128 0x5
+ 852 00e6 27       		.uleb128 0x27
+ 853 00e7 19       		.uleb128 0x19
+ 854 00e8 11       		.uleb128 0x11
+ 855 00e9 01       		.uleb128 0x1
+ 856 00ea 12       		.uleb128 0x12
+ 857 00eb 06       		.uleb128 0x6
+ 858 00ec 40       		.uleb128 0x40
+ 859 00ed 18       		.uleb128 0x18
+ 860 00ee 9742     		.uleb128 0x2117
+ 861 00f0 19       		.uleb128 0x19
+ 862 00f1 01       		.uleb128 0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 27
+
+
+ 863 00f2 13       		.uleb128 0x13
+ 864 00f3 00       		.byte	0
+ 865 00f4 00       		.byte	0
+ 866 00f5 10       		.uleb128 0x10
+ 867 00f6 05       		.uleb128 0x5
+ 868 00f7 00       		.byte	0
+ 869 00f8 03       		.uleb128 0x3
+ 870 00f9 0E       		.uleb128 0xe
+ 871 00fa 3A       		.uleb128 0x3a
+ 872 00fb 0B       		.uleb128 0xb
+ 873 00fc 3B       		.uleb128 0x3b
+ 874 00fd 05       		.uleb128 0x5
+ 875 00fe 49       		.uleb128 0x49
+ 876 00ff 13       		.uleb128 0x13
+ 877 0100 02       		.uleb128 0x2
+ 878 0101 17       		.uleb128 0x17
+ 879 0102 00       		.byte	0
+ 880 0103 00       		.byte	0
+ 881 0104 11       		.uleb128 0x11
+ 882 0105 898201   		.uleb128 0x4109
+ 883 0108 01       		.byte	0x1
+ 884 0109 11       		.uleb128 0x11
+ 885 010a 01       		.uleb128 0x1
+ 886 010b 31       		.uleb128 0x31
+ 887 010c 13       		.uleb128 0x13
+ 888 010d 01       		.uleb128 0x1
+ 889 010e 13       		.uleb128 0x13
+ 890 010f 00       		.byte	0
+ 891 0110 00       		.byte	0
+ 892 0111 12       		.uleb128 0x12
+ 893 0112 8A8201   		.uleb128 0x410a
+ 894 0115 00       		.byte	0
+ 895 0116 02       		.uleb128 0x2
+ 896 0117 18       		.uleb128 0x18
+ 897 0118 9142     		.uleb128 0x2111
+ 898 011a 18       		.uleb128 0x18
+ 899 011b 00       		.byte	0
+ 900 011c 00       		.byte	0
+ 901 011d 13       		.uleb128 0x13
+ 902 011e 34       		.uleb128 0x34
+ 903 011f 00       		.byte	0
+ 904 0120 03       		.uleb128 0x3
+ 905 0121 0E       		.uleb128 0xe
+ 906 0122 3A       		.uleb128 0x3a
+ 907 0123 0B       		.uleb128 0xb
+ 908 0124 3B       		.uleb128 0x3b
+ 909 0125 0B       		.uleb128 0xb
+ 910 0126 49       		.uleb128 0x49
+ 911 0127 13       		.uleb128 0x13
+ 912 0128 3F       		.uleb128 0x3f
+ 913 0129 19       		.uleb128 0x19
+ 914 012a 02       		.uleb128 0x2
+ 915 012b 18       		.uleb128 0x18
+ 916 012c 00       		.byte	0
+ 917 012d 00       		.byte	0
+ 918 012e 14       		.uleb128 0x14
+ 919 012f 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 28
+
+
+ 920 0130 00       		.byte	0
+ 921 0131 3F       		.uleb128 0x3f
+ 922 0132 19       		.uleb128 0x19
+ 923 0133 03       		.uleb128 0x3
+ 924 0134 0E       		.uleb128 0xe
+ 925 0135 3A       		.uleb128 0x3a
+ 926 0136 0B       		.uleb128 0xb
+ 927 0137 3B       		.uleb128 0x3b
+ 928 0138 0B       		.uleb128 0xb
+ 929 0139 27       		.uleb128 0x27
+ 930 013a 19       		.uleb128 0x19
+ 931 013b 49       		.uleb128 0x49
+ 932 013c 13       		.uleb128 0x13
+ 933 013d 3C       		.uleb128 0x3c
+ 934 013e 19       		.uleb128 0x19
+ 935 013f 00       		.byte	0
+ 936 0140 00       		.byte	0
+ 937 0141 15       		.uleb128 0x15
+ 938 0142 2E       		.uleb128 0x2e
+ 939 0143 01       		.byte	0x1
+ 940 0144 3F       		.uleb128 0x3f
+ 941 0145 19       		.uleb128 0x19
+ 942 0146 03       		.uleb128 0x3
+ 943 0147 0E       		.uleb128 0xe
+ 944 0148 3A       		.uleb128 0x3a
+ 945 0149 0B       		.uleb128 0xb
+ 946 014a 3B       		.uleb128 0x3b
+ 947 014b 0B       		.uleb128 0xb
+ 948 014c 27       		.uleb128 0x27
+ 949 014d 19       		.uleb128 0x19
+ 950 014e 3C       		.uleb128 0x3c
+ 951 014f 19       		.uleb128 0x19
+ 952 0150 00       		.byte	0
+ 953 0151 00       		.byte	0
+ 954 0152 16       		.uleb128 0x16
+ 955 0153 05       		.uleb128 0x5
+ 956 0154 00       		.byte	0
+ 957 0155 49       		.uleb128 0x49
+ 958 0156 13       		.uleb128 0x13
+ 959 0157 00       		.byte	0
+ 960 0158 00       		.byte	0
+ 961 0159 00       		.byte	0
+ 962              		.section	.debug_loc,"",%progbits
+ 963              	.Ldebug_loc0:
+ 964              	.LLST0:
+ 965 0000 00000000 		.4byte	.LVL0
+ 966 0004 06000000 		.4byte	.LVL1
+ 967 0008 0100     		.2byte	0x1
+ 968 000a 50       		.byte	0x50
+ 969 000b 06000000 		.4byte	.LVL1
+ 970 000f 28000000 		.4byte	.LVL4
+ 971 0013 0100     		.2byte	0x1
+ 972 0015 54       		.byte	0x54
+ 973 0016 28000000 		.4byte	.LVL4
+ 974 001a 30000000 		.4byte	.LFE4
+ 975 001e 0200     		.2byte	0x2
+ 976 0020 73       		.byte	0x73
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 29
+
+
+ 977 0021 00       		.sleb128 0
+ 978 0022 00000000 		.4byte	0
+ 979 0026 00000000 		.4byte	0
+ 980              	.LLST1:
+ 981 002a 0A000000 		.4byte	.LVL2
+ 982 002e 21000000 		.4byte	.LVL3-1
+ 983 0032 0100     		.2byte	0x1
+ 984 0034 50       		.byte	0x50
+ 985 0035 00000000 		.4byte	0
+ 986 0039 00000000 		.4byte	0
+ 987              	.LLST2:
+ 988 003d 00000000 		.4byte	.LVL5
+ 989 0041 04000000 		.4byte	.LVL6
+ 990 0045 0100     		.2byte	0x1
+ 991 0047 50       		.byte	0x50
+ 992 0048 04000000 		.4byte	.LVL6
+ 993 004c 10000000 		.4byte	.LFE6
+ 994 0050 0100     		.2byte	0x1
+ 995 0052 50       		.byte	0x50
+ 996 0053 00000000 		.4byte	0
+ 997 0057 00000000 		.4byte	0
+ 998              	.LLST3:
+ 999 005b 00000000 		.4byte	.LVL7
+ 1000 005f 04000000 		.4byte	.LVL8
+ 1001 0063 0100     		.2byte	0x1
+ 1002 0065 50       		.byte	0x50
+ 1003 0066 04000000 		.4byte	.LVL8
+ 1004 006a 10000000 		.4byte	.LFE8
+ 1005 006e 0100     		.2byte	0x1
+ 1006 0070 50       		.byte	0x50
+ 1007 0071 00000000 		.4byte	0
+ 1008 0075 00000000 		.4byte	0
+ 1009              		.section	.debug_aranges,"",%progbits
+ 1010 0000 5C000000 		.4byte	0x5c
+ 1011 0004 0200     		.2byte	0x2
+ 1012 0006 00000000 		.4byte	.Ldebug_info0
+ 1013 000a 04       		.byte	0x4
+ 1014 000b 00       		.byte	0
+ 1015 000c 0000     		.2byte	0
+ 1016 000e 0000     		.2byte	0
+ 1017 0010 00000000 		.4byte	.LFB1
+ 1018 0014 10000000 		.4byte	.LFE1-.LFB1
+ 1019 0018 00000000 		.4byte	.LFB3
+ 1020 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1021 0020 00000000 		.4byte	.LFB4
+ 1022 0024 30000000 		.4byte	.LFE4-.LFB4
+ 1023 0028 00000000 		.4byte	.LFB5
+ 1024 002c 10000000 		.4byte	.LFE5-.LFB5
+ 1025 0030 00000000 		.4byte	.LFB6
+ 1026 0034 10000000 		.4byte	.LFE6-.LFB6
+ 1027 0038 00000000 		.4byte	.LFB7
+ 1028 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1029 0040 00000000 		.4byte	.LFB8
+ 1030 0044 10000000 		.4byte	.LFE8-.LFB8
+ 1031 0048 00000000 		.4byte	.LFB0
+ 1032 004c 20000000 		.4byte	.LFE0-.LFB0
+ 1033 0050 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 30
+
+
+ 1034 0054 1C000000 		.4byte	.LFE2-.LFB2
+ 1035 0058 00000000 		.4byte	0
+ 1036 005c 00000000 		.4byte	0
+ 1037              		.section	.debug_ranges,"",%progbits
+ 1038              	.Ldebug_ranges0:
+ 1039 0000 00000000 		.4byte	.LFB1
+ 1040 0004 10000000 		.4byte	.LFE1
+ 1041 0008 00000000 		.4byte	.LFB3
+ 1042 000c 10000000 		.4byte	.LFE3
+ 1043 0010 00000000 		.4byte	.LFB4
+ 1044 0014 30000000 		.4byte	.LFE4
+ 1045 0018 00000000 		.4byte	.LFB5
+ 1046 001c 10000000 		.4byte	.LFE5
+ 1047 0020 00000000 		.4byte	.LFB6
+ 1048 0024 10000000 		.4byte	.LFE6
+ 1049 0028 00000000 		.4byte	.LFB7
+ 1050 002c 0C000000 		.4byte	.LFE7
+ 1051 0030 00000000 		.4byte	.LFB8
+ 1052 0034 10000000 		.4byte	.LFE8
+ 1053 0038 00000000 		.4byte	.LFB0
+ 1054 003c 20000000 		.4byte	.LFE0
+ 1055 0040 00000000 		.4byte	.LFB2
+ 1056 0044 1C000000 		.4byte	.LFE2
+ 1057 0048 00000000 		.4byte	0
+ 1058 004c 00000000 		.4byte	0
+ 1059              		.section	.debug_line,"",%progbits
+ 1060              	.Ldebug_line0:
+ 1061 0000 0F010000 		.section	.debug_str,"MS",%progbits,1
+ 1061      02005600 
+ 1061      00000201 
+ 1061      FB0E0D00 
+ 1061      01010101 
+ 1062              	.LASF15:
+ 1063 0000 72656731 		.ascii	"reg16\000"
+ 1063      3600
+ 1064              	.LASF25:
+ 1065 0006 4C465352 		.ascii	"LFSR_ReadPolynomial\000"
+ 1065      5F526561 
+ 1065      64506F6C 
+ 1065      796E6F6D 
+ 1065      69616C00 
+ 1066              	.LASF3:
+ 1067 001a 73686F72 		.ascii	"short unsigned int\000"
+ 1067      7420756E 
+ 1067      7369676E 
+ 1067      65642069 
+ 1067      6E7400
+ 1068              	.LASF19:
+ 1069 002d 4C465352 		.ascii	"LFSR_BACKUP_STRUCT\000"
+ 1069      5F424143 
+ 1069      4B55505F 
+ 1069      53545255 
+ 1069      435400
+ 1070              	.LASF20:
+ 1071 0040 4C465352 		.ascii	"LFSR_Enable\000"
+ 1071      5F456E61 
+ 1071      626C6500 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 31
+
+
+ 1072              	.LASF22:
+ 1073 004c 4C465352 		.ascii	"LFSR_ResetSeedInit\000"
+ 1073      5F526573 
+ 1073      65745365 
+ 1073      6564496E 
+ 1073      697400
+ 1074              	.LASF11:
+ 1075 005f 666C6F61 		.ascii	"float\000"
+ 1075      7400
+ 1076              	.LASF33:
+ 1077 0065 47656E65 		.ascii	"Generated_Source\\PSoC5\\LFSR.c\000"
+ 1077      72617465 
+ 1077      645F536F 
+ 1077      75726365 
+ 1077      5C50536F 
+ 1078              	.LASF7:
+ 1079 0083 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1079      206C6F6E 
+ 1079      6720756E 
+ 1079      7369676E 
+ 1079      65642069 
+ 1080              	.LASF29:
+ 1081 009a 4C465352 		.ascii	"LFSR_Start\000"
+ 1081      5F537461 
+ 1081      727400
+ 1082              	.LASF1:
+ 1083 00a5 756E7369 		.ascii	"unsigned char\000"
+ 1083      676E6564 
+ 1083      20636861 
+ 1083      7200
+ 1084              	.LASF14:
+ 1085 00b3 72656738 		.ascii	"reg8\000"
+ 1085      00
+ 1086              	.LASF26:
+ 1087 00b8 4C465352 		.ascii	"LFSR_WritePolynomial\000"
+ 1087      5F577269 
+ 1087      7465506F 
+ 1087      6C796E6F 
+ 1087      6D69616C 
+ 1088              	.LASF28:
+ 1089 00cd 4C465352 		.ascii	"LFSR_Init\000"
+ 1089      5F496E69 
+ 1089      7400
+ 1090              	.LASF9:
+ 1091 00d7 75696E74 		.ascii	"uint8\000"
+ 1091      3800
+ 1092              	.LASF35:
+ 1093 00dd 656E6162 		.ascii	"enableInterrupts\000"
+ 1093      6C65496E 
+ 1093      74657272 
+ 1093      75707473 
+ 1093      00
+ 1094              	.LASF12:
+ 1095 00ee 646F7562 		.ascii	"double\000"
+ 1095      6C6500
+ 1096              	.LASF27:
+ 1097 00f5 706F6C79 		.ascii	"polynomial\000"
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 32
+
+
+ 1097      6E6F6D69 
+ 1097      616C00
+ 1098              	.LASF10:
+ 1099 0100 75696E74 		.ascii	"uint16\000"
+ 1099      313600
+ 1100              	.LASF31:
+ 1101 0107 4C465352 		.ascii	"LFSR_backup\000"
+ 1101      5F626163 
+ 1101      6B757000 
+ 1102              	.LASF32:
+ 1103 0113 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1103      4320342E 
+ 1103      392E3320 
+ 1103      32303135 
+ 1103      30333033 
+ 1104 0146 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1104      20726576 
+ 1104      6973696F 
+ 1104      6E203232 
+ 1104      31323230 
+ 1105 0179 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1105      66756E63 
+ 1105      74696F6E 
+ 1105      2D736563 
+ 1105      74696F6E 
+ 1106              	.LASF36:
+ 1107 01a1 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1107      74657243 
+ 1107      72697469 
+ 1107      63616C53 
+ 1107      65637469 
+ 1108              	.LASF5:
+ 1109 01b8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1109      20756E73 
+ 1109      69676E65 
+ 1109      6420696E 
+ 1109      7400
+ 1110              	.LASF8:
+ 1111 01ca 756E7369 		.ascii	"unsigned int\000"
+ 1111      676E6564 
+ 1111      20696E74 
+ 1111      00
+ 1112              	.LASF37:
+ 1113 01d7 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1113      69744372 
+ 1113      69746963 
+ 1113      616C5365 
+ 1113      6374696F 
+ 1114              	.LASF34:
+ 1115 01ed 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 1115      73657273 
+ 1115      5C323134 
+ 1115      30313635 
+ 1115      38365C44 
+ 1116 021b 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 1116      41505532 
+ 1116      4130332E 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cc8D0TYi.s 			page 33
+
+
+ 1116      63796473 
+ 1116      6E00
+ 1117              	.LASF30:
+ 1118 022d 4C465352 		.ascii	"LFSR_initVar\000"
+ 1118      5F696E69 
+ 1118      74566172 
+ 1118      00
+ 1119              	.LASF16:
+ 1120 023a 73697A65 		.ascii	"sizetype\000"
+ 1120      74797065 
+ 1120      00
+ 1121              	.LASF21:
+ 1122 0243 4C465352 		.ascii	"LFSR_Stop\000"
+ 1122      5F53746F 
+ 1122      7000
+ 1123              	.LASF6:
+ 1124 024d 6C6F6E67 		.ascii	"long long int\000"
+ 1124      206C6F6E 
+ 1124      6720696E 
+ 1124      7400
+ 1125              	.LASF13:
+ 1126 025b 63686172 		.ascii	"char\000"
+ 1126      00
+ 1127              	.LASF2:
+ 1128 0260 73686F72 		.ascii	"short int\000"
+ 1128      7420696E 
+ 1128      7400
+ 1129              	.LASF24:
+ 1130 026a 4C465352 		.ascii	"LFSR_Read\000"
+ 1130      5F526561 
+ 1130      6400
+ 1131              	.LASF18:
+ 1132 0274 73656564 		.ascii	"seed\000"
+ 1132      00
+ 1133              	.LASF23:
+ 1134 0279 4C465352 		.ascii	"LFSR_WriteSeed\000"
+ 1134      5F577269 
+ 1134      74655365 
+ 1134      656400
+ 1135              	.LASF4:
+ 1136 0288 6C6F6E67 		.ascii	"long int\000"
+ 1136      20696E74 
+ 1136      00
+ 1137              	.LASF17:
+ 1138 0291 656E6162 		.ascii	"enableState\000"
+ 1138      6C655374 
+ 1138      61746500 
+ 1139              	.LASF0:
+ 1140 029d 7369676E 		.ascii	"signed char\000"
+ 1140      65642063 
+ 1140      68617200 
+ 1141              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

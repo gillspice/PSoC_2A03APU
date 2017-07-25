@@ -1,0 +1,6 @@
+C:\Users\214016586\Documents\GitHub\PSoC_2A03APU\APU2A03\APU2A03.cydsn\APU2A03.cyprj|8d4ea26c-939a-48c3-9679-6e671185db50
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|cf626445-453d-496e-a683-f540ef90c269
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a64472c0-865a-4f5b-8140-17baf7b18efe
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f09d4f01-4917-4629-bd4c-795f0c4e4a0f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a5a29bbf-0796-426c-9867-a8b2afe10399
+C:\Users\214016586\Documents\GitHub\PSoC_2A03APU\APU2A03\Library02.cylib\Library02.cyprj|c37764cc-648a-4d3f-a8d1-74e87b4f6c02

@@ -1,0 +1,881 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Noise_Vol_Clk_Div_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Noise_Vol_Clk_Div_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	Noise_Vol_Clk_Div_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Noise_Vol_Clk_Div_SaveConfig, %function
+  24              	Noise_Vol_Clk_Div_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\Noise_Vol_Clk_Div_PM.c"
+   1:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * File Name: Noise_Vol_Clk_Div_PM.c
+   3:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Version 1.0
+   4:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+   5:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Description:
+   6:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This file provides Low power mode APIs for Count7 component.
+   7:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+   8:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Note:
+   9:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  10:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  11:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  18:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** #include "Noise_Vol_Clk_Div.h"
+  19:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  20:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  21:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** Noise_Vol_Clk_Div_BACKUP_STRUCT Noise_Vol_Clk_Div_backup;
+  22:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  23:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  24:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Function Name: Noise_Vol_Clk_Div_SaveConfig
+  26:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  28:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Summary:
+  29:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This function saves the component configuration and non-retention registers.
+  30:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This function is called by the Count7_Sleep() function.
+  31:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 2
+
+
+  32:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Parameters:
+  33:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  34:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  35:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Return:
+  36:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  37:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  38:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Global Variables:
+  39:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  Noise_Vol_Clk_Div_backup - used to save component configuration and non-
+  40:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  retention registers before enter sleep mode.
+  41:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  42:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** void Noise_Vol_Clk_Div_SaveConfig(void) 
+  44:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** {
+  27              		.loc 1 44 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  45:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     Noise_Vol_Clk_Div_backup.count = Noise_Vol_Clk_Div_COUNT_REG;
+  32              		.loc 1 45 0
+  33 0000 024B     		ldr	r3, .L2
+  34 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  35 0004 024B     		ldr	r3, .L2+4
+  36 0006 5A70     		strb	r2, [r3, #1]
+  37 0008 7047     		bx	lr
+  38              	.L3:
+  39 000a 00BF     		.align	2
+  40              	.L2:
+  41 000c 76650040 		.word	1073767798
+  42 0010 00000000 		.word	Noise_Vol_Clk_Div_backup
+  43              		.cfi_endproc
+  44              	.LFE0:
+  45              		.size	Noise_Vol_Clk_Div_SaveConfig, .-Noise_Vol_Clk_Div_SaveConfig
+  46              		.section	.text.Noise_Vol_Clk_Div_Sleep,"ax",%progbits
+  47              		.align	2
+  48              		.global	Noise_Vol_Clk_Div_Sleep
+  49              		.thumb
+  50              		.thumb_func
+  51              		.type	Noise_Vol_Clk_Div_Sleep, %function
+  52              	Noise_Vol_Clk_Div_Sleep:
+  53              	.LFB1:
+  46:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** }
+  47:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  48:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  49:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** /*******************************************************************************
+  50:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Function Name: Noise_Vol_Clk_Div_Sleep
+  51:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** ********************************************************************************
+  52:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  53:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Summary:
+  54:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This is the preferred API to prepare the component for low power mode
+  55:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  operation. The Count7_Sleep() API saves the current component state using
+  56:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  Count7_SaveConfig() and disables the counter.
+  57:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  58:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Parameters:
+  59:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  60:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  61:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Return:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 3
+
+
+  62:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  63:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  64:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *******************************************************************************/
+  65:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** void Noise_Vol_Clk_Div_Sleep(void) 
+  66:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** {
+  54              		.loc 1 66 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58 0000 08B5     		push	{r3, lr}
+  59              		.cfi_def_cfa_offset 8
+  60              		.cfi_offset 3, -8
+  61              		.cfi_offset 14, -4
+  67:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     if(0u != (Noise_Vol_Clk_Div_AUX_CONTROL_REG & Noise_Vol_Clk_Div_COUNTER_START))
+  62              		.loc 1 67 0
+  63 0002 084B     		ldr	r3, .L8
+  64 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  65 0006 13F0200F 		tst	r3, #32
+  66 000a 05D0     		beq	.L5
+  68:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     {
+  69:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****         Noise_Vol_Clk_Div_backup.enableState = 1u;
+  67              		.loc 1 69 0
+  68 000c 0122     		movs	r2, #1
+  69 000e 064B     		ldr	r3, .L8+4
+  70 0010 1A70     		strb	r2, [r3]
+  70:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****         Noise_Vol_Clk_Div_Stop();
+  71              		.loc 1 70 0
+  72 0012 FFF7FEFF 		bl	Noise_Vol_Clk_Div_Stop
+  73              	.LVL0:
+  74 0016 02E0     		b	.L6
+  75              	.L5:
+  71:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     }
+  72:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     else
+  73:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     {
+  74:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****         Noise_Vol_Clk_Div_backup.enableState = 0u;
+  76              		.loc 1 74 0
+  77 0018 0022     		movs	r2, #0
+  78 001a 034B     		ldr	r3, .L8+4
+  79 001c 1A70     		strb	r2, [r3]
+  80              	.L6:
+  75:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     }
+  76:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  77:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     Noise_Vol_Clk_Div_SaveConfig();
+  81              		.loc 1 77 0
+  82 001e FFF7FEFF 		bl	Noise_Vol_Clk_Div_SaveConfig
+  83              	.LVL1:
+  84 0022 08BD     		pop	{r3, pc}
+  85              	.L9:
+  86              		.align	2
+  87              	.L8:
+  88 0024 96650040 		.word	1073767830
+  89 0028 00000000 		.word	Noise_Vol_Clk_Div_backup
+  90              		.cfi_endproc
+  91              	.LFE1:
+  92              		.size	Noise_Vol_Clk_Div_Sleep, .-Noise_Vol_Clk_Div_Sleep
+  93              		.section	.text.Noise_Vol_Clk_Div_RestoreConfig,"ax",%progbits
+  94              		.align	2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 4
+
+
+  95              		.global	Noise_Vol_Clk_Div_RestoreConfig
+  96              		.thumb
+  97              		.thumb_func
+  98              		.type	Noise_Vol_Clk_Div_RestoreConfig, %function
+  99              	Noise_Vol_Clk_Div_RestoreConfig:
+ 100              	.LFB2:
+  78:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** }
+  79:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  80:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+  81:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** /*******************************************************************************
+  82:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Function Name: Noise_Vol_Clk_Div_RestoreConfig
+  83:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** ********************************************************************************
+  84:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  85:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Summary:
+  86:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This function restores the component configuration and non-retention
+  87:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  registers. This function is called by the Count7_Wakeup() function.
+  88:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  89:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Parameters:
+  90:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  91:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  92:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Return:
+  93:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+  94:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  95:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Global Variables:
+  96:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  Noise_Vol_Clk_Div_backup - used to save component configuration and
+  97:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  non-retention registers before exit sleep mode.
+  98:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+  99:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *******************************************************************************/
+ 100:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** void Noise_Vol_Clk_Div_RestoreConfig(void) 
+ 101:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** {
+ 101              		.loc 1 101 0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		@ link register save eliminated.
+ 102:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     Noise_Vol_Clk_Div_COUNT_REG = Noise_Vol_Clk_Div_backup.count;
+ 106              		.loc 1 102 0
+ 107 0000 024B     		ldr	r3, .L11
+ 108 0002 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 109 0004 024B     		ldr	r3, .L11+4
+ 110 0006 1A70     		strb	r2, [r3]
+ 111 0008 7047     		bx	lr
+ 112              	.L12:
+ 113 000a 00BF     		.align	2
+ 114              	.L11:
+ 115 000c 00000000 		.word	Noise_Vol_Clk_Div_backup
+ 116 0010 76650040 		.word	1073767798
+ 117              		.cfi_endproc
+ 118              	.LFE2:
+ 119              		.size	Noise_Vol_Clk_Div_RestoreConfig, .-Noise_Vol_Clk_Div_RestoreConfig
+ 120              		.section	.text.Noise_Vol_Clk_Div_Wakeup,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	Noise_Vol_Clk_Div_Wakeup
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	Noise_Vol_Clk_Div_Wakeup, %function
+ 126              	Noise_Vol_Clk_Div_Wakeup:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 5
+
+
+ 127              	.LFB3:
+ 103:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** }
+ 104:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+ 105:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+ 106:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** /*******************************************************************************
+ 107:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Function Name: Noise_Vol_Clk_Div_Wakeup
+ 108:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** ********************************************************************************
+ 109:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+ 110:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Summary:
+ 111:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  This is the preferred API to restore the component to the state when
+ 112:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  Count7_Sleep() was called. The Count7_Wakeup() function calls the
+ 113:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  Count7_RestoreConfig() function to restore the configuration.
+ 114:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+ 115:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Parameters:
+ 116:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+ 117:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+ 118:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** * Return:
+ 119:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *  None
+ 120:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *
+ 121:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** *******************************************************************************/
+ 122:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** void Noise_Vol_Clk_Div_Wakeup(void) 
+ 123:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** {
+ 128              		.loc 1 123 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 0000 08B5     		push	{r3, lr}
+ 133              		.cfi_def_cfa_offset 8
+ 134              		.cfi_offset 3, -8
+ 135              		.cfi_offset 14, -4
+ 124:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     Noise_Vol_Clk_Div_RestoreConfig();
+ 136              		.loc 1 124 0
+ 137 0002 FFF7FEFF 		bl	Noise_Vol_Clk_Div_RestoreConfig
+ 138              	.LVL2:
+ 125:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c **** 
+ 126:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     /* Restore enable state */
+ 127:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     if (Noise_Vol_Clk_Div_backup.enableState != 0u)
+ 139              		.loc 1 127 0
+ 140 0006 034B     		ldr	r3, .L16
+ 141 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 142 000a 0BB1     		cbz	r3, .L13
+ 128:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****     {
+ 129:Generated_Source\PSoC5/Noise_Vol_Clk_Div_PM.c ****         Noise_Vol_Clk_Div_Enable();
+ 143              		.loc 1 129 0
+ 144 000c FFF7FEFF 		bl	Noise_Vol_Clk_Div_Enable
+ 145              	.LVL3:
+ 146              	.L13:
+ 147 0010 08BD     		pop	{r3, pc}
+ 148              	.L17:
+ 149 0012 00BF     		.align	2
+ 150              	.L16:
+ 151 0014 00000000 		.word	Noise_Vol_Clk_Div_backup
+ 152              		.cfi_endproc
+ 153              	.LFE3:
+ 154              		.size	Noise_Vol_Clk_Div_Wakeup, .-Noise_Vol_Clk_Div_Wakeup
+ 155              		.comm	Noise_Vol_Clk_Div_backup,2,4
+ 156              		.text
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 6
+
+
+ 157              	.Letext0:
+ 158              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 159              		.file 3 "Generated_Source\\PSoC5\\Noise_Vol_Clk_Div.h"
+ 160              		.section	.debug_info,"",%progbits
+ 161              	.Ldebug_info0:
+ 162 0000 57010000 		.4byte	0x157
+ 163 0004 0400     		.2byte	0x4
+ 164 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 165 000a 04       		.byte	0x4
+ 166 000b 01       		.uleb128 0x1
+ 167 000c E1000000 		.4byte	.LASF23
+ 168 0010 01       		.byte	0x1
+ 169 0011 7A000000 		.4byte	.LASF24
+ 170 0015 93010000 		.4byte	.LASF25
+ 171 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 172 001d 00000000 		.4byte	0
+ 173 0021 00000000 		.4byte	.Ldebug_line0
+ 174 0025 02       		.uleb128 0x2
+ 175 0026 01       		.byte	0x1
+ 176 0027 06       		.byte	0x6
+ 177 0028 63020000 		.4byte	.LASF0
+ 178 002c 02       		.uleb128 0x2
+ 179 002d 01       		.byte	0x1
+ 180 002e 08       		.byte	0x8
+ 181 002f 42000000 		.4byte	.LASF1
+ 182 0033 02       		.uleb128 0x2
+ 183 0034 02       		.byte	0x2
+ 184 0035 05       		.byte	0x5
+ 185 0036 3E020000 		.4byte	.LASF2
+ 186 003a 02       		.uleb128 0x2
+ 187 003b 02       		.byte	0x2
+ 188 003c 07       		.byte	0x7
+ 189 003d 67000000 		.4byte	.LASF3
+ 190 0041 02       		.uleb128 0x2
+ 191 0042 04       		.byte	0x4
+ 192 0043 05       		.byte	0x5
+ 193 0044 4E020000 		.4byte	.LASF4
+ 194 0048 02       		.uleb128 0x2
+ 195 0049 04       		.byte	0x4
+ 196 004a 07       		.byte	0x7
+ 197 004b 55000000 		.4byte	.LASF5
+ 198 004f 02       		.uleb128 0x2
+ 199 0050 08       		.byte	0x8
+ 200 0051 05       		.byte	0x5
+ 201 0052 2B020000 		.4byte	.LASF6
+ 202 0056 02       		.uleb128 0x2
+ 203 0057 08       		.byte	0x8
+ 204 0058 07       		.byte	0x7
+ 205 0059 7C010000 		.4byte	.LASF7
+ 206 005d 03       		.uleb128 0x3
+ 207 005e 04       		.byte	0x4
+ 208 005f 05       		.byte	0x5
+ 209 0060 696E7400 		.ascii	"int\000"
+ 210 0064 02       		.uleb128 0x2
+ 211 0065 04       		.byte	0x4
+ 212 0066 07       		.byte	0x7
+ 213 0067 6F010000 		.4byte	.LASF8
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 7
+
+
+ 214 006b 04       		.uleb128 0x4
+ 215 006c 48020000 		.4byte	.LASF12
+ 216 0070 02       		.byte	0x2
+ 217 0071 9201     		.2byte	0x192
+ 218 0073 2C000000 		.4byte	0x2c
+ 219 0077 02       		.uleb128 0x2
+ 220 0078 04       		.byte	0x4
+ 221 0079 04       		.byte	0x4
+ 222 007a 3C000000 		.4byte	.LASF9
+ 223 007e 02       		.uleb128 0x2
+ 224 007f 08       		.byte	0x8
+ 225 0080 04       		.byte	0x4
+ 226 0081 C1000000 		.4byte	.LASF10
+ 227 0085 02       		.uleb128 0x2
+ 228 0086 01       		.byte	0x1
+ 229 0087 08       		.byte	0x8
+ 230 0088 39020000 		.4byte	.LASF11
+ 231 008c 04       		.uleb128 0x4
+ 232 008d 50000000 		.4byte	.LASF13
+ 233 0091 02       		.byte	0x2
+ 234 0092 3C02     		.2byte	0x23c
+ 235 0094 98000000 		.4byte	0x98
+ 236 0098 05       		.uleb128 0x5
+ 237 0099 6B000000 		.4byte	0x6b
+ 238 009d 06       		.uleb128 0x6
+ 239 009e 02       		.byte	0x2
+ 240 009f 03       		.byte	0x3
+ 241 00a0 2E       		.byte	0x2e
+ 242 00a1 BE000000 		.4byte	0xbe
+ 243 00a5 07       		.uleb128 0x7
+ 244 00a6 57020000 		.4byte	.LASF14
+ 245 00aa 03       		.byte	0x3
+ 246 00ab 30       		.byte	0x30
+ 247 00ac 6B000000 		.4byte	0x6b
+ 248 00b0 00       		.byte	0
+ 249 00b1 07       		.uleb128 0x7
+ 250 00b2 19000000 		.4byte	.LASF15
+ 251 00b6 03       		.byte	0x3
+ 252 00b7 31       		.byte	0x31
+ 253 00b8 6B000000 		.4byte	0x6b
+ 254 00bc 01       		.byte	0x1
+ 255 00bd 00       		.byte	0
+ 256 00be 08       		.uleb128 0x8
+ 257 00bf D3010000 		.4byte	.LASF16
+ 258 00c3 03       		.byte	0x3
+ 259 00c4 32       		.byte	0x32
+ 260 00c5 9D000000 		.4byte	0x9d
+ 261 00c9 09       		.uleb128 0x9
+ 262 00ca 1F000000 		.4byte	.LASF17
+ 263 00ce 01       		.byte	0x1
+ 264 00cf 2B       		.byte	0x2b
+ 265 00d0 00000000 		.4byte	.LFB0
+ 266 00d4 14000000 		.4byte	.LFE0-.LFB0
+ 267 00d8 01       		.uleb128 0x1
+ 268 00d9 9C       		.byte	0x9c
+ 269 00da 0A       		.uleb128 0xa
+ 270 00db F3010000 		.4byte	.LASF19
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 8
+
+
+ 271 00df 01       		.byte	0x1
+ 272 00e0 41       		.byte	0x41
+ 273 00e1 00000000 		.4byte	.LFB1
+ 274 00e5 2C000000 		.4byte	.LFE1-.LFB1
+ 275 00e9 01       		.uleb128 0x1
+ 276 00ea 9C       		.byte	0x9c
+ 277 00eb 02010000 		.4byte	0x102
+ 278 00ef 0B       		.uleb128 0xb
+ 279 00f0 16000000 		.4byte	.LVL0
+ 280 00f4 4C010000 		.4byte	0x14c
+ 281 00f8 0B       		.uleb128 0xb
+ 282 00f9 22000000 		.4byte	.LVL1
+ 283 00fd C9000000 		.4byte	0xc9
+ 284 0101 00       		.byte	0
+ 285 0102 09       		.uleb128 0x9
+ 286 0103 0B020000 		.4byte	.LASF18
+ 287 0107 01       		.byte	0x1
+ 288 0108 64       		.byte	0x64
+ 289 0109 00000000 		.4byte	.LFB2
+ 290 010d 14000000 		.4byte	.LFE2-.LFB2
+ 291 0111 01       		.uleb128 0x1
+ 292 0112 9C       		.byte	0x9c
+ 293 0113 0A       		.uleb128 0xa
+ 294 0114 C8000000 		.4byte	.LASF20
+ 295 0118 01       		.byte	0x1
+ 296 0119 7A       		.byte	0x7a
+ 297 011a 00000000 		.4byte	.LFB3
+ 298 011e 18000000 		.4byte	.LFE3-.LFB3
+ 299 0122 01       		.uleb128 0x1
+ 300 0123 9C       		.byte	0x9c
+ 301 0124 3B010000 		.4byte	0x13b
+ 302 0128 0B       		.uleb128 0xb
+ 303 0129 06000000 		.4byte	.LVL2
+ 304 012d 02010000 		.4byte	0x102
+ 305 0131 0B       		.uleb128 0xb
+ 306 0132 10000000 		.4byte	.LVL3
+ 307 0136 53010000 		.4byte	0x153
+ 308 013a 00       		.byte	0
+ 309 013b 0C       		.uleb128 0xc
+ 310 013c A8000000 		.4byte	.LASF26
+ 311 0140 01       		.byte	0x1
+ 312 0141 15       		.byte	0x15
+ 313 0142 BE000000 		.4byte	0xbe
+ 314 0146 05       		.uleb128 0x5
+ 315 0147 03       		.byte	0x3
+ 316 0148 00000000 		.4byte	Noise_Vol_Clk_Div_backup
+ 317 014c 0D       		.uleb128 0xd
+ 318 014d 6F020000 		.4byte	.LASF21
+ 319 0151 03       		.byte	0x3
+ 320 0152 1F       		.byte	0x1f
+ 321 0153 0D       		.uleb128 0xd
+ 322 0154 00000000 		.4byte	.LASF22
+ 323 0158 03       		.byte	0x3
+ 324 0159 1D       		.byte	0x1d
+ 325 015a 00       		.byte	0
+ 326              		.section	.debug_abbrev,"",%progbits
+ 327              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 9
+
+
+ 328 0000 01       		.uleb128 0x1
+ 329 0001 11       		.uleb128 0x11
+ 330 0002 01       		.byte	0x1
+ 331 0003 25       		.uleb128 0x25
+ 332 0004 0E       		.uleb128 0xe
+ 333 0005 13       		.uleb128 0x13
+ 334 0006 0B       		.uleb128 0xb
+ 335 0007 03       		.uleb128 0x3
+ 336 0008 0E       		.uleb128 0xe
+ 337 0009 1B       		.uleb128 0x1b
+ 338 000a 0E       		.uleb128 0xe
+ 339 000b 55       		.uleb128 0x55
+ 340 000c 17       		.uleb128 0x17
+ 341 000d 11       		.uleb128 0x11
+ 342 000e 01       		.uleb128 0x1
+ 343 000f 10       		.uleb128 0x10
+ 344 0010 17       		.uleb128 0x17
+ 345 0011 00       		.byte	0
+ 346 0012 00       		.byte	0
+ 347 0013 02       		.uleb128 0x2
+ 348 0014 24       		.uleb128 0x24
+ 349 0015 00       		.byte	0
+ 350 0016 0B       		.uleb128 0xb
+ 351 0017 0B       		.uleb128 0xb
+ 352 0018 3E       		.uleb128 0x3e
+ 353 0019 0B       		.uleb128 0xb
+ 354 001a 03       		.uleb128 0x3
+ 355 001b 0E       		.uleb128 0xe
+ 356 001c 00       		.byte	0
+ 357 001d 00       		.byte	0
+ 358 001e 03       		.uleb128 0x3
+ 359 001f 24       		.uleb128 0x24
+ 360 0020 00       		.byte	0
+ 361 0021 0B       		.uleb128 0xb
+ 362 0022 0B       		.uleb128 0xb
+ 363 0023 3E       		.uleb128 0x3e
+ 364 0024 0B       		.uleb128 0xb
+ 365 0025 03       		.uleb128 0x3
+ 366 0026 08       		.uleb128 0x8
+ 367 0027 00       		.byte	0
+ 368 0028 00       		.byte	0
+ 369 0029 04       		.uleb128 0x4
+ 370 002a 16       		.uleb128 0x16
+ 371 002b 00       		.byte	0
+ 372 002c 03       		.uleb128 0x3
+ 373 002d 0E       		.uleb128 0xe
+ 374 002e 3A       		.uleb128 0x3a
+ 375 002f 0B       		.uleb128 0xb
+ 376 0030 3B       		.uleb128 0x3b
+ 377 0031 05       		.uleb128 0x5
+ 378 0032 49       		.uleb128 0x49
+ 379 0033 13       		.uleb128 0x13
+ 380 0034 00       		.byte	0
+ 381 0035 00       		.byte	0
+ 382 0036 05       		.uleb128 0x5
+ 383 0037 35       		.uleb128 0x35
+ 384 0038 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 10
+
+
+ 385 0039 49       		.uleb128 0x49
+ 386 003a 13       		.uleb128 0x13
+ 387 003b 00       		.byte	0
+ 388 003c 00       		.byte	0
+ 389 003d 06       		.uleb128 0x6
+ 390 003e 13       		.uleb128 0x13
+ 391 003f 01       		.byte	0x1
+ 392 0040 0B       		.uleb128 0xb
+ 393 0041 0B       		.uleb128 0xb
+ 394 0042 3A       		.uleb128 0x3a
+ 395 0043 0B       		.uleb128 0xb
+ 396 0044 3B       		.uleb128 0x3b
+ 397 0045 0B       		.uleb128 0xb
+ 398 0046 01       		.uleb128 0x1
+ 399 0047 13       		.uleb128 0x13
+ 400 0048 00       		.byte	0
+ 401 0049 00       		.byte	0
+ 402 004a 07       		.uleb128 0x7
+ 403 004b 0D       		.uleb128 0xd
+ 404 004c 00       		.byte	0
+ 405 004d 03       		.uleb128 0x3
+ 406 004e 0E       		.uleb128 0xe
+ 407 004f 3A       		.uleb128 0x3a
+ 408 0050 0B       		.uleb128 0xb
+ 409 0051 3B       		.uleb128 0x3b
+ 410 0052 0B       		.uleb128 0xb
+ 411 0053 49       		.uleb128 0x49
+ 412 0054 13       		.uleb128 0x13
+ 413 0055 38       		.uleb128 0x38
+ 414 0056 0B       		.uleb128 0xb
+ 415 0057 00       		.byte	0
+ 416 0058 00       		.byte	0
+ 417 0059 08       		.uleb128 0x8
+ 418 005a 16       		.uleb128 0x16
+ 419 005b 00       		.byte	0
+ 420 005c 03       		.uleb128 0x3
+ 421 005d 0E       		.uleb128 0xe
+ 422 005e 3A       		.uleb128 0x3a
+ 423 005f 0B       		.uleb128 0xb
+ 424 0060 3B       		.uleb128 0x3b
+ 425 0061 0B       		.uleb128 0xb
+ 426 0062 49       		.uleb128 0x49
+ 427 0063 13       		.uleb128 0x13
+ 428 0064 00       		.byte	0
+ 429 0065 00       		.byte	0
+ 430 0066 09       		.uleb128 0x9
+ 431 0067 2E       		.uleb128 0x2e
+ 432 0068 00       		.byte	0
+ 433 0069 3F       		.uleb128 0x3f
+ 434 006a 19       		.uleb128 0x19
+ 435 006b 03       		.uleb128 0x3
+ 436 006c 0E       		.uleb128 0xe
+ 437 006d 3A       		.uleb128 0x3a
+ 438 006e 0B       		.uleb128 0xb
+ 439 006f 3B       		.uleb128 0x3b
+ 440 0070 0B       		.uleb128 0xb
+ 441 0071 27       		.uleb128 0x27
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 11
+
+
+ 442 0072 19       		.uleb128 0x19
+ 443 0073 11       		.uleb128 0x11
+ 444 0074 01       		.uleb128 0x1
+ 445 0075 12       		.uleb128 0x12
+ 446 0076 06       		.uleb128 0x6
+ 447 0077 40       		.uleb128 0x40
+ 448 0078 18       		.uleb128 0x18
+ 449 0079 9742     		.uleb128 0x2117
+ 450 007b 19       		.uleb128 0x19
+ 451 007c 00       		.byte	0
+ 452 007d 00       		.byte	0
+ 453 007e 0A       		.uleb128 0xa
+ 454 007f 2E       		.uleb128 0x2e
+ 455 0080 01       		.byte	0x1
+ 456 0081 3F       		.uleb128 0x3f
+ 457 0082 19       		.uleb128 0x19
+ 458 0083 03       		.uleb128 0x3
+ 459 0084 0E       		.uleb128 0xe
+ 460 0085 3A       		.uleb128 0x3a
+ 461 0086 0B       		.uleb128 0xb
+ 462 0087 3B       		.uleb128 0x3b
+ 463 0088 0B       		.uleb128 0xb
+ 464 0089 27       		.uleb128 0x27
+ 465 008a 19       		.uleb128 0x19
+ 466 008b 11       		.uleb128 0x11
+ 467 008c 01       		.uleb128 0x1
+ 468 008d 12       		.uleb128 0x12
+ 469 008e 06       		.uleb128 0x6
+ 470 008f 40       		.uleb128 0x40
+ 471 0090 18       		.uleb128 0x18
+ 472 0091 9742     		.uleb128 0x2117
+ 473 0093 19       		.uleb128 0x19
+ 474 0094 01       		.uleb128 0x1
+ 475 0095 13       		.uleb128 0x13
+ 476 0096 00       		.byte	0
+ 477 0097 00       		.byte	0
+ 478 0098 0B       		.uleb128 0xb
+ 479 0099 898201   		.uleb128 0x4109
+ 480 009c 00       		.byte	0
+ 481 009d 11       		.uleb128 0x11
+ 482 009e 01       		.uleb128 0x1
+ 483 009f 31       		.uleb128 0x31
+ 484 00a0 13       		.uleb128 0x13
+ 485 00a1 00       		.byte	0
+ 486 00a2 00       		.byte	0
+ 487 00a3 0C       		.uleb128 0xc
+ 488 00a4 34       		.uleb128 0x34
+ 489 00a5 00       		.byte	0
+ 490 00a6 03       		.uleb128 0x3
+ 491 00a7 0E       		.uleb128 0xe
+ 492 00a8 3A       		.uleb128 0x3a
+ 493 00a9 0B       		.uleb128 0xb
+ 494 00aa 3B       		.uleb128 0x3b
+ 495 00ab 0B       		.uleb128 0xb
+ 496 00ac 49       		.uleb128 0x49
+ 497 00ad 13       		.uleb128 0x13
+ 498 00ae 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 12
+
+
+ 499 00af 19       		.uleb128 0x19
+ 500 00b0 02       		.uleb128 0x2
+ 501 00b1 18       		.uleb128 0x18
+ 502 00b2 00       		.byte	0
+ 503 00b3 00       		.byte	0
+ 504 00b4 0D       		.uleb128 0xd
+ 505 00b5 2E       		.uleb128 0x2e
+ 506 00b6 00       		.byte	0
+ 507 00b7 3F       		.uleb128 0x3f
+ 508 00b8 19       		.uleb128 0x19
+ 509 00b9 03       		.uleb128 0x3
+ 510 00ba 0E       		.uleb128 0xe
+ 511 00bb 3A       		.uleb128 0x3a
+ 512 00bc 0B       		.uleb128 0xb
+ 513 00bd 3B       		.uleb128 0x3b
+ 514 00be 0B       		.uleb128 0xb
+ 515 00bf 27       		.uleb128 0x27
+ 516 00c0 19       		.uleb128 0x19
+ 517 00c1 3C       		.uleb128 0x3c
+ 518 00c2 19       		.uleb128 0x19
+ 519 00c3 00       		.byte	0
+ 520 00c4 00       		.byte	0
+ 521 00c5 00       		.byte	0
+ 522              		.section	.debug_aranges,"",%progbits
+ 523 0000 34000000 		.4byte	0x34
+ 524 0004 0200     		.2byte	0x2
+ 525 0006 00000000 		.4byte	.Ldebug_info0
+ 526 000a 04       		.byte	0x4
+ 527 000b 00       		.byte	0
+ 528 000c 0000     		.2byte	0
+ 529 000e 0000     		.2byte	0
+ 530 0010 00000000 		.4byte	.LFB0
+ 531 0014 14000000 		.4byte	.LFE0-.LFB0
+ 532 0018 00000000 		.4byte	.LFB1
+ 533 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 534 0020 00000000 		.4byte	.LFB2
+ 535 0024 14000000 		.4byte	.LFE2-.LFB2
+ 536 0028 00000000 		.4byte	.LFB3
+ 537 002c 18000000 		.4byte	.LFE3-.LFB3
+ 538 0030 00000000 		.4byte	0
+ 539 0034 00000000 		.4byte	0
+ 540              		.section	.debug_ranges,"",%progbits
+ 541              	.Ldebug_ranges0:
+ 542 0000 00000000 		.4byte	.LFB0
+ 543 0004 14000000 		.4byte	.LFE0
+ 544 0008 00000000 		.4byte	.LFB1
+ 545 000c 2C000000 		.4byte	.LFE1
+ 546 0010 00000000 		.4byte	.LFB2
+ 547 0014 14000000 		.4byte	.LFE2
+ 548 0018 00000000 		.4byte	.LFB3
+ 549 001c 18000000 		.4byte	.LFE3
+ 550 0020 00000000 		.4byte	0
+ 551 0024 00000000 		.4byte	0
+ 552              		.section	.debug_line,"",%progbits
+ 553              	.Ldebug_line0:
+ 554 0000 B7000000 		.section	.debug_str,"MS",%progbits,1
+ 554      02006800 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 13
+
+
+ 554      00000201 
+ 554      FB0E0D00 
+ 554      01010101 
+ 555              	.LASF22:
+ 556 0000 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_Enable\000"
+ 556      655F566F 
+ 556      6C5F436C 
+ 556      6B5F4469 
+ 556      765F456E 
+ 557              	.LASF15:
+ 558 0019 636F756E 		.ascii	"count\000"
+ 558      7400
+ 559              	.LASF17:
+ 560 001f 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_SaveConfig\000"
+ 560      655F566F 
+ 560      6C5F436C 
+ 560      6B5F4469 
+ 560      765F5361 
+ 561              	.LASF9:
+ 562 003c 666C6F61 		.ascii	"float\000"
+ 562      7400
+ 563              	.LASF1:
+ 564 0042 756E7369 		.ascii	"unsigned char\000"
+ 564      676E6564 
+ 564      20636861 
+ 564      7200
+ 565              	.LASF13:
+ 566 0050 72656738 		.ascii	"reg8\000"
+ 566      00
+ 567              	.LASF5:
+ 568 0055 6C6F6E67 		.ascii	"long unsigned int\000"
+ 568      20756E73 
+ 568      69676E65 
+ 568      6420696E 
+ 568      7400
+ 569              	.LASF3:
+ 570 0067 73686F72 		.ascii	"short unsigned int\000"
+ 570      7420756E 
+ 570      7369676E 
+ 570      65642069 
+ 570      6E7400
+ 571              	.LASF24:
+ 572 007a 47656E65 		.ascii	"Generated_Source\\PSoC5\\Noise_Vol_Clk_Div_PM.c\000"
+ 572      72617465 
+ 572      645F536F 
+ 572      75726365 
+ 572      5C50536F 
+ 573              	.LASF26:
+ 574 00a8 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_backup\000"
+ 574      655F566F 
+ 574      6C5F436C 
+ 574      6B5F4469 
+ 574      765F6261 
+ 575              	.LASF10:
+ 576 00c1 646F7562 		.ascii	"double\000"
+ 576      6C6500
+ 577              	.LASF20:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 14
+
+
+ 578 00c8 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_Wakeup\000"
+ 578      655F566F 
+ 578      6C5F436C 
+ 578      6B5F4469 
+ 578      765F5761 
+ 579              	.LASF23:
+ 580 00e1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 580      4320342E 
+ 580      392E3320 
+ 580      32303135 
+ 580      30333033 
+ 581 0114 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 581      20726576 
+ 581      6973696F 
+ 581      6E203232 
+ 581      31323230 
+ 582 0147 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 582      66756E63 
+ 582      74696F6E 
+ 582      2D736563 
+ 582      74696F6E 
+ 583              	.LASF8:
+ 584 016f 756E7369 		.ascii	"unsigned int\000"
+ 584      676E6564 
+ 584      20696E74 
+ 584      00
+ 585              	.LASF7:
+ 586 017c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 586      206C6F6E 
+ 586      6720756E 
+ 586      7369676E 
+ 586      65642069 
+ 587              	.LASF25:
+ 588 0193 433A5C55 		.ascii	"C:\\Users\\214016586\\Documents\\PSoC Creator\\APU2"
+ 588      73657273 
+ 588      5C323134 
+ 588      30313635 
+ 588      38365C44 
+ 589 01c1 4130335C 		.ascii	"A03\\APU2A03.cydsn\000"
+ 589      41505532 
+ 589      4130332E 
+ 589      63796473 
+ 589      6E00
+ 590              	.LASF16:
+ 591 01d3 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_BACKUP_STRUCT\000"
+ 591      655F566F 
+ 591      6C5F436C 
+ 591      6B5F4469 
+ 591      765F4241 
+ 592              	.LASF19:
+ 593 01f3 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_Sleep\000"
+ 593      655F566F 
+ 593      6C5F436C 
+ 593      6B5F4469 
+ 593      765F536C 
+ 594              	.LASF18:
+ 595 020b 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_RestoreConfig\000"
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\ccBH7ZSe.s 			page 15
+
+
+ 595      655F566F 
+ 595      6C5F436C 
+ 595      6B5F4469 
+ 595      765F5265 
+ 596              	.LASF6:
+ 597 022b 6C6F6E67 		.ascii	"long long int\000"
+ 597      206C6F6E 
+ 597      6720696E 
+ 597      7400
+ 598              	.LASF11:
+ 599 0239 63686172 		.ascii	"char\000"
+ 599      00
+ 600              	.LASF2:
+ 601 023e 73686F72 		.ascii	"short int\000"
+ 601      7420696E 
+ 601      7400
+ 602              	.LASF12:
+ 603 0248 75696E74 		.ascii	"uint8\000"
+ 603      3800
+ 604              	.LASF4:
+ 605 024e 6C6F6E67 		.ascii	"long int\000"
+ 605      20696E74 
+ 605      00
+ 606              	.LASF14:
+ 607 0257 656E6162 		.ascii	"enableState\000"
+ 607      6C655374 
+ 607      61746500 
+ 608              	.LASF0:
+ 609 0263 7369676E 		.ascii	"signed char\000"
+ 609      65642063 
+ 609      68617200 
+ 610              	.LASF21:
+ 611 026f 4E6F6973 		.ascii	"Noise_Vol_Clk_Div_Stop\000"
+ 611      655F566F 
+ 611      6C5F436C 
+ 611      6B5F4469 
+ 611      765F5374 
+ 612              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
