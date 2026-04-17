@@ -18,20 +18,14 @@
 #if !defined(CY_PRS_LFSR_H)
 #define CY_PRS_LFSR_H
 
-#include "cytypes.h"
 #include "cyfitter.h"
+#include "cytypes.h"
 #include "CyLib.h"
+
 
 /***************************************
 *   Conditional Compilation Parameters
 ****************************************/
-
-/* Check to see if required defines such as CY_PSOC5A are available */
-/* They are defined starting with cy_boot v3.0 */
-
-#if !defined (CY_PSOC5A)
-    #error Component PRS_v2_40 requires cy_boot v3.0 or later
-#endif /* (CY_ PSOC5A) */
 
 #define LFSR_PRS_SIZE                   (14u)
 #define LFSR_RUN_MODE                   (0u)

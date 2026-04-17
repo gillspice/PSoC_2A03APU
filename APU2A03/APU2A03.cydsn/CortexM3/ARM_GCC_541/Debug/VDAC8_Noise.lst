@@ -1,0 +1,1420 @@
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"VDAC8_Noise.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.VDAC8_Noise_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	VDAC8_Noise_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	VDAC8_Noise_Enable, %function
+  25              	VDAC8_Noise_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\VDAC8_Noise.c"
+   1:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/VDAC8_Noise.c **** * File Name: VDAC8_Noise.c  
+   3:Generated_Source\PSoC5/VDAC8_Noise.c **** * Version 1.90
+   4:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+   5:Generated_Source\PSoC5/VDAC8_Noise.c **** * Description:
+   6:Generated_Source\PSoC5/VDAC8_Noise.c **** *  This file provides the source code to the API for the 8-bit Voltage DAC 
+   7:Generated_Source\PSoC5/VDAC8_Noise.c **** *  (VDAC8) User Module.
+   8:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+   9:Generated_Source\PSoC5/VDAC8_Noise.c **** * Note:
+  10:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Any unusual or non-standard behavior should be noted here. Other-
+  11:Generated_Source\PSoC5/VDAC8_Noise.c **** *  wise, this section should remain blank.
+  12:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  13:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+  14:Generated_Source\PSoC5/VDAC8_Noise.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  15:Generated_Source\PSoC5/VDAC8_Noise.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  16:Generated_Source\PSoC5/VDAC8_Noise.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  17:Generated_Source\PSoC5/VDAC8_Noise.c **** * the software package with which this file was provided.
+  18:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+  19:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  20:Generated_Source\PSoC5/VDAC8_Noise.c **** #include "cytypes.h"
+  21:Generated_Source\PSoC5/VDAC8_Noise.c **** #include "VDAC8_Noise.h"
+  22:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  23:Generated_Source\PSoC5/VDAC8_Noise.c **** #if (CY_PSOC5A)
+  24:Generated_Source\PSoC5/VDAC8_Noise.c **** #include <CyLib.h>
+  25:Generated_Source\PSoC5/VDAC8_Noise.c **** #endif /* CY_PSOC5A */
+  26:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  27:Generated_Source\PSoC5/VDAC8_Noise.c **** uint8 VDAC8_Noise_initVar = 0u;
+  28:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  29:Generated_Source\PSoC5/VDAC8_Noise.c **** #if (CY_PSOC5A)
+  30:Generated_Source\PSoC5/VDAC8_Noise.c ****     static uint8 VDAC8_Noise_restoreVal = 0u;
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 2
+
+
+  31:Generated_Source\PSoC5/VDAC8_Noise.c **** #endif /* CY_PSOC5A */
+  32:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  33:Generated_Source\PSoC5/VDAC8_Noise.c **** #if (CY_PSOC5A)
+  34:Generated_Source\PSoC5/VDAC8_Noise.c ****     static VDAC8_Noise_backupStruct VDAC8_Noise_backup;
+  35:Generated_Source\PSoC5/VDAC8_Noise.c **** #endif /* CY_PSOC5A */
+  36:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  37:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  38:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+  39:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_Init
+  40:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+  41:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+  42:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Initialize to the schematic state.
+  43:Generated_Source\PSoC5/VDAC8_Noise.c **** * 
+  44:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+  45:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void:
+  46:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  47:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+  48:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+  49:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  50:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory:
+  51:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  52:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+  53:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  54:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+  55:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_Init(void) 
+  56:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+  57:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 = (VDAC8_Noise_MODE_V );
+  58:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  59:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Set default data source */
+  60:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if(VDAC8_Noise_DEFAULT_DATA_SRC != 0 )
+  61:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_CR1 = (VDAC8_Noise_DEFAULT_CNTL | VDAC8_Noise_DACBUS_ENABLE) ;
+  62:Generated_Source\PSoC5/VDAC8_Noise.c ****     #else
+  63:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_CR1 = (VDAC8_Noise_DEFAULT_CNTL | VDAC8_Noise_DACBUS_DISABLE) ;
+  64:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif /* (VDAC8_Noise_DEFAULT_DATA_SRC != 0 ) */
+  65:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  66:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Set default strobe mode */
+  67:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if(VDAC8_Noise_DEFAULT_STRB != 0)
+  68:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_Strobe |= VDAC8_Noise_STRB_EN ;
+  69:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif/* (VDAC8_Noise_DEFAULT_STRB != 0) */
+  70:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  71:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Set default range */
+  72:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_SetRange(VDAC8_Noise_DEFAULT_RANGE); 
+  73:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  74:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Set default speed */
+  75:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_SetSpeed(VDAC8_Noise_DEFAULT_SPEED);
+  76:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+  77:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  78:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+  79:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+  80:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_Enable
+  81:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+  82:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+  83:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Enable the VDAC8
+  84:Generated_Source\PSoC5/VDAC8_Noise.c **** * 
+  85:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+  86:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+  87:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 3
+
+
+  88:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+  89:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+  90:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  91:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory:
+  92:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  93:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+  94:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+  95:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+  96:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_Enable(void) 
+  97:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+  28              		.loc 1 97 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  98:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_PWRMGR |= VDAC8_Noise_ACT_PWR_EN;
+  33              		.loc 1 98 0
+  34 0000 054A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F00403 		orr	r3, r3, #4
+  37 0008 1370     		strb	r3, [r2]
+  99:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_STBY_PWRMGR |= VDAC8_Noise_STBY_PWR_EN;
+  38              		.loc 1 99 0
+  39 000a 1032     		adds	r2, r2, #16
+  40 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  41 000e 43F00403 		orr	r3, r3, #4
+  42 0012 1370     		strb	r3, [r2]
+  43 0014 7047     		bx	lr
+  44              	.L3:
+  45 0016 00BF     		.align	2
+  46              	.L2:
+  47 0018 A8430040 		.word	1073759144
+  48              		.cfi_endproc
+  49              	.LFE1:
+  50              		.size	VDAC8_Noise_Enable, .-VDAC8_Noise_Enable
+  51              		.section	.text.VDAC8_Noise_Stop,"ax",%progbits
+  52              		.align	2
+  53              		.global	VDAC8_Noise_Stop
+  54              		.thumb
+  55              		.thumb_func
+  56              		.type	VDAC8_Noise_Stop, %function
+  57              	VDAC8_Noise_Stop:
+  58              	.LFB3:
+ 100:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 101:Generated_Source\PSoC5/VDAC8_Noise.c ****     /*This is to restore the value of register CR0 ,
+ 102:Generated_Source\PSoC5/VDAC8_Noise.c ****     which is modified  in Stop API , this prevents misbehaviour of VDAC */
+ 103:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if (CY_PSOC5A)
+ 104:Generated_Source\PSoC5/VDAC8_Noise.c ****         if(VDAC8_Noise_restoreVal == 1u) 
+ 105:Generated_Source\PSoC5/VDAC8_Noise.c ****         {
+ 106:Generated_Source\PSoC5/VDAC8_Noise.c ****              VDAC8_Noise_CR0 = VDAC8_Noise_backup.data_value;
+ 107:Generated_Source\PSoC5/VDAC8_Noise.c ****              VDAC8_Noise_restoreVal = 0u;
+ 108:Generated_Source\PSoC5/VDAC8_Noise.c ****         }
+ 109:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif /* CY_PSOC5A */
+ 110:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 111:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 112:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 113:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 4
+
+
+ 114:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_Start
+ 115:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 116:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 117:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 118:Generated_Source\PSoC5/VDAC8_Noise.c **** *  The start function initializes the voltage DAC with the default values, 
+ 119:Generated_Source\PSoC5/VDAC8_Noise.c **** *  and sets the power to the given level.  A power level of 0, is the same as
+ 120:Generated_Source\PSoC5/VDAC8_Noise.c **** *  executing the stop function.
+ 121:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 122:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+ 123:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Power: Sets power level between off (0) and (3) high power
+ 124:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 125:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+ 126:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void 
+ 127:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 128:Generated_Source\PSoC5/VDAC8_Noise.c **** * Global variables:
+ 129:Generated_Source\PSoC5/VDAC8_Noise.c **** *  VDAC8_Noise_initVar: Is modified when this function is called for the 
+ 130:Generated_Source\PSoC5/VDAC8_Noise.c **** *  first time. Is used to ensure that initialization happens only once.
+ 131:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 132:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 133:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_Start(void)  
+ 134:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+ 135:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Hardware initiazation only needs to occure the first time */
+ 136:Generated_Source\PSoC5/VDAC8_Noise.c ****     if(VDAC8_Noise_initVar == 0u)
+ 137:Generated_Source\PSoC5/VDAC8_Noise.c ****     { 
+ 138:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_Init();
+ 139:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_initVar = 1u;
+ 140:Generated_Source\PSoC5/VDAC8_Noise.c ****     }
+ 141:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 142:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Enable power to DAC */
+ 143:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_Enable();
+ 144:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 145:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Set default value */
+ 146:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_SetValue(VDAC8_Noise_DEFAULT_DATA); 
+ 147:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 148:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 149:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 150:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ 151:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_Stop
+ 152:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 153:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 154:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 155:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Powers down DAC to lowest power state.
+ 156:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 157:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+ 158:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+ 159:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 160:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+ 161:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+ 162:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 163:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory:
+ 164:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 165:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+ 166:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 167:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 168:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_Stop(void) 
+ 169:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+  59              		.loc 1 169 0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 5
+
+
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+ 170:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Disble power to DAC */
+ 171:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_PWRMGR &= (uint8)(~VDAC8_Noise_ACT_PWR_EN);
+  64              		.loc 1 171 0
+  65 0000 054A     		ldr	r2, .L5
+  66 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  67 0004 03F0FB03 		and	r3, r3, #251
+  68 0008 1370     		strb	r3, [r2]
+ 172:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_STBY_PWRMGR &= (uint8)(~VDAC8_Noise_STBY_PWR_EN);
+  69              		.loc 1 172 0
+  70 000a 1032     		adds	r2, r2, #16
+  71 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  72 000e 03F0FB03 		and	r3, r3, #251
+  73 0012 1370     		strb	r3, [r2]
+  74 0014 7047     		bx	lr
+  75              	.L6:
+  76 0016 00BF     		.align	2
+  77              	.L5:
+  78 0018 A8430040 		.word	1073759144
+  79              		.cfi_endproc
+  80              	.LFE3:
+  81              		.size	VDAC8_Noise_Stop, .-VDAC8_Noise_Stop
+  82              		.section	.text.VDAC8_Noise_SetSpeed,"ax",%progbits
+  83              		.align	2
+  84              		.global	VDAC8_Noise_SetSpeed
+  85              		.thumb
+  86              		.thumb_func
+  87              		.type	VDAC8_Noise_SetSpeed, %function
+  88              	VDAC8_Noise_SetSpeed:
+  89              	.LFB4:
+ 173:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 174:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* This is a work around for PSoC5A  ,
+ 175:Generated_Source\PSoC5/VDAC8_Noise.c ****     this sets VDAC to current mode with output off */
+ 176:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if (CY_PSOC5A)
+ 177:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_backup.data_value = VDAC8_Noise_CR0;
+ 178:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_CR0 = VDAC8_Noise_CUR_MODE_OUT_OFF;
+ 179:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_restoreVal = 1u;
+ 180:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif /* CY_PSOC5A */
+ 181:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 182:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 183:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 184:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ 185:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_SetSpeed
+ 186:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 187:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 188:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 189:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Set DAC speed
+ 190:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 191:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+ 192:Generated_Source\PSoC5/VDAC8_Noise.c **** *  power: Sets speed value
+ 193:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 194:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+ 195:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+ 196:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 6
+
+
+ 197:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory:
+ 198:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 199:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+ 200:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 201:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 202:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_SetSpeed(uint8 speed) 
+ 203:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+  90              		.loc 1 203 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95              	.LVL0:
+ 204:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Clear power mask then write in new value */
+ 205:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 &= (uint8)(~VDAC8_Noise_HS_MASK);
+  96              		.loc 1 205 0
+  97 0000 054B     		ldr	r3, .L8
+  98 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  99 0004 02F0FD02 		and	r2, r2, #253
+ 100 0008 1A70     		strb	r2, [r3]
+ 206:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 |=  (speed & VDAC8_Noise_HS_MASK);
+ 101              		.loc 1 206 0
+ 102 000a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 103 000c 00F00200 		and	r0, r0, #2
+ 104              	.LVL1:
+ 105 0010 1043     		orrs	r0, r0, r2
+ 106 0012 1870     		strb	r0, [r3]
+ 107 0014 7047     		bx	lr
+ 108              	.L9:
+ 109 0016 00BF     		.align	2
+ 110              	.L8:
+ 111 0018 28580040 		.word	1073764392
+ 112              		.cfi_endproc
+ 113              	.LFE4:
+ 114              		.size	VDAC8_Noise_SetSpeed, .-VDAC8_Noise_SetSpeed
+ 115              		.section	.text.VDAC8_Noise_SetValue,"ax",%progbits
+ 116              		.align	2
+ 117              		.global	VDAC8_Noise_SetValue
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.type	VDAC8_Noise_SetValue, %function
+ 121              	VDAC8_Noise_SetValue:
+ 122              	.LFB6:
+ 207:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 208:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 209:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 210:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ 211:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_SetRange
+ 212:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 213:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 214:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 215:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Set one of three current ranges.
+ 216:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 217:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+ 218:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Range: Sets one of Three valid ranges.
+ 219:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 220:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 7
+
+
+ 221:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void 
+ 222:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 223:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory:
+ 224:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 225:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+ 226:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 227:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 228:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_SetRange(uint8 range) 
+ 229:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+ 230:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 &= (uint8)(~VDAC8_Noise_RANGE_MASK);      /* Clear existing mode */
+ 231:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 |= (range & VDAC8_Noise_RANGE_MASK);      /*  Set Range  */
+ 232:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_DacTrim();
+ 233:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 234:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 235:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 236:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ 237:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_SetValue
+ 238:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 239:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 240:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 241:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Set 8-bit DAC value
+ 242:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 243:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:  
+ 244:Generated_Source\PSoC5/VDAC8_Noise.c **** *  value:  Sets DAC value between 0 and 255.
+ 245:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 246:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return: 
+ 247:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void 
+ 248:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 249:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory: 
+ 250:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 251:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+ 252:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 253:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 254:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_SetValue(uint8 value) 
+ 255:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+ 123              		.loc 1 255 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128              	.LVL2:
+ 256:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if (CY_PSOC5A)
+ 257:Generated_Source\PSoC5/VDAC8_Noise.c ****         uint8 VDAC8_Noise_intrStatus = CyEnterCriticalSection();
+ 258:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif /* CY_PSOC5A */
+ 259:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 260:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_Data = value;                /*  Set Value  */
+ 129              		.loc 1 260 0
+ 130 0000 014B     		ldr	r3, .L11
+ 131 0002 1870     		strb	r0, [r3]
+ 132 0004 7047     		bx	lr
+ 133              	.L12:
+ 134 0006 00BF     		.align	2
+ 135              	.L11:
+ 136 0008 825B0040 		.word	1073765250
+ 137              		.cfi_endproc
+ 138              	.LFE6:
+ 139              		.size	VDAC8_Noise_SetValue, .-VDAC8_Noise_SetValue
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 8
+
+
+ 140              		.section	.text.VDAC8_Noise_DacTrim,"ax",%progbits
+ 141              		.align	2
+ 142              		.global	VDAC8_Noise_DacTrim
+ 143              		.thumb
+ 144              		.thumb_func
+ 145              		.type	VDAC8_Noise_DacTrim, %function
+ 146              	VDAC8_Noise_DacTrim:
+ 147              	.LFB7:
+ 261:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 262:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* PSOC5A requires a double write */
+ 263:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Exit Critical Section */
+ 264:Generated_Source\PSoC5/VDAC8_Noise.c ****     #if (CY_PSOC5A)
+ 265:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_Data = value;
+ 266:Generated_Source\PSoC5/VDAC8_Noise.c ****         CyExitCriticalSection(VDAC8_Noise_intrStatus);
+ 267:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif /* CY_PSOC5A */
+ 268:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 269:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 270:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 271:Generated_Source\PSoC5/VDAC8_Noise.c **** /*******************************************************************************
+ 272:Generated_Source\PSoC5/VDAC8_Noise.c **** * Function Name: VDAC8_Noise_DacTrim
+ 273:Generated_Source\PSoC5/VDAC8_Noise.c **** ********************************************************************************
+ 274:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 275:Generated_Source\PSoC5/VDAC8_Noise.c **** * Summary:
+ 276:Generated_Source\PSoC5/VDAC8_Noise.c **** *  Set the trim value for the given range.
+ 277:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 278:Generated_Source\PSoC5/VDAC8_Noise.c **** * Parameters:
+ 279:Generated_Source\PSoC5/VDAC8_Noise.c **** *  range:  1V or 4V range.  See constants.
+ 280:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 281:Generated_Source\PSoC5/VDAC8_Noise.c **** * Return:
+ 282:Generated_Source\PSoC5/VDAC8_Noise.c **** *  void
+ 283:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 284:Generated_Source\PSoC5/VDAC8_Noise.c **** * Theory: 
+ 285:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 286:Generated_Source\PSoC5/VDAC8_Noise.c **** * Side Effects:
+ 287:Generated_Source\PSoC5/VDAC8_Noise.c **** *
+ 288:Generated_Source\PSoC5/VDAC8_Noise.c **** *******************************************************************************/
+ 289:Generated_Source\PSoC5/VDAC8_Noise.c **** void VDAC8_Noise_DacTrim(void) 
+ 290:Generated_Source\PSoC5/VDAC8_Noise.c **** {
+ 148              		.loc 1 290 0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
+ 291:Generated_Source\PSoC5/VDAC8_Noise.c ****     uint8 mode;
+ 292:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 293:Generated_Source\PSoC5/VDAC8_Noise.c ****     mode = (uint8)((VDAC8_Noise_CR0 & VDAC8_Noise_RANGE_MASK) >> 2) + VDAC8_Noise_TRIM_M7_1V_RNG_OF
+ 153              		.loc 1 293 0
+ 154 0000 064B     		ldr	r3, .L14
+ 155 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 156 0004 C3F38103 		ubfx	r3, r3, #2, #2
+ 157              	.LVL3:
+ 294:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_TR = CY_GET_XTND_REG8((uint8 *)(VDAC8_Noise_DAC_TRIM_BASE + mode));
+ 158              		.loc 1 294 0
+ 159 0008 03F19243 		add	r3, r3, #1224736768
+ 160              	.LVL4:
+ 161 000c 0633     		adds	r3, r3, #6
+ 162              	.LVL5:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 9
+
+
+ 163 000e 93F82831 		ldrb	r3, [r3, #296]	@ zero_extendqisi2
+ 164              	.LVL6:
+ 165 0012 DBB2     		uxtb	r3, r3
+ 166 0014 024A     		ldr	r2, .L14+4
+ 167 0016 1370     		strb	r3, [r2]
+ 168 0018 7047     		bx	lr
+ 169              	.L15:
+ 170 001a 00BF     		.align	2
+ 171              	.L14:
+ 172 001c 28580040 		.word	1073764392
+ 173 0020 0A460040 		.word	1073759754
+ 174              		.cfi_endproc
+ 175              	.LFE7:
+ 176              		.size	VDAC8_Noise_DacTrim, .-VDAC8_Noise_DacTrim
+ 177              		.section	.text.VDAC8_Noise_SetRange,"ax",%progbits
+ 178              		.align	2
+ 179              		.global	VDAC8_Noise_SetRange
+ 180              		.thumb
+ 181              		.thumb_func
+ 182              		.type	VDAC8_Noise_SetRange, %function
+ 183              	VDAC8_Noise_SetRange:
+ 184              	.LFB5:
+ 229:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 &= (uint8)(~VDAC8_Noise_RANGE_MASK);      /* Clear existing mode */
+ 185              		.loc 1 229 0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              	.LVL7:
+ 190 0000 08B5     		push	{r3, lr}
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 3, -8
+ 193              		.cfi_offset 14, -4
+ 230:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 |= (range & VDAC8_Noise_RANGE_MASK);      /*  Set Range  */
+ 194              		.loc 1 230 0
+ 195 0002 064B     		ldr	r3, .L18
+ 196 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 197 0006 02F0F302 		and	r2, r2, #243
+ 198 000a 1A70     		strb	r2, [r3]
+ 231:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_DacTrim();
+ 199              		.loc 1 231 0
+ 200 000c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 201 000e 00F00C00 		and	r0, r0, #12
+ 202              	.LVL8:
+ 203 0012 1043     		orrs	r0, r0, r2
+ 204 0014 1870     		strb	r0, [r3]
+ 232:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 205              		.loc 1 232 0
+ 206 0016 FFF7FEFF 		bl	VDAC8_Noise_DacTrim
+ 207              	.LVL9:
+ 208 001a 08BD     		pop	{r3, pc}
+ 209              	.L19:
+ 210              		.align	2
+ 211              	.L18:
+ 212 001c 28580040 		.word	1073764392
+ 213              		.cfi_endproc
+ 214              	.LFE5:
+ 215              		.size	VDAC8_Noise_SetRange, .-VDAC8_Noise_SetRange
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 10
+
+
+ 216              		.section	.text.VDAC8_Noise_Init,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	VDAC8_Noise_Init
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	VDAC8_Noise_Init, %function
+ 222              	VDAC8_Noise_Init:
+ 223              	.LFB0:
+  56:Generated_Source\PSoC5/VDAC8_Noise.c ****     VDAC8_Noise_CR0 = (VDAC8_Noise_MODE_V );
+ 224              		.loc 1 56 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228 0000 08B5     		push	{r3, lr}
+ 229              		.cfi_def_cfa_offset 8
+ 230              		.cfi_offset 3, -8
+ 231              		.cfi_offset 14, -4
+  57:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 232              		.loc 1 57 0
+ 233 0002 0022     		movs	r2, #0
+ 234 0004 084B     		ldr	r3, .L22
+ 235 0006 1A70     		strb	r2, [r3]
+  61:Generated_Source\PSoC5/VDAC8_Noise.c ****     #else
+ 236              		.loc 1 61 0
+ 237 0008 2022     		movs	r2, #32
+ 238 000a 0133     		adds	r3, r3, #1
+ 239 000c 1A70     		strb	r2, [r3]
+  68:Generated_Source\PSoC5/VDAC8_Noise.c ****     #endif/* (VDAC8_Noise_DEFAULT_STRB != 0) */
+ 240              		.loc 1 68 0
+ 241 000e 074A     		ldr	r2, .L22+4
+ 242 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 243 0012 43F00803 		orr	r3, r3, #8
+ 244 0016 1370     		strb	r3, [r2]
+  72:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 245              		.loc 1 72 0
+ 246 0018 0420     		movs	r0, #4
+ 247 001a FFF7FEFF 		bl	VDAC8_Noise_SetRange
+ 248              	.LVL10:
+  75:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 249              		.loc 1 75 0
+ 250 001e 0220     		movs	r0, #2
+ 251 0020 FFF7FEFF 		bl	VDAC8_Noise_SetSpeed
+ 252              	.LVL11:
+ 253 0024 08BD     		pop	{r3, pc}
+ 254              	.L23:
+ 255 0026 00BF     		.align	2
+ 256              	.L22:
+ 257 0028 28580040 		.word	1073764392
+ 258 002c 975A0040 		.word	1073765015
+ 259              		.cfi_endproc
+ 260              	.LFE0:
+ 261              		.size	VDAC8_Noise_Init, .-VDAC8_Noise_Init
+ 262              		.section	.text.VDAC8_Noise_Start,"ax",%progbits
+ 263              		.align	2
+ 264              		.global	VDAC8_Noise_Start
+ 265              		.thumb
+ 266              		.thumb_func
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 11
+
+
+ 267              		.type	VDAC8_Noise_Start, %function
+ 268              	VDAC8_Noise_Start:
+ 269              	.LFB2:
+ 134:Generated_Source\PSoC5/VDAC8_Noise.c ****     /* Hardware initiazation only needs to occure the first time */
+ 270              		.loc 1 134 0
+ 271              		.cfi_startproc
+ 272              		@ args = 0, pretend = 0, frame = 0
+ 273              		@ frame_needed = 0, uses_anonymous_args = 0
+ 274 0000 08B5     		push	{r3, lr}
+ 275              		.cfi_def_cfa_offset 8
+ 276              		.cfi_offset 3, -8
+ 277              		.cfi_offset 14, -4
+ 136:Generated_Source\PSoC5/VDAC8_Noise.c ****     { 
+ 278              		.loc 1 136 0
+ 279 0002 074B     		ldr	r3, .L27
+ 280 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 281 0006 23B9     		cbnz	r3, .L25
+ 138:Generated_Source\PSoC5/VDAC8_Noise.c ****         VDAC8_Noise_initVar = 1u;
+ 282              		.loc 1 138 0
+ 283 0008 FFF7FEFF 		bl	VDAC8_Noise_Init
+ 284              	.LVL12:
+ 139:Generated_Source\PSoC5/VDAC8_Noise.c ****     }
+ 285              		.loc 1 139 0
+ 286 000c 0122     		movs	r2, #1
+ 287 000e 044B     		ldr	r3, .L27
+ 288 0010 1A70     		strb	r2, [r3]
+ 289              	.L25:
+ 143:Generated_Source\PSoC5/VDAC8_Noise.c **** 
+ 290              		.loc 1 143 0
+ 291 0012 FFF7FEFF 		bl	VDAC8_Noise_Enable
+ 292              	.LVL13:
+ 146:Generated_Source\PSoC5/VDAC8_Noise.c **** }
+ 293              		.loc 1 146 0
+ 294 0016 6420     		movs	r0, #100
+ 295 0018 FFF7FEFF 		bl	VDAC8_Noise_SetValue
+ 296              	.LVL14:
+ 297 001c 08BD     		pop	{r3, pc}
+ 298              	.L28:
+ 299 001e 00BF     		.align	2
+ 300              	.L27:
+ 301 0020 00000000 		.word	.LANCHOR0
+ 302              		.cfi_endproc
+ 303              	.LFE2:
+ 304              		.size	VDAC8_Noise_Start, .-VDAC8_Noise_Start
+ 305              		.global	VDAC8_Noise_initVar
+ 306              		.bss
+ 307              		.set	.LANCHOR0,. + 0
+ 308              		.type	VDAC8_Noise_initVar, %object
+ 309              		.size	VDAC8_Noise_initVar, 1
+ 310              	VDAC8_Noise_initVar:
+ 311 0000 00       		.space	1
+ 312              		.text
+ 313              	.Letext0:
+ 314              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 315              		.section	.debug_info,"",%progbits
+ 316              	.Ldebug_info0:
+ 317 0000 DA010000 		.4byte	0x1da
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 12
+
+
+ 318 0004 0400     		.2byte	0x4
+ 319 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 320 000a 04       		.byte	0x4
+ 321 000b 01       		.uleb128 0x1
+ 322 000c 92000000 		.4byte	.LASF25
+ 323 0010 0C       		.byte	0xc
+ 324 0011 A9010000 		.4byte	.LASF26
+ 325 0015 2A000000 		.4byte	.LASF27
+ 326 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 327 001d 00000000 		.4byte	0
+ 328 0021 00000000 		.4byte	.Ldebug_line0
+ 329 0025 02       		.uleb128 0x2
+ 330 0026 01       		.byte	0x1
+ 331 0027 06       		.byte	0x6
+ 332 0028 11020000 		.4byte	.LASF0
+ 333 002c 02       		.uleb128 0x2
+ 334 002d 01       		.byte	0x1
+ 335 002e 08       		.byte	0x8
+ 336 002f 84000000 		.4byte	.LASF1
+ 337 0033 02       		.uleb128 0x2
+ 338 0034 02       		.byte	0x2
+ 339 0035 05       		.byte	0x5
+ 340 0036 F8010000 		.4byte	.LASF2
+ 341 003a 02       		.uleb128 0x2
+ 342 003b 02       		.byte	0x2
+ 343 003c 07       		.byte	0x7
+ 344 003d 37010000 		.4byte	.LASF3
+ 345 0041 02       		.uleb128 0x2
+ 346 0042 04       		.byte	0x4
+ 347 0043 05       		.byte	0x5
+ 348 0044 08020000 		.4byte	.LASF4
+ 349 0048 02       		.uleb128 0x2
+ 350 0049 04       		.byte	0x4
+ 351 004a 07       		.byte	0x7
+ 352 004b 25010000 		.4byte	.LASF5
+ 353 004f 02       		.uleb128 0x2
+ 354 0050 08       		.byte	0x8
+ 355 0051 05       		.byte	0x5
+ 356 0052 D4010000 		.4byte	.LASF6
+ 357 0056 02       		.uleb128 0x2
+ 358 0057 08       		.byte	0x8
+ 359 0058 07       		.byte	0x7
+ 360 0059 79010000 		.4byte	.LASF7
+ 361 005d 03       		.uleb128 0x3
+ 362 005e 04       		.byte	0x4
+ 363 005f 05       		.byte	0x5
+ 364 0060 696E7400 		.ascii	"int\000"
+ 365 0064 02       		.uleb128 0x2
+ 366 0065 04       		.byte	0x4
+ 367 0066 07       		.byte	0x7
+ 368 0067 6C010000 		.4byte	.LASF8
+ 369 006b 04       		.uleb128 0x4
+ 370 006c 02020000 		.4byte	.LASF12
+ 371 0070 02       		.byte	0x2
+ 372 0071 9201     		.2byte	0x192
+ 373 0073 2C000000 		.4byte	0x2c
+ 374 0077 02       		.uleb128 0x2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 13
+
+
+ 375 0078 04       		.byte	0x4
+ 376 0079 04       		.byte	0x4
+ 377 007a 6C000000 		.4byte	.LASF9
+ 378 007e 02       		.uleb128 0x2
+ 379 007f 08       		.byte	0x8
+ 380 0080 04       		.byte	0x4
+ 381 0081 50010000 		.4byte	.LASF10
+ 382 0085 02       		.uleb128 0x2
+ 383 0086 01       		.byte	0x1
+ 384 0087 08       		.byte	0x8
+ 385 0088 F3010000 		.4byte	.LASF11
+ 386 008c 04       		.uleb128 0x4
+ 387 008d 20010000 		.4byte	.LASF13
+ 388 0091 02       		.byte	0x2
+ 389 0092 3C02     		.2byte	0x23c
+ 390 0094 98000000 		.4byte	0x98
+ 391 0098 05       		.uleb128 0x5
+ 392 0099 6B000000 		.4byte	0x6b
+ 393 009d 06       		.uleb128 0x6
+ 394 009e 00000000 		.4byte	.LASF14
+ 395 00a2 01       		.byte	0x1
+ 396 00a3 60       		.byte	0x60
+ 397 00a4 00000000 		.4byte	.LFB1
+ 398 00a8 1C000000 		.4byte	.LFE1-.LFB1
+ 399 00ac 01       		.uleb128 0x1
+ 400 00ad 9C       		.byte	0x9c
+ 401 00ae 06       		.uleb128 0x6
+ 402 00af 13000000 		.4byte	.LASF15
+ 403 00b3 01       		.byte	0x1
+ 404 00b4 A8       		.byte	0xa8
+ 405 00b5 00000000 		.4byte	.LFB3
+ 406 00b9 1C000000 		.4byte	.LFE3-.LFB3
+ 407 00bd 01       		.uleb128 0x1
+ 408 00be 9C       		.byte	0x9c
+ 409 00bf 07       		.uleb128 0x7
+ 410 00c0 57010000 		.4byte	.LASF16
+ 411 00c4 01       		.byte	0x1
+ 412 00c5 CA       		.byte	0xca
+ 413 00c6 00000000 		.4byte	.LFB4
+ 414 00ca 1C000000 		.4byte	.LFE4-.LFB4
+ 415 00ce 01       		.uleb128 0x1
+ 416 00cf 9C       		.byte	0x9c
+ 417 00d0 E4000000 		.4byte	0xe4
+ 418 00d4 08       		.uleb128 0x8
+ 419 00d5 CE010000 		.4byte	.LASF18
+ 420 00d9 01       		.byte	0x1
+ 421 00da CA       		.byte	0xca
+ 422 00db 6B000000 		.4byte	0x6b
+ 423 00df 00000000 		.4byte	.LLST0
+ 424 00e3 00       		.byte	0
+ 425 00e4 07       		.uleb128 0x7
+ 426 00e5 31020000 		.4byte	.LASF17
+ 427 00e9 01       		.byte	0x1
+ 428 00ea FE       		.byte	0xfe
+ 429 00eb 00000000 		.4byte	.LFB6
+ 430 00ef 0C000000 		.4byte	.LFE6-.LFB6
+ 431 00f3 01       		.uleb128 0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 14
+
+
+ 432 00f4 9C       		.byte	0x9c
+ 433 00f5 07010000 		.4byte	0x107
+ 434 00f9 09       		.uleb128 0x9
+ 435 00fa 24000000 		.4byte	.LASF19
+ 436 00fe 01       		.byte	0x1
+ 437 00ff FE       		.byte	0xfe
+ 438 0100 6B000000 		.4byte	0x6b
+ 439 0104 01       		.uleb128 0x1
+ 440 0105 50       		.byte	0x50
+ 441 0106 00       		.byte	0
+ 442 0107 0A       		.uleb128 0xa
+ 443 0108 1D020000 		.4byte	.LASF20
+ 444 010c 01       		.byte	0x1
+ 445 010d 2101     		.2byte	0x121
+ 446 010f 00000000 		.4byte	.LFB7
+ 447 0113 24000000 		.4byte	.LFE7-.LFB7
+ 448 0117 01       		.uleb128 0x1
+ 449 0118 9C       		.byte	0x9c
+ 450 0119 2E010000 		.4byte	0x12e
+ 451 011d 0B       		.uleb128 0xb
+ 452 011e 90010000 		.4byte	.LASF28
+ 453 0122 01       		.byte	0x1
+ 454 0123 2301     		.2byte	0x123
+ 455 0125 6B000000 		.4byte	0x6b
+ 456 0129 21000000 		.4byte	.LLST1
+ 457 012d 00       		.byte	0
+ 458 012e 07       		.uleb128 0x7
+ 459 012f 57000000 		.4byte	.LASF21
+ 460 0133 01       		.byte	0x1
+ 461 0134 E4       		.byte	0xe4
+ 462 0135 00000000 		.4byte	.LFB5
+ 463 0139 20000000 		.4byte	.LFE5-.LFB5
+ 464 013d 01       		.uleb128 0x1
+ 465 013e 9C       		.byte	0x9c
+ 466 013f 5C010000 		.4byte	0x15c
+ 467 0143 08       		.uleb128 0x8
+ 468 0144 4A010000 		.4byte	.LASF22
+ 469 0148 01       		.byte	0x1
+ 470 0149 E4       		.byte	0xe4
+ 471 014a 6B000000 		.4byte	0x6b
+ 472 014e 58000000 		.4byte	.LLST2
+ 473 0152 0C       		.uleb128 0xc
+ 474 0153 1A000000 		.4byte	.LVL9
+ 475 0157 07010000 		.4byte	0x107
+ 476 015b 00       		.byte	0
+ 477 015c 07       		.uleb128 0x7
+ 478 015d E2010000 		.4byte	.LASF23
+ 479 0161 01       		.byte	0x1
+ 480 0162 37       		.byte	0x37
+ 481 0163 00000000 		.4byte	.LFB0
+ 482 0167 30000000 		.4byte	.LFE0-.LFB0
+ 483 016b 01       		.uleb128 0x1
+ 484 016c 9C       		.byte	0x9c
+ 485 016d 94010000 		.4byte	0x194
+ 486 0171 0D       		.uleb128 0xd
+ 487 0172 1E000000 		.4byte	.LVL10
+ 488 0176 2E010000 		.4byte	0x12e
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 15
+
+
+ 489 017a 84010000 		.4byte	0x184
+ 490 017e 0E       		.uleb128 0xe
+ 491 017f 01       		.uleb128 0x1
+ 492 0180 50       		.byte	0x50
+ 493 0181 01       		.uleb128 0x1
+ 494 0182 34       		.byte	0x34
+ 495 0183 00       		.byte	0
+ 496 0184 0F       		.uleb128 0xf
+ 497 0185 24000000 		.4byte	.LVL11
+ 498 0189 BF000000 		.4byte	0xbf
+ 499 018d 0E       		.uleb128 0xe
+ 500 018e 01       		.uleb128 0x1
+ 501 018f 50       		.byte	0x50
+ 502 0190 01       		.uleb128 0x1
+ 503 0191 32       		.byte	0x32
+ 504 0192 00       		.byte	0
+ 505 0193 00       		.byte	0
+ 506 0194 07       		.uleb128 0x7
+ 507 0195 72000000 		.4byte	.LASF24
+ 508 0199 01       		.byte	0x1
+ 509 019a 85       		.byte	0x85
+ 510 019b 00000000 		.4byte	.LFB2
+ 511 019f 24000000 		.4byte	.LFE2-.LFB2
+ 512 01a3 01       		.uleb128 0x1
+ 513 01a4 9C       		.byte	0x9c
+ 514 01a5 CC010000 		.4byte	0x1cc
+ 515 01a9 0C       		.uleb128 0xc
+ 516 01aa 0C000000 		.4byte	.LVL12
+ 517 01ae 5C010000 		.4byte	0x15c
+ 518 01b2 0C       		.uleb128 0xc
+ 519 01b3 16000000 		.4byte	.LVL13
+ 520 01b7 9D000000 		.4byte	0x9d
+ 521 01bb 0F       		.uleb128 0xf
+ 522 01bc 1C000000 		.4byte	.LVL14
+ 523 01c0 E4000000 		.4byte	0xe4
+ 524 01c4 0E       		.uleb128 0xe
+ 525 01c5 01       		.uleb128 0x1
+ 526 01c6 50       		.byte	0x50
+ 527 01c7 02       		.uleb128 0x2
+ 528 01c8 08       		.byte	0x8
+ 529 01c9 64       		.byte	0x64
+ 530 01ca 00       		.byte	0
+ 531 01cb 00       		.byte	0
+ 532 01cc 10       		.uleb128 0x10
+ 533 01cd 95010000 		.4byte	.LASF29
+ 534 01d1 01       		.byte	0x1
+ 535 01d2 1B       		.byte	0x1b
+ 536 01d3 6B000000 		.4byte	0x6b
+ 537 01d7 05       		.uleb128 0x5
+ 538 01d8 03       		.byte	0x3
+ 539 01d9 00000000 		.4byte	VDAC8_Noise_initVar
+ 540 01dd 00       		.byte	0
+ 541              		.section	.debug_abbrev,"",%progbits
+ 542              	.Ldebug_abbrev0:
+ 543 0000 01       		.uleb128 0x1
+ 544 0001 11       		.uleb128 0x11
+ 545 0002 01       		.byte	0x1
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 16
+
+
+ 546 0003 25       		.uleb128 0x25
+ 547 0004 0E       		.uleb128 0xe
+ 548 0005 13       		.uleb128 0x13
+ 549 0006 0B       		.uleb128 0xb
+ 550 0007 03       		.uleb128 0x3
+ 551 0008 0E       		.uleb128 0xe
+ 552 0009 1B       		.uleb128 0x1b
+ 553 000a 0E       		.uleb128 0xe
+ 554 000b 55       		.uleb128 0x55
+ 555 000c 17       		.uleb128 0x17
+ 556 000d 11       		.uleb128 0x11
+ 557 000e 01       		.uleb128 0x1
+ 558 000f 10       		.uleb128 0x10
+ 559 0010 17       		.uleb128 0x17
+ 560 0011 00       		.byte	0
+ 561 0012 00       		.byte	0
+ 562 0013 02       		.uleb128 0x2
+ 563 0014 24       		.uleb128 0x24
+ 564 0015 00       		.byte	0
+ 565 0016 0B       		.uleb128 0xb
+ 566 0017 0B       		.uleb128 0xb
+ 567 0018 3E       		.uleb128 0x3e
+ 568 0019 0B       		.uleb128 0xb
+ 569 001a 03       		.uleb128 0x3
+ 570 001b 0E       		.uleb128 0xe
+ 571 001c 00       		.byte	0
+ 572 001d 00       		.byte	0
+ 573 001e 03       		.uleb128 0x3
+ 574 001f 24       		.uleb128 0x24
+ 575 0020 00       		.byte	0
+ 576 0021 0B       		.uleb128 0xb
+ 577 0022 0B       		.uleb128 0xb
+ 578 0023 3E       		.uleb128 0x3e
+ 579 0024 0B       		.uleb128 0xb
+ 580 0025 03       		.uleb128 0x3
+ 581 0026 08       		.uleb128 0x8
+ 582 0027 00       		.byte	0
+ 583 0028 00       		.byte	0
+ 584 0029 04       		.uleb128 0x4
+ 585 002a 16       		.uleb128 0x16
+ 586 002b 00       		.byte	0
+ 587 002c 03       		.uleb128 0x3
+ 588 002d 0E       		.uleb128 0xe
+ 589 002e 3A       		.uleb128 0x3a
+ 590 002f 0B       		.uleb128 0xb
+ 591 0030 3B       		.uleb128 0x3b
+ 592 0031 05       		.uleb128 0x5
+ 593 0032 49       		.uleb128 0x49
+ 594 0033 13       		.uleb128 0x13
+ 595 0034 00       		.byte	0
+ 596 0035 00       		.byte	0
+ 597 0036 05       		.uleb128 0x5
+ 598 0037 35       		.uleb128 0x35
+ 599 0038 00       		.byte	0
+ 600 0039 49       		.uleb128 0x49
+ 601 003a 13       		.uleb128 0x13
+ 602 003b 00       		.byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 17
+
+
+ 603 003c 00       		.byte	0
+ 604 003d 06       		.uleb128 0x6
+ 605 003e 2E       		.uleb128 0x2e
+ 606 003f 00       		.byte	0
+ 607 0040 3F       		.uleb128 0x3f
+ 608 0041 19       		.uleb128 0x19
+ 609 0042 03       		.uleb128 0x3
+ 610 0043 0E       		.uleb128 0xe
+ 611 0044 3A       		.uleb128 0x3a
+ 612 0045 0B       		.uleb128 0xb
+ 613 0046 3B       		.uleb128 0x3b
+ 614 0047 0B       		.uleb128 0xb
+ 615 0048 27       		.uleb128 0x27
+ 616 0049 19       		.uleb128 0x19
+ 617 004a 11       		.uleb128 0x11
+ 618 004b 01       		.uleb128 0x1
+ 619 004c 12       		.uleb128 0x12
+ 620 004d 06       		.uleb128 0x6
+ 621 004e 40       		.uleb128 0x40
+ 622 004f 18       		.uleb128 0x18
+ 623 0050 9742     		.uleb128 0x2117
+ 624 0052 19       		.uleb128 0x19
+ 625 0053 00       		.byte	0
+ 626 0054 00       		.byte	0
+ 627 0055 07       		.uleb128 0x7
+ 628 0056 2E       		.uleb128 0x2e
+ 629 0057 01       		.byte	0x1
+ 630 0058 3F       		.uleb128 0x3f
+ 631 0059 19       		.uleb128 0x19
+ 632 005a 03       		.uleb128 0x3
+ 633 005b 0E       		.uleb128 0xe
+ 634 005c 3A       		.uleb128 0x3a
+ 635 005d 0B       		.uleb128 0xb
+ 636 005e 3B       		.uleb128 0x3b
+ 637 005f 0B       		.uleb128 0xb
+ 638 0060 27       		.uleb128 0x27
+ 639 0061 19       		.uleb128 0x19
+ 640 0062 11       		.uleb128 0x11
+ 641 0063 01       		.uleb128 0x1
+ 642 0064 12       		.uleb128 0x12
+ 643 0065 06       		.uleb128 0x6
+ 644 0066 40       		.uleb128 0x40
+ 645 0067 18       		.uleb128 0x18
+ 646 0068 9742     		.uleb128 0x2117
+ 647 006a 19       		.uleb128 0x19
+ 648 006b 01       		.uleb128 0x1
+ 649 006c 13       		.uleb128 0x13
+ 650 006d 00       		.byte	0
+ 651 006e 00       		.byte	0
+ 652 006f 08       		.uleb128 0x8
+ 653 0070 05       		.uleb128 0x5
+ 654 0071 00       		.byte	0
+ 655 0072 03       		.uleb128 0x3
+ 656 0073 0E       		.uleb128 0xe
+ 657 0074 3A       		.uleb128 0x3a
+ 658 0075 0B       		.uleb128 0xb
+ 659 0076 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 18
+
+
+ 660 0077 0B       		.uleb128 0xb
+ 661 0078 49       		.uleb128 0x49
+ 662 0079 13       		.uleb128 0x13
+ 663 007a 02       		.uleb128 0x2
+ 664 007b 17       		.uleb128 0x17
+ 665 007c 00       		.byte	0
+ 666 007d 00       		.byte	0
+ 667 007e 09       		.uleb128 0x9
+ 668 007f 05       		.uleb128 0x5
+ 669 0080 00       		.byte	0
+ 670 0081 03       		.uleb128 0x3
+ 671 0082 0E       		.uleb128 0xe
+ 672 0083 3A       		.uleb128 0x3a
+ 673 0084 0B       		.uleb128 0xb
+ 674 0085 3B       		.uleb128 0x3b
+ 675 0086 0B       		.uleb128 0xb
+ 676 0087 49       		.uleb128 0x49
+ 677 0088 13       		.uleb128 0x13
+ 678 0089 02       		.uleb128 0x2
+ 679 008a 18       		.uleb128 0x18
+ 680 008b 00       		.byte	0
+ 681 008c 00       		.byte	0
+ 682 008d 0A       		.uleb128 0xa
+ 683 008e 2E       		.uleb128 0x2e
+ 684 008f 01       		.byte	0x1
+ 685 0090 3F       		.uleb128 0x3f
+ 686 0091 19       		.uleb128 0x19
+ 687 0092 03       		.uleb128 0x3
+ 688 0093 0E       		.uleb128 0xe
+ 689 0094 3A       		.uleb128 0x3a
+ 690 0095 0B       		.uleb128 0xb
+ 691 0096 3B       		.uleb128 0x3b
+ 692 0097 05       		.uleb128 0x5
+ 693 0098 27       		.uleb128 0x27
+ 694 0099 19       		.uleb128 0x19
+ 695 009a 11       		.uleb128 0x11
+ 696 009b 01       		.uleb128 0x1
+ 697 009c 12       		.uleb128 0x12
+ 698 009d 06       		.uleb128 0x6
+ 699 009e 40       		.uleb128 0x40
+ 700 009f 18       		.uleb128 0x18
+ 701 00a0 9742     		.uleb128 0x2117
+ 702 00a2 19       		.uleb128 0x19
+ 703 00a3 01       		.uleb128 0x1
+ 704 00a4 13       		.uleb128 0x13
+ 705 00a5 00       		.byte	0
+ 706 00a6 00       		.byte	0
+ 707 00a7 0B       		.uleb128 0xb
+ 708 00a8 34       		.uleb128 0x34
+ 709 00a9 00       		.byte	0
+ 710 00aa 03       		.uleb128 0x3
+ 711 00ab 0E       		.uleb128 0xe
+ 712 00ac 3A       		.uleb128 0x3a
+ 713 00ad 0B       		.uleb128 0xb
+ 714 00ae 3B       		.uleb128 0x3b
+ 715 00af 05       		.uleb128 0x5
+ 716 00b0 49       		.uleb128 0x49
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 19
+
+
+ 717 00b1 13       		.uleb128 0x13
+ 718 00b2 02       		.uleb128 0x2
+ 719 00b3 17       		.uleb128 0x17
+ 720 00b4 00       		.byte	0
+ 721 00b5 00       		.byte	0
+ 722 00b6 0C       		.uleb128 0xc
+ 723 00b7 898201   		.uleb128 0x4109
+ 724 00ba 00       		.byte	0
+ 725 00bb 11       		.uleb128 0x11
+ 726 00bc 01       		.uleb128 0x1
+ 727 00bd 31       		.uleb128 0x31
+ 728 00be 13       		.uleb128 0x13
+ 729 00bf 00       		.byte	0
+ 730 00c0 00       		.byte	0
+ 731 00c1 0D       		.uleb128 0xd
+ 732 00c2 898201   		.uleb128 0x4109
+ 733 00c5 01       		.byte	0x1
+ 734 00c6 11       		.uleb128 0x11
+ 735 00c7 01       		.uleb128 0x1
+ 736 00c8 31       		.uleb128 0x31
+ 737 00c9 13       		.uleb128 0x13
+ 738 00ca 01       		.uleb128 0x1
+ 739 00cb 13       		.uleb128 0x13
+ 740 00cc 00       		.byte	0
+ 741 00cd 00       		.byte	0
+ 742 00ce 0E       		.uleb128 0xe
+ 743 00cf 8A8201   		.uleb128 0x410a
+ 744 00d2 00       		.byte	0
+ 745 00d3 02       		.uleb128 0x2
+ 746 00d4 18       		.uleb128 0x18
+ 747 00d5 9142     		.uleb128 0x2111
+ 748 00d7 18       		.uleb128 0x18
+ 749 00d8 00       		.byte	0
+ 750 00d9 00       		.byte	0
+ 751 00da 0F       		.uleb128 0xf
+ 752 00db 898201   		.uleb128 0x4109
+ 753 00de 01       		.byte	0x1
+ 754 00df 11       		.uleb128 0x11
+ 755 00e0 01       		.uleb128 0x1
+ 756 00e1 31       		.uleb128 0x31
+ 757 00e2 13       		.uleb128 0x13
+ 758 00e3 00       		.byte	0
+ 759 00e4 00       		.byte	0
+ 760 00e5 10       		.uleb128 0x10
+ 761 00e6 34       		.uleb128 0x34
+ 762 00e7 00       		.byte	0
+ 763 00e8 03       		.uleb128 0x3
+ 764 00e9 0E       		.uleb128 0xe
+ 765 00ea 3A       		.uleb128 0x3a
+ 766 00eb 0B       		.uleb128 0xb
+ 767 00ec 3B       		.uleb128 0x3b
+ 768 00ed 0B       		.uleb128 0xb
+ 769 00ee 49       		.uleb128 0x49
+ 770 00ef 13       		.uleb128 0x13
+ 771 00f0 3F       		.uleb128 0x3f
+ 772 00f1 19       		.uleb128 0x19
+ 773 00f2 02       		.uleb128 0x2
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 20
+
+
+ 774 00f3 18       		.uleb128 0x18
+ 775 00f4 00       		.byte	0
+ 776 00f5 00       		.byte	0
+ 777 00f6 00       		.byte	0
+ 778              		.section	.debug_loc,"",%progbits
+ 779              	.Ldebug_loc0:
+ 780              	.LLST0:
+ 781 0000 00000000 		.4byte	.LVL0
+ 782 0004 10000000 		.4byte	.LVL1
+ 783 0008 0100     		.2byte	0x1
+ 784 000a 50       		.byte	0x50
+ 785 000b 10000000 		.4byte	.LVL1
+ 786 000f 1C000000 		.4byte	.LFE4
+ 787 0013 0400     		.2byte	0x4
+ 788 0015 F3       		.byte	0xf3
+ 789 0016 01       		.uleb128 0x1
+ 790 0017 50       		.byte	0x50
+ 791 0018 9F       		.byte	0x9f
+ 792 0019 00000000 		.4byte	0
+ 793 001d 00000000 		.4byte	0
+ 794              	.LLST1:
+ 795 0021 08000000 		.4byte	.LVL3
+ 796 0025 0C000000 		.4byte	.LVL4
+ 797 0029 0300     		.2byte	0x3
+ 798 002b 73       		.byte	0x73
+ 799 002c 06       		.sleb128 6
+ 800 002d 9F       		.byte	0x9f
+ 801 002e 0C000000 		.4byte	.LVL4
+ 802 0032 0E000000 		.4byte	.LVL5
+ 803 0036 0700     		.2byte	0x7
+ 804 0038 73       		.byte	0x73
+ 805 0039 868080B8 		.sleb128 -1224736762
+ 805      7B
+ 806 003e 9F       		.byte	0x9f
+ 807 003f 0E000000 		.4byte	.LVL5
+ 808 0043 12000000 		.4byte	.LVL6
+ 809 0047 0700     		.2byte	0x7
+ 810 0049 73       		.byte	0x73
+ 811 004a 808080B8 		.sleb128 -1224736768
+ 811      7B
+ 812 004f 9F       		.byte	0x9f
+ 813 0050 00000000 		.4byte	0
+ 814 0054 00000000 		.4byte	0
+ 815              	.LLST2:
+ 816 0058 00000000 		.4byte	.LVL7
+ 817 005c 12000000 		.4byte	.LVL8
+ 818 0060 0100     		.2byte	0x1
+ 819 0062 50       		.byte	0x50
+ 820 0063 12000000 		.4byte	.LVL8
+ 821 0067 20000000 		.4byte	.LFE5
+ 822 006b 0400     		.2byte	0x4
+ 823 006d F3       		.byte	0xf3
+ 824 006e 01       		.uleb128 0x1
+ 825 006f 50       		.byte	0x50
+ 826 0070 9F       		.byte	0x9f
+ 827 0071 00000000 		.4byte	0
+ 828 0075 00000000 		.4byte	0
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 21
+
+
+ 829              		.section	.debug_aranges,"",%progbits
+ 830 0000 54000000 		.4byte	0x54
+ 831 0004 0200     		.2byte	0x2
+ 832 0006 00000000 		.4byte	.Ldebug_info0
+ 833 000a 04       		.byte	0x4
+ 834 000b 00       		.byte	0
+ 835 000c 0000     		.2byte	0
+ 836 000e 0000     		.2byte	0
+ 837 0010 00000000 		.4byte	.LFB1
+ 838 0014 1C000000 		.4byte	.LFE1-.LFB1
+ 839 0018 00000000 		.4byte	.LFB3
+ 840 001c 1C000000 		.4byte	.LFE3-.LFB3
+ 841 0020 00000000 		.4byte	.LFB4
+ 842 0024 1C000000 		.4byte	.LFE4-.LFB4
+ 843 0028 00000000 		.4byte	.LFB6
+ 844 002c 0C000000 		.4byte	.LFE6-.LFB6
+ 845 0030 00000000 		.4byte	.LFB7
+ 846 0034 24000000 		.4byte	.LFE7-.LFB7
+ 847 0038 00000000 		.4byte	.LFB5
+ 848 003c 20000000 		.4byte	.LFE5-.LFB5
+ 849 0040 00000000 		.4byte	.LFB0
+ 850 0044 30000000 		.4byte	.LFE0-.LFB0
+ 851 0048 00000000 		.4byte	.LFB2
+ 852 004c 24000000 		.4byte	.LFE2-.LFB2
+ 853 0050 00000000 		.4byte	0
+ 854 0054 00000000 		.4byte	0
+ 855              		.section	.debug_ranges,"",%progbits
+ 856              	.Ldebug_ranges0:
+ 857 0000 00000000 		.4byte	.LFB1
+ 858 0004 1C000000 		.4byte	.LFE1
+ 859 0008 00000000 		.4byte	.LFB3
+ 860 000c 1C000000 		.4byte	.LFE3
+ 861 0010 00000000 		.4byte	.LFB4
+ 862 0014 1C000000 		.4byte	.LFE4
+ 863 0018 00000000 		.4byte	.LFB6
+ 864 001c 0C000000 		.4byte	.LFE6
+ 865 0020 00000000 		.4byte	.LFB7
+ 866 0024 24000000 		.4byte	.LFE7
+ 867 0028 00000000 		.4byte	.LFB5
+ 868 002c 20000000 		.4byte	.LFE5
+ 869 0030 00000000 		.4byte	.LFB0
+ 870 0034 30000000 		.4byte	.LFE0
+ 871 0038 00000000 		.4byte	.LFB2
+ 872 003c 24000000 		.4byte	.LFE2
+ 873 0040 00000000 		.4byte	0
+ 874 0044 00000000 		.4byte	0
+ 875              		.section	.debug_line,"",%progbits
+ 876              	.Ldebug_line0:
+ 877 0000 E3000000 		.section	.debug_str,"MS",%progbits,1
+ 877      02004800 
+ 877      00000201 
+ 877      FB0E0D00 
+ 877      01010101 
+ 878              	.LASF14:
+ 879 0000 56444143 		.ascii	"VDAC8_Noise_Enable\000"
+ 879      385F4E6F 
+ 879      6973655F 
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 22
+
+
+ 879      456E6162 
+ 879      6C6500
+ 880              	.LASF15:
+ 881 0013 56444143 		.ascii	"VDAC8_Noise_Stop\000"
+ 881      385F4E6F 
+ 881      6973655F 
+ 881      53746F70 
+ 881      00
+ 882              	.LASF19:
+ 883 0024 76616C75 		.ascii	"value\000"
+ 883      6500
+ 884              	.LASF27:
+ 885 002a 433A5C67 		.ascii	"C:\\github\\PSoC_2A03APU\\APU2A03\\APU2A03.cydsn\000"
+ 885      69746875 
+ 885      625C5053 
+ 885      6F435F32 
+ 885      41303341 
+ 886              	.LASF21:
+ 887 0057 56444143 		.ascii	"VDAC8_Noise_SetRange\000"
+ 887      385F4E6F 
+ 887      6973655F 
+ 887      53657452 
+ 887      616E6765 
+ 888              	.LASF9:
+ 889 006c 666C6F61 		.ascii	"float\000"
+ 889      7400
+ 890              	.LASF24:
+ 891 0072 56444143 		.ascii	"VDAC8_Noise_Start\000"
+ 891      385F4E6F 
+ 891      6973655F 
+ 891      53746172 
+ 891      7400
+ 892              	.LASF1:
+ 893 0084 756E7369 		.ascii	"unsigned char\000"
+ 893      676E6564 
+ 893      20636861 
+ 893      7200
+ 894              	.LASF25:
+ 895 0092 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 895      43313120 
+ 895      352E342E 
+ 895      31203230 
+ 895      31363036 
+ 896 00c5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 896      20726576 
+ 896      6973696F 
+ 896      6E203233 
+ 896      37373135 
+ 897 00f8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 897      66756E63 
+ 897      74696F6E 
+ 897      2D736563 
+ 897      74696F6E 
+ 898              	.LASF13:
+ 899 0120 72656738 		.ascii	"reg8\000"
+ 899      00
+ 900              	.LASF5:
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 23
+
+
+ 901 0125 6C6F6E67 		.ascii	"long unsigned int\000"
+ 901      20756E73 
+ 901      69676E65 
+ 901      6420696E 
+ 901      7400
+ 902              	.LASF3:
+ 903 0137 73686F72 		.ascii	"short unsigned int\000"
+ 903      7420756E 
+ 903      7369676E 
+ 903      65642069 
+ 903      6E7400
+ 904              	.LASF22:
+ 905 014a 72616E67 		.ascii	"range\000"
+ 905      6500
+ 906              	.LASF10:
+ 907 0150 646F7562 		.ascii	"double\000"
+ 907      6C6500
+ 908              	.LASF16:
+ 909 0157 56444143 		.ascii	"VDAC8_Noise_SetSpeed\000"
+ 909      385F4E6F 
+ 909      6973655F 
+ 909      53657453 
+ 909      70656564 
+ 910              	.LASF8:
+ 911 016c 756E7369 		.ascii	"unsigned int\000"
+ 911      676E6564 
+ 911      20696E74 
+ 911      00
+ 912              	.LASF7:
+ 913 0179 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 913      206C6F6E 
+ 913      6720756E 
+ 913      7369676E 
+ 913      65642069 
+ 914              	.LASF28:
+ 915 0190 6D6F6465 		.ascii	"mode\000"
+ 915      00
+ 916              	.LASF29:
+ 917 0195 56444143 		.ascii	"VDAC8_Noise_initVar\000"
+ 917      385F4E6F 
+ 917      6973655F 
+ 917      696E6974 
+ 917      56617200 
+ 918              	.LASF26:
+ 919 01a9 47656E65 		.ascii	"Generated_Source\\PSoC5\\VDAC8_Noise.c\000"
+ 919      72617465 
+ 919      645F536F 
+ 919      75726365 
+ 919      5C50536F 
+ 920              	.LASF18:
+ 921 01ce 73706565 		.ascii	"speed\000"
+ 921      6400
+ 922              	.LASF6:
+ 923 01d4 6C6F6E67 		.ascii	"long long int\000"
+ 923      206C6F6E 
+ 923      6720696E 
+ 923      7400
+ARM GAS  C:\Users\214016~1\AppData\Local\Temp\cca78RR9.s 			page 24
+
+
+ 924              	.LASF23:
+ 925 01e2 56444143 		.ascii	"VDAC8_Noise_Init\000"
+ 925      385F4E6F 
+ 925      6973655F 
+ 925      496E6974 
+ 925      00
+ 926              	.LASF11:
+ 927 01f3 63686172 		.ascii	"char\000"
+ 927      00
+ 928              	.LASF2:
+ 929 01f8 73686F72 		.ascii	"short int\000"
+ 929      7420696E 
+ 929      7400
+ 930              	.LASF12:
+ 931 0202 75696E74 		.ascii	"uint8\000"
+ 931      3800
+ 932              	.LASF4:
+ 933 0208 6C6F6E67 		.ascii	"long int\000"
+ 933      20696E74 
+ 933      00
+ 934              	.LASF0:
+ 935 0211 7369676E 		.ascii	"signed char\000"
+ 935      65642063 
+ 935      68617200 
+ 936              	.LASF20:
+ 937 021d 56444143 		.ascii	"VDAC8_Noise_DacTrim\000"
+ 937      385F4E6F 
+ 937      6973655F 
+ 937      44616354 
+ 937      72696D00 
+ 938              	.LASF17:
+ 939 0231 56444143 		.ascii	"VDAC8_Noise_SetValue\000"
+ 939      385F4E6F 
+ 939      6973655F 
+ 939      53657456 
+ 939      616C7565 
+ 940              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

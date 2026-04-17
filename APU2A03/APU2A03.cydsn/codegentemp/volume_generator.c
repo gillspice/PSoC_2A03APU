@@ -15,8 +15,6 @@
 *******************************************************************************/
 
 #include "volume_generator.h"
-#include "CyLib.h"
-
 
 uint8 volume_generator_initVar = 0u;
 

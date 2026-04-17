@@ -15,8 +15,6 @@
 *******************************************************************************/
 
 #include "Noise_Vol_Clk_Div.h"
-#include "CyLib.h"
-
 
 uint8 Noise_Vol_Clk_Div_initVar = 0u;
 

@@ -1,6 +1,6 @@
 -- Project:   APU2A03
--- Generated: 07/25/2017 10:20:30
--- PSoC Creator  4.0 Update 1
+-- Generated: 07/19/2019 09:37:15
+-- PSoC Creator  4.1 Update 1
 
 ENTITY APU2A03 IS
     PORT(
